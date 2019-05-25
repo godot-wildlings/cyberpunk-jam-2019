@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Levels/Level1.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Scenery/Console.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://NPCs/Enemies/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenery/FarBuildings.png" type="Texture" id=3]
+[ext_resource path="res://Scenery/Rain.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenery/Console.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://NPCs/Enemies/Enemy.tscn" type="PackedScene" id=8]
 
 [sub_resource type="TileSet" id=1]
 
@@ -58,6 +60,25 @@ texture = ExtResource( 2 )
 position = Vector2( 241.554, 512.328 )
 scale = Vector2( 0.762195, 0.762195 )
 texture = ExtResource( 2 )
+
+[node name="buildings" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
+position = Vector2( 1462.71, 247.256 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 8896, 1166 )
+
+[node name="buildings2" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
+position = Vector2( 1460, 730 )
+scale = Vector2( 0.5, -0.33 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 8896, 1166 )
+
+[node name="Rain" parent="CanvasLayer/ParallaxBackground/Far" instance=ExtResource( 4 )]
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1491.83, 370.318 )
+scale = Vector2( 1.75322, 2.33408 )
 
 [node name="Med" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 editor/display_folded = true
@@ -195,33 +216,33 @@ shape = SubResource( 6 )
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
 
-[node name="Console" parent="InteractiveObjects" instance=ExtResource( 3 )]
+[node name="Console" parent="InteractiveObjects" instance=ExtResource( 5 )]
 position = Vector2( 3017.31, 499.855 )
 
-[node name="Door" parent="InteractiveObjects" instance=ExtResource( 4 )]
+[node name="Door" parent="InteractiveObjects" instance=ExtResource( 6 )]
 position = Vector2( 179.789, 487.375 )
 
-[node name="Door2" parent="InteractiveObjects" instance=ExtResource( 4 )]
+[node name="Door2" parent="InteractiveObjects" instance=ExtResource( 6 )]
 position = Vector2( 986.656, 487.375 )
 
-[node name="Door3" parent="InteractiveObjects" instance=ExtResource( 4 )]
+[node name="Door3" parent="InteractiveObjects" instance=ExtResource( 6 )]
 position = Vector2( 610.982, 318.969 )
 
-[node name="Door4" parent="InteractiveObjects" instance=ExtResource( 4 )]
+[node name="Door4" parent="InteractiveObjects" instance=ExtResource( 6 )]
 position = Vector2( 1610.31, 454.064 )
 
-[node name="Door5" parent="InteractiveObjects" instance=ExtResource( 4 )]
+[node name="Door5" parent="InteractiveObjects" instance=ExtResource( 6 )]
 position = Vector2( 2426.43, 485.524 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
+[node name="Player" parent="." instance=ExtResource( 7 )]
 position = Vector2( 63.467, 504.563 )
 
 [node name="Enemies" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 6 )]
+[node name="Enemy" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 280.918, 493.807 )
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 6 )]
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 858.229, 501.343 )
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]

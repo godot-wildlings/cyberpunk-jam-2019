@@ -4,11 +4,10 @@
 [ext_resource path="res://Projectiles/bullet.png" type="Texture" id=2]
 [ext_resource path="res://Projectiles/thud.wav" type="AudioStream" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 47.3791, 7.26207 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "shoot"
+[sub_resource type="Animation" id=2]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -34,10 +33,10 @@ hframes = 2
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/shoot = SubResource( 1 )
+anims/shoot = SubResource( 2 )
 
 [node name="ThudNoise" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )

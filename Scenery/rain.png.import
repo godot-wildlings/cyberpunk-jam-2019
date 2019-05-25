@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FarBuildings.png-9119bd995582daa3f969dae638f79e0f.stex"
+path="res://.import/rain.png-5252072a8f6fea3760a1bac2eb96ae9b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenery/FarBuildings.png"
-dest_files=[ "res://.import/FarBuildings.png-9119bd995582daa3f969dae638f79e0f.stex" ]
+source_file="res://Scenery/rain.png"
+dest_files=[ "res://.import/rain.png-5252072a8f6fea3760a1bac2eb96ae9b.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=2
+flags/repeat=1
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
