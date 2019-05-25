@@ -15,7 +15,7 @@ extents = Vector2( 22.7402, 17.5195 )
 [sub_resource type="TileSet" id=4]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 1931.5, 93.431 )
+extents = Vector2( 2387.5, 93.431 )
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )

@@ -47,7 +47,7 @@ func next_level():
 		remove_level(level)
 	load_level(levels.values()[level_num])
 
-func reset_level():
+func fade_out_in():
 	var tween = get_node("Tween")
 	tween.interpolate_property($CanvasLayer/ColorRect, "modulate",
 		Color(0,0,0,0), Color.white, 0.5,
@@ -59,6 +59,8 @@ func reset_level():
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 
-
-	remove_child(level)
+func reset_level():
+	if level != null:
+		remove_child(level)
+	fade_out_in()
 	load_level_num(level_num)

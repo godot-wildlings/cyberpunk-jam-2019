@@ -3,6 +3,7 @@ extends KinematicBody2D
 # Declare member variables here. Examples:
 var speed : float = 200
 
+var direction : int = 1
 #warning-ignore:unused_class_variable
 var velocity : Vector2 = Vector2.ZERO
 
@@ -17,6 +18,8 @@ var time_of_jump : float
 #warning-ignore:unused_class_variable
 var jump_num : int = 0 # for double jump tracking
 var max_jumps : int = 2
+
+var fall_velocity : Vector2 = Vector2.ZERO
 
 
 #warning-ignore:unused_class_variable
@@ -48,29 +51,27 @@ func _process(delta):
 	time_elapsed += delta
 	ticks += 1
 
-
 	if state == states.running:
 		if is_on_ground() == false:
-			state = states.falling
-		else:
-			if Input.is_action_pressed("mv_right"):
-				run_velocity = Vector2.RIGHT * speed
-				flip_sprites(false)
-				#$Sprite.set_flip_h(false) # may have to change to scale = Vector2(1,1) later
-			elif Input.is_action_pressed("mv_left"):
-				run_velocity = Vector2.LEFT * speed
-				flip_sprites(true)
-				#$Sprite.set_flip_h(true) # may have to change to scale = Vector2(-1,1) later
+			fall()
+
+		elif Input.is_action_pressed("mv_right") or Input.is_action_pressed("mv_left"):
+			run_velocity = Vector2.RIGHT * speed * direction
 
 	elif state == states.jumping:
 		jump_velocity.y += gravity * delta
 
-		if jump_velocity.y > 0:
+		if jump_velocity.y > -jump_speed/2:
 			if is_on_ground():
-				return_to_idle()
+				land()
+
+	elif state == states.falling:
+		fall_velocity.y += gravity * delta
+		if is_on_ground() == true:
+			land()
 
 	#warning-ignore:return_value_discarded
-	move_and_slide(run_velocity + jump_velocity)
+	move_and_slide(run_velocity + jump_velocity + fall_velocity)
 
 	if Input.is_action_just_pressed("jump") and jump_num < max_jumps:
 		state = states.jumping
@@ -79,17 +80,37 @@ func _process(delta):
 #	if state == states.jumping and ticks % 20 == 0:
 #		print(self.name, " jump_velocity == " , jump_velocity)
 
-func flip_sprites(flip):
+func flip_sprites(direction):
+	var flip = false
+	if direction == -1:
+		flip = true
 	for sprite in sprites:
 		sprite.set_flip_h(flip)
 
-func return_to_idle():
-	state = states.idle
+func land():
 	jump_num = 0
 	jump_velocity = Vector2.ZERO
-	if Input.is_action_pressed("mv_left") == false and Input.is_action_pressed("mv_right") == false:
-		run_velocity = Vector2.ZERO
-		modulate_sprites(Color.white)
+	fall_velocity = Vector2.ZERO
+	modulate_sprites(Color.white)
+
+	if Input.is_action_pressed("mv_left") or Input.is_action_pressed("mv_right"):
+		run(direction)
+	else:
+		return_to_idle()
+
+func return_to_idle():
+	state = states.idle
+	run_velocity = Vector2.ZERO
+
+func run(dir : int): # 1 or -1 representing left and right
+	run_velocity = Vector2.RIGHT * speed * dir
+	modulate_sprites(Color.white)
+	state = states.running
+
+func fall():
+	state = states.falling
+	modulate_sprites(Color.blue)
+
 
 func modulate_sprites(color):
 	for sprite in sprites:
@@ -97,17 +118,30 @@ func modulate_sprites(color):
 
 
 func is_on_ground():
+	var on_ground = false
 	if $RayCast2D.is_colliding():
 		if $RayCast2D.get_collider() is StaticBody2D:
-			return true
+			on_ground = true
+	return on_ground
 
 
 #warning-ignore:unused_argument
 func _unhandled_key_input(event):
-	if Input.is_action_just_pressed("mv_right") or Input.is_action_just_pressed("mv_left"):
+
+	if Input.is_action_just_pressed("mv_right"):
 		if state == states.idle:
 			state = states.running
 			$AnimationPlayer.play("run")
+		direction = 1
+		flip_sprites(direction)
+
+	elif Input.is_action_just_pressed("mv_left"):
+		if state == states.idle:
+			state = states.running
+			$AnimationPlayer.play("run")
+		direction = -1
+		flip_sprites(direction)
+
 
 	elif Input.is_action_just_released("mv_right") or Input.is_action_just_released("mv_left"):
 		if state == states.running:
