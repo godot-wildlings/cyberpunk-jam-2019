@@ -19,3 +19,4 @@ mouse_filter = 2
 color = Color( 0.117647, 0.117647, 0.117647, 1 )
 
 [node name="Tween" type="Tween" parent="."]
+
