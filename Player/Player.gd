@@ -55,6 +55,19 @@ onready var tween = $Tween
 
 var interactive_objects_present : Array = []
 
+var max_health : float = 100.0
+var health : float = max_health
+
+var damage_reduction : Dictionary = { # zero to one
+		"physical" : 0,
+		"electrical" : 0,
+		"fire" : 0,
+		"acid" : 0,
+		"poison" : 0,
+		"cold" : 0
+}
+
+var hitstun : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -247,3 +260,21 @@ func _on_InteractiveObject_player_entered(object):
 func _on_InteractiveObject_player_exited(object):
 	interactive_objects_present.erase(object)
 
+func hit(damage, damage_type):
+	if hitstun == false:
+		# might want to add a direction for knockback later
+		var damage_mod : float = 1
+		if damage_reduction.has(damage_type):
+			damage_mod = 1 - damage_reduction[damage_type]
+		health -= damage * damage_mod
+		modulate_sprites(Color.red)
+		hitstun = true
+		$HitstunTimer.start()
+		$HealthBar.set_value(health)
+
+
+
+
+func _on_HitstunTimer_timeout():
+	modulate_sprites(Color.white)
+	hitstun = false

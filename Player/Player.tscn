@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/running.png" type="Texture" id=2]
 [ext_resource path="res://Player/jumping.png" type="Texture" id=3]
 [ext_resource path="res://Player/walking.png" type="Texture" id=4]
 [ext_resource path="res://Player/PlayerHUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Player/health-red.png" type="Texture" id=6]
+[ext_resource path="res://Player/health-green.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 17.9254, 18.9475 )
@@ -318,3 +320,24 @@ collision_mask = 4
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 5 )]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -285.5
+margin_right = 285.5
+margin_bottom = 14.0
+text = "WASD to move. Space to jump. Up/Down to switch platforms. Up to interact with objects."
+
+[node name="HitstunTimer" type="Timer" parent="."]
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = -17.5241
+margin_top = -35.0482
+margin_right = 74.4759
+margin_bottom = 4.95181
+rect_scale = Vector2( 0.380881, 0.380881 )
+value = 100.0
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
+[connection signal="timeout" from="HitstunTimer" to="." method="_on_HitstunTimer_timeout"]
