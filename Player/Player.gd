@@ -98,8 +98,6 @@ func _process(delta):
 
 		elif Input.is_action_pressed("mv_right") or Input.is_action_pressed("mv_left"):
 			run_velocity = Vector2.RIGHT * speed * direction
-			print(str(run_velocity))
-			print(str(state))
 
 	elif state == states.jumping:
 		jump_velocity.y += gravity * delta
@@ -186,7 +184,7 @@ func _unhandled_key_input(event):
 			animation_player.play("run")
 		direction = -1
 		flip_sprites(direction)
-	elif !Input.is_action_pressed("mv_right") and !Input.is_action_pressed("mv_left"):
+	elif Input.is_action_just_released("mv_right") or Input.is_action_just_released("mv_left"):
 		if state == states.running:
 			state = states.idle
 			animation_player.stop()

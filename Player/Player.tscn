@@ -341,5 +341,4 @@ rect_scale = Vector2( 0.380881, 0.380881 )
 value = 100.0
 texture_under = ExtResource( 6 )
 texture_progress = ExtResource( 7 )
-
 [connection signal="timeout" from="HitstunTimer" to="." method="_on_HitstunTimer_timeout"]
