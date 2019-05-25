@@ -320,6 +320,7 @@ collision_mask = 4
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 5 )]
+margin_top = -87.0
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchor_left = 0.5

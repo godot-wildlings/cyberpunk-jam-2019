@@ -67,13 +67,25 @@ var damage_reduction : Dictionary = { # zero to one
 		"cold" : 0
 }
 
+var actions = [ "scan", "knock", "ghost", "shoot", "slash" ]
+
 var hitstun : bool = false
+
+var current_action : int = 0
+
+signal scanned()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Game.player = self
 	character_height = $CollisionShape2D.get_shape().get_extents().y * 2
+	call_deferred("deferred_ready")
 
+func deferred_ready():
+	var err = connect("scanned", Game.main.level, "_on_Player_scanned")
+	if err:
+		push_warning(self.name + " having trouble connecting signals")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -192,6 +204,35 @@ func _unhandled_key_input(event):
 		if state == states.idle:
 			drop()
 			#crouch()
+
+	elif Input.is_action_just_pressed("action_0"):
+		current_action = 0
+	elif Input.is_action_just_pressed("action_1"):
+		current_action = 1
+	elif Input.is_action_just_pressed("action_2"):
+		current_action = 2
+	elif Input.is_action_just_pressed("action_3"):
+		current_action = 3
+	elif Input.is_action_just_pressed("action_4"):
+		current_action = 4
+	elif Input.is_action_just_pressed("action_5"):
+		current_action = 5
+	elif Input.is_action_just_pressed("action_selected"):
+		use_action(current_action)
+	elif Input.is_action_just_pressed("next_action"):
+		current_action = wrapi(current_action + 1, 0, actions.size())
+	elif Input.is_action_just_pressed("prev_action"):
+		current_action = wrapi(current_action - 1, 0, actions.size())
+
+func use_action(action_num):
+	if actions[action_num] == "scan":
+		print("scanning")
+		emit_signal("scanned")
+	elif actions[action_num] == "ghost":
+		print("ghost")
+	elif actions[action_num] == "knock":
+		print("knock")
+
 
 func interact_with_object(object):
 	if object.has_method("interact"):

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenery/Console.gd" type="Script" id=1]
+[ext_resource path="res://Scenery/InteractiveObject.gd" type="Script" id=1]
 [ext_resource path="res://Scenery/console.png" type="Texture" id=2]
 [ext_resource path="res://Scenery/click.png" type="Texture" id=3]
 

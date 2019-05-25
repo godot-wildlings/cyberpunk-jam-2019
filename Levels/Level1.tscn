@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Levels/Level1.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Scenery/Console.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://NPCs/Enemies/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://NPCs/Enemies/Enemy.tscn" type="PackedScene" id=6]
 
 [sub_resource type="TileSet" id=1]
 
@@ -192,19 +193,34 @@ shape = SubResource( 6 )
 [node name="Scenery" type="Node2D" parent="."]
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Console" parent="InteractiveObjects" instance=ExtResource( 3 )]
 position = Vector2( 3017.31, 499.855 )
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
+[node name="Door" parent="InteractiveObjects" instance=ExtResource( 4 )]
+position = Vector2( 179.789, 487.375 )
+
+[node name="Door2" parent="InteractiveObjects" instance=ExtResource( 4 )]
+position = Vector2( 986.656, 487.375 )
+
+[node name="Door3" parent="InteractiveObjects" instance=ExtResource( 4 )]
+position = Vector2( 610.982, 318.969 )
+
+[node name="Door4" parent="InteractiveObjects" instance=ExtResource( 4 )]
+position = Vector2( 1610.31, 454.064 )
+
+[node name="Door5" parent="InteractiveObjects" instance=ExtResource( 4 )]
+position = Vector2( 2426.43, 485.524 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 63.467, 504.563 )
 
 [node name="Enemies" type="Node2D" parent="."]
+editor/display_folded = true
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 5 )]
+[node name="Enemy" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 280.918, 493.807 )
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 5 )]
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 858.229, 501.343 )
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]

@@ -76,3 +76,12 @@ func _on_ResetArea_body_entered(body):
 		state = states.resetting
 		update()
 		Game.main.reset_level()
+
+func _on_Player_scanned():
+	print(self.name, " received signal: _on_Player_scanned")
+	for object in $InteractiveObjects.get_children():
+		if object.has_method("_on_Player_scanned"):
+			object._on_Player_scanned()
+	for enemy in $Enemies.get_children():
+		if enemy.has_method("_on_Player_scanned"):
+			enemy._on_Player_scanned()
