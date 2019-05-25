@@ -64,6 +64,14 @@ mv_down={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="npcs"
+2d_physics/layer_3="platforms"
+2d_physics/layer_4="obstacles"
+2d_physics/layer_5="bullets"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

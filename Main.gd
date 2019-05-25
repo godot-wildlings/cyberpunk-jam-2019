@@ -6,16 +6,18 @@ var level : Node2D
 onready var level_container : Node2D = $Levels
 
 var levels : Dictionary = {
+		"intro" : preload("res://Levels/Intro.tscn"),
 		"1" : preload("res://Levels/Level1.tscn"),
 		"2" : preload("res://Levels/Level2.tscn")
 }
 
-
+onready var tween = get_node("Tween")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Game.main = self
+	next_level()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -47,20 +49,23 @@ func next_level():
 		remove_level(level)
 	load_level(levels.values()[level_num])
 
-func fade_out_in():
-	var tween = get_node("Tween")
+func fade_out():
 	tween.interpolate_property($CanvasLayer/ColorRect, "modulate",
 		Color(0,0,0,0), Color.white, 0.5,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
-	yield(tween, "tween_completed")
+
+
+func fade_in():
 	tween.interpolate_property($CanvasLayer/ColorRect, "modulate",
 		Color.white, Color(0,0,0,0), 0.5,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 
 func reset_level():
+	fade_out()
+	yield(tween, "tween_completed")
 	if level != null:
 		remove_child(level)
-	fade_out_in()
+	fade_in()
 	load_level_num(level_num)

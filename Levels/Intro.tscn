@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Levels/Intro.gd" type="Script" id=1]
+
+[sub_resource type="InputEventAction" id=1]
+action = "ui_accept"
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
+[node name="Intro" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 974.0
+margin_bottom = 550.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+margin_right = 305.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+margin_left = 309.0
+margin_right = 614.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 305.0
+margin_bottom = 201.0
+text = "The fear was perpetual surveillance. We got that.
+
+Nobody expected the culture to shift. Now we practice radical transparency. We broadcast everything. Followers are love. Followers are life.
+
+What happens when your profiles are wiped?
+
+Enter DHU. The Digital Homicide Unit.
+"
+autowrap = true
+
+[node name="StartButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 205.0
+margin_right = 305.0
+margin_bottom = 225.0
+shortcut = SubResource( 2 )
+text = "Start"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+margin_left = 618.0
+margin_right = 924.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2/StartButton" to="." method="_on_StartButton_pressed"]

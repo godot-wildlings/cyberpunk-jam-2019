@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/running.png" type="Texture" id=2]
@@ -8,8 +8,73 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 17.9254, 18.9475 )
 
+[sub_resource type="Animation" id=5]
+resource_name = "fall"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("RunningSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("JumpingSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("FallingSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("StandingSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("FallingSprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 6, 7, 6 ]
+}
+
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("RunningSprite:visible")
 tracks/0/interp = 1
@@ -45,6 +110,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FallingSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -98,6 +175,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ 3, 11 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("FallingSprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 0.6
@@ -150,6 +239,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("FallingSprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -160,12 +261,18 @@ texture = ExtResource( 2 )
 hframes = 6
 
 [node name="JumpingSprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 3 )
 hframes = 12
-frame = 11
+frame = 3
+
+[node name="FallingSprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )
+hframes = 12
+frame = 6
 
 [node name="StandingSprite" type="Sprite" parent="."]
-visible = false
 texture = ExtResource( 4 )
 hframes = 12
 frame = 6
@@ -175,14 +282,36 @@ position = Vector2( 0.407814, 3.87423 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fall = SubResource( 5 )
 anims/idle = SubResource( 2 )
 anims/jump = SubResource( 3 )
 anims/run = SubResource( 4 )
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 13.4539, 15.419 )
+[node name="RayFront" type="RayCast2D" parent="."]
+position = Vector2( 13.4539, 18.227 )
 enabled = true
-cast_to = Vector2( 0, 15 )
+cast_to = Vector2( 0, 8 )
+collision_mask = 4
+
+[node name="RayBack" type="RayCast2D" parent="."]
+position = Vector2( -13.454, 18.227 )
+enabled = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 4
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="RayUp" type="RayCast2D" parent="."]
+position = Vector2( 0.713486, -10.4644 )
+enabled = true
+cast_to = Vector2( 0, -150 )
+collision_mask = 4
+
+[node name="RayDown" type="RayCast2D" parent="."]
+position = Vector2( 0.713486, 64.9846 )
+enabled = true
+cast_to = Vector2( 0, 150 )
+collision_mask = 4
+
+[node name="Tween" type="Tween" parent="."]

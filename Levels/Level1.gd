@@ -1,12 +1,11 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+enum states { initializing, running, paused, resetting }
+var state = states.initializing
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	state = states.running
 
 # warning-ignore:unused_argument
 func _process(delta):
@@ -68,8 +67,12 @@ func draw_all_static_bodies():
 
 
 func _draw():
-	draw_all_static_bodies()
+	if state == states.running:
+		draw_all_static_bodies()
+
 
 func _on_ResetArea_body_entered(body):
 	if body == Game.player:
+		state = states.resetting
+		update()
 		Game.main.reset_level()
