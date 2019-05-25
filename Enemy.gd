@@ -2,9 +2,11 @@ extends KinematicBody2D
 
 # Declare member variables here. Examples:
 var direction : int = 1
-var speed : float = 20.0
+var speed : float = 80.0
 var damage_output_per_hit = 10
-var melee_damage_type : String = "fire"
+
+export (Game.damage_types) var melee_damage_type
+
 onready var decision_timer = $DecisionTimer
 onready var reload_timer = $ReloadTimer
 
@@ -27,10 +29,13 @@ func _process(delta):
 	if melee_weapon_state == melee_weapon_states.ready and collision != null:
 		var collider = collision.get_collider()
 		if collider == Game.player:
-			if collider.has_method("hit"):
-				collider.hit(damage_output_per_hit, melee_damage_type)
-				melee_weapon_state = melee_weapon_states.reloading
-				reload_timer.start()
+			melee_attack(collider)
+
+func melee_attack(object):
+	if object.has_method("hit"):
+		object.hit(damage_output_per_hit, melee_damage_type)
+		melee_weapon_state = melee_weapon_states.reloading
+		reload_timer.start()
 
 
 

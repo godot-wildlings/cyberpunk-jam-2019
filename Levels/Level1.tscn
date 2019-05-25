@@ -34,10 +34,9 @@ format = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
-editor/display_folded = true
 
 [node name="Far" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-modulate = Color( 0.0823529, 0, 0.121569, 1 )
+modulate = Color( 0.298039, 0.298039, 0.298039, 1 )
 motion_scale = Vector2( 0.5, 1 )
 
 [node name="Sprite3" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
@@ -61,7 +60,8 @@ scale = Vector2( 0.762195, 0.762195 )
 texture = ExtResource( 2 )
 
 [node name="Med" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-modulate = Color( 0.239216, 0, 0.34902, 1 )
+editor/display_folded = true
+modulate = Color( 0.376471, 0.376471, 0.376471, 1 )
 motion_scale = Vector2( 0.75, 1 )
 
 [node name="Sprite2" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
@@ -80,6 +80,7 @@ scale = Vector2( 1.34222, 1.34222 )
 texture = ExtResource( 2 )
 
 [node name="Near" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+editor/display_folded = true
 modulate = Color( 0.427451, 0, 0.690196, 1 )
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]

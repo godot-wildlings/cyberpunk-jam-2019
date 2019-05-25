@@ -58,13 +58,14 @@ var interactive_objects_present : Array = []
 var max_health : float = 100.0
 var health : float = max_health
 
+var damage_types = Game.damage_types
 var damage_reduction : Dictionary = { # zero to one
-		"physical" : 0,
-		"electrical" : 0,
-		"fire" : 0,
-		"acid" : 0,
-		"poison" : 0,
-		"cold" : 0
+		damage_types.physical : 0.5,
+		damage_types.electrical : 0,
+		damage_types.fire : 0,
+		damage_types.acid : 0,
+		damage_types.poison : 0,
+		damage_types.cold : 0
 }
 
 var actions = [ "scan", "knock", "ghost", "shoot", "slash" ]
@@ -301,11 +302,13 @@ func _on_InteractiveObject_player_entered(object):
 func _on_InteractiveObject_player_exited(object):
 	interactive_objects_present.erase(object)
 
-func hit(damage, damage_type):
+func hit(damage : float, damage_type : int):
 	if hitstun == false:
 		# might want to add a direction for knockback later
 		var damage_mod : float = 1
 		if damage_reduction.has(damage_type):
+			print("received damage: type == ", damage_type, ": " , Game.damage_type_names[damage_type])
+			print("damage_reduction == ", damage_reduction[damage_type])
 			damage_mod = 1 - damage_reduction[damage_type]
 		health -= damage * damage_mod
 		modulate_sprites(Color.red)
