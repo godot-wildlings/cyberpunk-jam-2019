@@ -66,11 +66,12 @@ mv_down={
 
 [layer_names]
 
-2d_physics/layer_1="player"
-2d_physics/layer_2="npcs"
-2d_physics/layer_3="platforms"
-2d_physics/layer_4="obstacles"
-2d_physics/layer_5="bullets"
+2d_physics/layer_1="Player"
+2d_physics/layer_2="NPCs"
+2d_physics/layer_3="Platforms"
+2d_physics/layer_4="Obstacles"
+2d_physics/layer_5="Bullets"
+2d_physics/layer_6="InteractiveObjects"
 
 [rendering]
 

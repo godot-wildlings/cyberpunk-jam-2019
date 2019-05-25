@@ -35,7 +35,9 @@ onready var falling_sprite = $FallingSprite
 
 onready var sprites = [running_sprite, jumping_sprite, standing_sprite, falling_sprite]
 
+#warning-ignore:unused_class_variable
 onready var ray_front = $RayFront
+#warning-ignore:unused_class_variable
 onready var ray_back = $RayBack
 onready var ground_rays = [ ray_front, ray_back ]
 
@@ -50,6 +52,9 @@ var ticks : int = 0
 var character_height : float
 
 onready var tween = $Tween
+
+var interactive_objects_present : Array = []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -163,10 +168,21 @@ func _unhandled_key_input(event):
 	elif Input.is_action_just_pressed("jump"):
 		jump()
 	elif Input.is_action_just_pressed("mv_up"):
-		climb()
+		if state == states.idle:
+			if interactive_objects_present.size() > 0:
+				for object in interactive_objects_present:
+					if object.get_overlapping_bodies().has(self):
+						interact_with_object(object)
+			else:
+				climb()
 	elif Input.is_action_just_pressed("mv_down"):
-		drop()
-		#crouch()
+		if state == states.idle:
+			drop()
+			#crouch()
+
+func interact_with_object(object):
+	if object.has_method("interact"):
+		object.interact(self)
 
 
 func jump():
@@ -224,4 +240,10 @@ func move_to_platform(platform):
 	return_to_idle()
 
 	#set_global_position(new_position)
+
+func _on_InteractiveObject_player_entered(object):
+	interactive_objects_present.push_back(object)
+
+func _on_InteractiveObject_player_exited(object):
+	interactive_objects_present.erase(object)
 

@@ -1,7 +1,10 @@
 extends Node
 
+#warning-ignore:unused_class_variable
 var main : Node
+#warning-ignore:unused_class_variable
 var level : Node2D
+#warning-ignore:unused_class_variable
 var player : KinematicBody2D
 
 

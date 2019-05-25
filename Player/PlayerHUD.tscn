@@ -1,0 +1,33 @@
+[gd_scene format=2]
+
+[node name="PlayerHUD" type="HBoxContainer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -14.0
+custom_constants/separation = 25
+alignment = 1
+
+[node name="Label" type="Label" parent="."]
+margin_left = 404.0
+margin_right = 433.0
+margin_bottom = 14.0
+text = "Scan"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 458.0
+margin_right = 496.0
+margin_bottom = 14.0
+text = "Knock"
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 521.0
+margin_right = 559.0
+margin_bottom = 14.0
+text = "Ghost"
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 584.0
+margin_right = 620.0
+margin_bottom = 14.0
+text = "Shoot"

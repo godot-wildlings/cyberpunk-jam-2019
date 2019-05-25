@@ -58,8 +58,8 @@ func draw_corner(radius, origin, type):
 	draw_polyline(corner_points, Color.cyan, 3.0, true)
 
 
-func draw_all_static_bodies():
-	for child in get_children():
+func draw_all_static_bodies(container_node):
+	for child in container_node.get_children():
 		if child is StaticBody2D:
 			for grandchild in child.get_children():
 				if grandchild is CollisionShape2D:
@@ -68,8 +68,8 @@ func draw_all_static_bodies():
 
 func _draw():
 	if state == states.running:
-		draw_all_static_bodies()
-
+		draw_all_static_bodies($Floors)
+		draw_all_static_bodies($Crates)
 
 func _on_ResetArea_body_entered(body):
 	if body == Game.player:
