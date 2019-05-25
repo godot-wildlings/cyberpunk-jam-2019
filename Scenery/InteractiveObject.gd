@@ -4,6 +4,7 @@ signal player_entered(body)
 signal player_exited(body)
 
 export var hidden_to_player : bool = false
+onready var interaction = $Interaction
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,6 +15,9 @@ func _ready():
 	call_deferred("deferred_ready")
 
 	connect_signals()
+
+	if has_node("Label"):
+		$Label.set_text(interaction.get_name())
 
 func connect_signals():
 	#warning-ignore:return_value_discarded
