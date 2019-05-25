@@ -4,6 +4,7 @@ extends Node
 var level_num : int = -1
 var level : Node2D
 onready var level_container : Node2D = $Levels
+onready var cutscene_container : Node2D = $Cutscenes
 
 var levels : Dictionary = {
 		"intro" : preload("res://Levels/Intro.tscn"),
@@ -40,6 +41,10 @@ func load_level(level_scene : PackedScene):
 	level_container.add_child(new_level)
 	level = new_level
 
+func load_cutscene(cutscene : PackedScene):
+	var new_cutscene = cutscene.instance()
+	cutscene_container.add_child(new_cutscene)
+	Game.pause()
 
 
 

@@ -58,6 +58,9 @@ var interactive_objects_present : Array = []
 var max_health : float = 100.0
 var health : float = max_health
 
+var max_ammo : int = 100
+var ammo : int = max_ammo
+
 var damage_types = Game.damage_types
 var damage_reduction : Dictionary = { # zero to one
 		damage_types.physical : 0.5,
@@ -195,6 +198,7 @@ func _unhandled_key_input(event):
 		jump()
 	elif Input.is_action_just_pressed("mv_up"):
 		if state == states.idle:
+			print("interactive_objects_present == ", interactive_objects_present)
 			if interactive_objects_present.size() > 0:
 				for object in interactive_objects_present:
 					if object.get_overlapping_bodies().has(self):
@@ -316,8 +320,12 @@ func hit(damage : float, damage_type : int):
 		$HitstunTimer.start()
 		$HealthBar.set_value(health)
 
+func recover_health(amount : float):
+	health = min(health + amount, max_health)
+	$HealthBar.set_value(health)
 
-
+func add_ammo(amount: int):
+	ammo = min(ammo + amount, max_ammo)
 
 func _on_HitstunTimer_timeout():
 	modulate_sprites(Color.white)

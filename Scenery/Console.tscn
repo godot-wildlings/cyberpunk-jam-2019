@@ -41,5 +41,3 @@ texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/interact = SubResource( 2 )
-[connection signal="body_entered" from="." to="." method="_on_Console_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_Console_body_exited"]

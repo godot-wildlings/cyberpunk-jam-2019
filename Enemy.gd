@@ -3,7 +3,7 @@ extends KinematicBody2D
 # Declare member variables here. Examples:
 var direction : int = 1
 var speed : float = 80.0
-var damage_output_per_hit = 10
+export var damage_output_per_hit = 25
 
 export (Game.damage_types) var melee_damage_type
 
