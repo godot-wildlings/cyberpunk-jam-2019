@@ -16,7 +16,9 @@ func _ready():
 	connect_signals()
 
 func connect_signals():
+	#warning-ignore:return_value_discarded
 	connect("body_entered", self, "_on_InteractiveObject_body_entered")
+	#warning-ignore:return_value_discarded
 	connect("body_exited", self, "_on_InteractiveObject_body_exited")
 
 

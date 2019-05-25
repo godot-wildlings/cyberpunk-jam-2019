@@ -7,7 +7,7 @@ var action_labels : Array = []
 func _ready():
 	action_labels = $Actions.get_children()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#warning-ignore:unused_argument
 func _process(delta):
 	for label in action_labels:
 		if label == action_labels[Game.player.current_action]:

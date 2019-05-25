@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Weapons/PlayerGun.gd" type="Script" id=1]
+[ext_resource path="res://Projectiles/Bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Weapons/gun1.png" type="Texture" id=3]
+[ext_resource path="res://Weapons/blam.wav" type="AudioStream" id=4]
+
+[node name="Gun" type="Node2D"]
+script = ExtResource( 1 )
+bullet_scene = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 81.5335, -10.8711 )
+texture = ExtResource( 3 )
+
+[node name="Muzzle" type="Position2D" parent="."]
+position = Vector2( 174.774, -28.8503 )
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )

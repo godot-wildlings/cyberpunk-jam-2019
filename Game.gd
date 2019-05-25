@@ -17,6 +17,7 @@ enum damage_types {
 	cold
 }
 
+#warning-ignore:unused_class_variable
 var damage_type_names : Dictionary = {
 	damage_types.physical : "physical",
 	damage_types.fire : "fire",

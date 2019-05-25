@@ -16,6 +16,20 @@ var state = states.initializing
 enum melee_weapon_states { reloading, ready }
 var melee_weapon_state = melee_weapon_states.reloading
 
+export var max_health : float = 50.0
+var health : float = max_health
+
+#warning-ignore:unused_class_variable
+var damage_types = Game.damage_types
+export var damage_reduction : Dictionary = { # zero to one
+		damage_types.physical : 0,
+		damage_types.electrical : 0,
+		damage_types.fire : 0,
+		damage_types.acid : 0,
+		damage_types.poison : 0,
+		damage_types.cold : 0
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	decision_timer.start()
@@ -52,4 +66,20 @@ func _on_DecisionTimer_timeout():
 func _on_ReloadTimer_timeout():
 	melee_weapon_state = melee_weapon_states.ready
 
+func hit(damage, damage_type):
+	$AnimationPlayer.play("hit")
+	var hits = $SFX/hits.get_children()
+	var rand_hit = hits[randi()%$SFX/hits.get_child_count()]
+	rand_hit.play()
+	health -= damage * (1-damage_reduction[damage_type])
+	if health <= 0:
+		die()
+
+func die():
+	state = states.dead
+
+	$AnimationPlayer.play("die")
+	yield($AnimationPlayer, "animation_finished")
+
+	call_deferred("queue_free")
 

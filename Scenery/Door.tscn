@@ -5,10 +5,10 @@
 [ext_resource path="res://Scenery/door.png" type="Texture" id=3]
 [ext_resource path="res://Scenery/click.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 26.0218, 44.9378 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "hide"
 length = 0.5
 tracks/0/type = "value"
@@ -36,8 +36,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "interact"
+[sub_resource type="Animation" id=3]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("InteractionSprite:visible")
@@ -52,8 +51,7 @@ tracks/0/keys = {
 "values": [ false, true, true, false ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "reveal"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:visible")
 tracks/0/interp = 1
@@ -79,8 +77,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "show"
+[sub_resource type="Animation" id=5]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:visible")
@@ -130,13 +127,13 @@ script = ExtResource( 2 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/hide = SubResource( 3 )
-anims/interact = SubResource( 1 )
-anims/reveal = SubResource( 2 )
-anims/show = SubResource( 4 )
+anims/hide = SubResource( 2 )
+anims/interact = SubResource( 3 )
+anims/reveal = SubResource( 4 )
+anims/show = SubResource( 5 )
 
 [node name="InteractionSprite" type="Sprite" parent="."]
 visible = false

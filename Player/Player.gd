@@ -58,8 +58,8 @@ var interactive_objects_present : Array = []
 var max_health : float = 100.0
 var health : float = max_health
 
-var max_ammo : int = 100
-var ammo : int = max_ammo
+var max_ammo : float = 16
+var ammo : float = max_ammo
 
 var damage_types = Game.damage_types
 var damage_reduction : Dictionary = { # zero to one
@@ -131,6 +131,8 @@ func flip_sprites(direction):
 		flip = true
 	for sprite in sprites:
 		sprite.set_flip_h(flip)
+
+	$Gun.set_scale(Vector2(abs($Gun.get_scale().x) * direction, $Gun.get_scale().y))
 
 func land():
 	jump_num = 0
@@ -238,6 +240,18 @@ func use_action(action_num):
 	elif actions[action_num] == "knock":
 		print("knock")
 
+	elif actions[action_num] == "shoot":
+		shoot()
+
+func shoot():
+	if ammo > 0:
+		if has_node("Gun") and get_node("Gun").has_method("shoot"):
+			get_node("Gun").shoot()
+			ammo -= 1
+			$AmmoBar.set_value(ammo/max_ammo * 100)
+
+
+
 
 func interact_with_object(object):
 	if object.has_method("interact"):
@@ -254,6 +268,7 @@ func jump():
 		time_of_jump = time_elapsed
 		modulate_sprites(Color.magenta + Color(0.5, 0.5, 0.5))
 		animation_player.play("jump")
+		$SFX/huNoise.play()
 		jump_velocity = Vector2.UP * jump_speed
 
 func climb(): # switch to a higher platform
@@ -263,6 +278,7 @@ func climb(): # switch to a higher platform
 	ray.position = Vector2.UP * character_height/2
 	ray.set_cast_to(Vector2.UP * distance_between_platforms)
 	if ray.is_colliding() and ray.get_collider() is StaticBody2D:
+		$SFX/hooahNoise.play()
 		move_to_platform(ray.get_collider())
 
 func drop(): # switch to a lower platform
@@ -280,6 +296,7 @@ func drop(): # switch to a lower platform
 		var distance_between_platforms = 150
 		ray.set_cast_to(Vector2.DOWN * distance_between_platforms)
 		if ray.is_colliding() and ray.get_collider() is StaticBody2D:
+			$SFX/huhNoise.play()
 			move_to_platform(ray.get_collider())
 
 func move_to_platform(platform):
@@ -326,6 +343,7 @@ func recover_health(amount : float):
 
 func add_ammo(amount: int):
 	ammo = min(ammo + amount, max_ammo)
+	$AmmoBar.set_value(ammo/max_ammo * 100)
 
 func _on_HitstunTimer_timeout():
 	modulate_sprites(Color.white)
