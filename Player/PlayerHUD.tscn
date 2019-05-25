@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Player/PlayerHUD.gd" type="Script" id=1]
+
+[node name="PlayerHUD" type="VBoxContainer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -14.0
+custom_constants/separation = 25
+alignment = 1
+script = ExtResource( 1 )
+
+[node name="Instructions" type="Label" parent="."]
+margin_top = 8.0
+margin_right = 1024.0
+margin_bottom = 39.0
+text = "Cycle Actions: [~, 1, 2, 3, 4] or [ Q/E] to cycle through actions. (Also, comma, period, square bracket, page up/down) 
+Use Action: [F, enter, or ctrl]   (Note: actions not yet implemented)"
+align = 1
+
+[node name="Actions" type="HBoxContainer" parent="."]
+margin_top = 64.0
+margin_right = 1024.0
+margin_bottom = 78.0
+alignment = 1
+
+[node name="Scan" type="Label" parent="Actions"]
+margin_left = 417.0
+margin_right = 446.0
+margin_bottom = 14.0
+text = "Scan"
+
+[node name="Knock" type="Label" parent="Actions"]
+margin_left = 450.0
+margin_right = 488.0
+margin_bottom = 14.0
+text = "Knock"
+
+[node name="Ghost" type="Label" parent="Actions"]
+margin_left = 492.0
+margin_right = 530.0
+margin_bottom = 14.0
+text = "Ghost"
+
+[node name="Shoot" type="Label" parent="Actions"]
+margin_left = 534.0
+margin_right = 570.0
+margin_bottom = 14.0
+text = "Shoot"
+
+[node name="Slash" type="Label" parent="Actions"]
+margin_left = 574.0
+margin_right = 607.0
+margin_bottom = 14.0
+text = "Slash"

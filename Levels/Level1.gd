@@ -1,12 +1,11 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+enum states { initializing, running, paused, resetting }
+var state = states.initializing
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	state = states.running
 
 # warning-ignore:unused_argument
 func _process(delta):
@@ -59,8 +58,8 @@ func draw_corner(radius, origin, type):
 	draw_polyline(corner_points, Color.cyan, 3.0, true)
 
 
-func draw_all_static_bodies():
-	for child in get_children():
+func draw_all_static_bodies(container_node):
+	for child in container_node.get_children():
 		if child is StaticBody2D:
 			for grandchild in child.get_children():
 				if grandchild is CollisionShape2D:
@@ -68,8 +67,21 @@ func draw_all_static_bodies():
 
 
 func _draw():
-	draw_all_static_bodies()
+	if state == states.running:
+		draw_all_static_bodies($Floors)
+		draw_all_static_bodies($Crates)
 
 func _on_ResetArea_body_entered(body):
 	if body == Game.player:
+		state = states.resetting
+		update()
 		Game.main.reset_level()
+
+func _on_Player_scanned():
+	print(self.name, " received signal: _on_Player_scanned")
+	for object in $InteractiveObjects.get_children():
+		if object.has_method("_on_Player_scanned"):
+			object._on_Player_scanned()
+	for enemy in $Enemies.get_children():
+		if enemy.has_method("_on_Player_scanned"):
+			enemy._on_Player_scanned()
