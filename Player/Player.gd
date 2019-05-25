@@ -41,6 +41,8 @@ onready var ray_front = $RayFront
 onready var ray_back = $RayBack
 onready var ground_rays = [ ray_front, ray_back ]
 
+onready var gun = $Gun
+
 var gravity : float = 200.0
 
 enum states { idle, running, jumping, climbing, falling, dead }
@@ -71,11 +73,19 @@ var damage_reduction : Dictionary = { # zero to one
 		damage_types.cold : 0
 }
 
-var actions = [ "scan", "knock", "ghost", "shoot", "slash" ]
+enum actions { scan, knock, ghost, shoot, slash }
+#warning-ignore:unused_class_variable
+var action_names = {
+		actions.scan : "scan",
+		actions.knock : "knock",
+		actions.ghost : "ghost",
+		actions.shoot : "shoot",
+		actions.slash : "slash"
+}
 
 var hitstun : bool = false
 
-var current_action : int = 0
+var current_action = 0 setget set_current_action
 
 signal scanned()
 
@@ -213,34 +223,47 @@ func _unhandled_key_input(event):
 			#crouch()
 
 	elif Input.is_action_just_pressed("action_0"):
-		current_action = 0
+		self.current_action = 0
 	elif Input.is_action_just_pressed("action_1"):
-		current_action = 1
+		self.current_action = 1
 	elif Input.is_action_just_pressed("action_2"):
-		current_action = 2
+		self.current_action = 2
 	elif Input.is_action_just_pressed("action_3"):
-		current_action = 3
+		self.current_action = 3
 	elif Input.is_action_just_pressed("action_4"):
-		current_action = 4
+		self.current_action = 4
 	elif Input.is_action_just_pressed("action_5"):
-		current_action = 5
+		self.current_action = 5
 	elif Input.is_action_just_pressed("action_selected"):
 		use_action(current_action)
 	elif Input.is_action_just_pressed("next_action"):
-		current_action = wrapi(current_action + 1, 0, actions.size())
+		self.current_action = wrapi(current_action + 1, 0, actions.size())
 	elif Input.is_action_just_pressed("prev_action"):
-		current_action = wrapi(current_action - 1, 0, actions.size())
+		self.current_action = wrapi(current_action - 1, 0, actions.size())
+
+func set_current_action(value):
+	if value == actions.shoot:
+		draw_gun()
+	else:
+		holster_gun()
+	current_action = value
+
+func draw_gun():
+	gun.show()
+
+func holster_gun():
+	gun.hide()
+
 
 func use_action(action_num):
-	if actions[action_num] == "scan":
+	if action_num == actions.scan:
 		print("scanning")
 		emit_signal("scanned")
-	elif actions[action_num] == "ghost":
+	elif action_num == actions.ghost:
 		print("ghost")
-	elif actions[action_num] == "knock":
+	elif action_num == actions.knock:
 		print("knock")
-
-	elif actions[action_num] == "shoot":
+	elif action_num == actions.shoot:
 		shoot()
 
 func shoot():

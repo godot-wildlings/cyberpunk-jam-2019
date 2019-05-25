@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenery/InteractiveObject.gd" type="Script" id=1]
 [ext_resource path="res://Scenery/console.png" type="Texture" id=2]
 [ext_resource path="res://Scenery/click.png" type="Texture" id=3]
+[ext_resource path="res://Scenery/ConsoleInteraction.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 28.4921, 28.6931 )
@@ -41,3 +42,6 @@ texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/interact = SubResource( 2 )
+
+[node name="Interaction" type="Node2D" parent="."]
+script = ExtResource( 4 )
