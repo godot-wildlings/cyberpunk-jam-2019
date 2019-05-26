@@ -32,15 +32,14 @@ export var damage_reduction : Dictionary = { # zero to one
 		damage_types.cold : 0
 }
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	#warning-ignore:return_value_discarded
 	ghost_timer.connect("timeout", self, "_on_GhostTimer_timout")
 	decision_timer.start()
 	reload_timer.start()
 	state = states.passive
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var collision = move_and_collide(Vector2.RIGHT * direction * speed * delta)
 	if melee_weapon_state == melee_weapon_states.ready and collision != null:
@@ -56,13 +55,14 @@ func melee_attack(object):
 
 
 func _on_GhostTimer_timout():
-	var ghost_instance : Node2D = ghost_tscn.instance()
-	get_parent().add_child(ghost_instance)
-	ghost_instance.position = position
-	ghost_instance.texture = $Sprite.texture
-	ghost_instance.frame = $Sprite.frame
-	ghost_instance.rotation = $Sprite.rotation
-	ghost_instance.flip_h = $Sprite.flip_h
+	if state != states.initializing and state != states.dead:
+		var ghost_instance : Node2D = ghost_tscn.instance()
+		get_parent().add_child(ghost_instance)
+		ghost_instance.position = position
+		ghost_instance.texture = $Sprite.texture
+		ghost_instance.frame = $Sprite.frame
+		ghost_instance.rotation = $Sprite.rotation
+		ghost_instance.flip_h = $Sprite.flip_h
 	
 
 func _on_DecisionTimer_timeout():
