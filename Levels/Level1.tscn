@@ -38,8 +38,10 @@ format = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+editor/display_folded = true
 
 [node name="Far" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+editor/display_folded = true
 modulate = Color( 0.298039, 0.298039, 0.298039, 1 )
 motion_scale = Vector2( 0.5, 1 )
 
@@ -75,6 +77,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 3260, 982 )
 
 [node name="Med" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+editor/display_folded = true
 modulate = Color( 0.376471, 0.376471, 0.376471, 1 )
 motion_scale = Vector2( 0.75, 1 )
 
@@ -108,6 +111,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 8892, 652 )
 
 [node name="Near" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+editor/display_folded = true
 modulate = Color( 0.427451, 0, 0.690196, 1 )
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
@@ -253,6 +257,25 @@ position = Vector2( 1610.31, 454.064 )
 [node name="Door5" parent="InteractiveObjects" instance=ExtResource( 8 )]
 position = Vector2( 2426.43, 485.524 )
 
+[node name="elevator" parent="InteractiveObjects" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 418.706, 487.606 )
+
+[node name="Interaction" parent="InteractiveObjects/elevator" index="0"]
+door_type = 4
+
+[node name="exit" parent="InteractiveObjects/elevator" index="6"]
+position = Vector2( 0.857361, -168.903 )
+
+[node name="elevator2" parent="InteractiveObjects" instance=ExtResource( 8 )]
+position = Vector2( 419.563, 318.703 )
+
+[node name="Interaction" parent="InteractiveObjects/elevator2" index="0"]
+door_type = 4
+
+[node name="exit" parent="InteractiveObjects/elevator2" index="6"]
+position = Vector2( -0.857391, 169.76 )
+
 [node name="Player" parent="." instance=ExtResource( 9 )]
 position = Vector2( 63.467, 504.563 )
 
@@ -265,3 +288,7 @@ position = Vector2( 280.918, 493.807 )
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 10 )]
 position = Vector2( 858.229, 501.343 )
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
+
+[editable path="InteractiveObjects/elevator"]
+
+[editable path="InteractiveObjects/elevator2"]

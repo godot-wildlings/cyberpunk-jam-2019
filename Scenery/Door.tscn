@@ -182,5 +182,7 @@ margin_top = -28.6788
 margin_right = 39.1515
 margin_bottom = -14.6788
 rect_min_size = Vector2( 75, 0 )
-text = "Medical"
+text = "Door"
 align = 1
+
+[node name="exit" type="Position2D" parent="."]

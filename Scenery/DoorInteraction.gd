@@ -4,23 +4,27 @@ enum door_types {
 	ammo,
 	health,
 	portal,
-	cutscene
+	cutscene,
+	shortcut
 }
 
 var door_names : Dictionary = {
 	door_types.ammo : "Guns",
 	door_types.health : "Medical",
 	door_types.portal : "101",
-	door_types.cutscene : "303"
+	door_types.cutscene : "303",
+	door_types.shortcut : "Transit"
 }
 
 export (door_types) var door_type = door_types.health
 export var amount : float = 100
 export var scene : PackedScene
 
+onready var door : Area2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	door = get_parent()
 
 func get_name() -> String:
 	return door_names[door_type]
@@ -42,6 +46,9 @@ func interact(interactor):
 
 	elif door_type == door_types.portal:
 		Game.main.load_level(scene)
+
+	elif door_type == door_types.shortcut:
+		Game.player.set_global_position(door.get_node("exit").get_global_position())
 
 
 
