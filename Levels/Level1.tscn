@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Levels/Level1.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -6,10 +6,11 @@
 [ext_resource path="res://Scenery/SilverSpires.png" type="Texture" id=4]
 [ext_resource path="res://Scenery/FarBuildings.png" type="Texture" id=5]
 [ext_resource path="res://Scenery/StackedContainers.png" type="Texture" id=6]
-[ext_resource path="res://Scenery/Console.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://NPCs/Enemies/Enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenery/Console.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://NPCs/Enemies/Enemy.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 
@@ -38,7 +39,6 @@ format = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
-editor/display_folded = true
 
 [node name="Far" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 editor/display_folded = true
@@ -142,6 +142,8 @@ texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 814, 560 )
 
+[node name="Fog" parent="CanvasLayer/ParallaxBackground" instance=ExtResource( 7 )]
+
 [node name="ResetZone" type="Node2D" parent="."]
 editor/display_folded = true
 
@@ -239,25 +241,25 @@ shape = SubResource( 6 )
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
 
-[node name="Console" parent="InteractiveObjects" instance=ExtResource( 7 )]
+[node name="Console" parent="InteractiveObjects" instance=ExtResource( 8 )]
 position = Vector2( 3017.31, 499.855 )
 
-[node name="Door" parent="InteractiveObjects" instance=ExtResource( 8 )]
+[node name="Door" parent="InteractiveObjects" instance=ExtResource( 9 )]
 position = Vector2( 179.789, 487.375 )
 
-[node name="Door2" parent="InteractiveObjects" instance=ExtResource( 8 )]
+[node name="Door2" parent="InteractiveObjects" instance=ExtResource( 9 )]
 position = Vector2( 986.656, 487.375 )
 
-[node name="Door3" parent="InteractiveObjects" instance=ExtResource( 8 )]
+[node name="Door3" parent="InteractiveObjects" instance=ExtResource( 9 )]
 position = Vector2( 610.982, 318.969 )
 
-[node name="Door4" parent="InteractiveObjects" instance=ExtResource( 8 )]
+[node name="Door4" parent="InteractiveObjects" instance=ExtResource( 9 )]
 position = Vector2( 1610.31, 454.064 )
 
-[node name="Door5" parent="InteractiveObjects" instance=ExtResource( 8 )]
+[node name="Door5" parent="InteractiveObjects" instance=ExtResource( 9 )]
 position = Vector2( 2426.43, 485.524 )
 
-[node name="elevator" parent="InteractiveObjects" instance=ExtResource( 8 )]
+[node name="elevator" parent="InteractiveObjects" instance=ExtResource( 9 )]
 editor/display_folded = true
 position = Vector2( 418.706, 487.606 )
 
@@ -267,7 +269,7 @@ door_type = 4
 [node name="exit" parent="InteractiveObjects/elevator" index="6"]
 position = Vector2( 0.857361, -168.903 )
 
-[node name="elevator2" parent="InteractiveObjects" instance=ExtResource( 8 )]
+[node name="elevator2" parent="InteractiveObjects" instance=ExtResource( 9 )]
 position = Vector2( 419.563, 318.703 )
 
 [node name="Interaction" parent="InteractiveObjects/elevator2" index="0"]
@@ -276,17 +278,18 @@ door_type = 4
 [node name="exit" parent="InteractiveObjects/elevator2" index="6"]
 position = Vector2( -0.857391, 169.76 )
 
-[node name="Player" parent="." instance=ExtResource( 9 )]
+[node name="Player" parent="." instance=ExtResource( 10 )]
 position = Vector2( 63.467, 504.563 )
 
 [node name="Enemies" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 10 )]
+[node name="Enemy" parent="Enemies" instance=ExtResource( 11 )]
 position = Vector2( 280.918, 493.807 )
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 10 )]
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 11 )]
 position = Vector2( 858.229, 501.343 )
+
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
 
 [editable path="InteractiveObjects/elevator"]

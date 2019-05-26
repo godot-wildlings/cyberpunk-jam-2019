@@ -10,3 +10,4 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 3072, 1536 )
 script = ExtResource( 2 )
+
