@@ -126,9 +126,9 @@ func _process(delta):
 	#warning-ignore:return_value_discarded
 	move_and_slide(run_velocity + jump_velocity + fall_velocity)
 
-	if Input.is_action_just_pressed("jump") and jump_num < max_jumps:
-		state = states.jumping
-		jump_num += 1
+#	if Input.is_action_just_pressed("jump") and jump_num < max_jumps:
+#		state = states.jumping
+#		jump_num += 1
 
 #	if state == states.jumping and ticks % 20 == 0:
 #		print(self.name, " jump_velocity == " , jump_velocity)
@@ -300,10 +300,12 @@ func interact_with_object(object):
 
 
 func jump():
+	jump_num += 1
+
 	if (
 			state == states.idle
 			or state == states.running
-			or (state == states.jumping and jump_num < max_jumps)
+			or (state == states.jumping and jump_num <= max_jumps)
 	):
 		state = states.jumping
 		time_of_jump = time_elapsed

@@ -1,12 +1,56 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenery/InteractiveObject.gd" type="Script" id=1]
 [ext_resource path="res://Scenery/DoorInteraction.gd" type="Script" id=2]
 [ext_resource path="res://Scenery/doors.png" type="Texture" id=3]
 [ext_resource path="res://Scenery/click.png" type="Texture" id=4]
+[ext_resource path="res://InteractiveObjects/LockedNoise.wav" type="AudioStream" id=5]
+[ext_resource path="res://InteractiveObjects/unlockNoise.wav" type="AudioStream" id=6]
+[ext_resource path="res://InteractiveObjects/openDoorNoise.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 26.0218, 44.9378 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "access_denied"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Audio/LockedNoise:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InteractionSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("InteractionSprite:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.45, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.341176, 0, 0, 1 ), Color( 0.176471, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "close"
@@ -63,7 +107,35 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "interact"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 14, 20 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Audio/OpenNoise:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
 [sub_resource type="Animation" id=4]
+resource_name = "interact_old"
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("InteractionSprite:visible")
@@ -94,23 +166,8 @@ tracks/0/keys = {
 "values": [ 14, 7 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "open"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 14, 20 ]
-}
-
 [sub_resource type="Animation" id=7]
+length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:visible")
 tracks/0/interp = 1
@@ -118,10 +175,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false, true, true, false ]
+"values": [ false, true ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:self_modulate")
@@ -130,10 +187,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.7, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Label:visible")
@@ -142,10 +199,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4, 0.8, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false, true, true, false ]
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -231,11 +288,12 @@ hframes = 7
 frame = 14
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/access_denied = SubResource( 10 )
 anims/close = SubResource( 2 )
 anims/hide = SubResource( 3 )
-anims/interact = SubResource( 4 )
+anims/interact = SubResource( 6 )
+anims/interact_old = SubResource( 4 )
 anims/lock = SubResource( 5 )
-anims/open = SubResource( 6 )
 anims/reveal = SubResource( 7 )
 anims/show = SubResource( 8 )
 anims/unlock = SubResource( 9 )
@@ -255,3 +313,14 @@ text = "Door"
 align = 1
 
 [node name="exit" type="Position2D" parent="."]
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="LockedNoise" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource( 5 )
+
+[node name="UnlockNoise" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource( 6 )
+
+[node name="OpenNoise" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource( 7 )

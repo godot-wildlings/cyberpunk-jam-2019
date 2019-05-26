@@ -18,9 +18,5 @@ func use():
 
 	var candidates = $EffectiveRange.get_overlapping_areas()
 	for candidate in candidates:
-		if candidate.get_property_list().has("locked"):
-			if candidate.locked == true:
-				if candidate.has_method("unlock"):
-					candidate.unlock()
-				else:
-					candidate.locked = false
+		if candidate.has_method("unlock") and candidate.locked:
+			candidate.unlock()

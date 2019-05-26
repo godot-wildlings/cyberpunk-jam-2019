@@ -250,7 +250,7 @@ position = Vector2( 179.789, 487.375 )
 [node name="Door2" parent="InteractiveObjects" instance=ExtResource( 9 )]
 position = Vector2( 986.656, 487.375 )
 
-[node name="Door3" parent="InteractiveObjects" instance=ExtResource( 9 )]
+[node name="LockedMedical" parent="InteractiveObjects" instance=ExtResource( 9 )]
 position = Vector2( 610.982, 318.969 )
 locked = true
 
