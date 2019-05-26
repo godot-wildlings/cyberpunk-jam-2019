@@ -73,6 +73,5 @@ stream = ExtResource( 3 )
 
 [node name="OwNoise" type="AudioStreamPlayer2D" parent="SFX/hits"]
 stream = ExtResource( 4 )
-
 [connection signal="timeout" from="DecisionTimer" to="." method="_on_DecisionTimer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]

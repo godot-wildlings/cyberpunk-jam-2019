@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/running.png" type="Texture" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Player/huh.wav" type="AudioStream" id=12]
 [ext_resource path="res://Player/hu.wav" type="AudioStream" id=13]
 [ext_resource path="res://Player/oof2.wav" type="AudioStream" id=14]
+[ext_resource path="res://Player/Actions/Knock.gd" type="Script" id=15]
+[ext_resource path="res://Player/Actions/Scan.gd" type="Script" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 17.9254, 18.9475 )
@@ -260,6 +262,9 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
+[sub_resource type="CircleShape2D" id=6]
+radius = 183.277
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -376,4 +381,17 @@ stream = ExtResource( 13 )
 
 [node name="OofNoise" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource( 14 )
+
+[node name="Actions" type="Node2D" parent="."]
+
+[node name="Knock" type="Node2D" parent="Actions"]
+script = ExtResource( 15 )
+
+[node name="EffectiveRange" type="Area2D" parent="Actions/Knock"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actions/Knock/EffectiveRange"]
+shape = SubResource( 6 )
+
+[node name="Scan" type="Node2D" parent="Actions"]
+script = ExtResource( 16 )
 [connection signal="timeout" from="HitstunTimer" to="." method="_on_HitstunTimer_timeout"]

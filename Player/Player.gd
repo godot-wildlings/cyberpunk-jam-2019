@@ -87,7 +87,7 @@ var hitstun : bool = false
 
 var current_action = 0 setget set_current_action
 
-signal scanned()
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -97,9 +97,7 @@ func _ready():
 	call_deferred("deferred_ready")
 
 func deferred_ready():
-	var err = connect("scanned", Game.main.level, "_on_Player_scanned")
-	if err:
-		push_warning(self.name + " having trouble connecting signals")
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -201,11 +199,16 @@ func _unhandled_key_input(event):
 		direction = -1
 		flip_sprites(direction)
 	elif Input.is_action_just_released("mv_right") or Input.is_action_just_released("mv_left"):
-		if state == states.running:
-			state = states.idle
-			animation_player.stop()
-			modulate_sprites(Color.white)
-			run_velocity = Vector2.ZERO
+		if not (Input.is_action_pressed("mv_left") or Input.is_action_pressed("mv_right")):
+			if state == states.running:
+				state = states.idle
+				animation_player.stop()
+				modulate_sprites(Color.white)
+				run_velocity = Vector2.ZERO
+		else: # player was holding two buttons, then released one.. figure out which one they're still holding.
+			direction = get_direction_pressed()
+			flip_sprites(direction)
+
 	elif Input.is_action_just_pressed("jump"):
 		jump()
 	elif Input.is_action_just_pressed("mv_up"):
@@ -243,6 +246,14 @@ func _unhandled_key_input(event):
 	elif Input.is_action_just_pressed("prev_action"):
 		self.current_action = wrapi(current_action - 1, 0, actions.size())
 
+func get_direction_pressed() -> int:
+	if Input.is_action_pressed("mv_right"):
+		return 1
+	elif Input.is_action_pressed("mv_left"):
+		return -1
+	else:
+		return 0
+
 func set_current_action(value):
 	if value == actions.shoot:
 		draw_gun()
@@ -259,14 +270,19 @@ func holster_gun():
 
 func use_action(action_num):
 	if action_num == actions.scan:
-		print("scanning")
-		emit_signal("scanned")
+		$Actions/Scan.use()
 	elif action_num == actions.ghost:
 		print("ghost")
 	elif action_num == actions.knock:
-		print("knock")
+		knock()
 	elif action_num == actions.shoot:
 		shoot()
+
+
+func knock():
+	# unlock nearby locked objects..
+	$Actions/Knock.use()
+
 
 func shoot():
 	if ammo > 0:

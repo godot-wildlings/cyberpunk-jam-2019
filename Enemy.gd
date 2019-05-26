@@ -63,7 +63,7 @@ func _on_GhostTimer_timout():
 		ghost_instance.frame = $Sprite.frame
 		ghost_instance.rotation = $Sprite.rotation
 		ghost_instance.flip_h = $Sprite.flip_h
-	
+
 
 func _on_DecisionTimer_timeout():
 	if randf() < 0.5:

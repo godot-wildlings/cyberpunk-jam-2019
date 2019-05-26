@@ -4,6 +4,7 @@ signal player_entered(body)
 signal player_exited(body)
 
 export var hidden_to_player : bool = false
+export var locked : bool = false
 onready var interaction = $Interaction
 
 # Called when the node enters the scene tree for the first time.
@@ -11,6 +12,10 @@ func _ready():
 	if hidden_to_player:
 		$Sprite.set_visible(false)
 		$Sprite.set_self_modulate(Color(1,1,1,0))
+
+	if locked:
+		if has_node("AnimationPlayer") and $AnimationPlayer.has_animation("lock"):
+			$AnimationPlayer.play("lock")
 
 	call_deferred("deferred_ready")
 

@@ -252,6 +252,7 @@ position = Vector2( 986.656, 487.375 )
 
 [node name="Door3" parent="InteractiveObjects" instance=ExtResource( 9 )]
 position = Vector2( 610.982, 318.969 )
+locked = true
 
 [node name="Door4" parent="InteractiveObjects" instance=ExtResource( 9 )]
 position = Vector2( 1610.31, 454.064 )
@@ -263,7 +264,7 @@ position = Vector2( 2426.43, 485.524 )
 editor/display_folded = true
 position = Vector2( 418.706, 487.606 )
 
-[node name="Interaction" parent="InteractiveObjects/elevator" index="0"]
+[node name="Interaction" parent="InteractiveObjects/elevator" index="1"]
 door_type = 4
 
 [node name="exit" parent="InteractiveObjects/elevator" index="6"]
@@ -272,7 +273,7 @@ position = Vector2( 0.857361, -168.903 )
 [node name="elevator2" parent="InteractiveObjects" instance=ExtResource( 9 )]
 position = Vector2( 419.563, 318.703 )
 
-[node name="Interaction" parent="InteractiveObjects/elevator2" index="0"]
+[node name="Interaction" parent="InteractiveObjects/elevator2" index="1"]
 door_type = 4
 
 [node name="exit" parent="InteractiveObjects/elevator2" index="6"]
@@ -289,7 +290,6 @@ position = Vector2( 280.918, 493.807 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 11 )]
 position = Vector2( 858.229, 501.343 )
-
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
 
 [editable path="InteractiveObjects/elevator"]
