@@ -56,6 +56,10 @@ one_shot = true
 
 [node name="ReloadTimer" type="Timer" parent="."]
 
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/die = SubResource( 2 )
 anims/hit = SubResource( 3 )
@@ -69,5 +73,6 @@ stream = ExtResource( 3 )
 
 [node name="OwNoise" type="AudioStreamPlayer2D" parent="SFX/hits"]
 stream = ExtResource( 4 )
+
 [connection signal="timeout" from="DecisionTimer" to="." method="_on_DecisionTimer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]

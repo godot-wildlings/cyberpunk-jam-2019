@@ -186,3 +186,4 @@ text = "Door"
 align = 1
 
 [node name="exit" type="Position2D" parent="."]
+

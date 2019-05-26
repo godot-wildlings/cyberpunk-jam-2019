@@ -7,8 +7,10 @@ export var damage_output_per_hit = 25
 
 export (Game.damage_types) var melee_damage_type
 
-onready var decision_timer = $DecisionTimer
-onready var reload_timer = $ReloadTimer
+onready var decision_timer : Timer = $DecisionTimer
+onready var reload_timer : Timer = $ReloadTimer
+onready var ghost_timer : Timer = $GhostTimer
+onready var ghost_tscn : PackedScene = preload("res://Ghost/Ghost.tscn") as PackedScene
 
 enum states { initializing, ready, passive, alert, dead, frozen }
 var state = states.initializing
@@ -32,6 +34,7 @@ export var damage_reduction : Dictionary = { # zero to one
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	ghost_timer.connect("timeout", self, "_on_GhostTimer_timout")
 	decision_timer.start()
 	reload_timer.start()
 	state = states.passive
@@ -52,6 +55,15 @@ func melee_attack(object):
 		reload_timer.start()
 
 
+func _on_GhostTimer_timout():
+	var ghost_instance : Node2D = ghost_tscn.instance()
+	get_parent().add_child(ghost_instance)
+	ghost_instance.position = position
+	ghost_instance.texture = $Sprite.texture
+	ghost_instance.frame = $Sprite.frame
+	ghost_instance.rotation = $Sprite.rotation
+	ghost_instance.flip_h = $Sprite.flip_h
+	
 
 func _on_DecisionTimer_timeout():
 	if randf() < 0.5:
