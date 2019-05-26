@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/running.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Player/hooah.wav" type="AudioStream" id=11]
 [ext_resource path="res://Player/huh.wav" type="AudioStream" id=12]
 [ext_resource path="res://Player/hu.wav" type="AudioStream" id=13]
+[ext_resource path="res://Player/oof2.wav" type="AudioStream" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 17.9254, 18.9475 )
@@ -372,4 +373,7 @@ stream = ExtResource( 12 )
 
 [node name="huNoise" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource( 13 )
+
+[node name="OofNoise" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 14 )
 [connection signal="timeout" from="HitstunTimer" to="." method="_on_HitstunTimer_timeout"]

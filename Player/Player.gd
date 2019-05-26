@@ -217,6 +217,8 @@ func _unhandled_key_input(event):
 						interact_with_object(object)
 			else:
 				climb()
+		elif Input.is_action_pressed("mv_right") or Input.is_action_pressed("mv_left"):
+			jump()
 	elif Input.is_action_just_pressed("mv_down"):
 		if state == states.idle:
 			drop()
@@ -355,6 +357,7 @@ func hit(damage : float, damage_type : int):
 			print("damage_reduction == ", damage_reduction[damage_type])
 			damage_mod = 1 - damage_reduction[damage_type]
 		health -= damage * damage_mod
+		$SFX/OofNoise.play()
 		modulate_sprites(Color.red)
 		hitstun = true
 		$HitstunTimer.start()
