@@ -283,7 +283,6 @@ text = "Elevator"
 position = Vector2( 6.59634, 532.648 )
 
 [node name="Enemies" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 11 )]
 position = Vector2( 280.918, 493.807 )
