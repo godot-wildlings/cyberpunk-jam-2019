@@ -233,6 +233,7 @@ shape = SubResource( 4 )
 
 [node name="Console" parent="InteractiveObjects" instance=ExtResource( 9 )]
 position = Vector2( 3017.31, 499.855 )
+object_type = 1
 
 [node name="Door" parent="InteractiveObjects" instance=ExtResource( 10 )]
 position = Vector2( -229.345, 52.3661 )

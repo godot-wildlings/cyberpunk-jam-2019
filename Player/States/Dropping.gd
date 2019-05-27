@@ -2,6 +2,7 @@ extends Node2D
 
 var player : KinematicBody2D
 var my_state_num : int
+var warning_issued : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -52,7 +53,9 @@ func move_to_platform(platform):
 	player.tween.start()
 	player.animation_player.play("jump")
 
-	push_warning("yielding for movement probably isn't the best approach")
+	if not warning_issued:
+		push_warning("yielding for movement probably isn't the best approach")
+		warning_issued = true
 	yield(player.tween, "tween_completed")
 	player.stop(Vector2.ZERO)
 

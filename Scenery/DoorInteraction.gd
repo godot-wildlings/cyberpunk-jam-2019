@@ -53,7 +53,8 @@ func interact(interactor):
 			animation_player.play("access_denied")
 	elif door.open:
 		# what should happen? The door is already open
-		pass
+		if interactor.has_method("enter"):
+			interactor.enter()
 
 
 

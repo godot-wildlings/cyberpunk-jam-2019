@@ -94,6 +94,7 @@ var current_action = 0 setget set_current_action
 
 
 func _ready():
+	hide_sprites()
 	Game.player = self
 	character_height = $CollisionShape2D.get_shape().get_extents().y * 2
 	#call_deferred("deferred_ready")
@@ -114,6 +115,9 @@ func set_state(state_num, arguments : Array = []):
 
 	state = state_num
 
+func hide_sprites():
+	for sprite in sprites:
+		sprite.hide()
 
 func flip_sprites(direction):
 	var flip = false
@@ -142,6 +146,8 @@ func stop(initial_velocity):
 	# might want some screech to a halt animation, or drift distance
 	set_state(states.idle, [initial_velocity])
 
+func idle():
+	set_state(states.idle, [Vector2.ZERO])
 
 #func return_to_idle():
 #	state = states.idle
@@ -150,18 +156,11 @@ func stop(initial_velocity):
 
 
 func enter():
-	# going into a door
-	$AnimationPlayer.play("enter")
-	state = states.entering
-	yield($AnimationPlayer, "animation_finished")
-	state = states.hidden
+	set_state(states.entering)
 
 func exit():
-	# returning from a door
-	$AnimationPlayer.play("exit")
-	state = states.exiting
-	yield($AnimationPlayer, "animation_finished")
-	state = states.idle
+	set_state(states.exiting)
+
 
 func modulate_sprites(color):
 	for sprite in sprites:
