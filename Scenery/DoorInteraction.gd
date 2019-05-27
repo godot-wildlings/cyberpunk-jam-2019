@@ -18,7 +18,7 @@ enum door_types {
 }
 
 var door_names : Dictionary = {
-	door_types.ammo : "Guns",
+	door_types.ammo : "Ammo",
 	door_types.health : "Medical",
 	door_types.portal : "101",
 	door_types.cutscene : "303",

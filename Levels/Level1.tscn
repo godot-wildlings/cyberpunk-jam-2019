@@ -254,8 +254,12 @@ object_type = 1
 [node name="Door" parent="InteractiveObjects" instance=ExtResource( 12 )]
 position = Vector2( -229.345, 52.3661 )
 
-[node name="Door2" parent="InteractiveObjects" instance=ExtResource( 12 )]
+[node name="AmmoDoor" parent="InteractiveObjects" instance=ExtResource( 12 )]
 position = Vector2( 994.058, 474.421 )
+hidden_to_player = false
+
+[node name="Interaction" parent="InteractiveObjects/AmmoDoor" index="1"]
+door_type = 0
 
 [node name="LockedMedical" parent="InteractiveObjects" instance=ExtResource( 12 )]
 position = Vector2( 1512.6, 265.506 )
@@ -392,6 +396,8 @@ stream = ExtResource( 17 )
 volume_db = -15.0
 autoplay = true
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
+
+[editable path="InteractiveObjects/AmmoDoor"]
 
 [editable path="InteractiveObjects/PortalToLevel2"]
 
