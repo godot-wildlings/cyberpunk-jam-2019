@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/openDoorNoise.wav-9cef7b84a0a2c2d174137489278a553c.sample"
+
+[deps]
+
+source_file="res://InteractiveObjects/openDoorNoise.wav"
+dest_files=[ "res://.import/openDoorNoise.wav-9cef7b84a0a2c2d174137489278a553c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

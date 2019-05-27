@@ -3,14 +3,29 @@ extends Area2D
 signal player_entered(body)
 signal player_exited(body)
 
+
+enum object_types { door, terminal, letter, NPC }
+#warning-ignore:unused_class_variable
+export (object_types )var object_type : int = object_types.door
+
 export var hidden_to_player : bool = false
+#warning-ignore:unused_class_variable
+export var locked : bool = false
+#warning-ignore:unused_class_variable
+export var open : bool = false
 onready var interaction = $Interaction
+onready var animation_player = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if hidden_to_player:
 		$Sprite.set_visible(false)
 		$Sprite.set_self_modulate(Color(1,1,1,0))
+		$Label.hide()
+
+	if locked:
+		if has_node("AnimationPlayer") and $AnimationPlayer.has_animation("lock"):
+			$AnimationPlayer.play("lock")
 
 	call_deferred("deferred_ready")
 
@@ -55,8 +70,6 @@ func _on_InteractiveObject_body_exited(body):
 func interact(interactor):
 	if has_node("Interaction") and get_node("Interaction").has_method("interact"):
 		$Interaction.interact(interactor)
-	if has_node("AnimationPlayer") and get_node("AnimationPlayer").has_animation("interact"):
-		$AnimationPlayer.play("interact")
 
 
 
@@ -64,4 +77,12 @@ func _on_Player_scanned():
 	print(self.name, " received signal: Player_scanned")
 	if hidden_to_player:
 		$AnimationPlayer.play("reveal")
+
+func unlock():
+	print(self.name, " unlocking" )
+	if animation_player.has_animation("unlock"):
+		animation_player.play("unlock")
+	locked = false
+
+
 

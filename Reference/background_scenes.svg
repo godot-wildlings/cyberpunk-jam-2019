@@ -20,6 +20,18 @@
    sodipodi:docname="background_scenes.svg">
   <defs
      id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2607">
+      <stop
+         style="stop-color:#aa4400;stop-opacity:1"
+         offset="0"
+         id="stop2603" />
+      <stop
+         style="stop-color:#c87137;stop-opacity:0;"
+         offset="1"
+         id="stop2605" />
+    </linearGradient>
     <pattern
        inkscape:collect="always"
        xlink:href="#pattern10008"
@@ -5203,6 +5215,458 @@
        y1="146.3588"
        x2="-308.3071"
        y2="-48.37064" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2601"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,0,-1.0665936)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2615"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,-135.88242,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2631"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,0,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2633"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,-135.88242,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2643"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,0,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2645"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,-135.88242,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2655"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,0,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2657"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,-135.88242,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2667"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,0,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2669"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,-135.88242,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2679"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,0,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2681"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,-135.88242,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2691"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,0,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2693"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,-135.88242,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2703"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,0,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2705"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,-135.88242,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2715"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,0,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2607"
+       id="linearGradient2717"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.99158249,-135.88242,-1.0665936)"
+       x1="69.453125"
+       y1="-139.34988"
+       x2="71.862724"
+       y2="-139.30264" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB;"
+       id="filter2725"
+       x="-0.82670694"
+       width="2.6534139"
+       y="-0.044914429"
+       height="1.0898289"
+       inkscape:label="Greyscale">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.52079214"
+         id="feGaussianBlur2727"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix2805" />
+      <feColorMatrix
+         id="feColorMatrix2807"
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         in="fbSourceGraphic"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix2809" />
+      <feColorMatrix
+         id="feColorMatrix2811"
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         in="fbSourceGraphic"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix2813" />
+      <feColorMatrix
+         id="feColorMatrix2815"
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         in="fbSourceGraphic"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix2817" />
+      <feColorMatrix
+         id="feColorMatrix2819"
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         in="fbSourceGraphic"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix2821" />
+      <feColorMatrix
+         id="feColorMatrix2823"
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         in="fbSourceGraphic"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix2825" />
+      <feColorMatrix
+         id="feColorMatrix2827"
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         in="fbSourceGraphic"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix2829" />
+      <feColorMatrix
+         id="feColorMatrix2831"
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         in="fbSourceGraphic"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix2833" />
+      <feColorMatrix
+         id="feColorMatrix2835"
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         in="fbSourceGraphic"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix2837" />
+      <feColorMatrix
+         id="feColorMatrix2839"
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         in="fbSourceGraphic" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2767">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2765" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2771">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2769" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2775">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2773" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2779">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2777" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2783">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2781" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2787">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2785" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2791">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2789" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2795">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2793" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2799">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2797" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2803">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2801" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2843">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2841" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2847">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2845" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2851">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2849" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2855">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2853" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2859">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2857" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2863">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2861" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2867">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2865" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2871">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2869" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2875">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2873" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2879">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2877" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter2883">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix2881" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -5211,9 +5675,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.175"
-     inkscape:cx="747.68079"
-     inkscape:cy="1144.9013"
+     inkscape:zoom="0.24748737"
+     inkscape:cx="-1182.5438"
+     inkscape:cy="1510.4398"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -6971,7 +7435,7 @@
          transform="matrix(0.13230174,-0.15727517,0.02738863,0.75972318,274.44718,-214.47465)" />
     </g>
     <rect
-       style="opacity:1;fill:#c87137;fill-opacity:1;stroke:#1b1b1b;stroke-width:0.79374999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#c87137;fill-opacity:1;stroke:#1b1b1b;stroke-width:0.79374999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2883)"
        id="rect10105"
        width="100.54166"
        height="28.726189"
@@ -6982,7 +7446,10 @@
        inkscape:tile-w="100.54165"
        inkscape:tile-h="28.726188"
        inkscape:tile-x0="266.09524"
-       inkscape:tile-y0="195.7024" />
+       inkscape:tile-y0="195.7024"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <g
        id="g10845"
        transform="matrix(0.68529897,0,0,0.68529897,-532.9661,-18.834776)"
@@ -7188,5 +7655,501 @@
          inkscape:tile-x0="266.09524"
          inkscape:tile-y0="195.7024" />
     </g>
+    <path
+       style="opacity:0;fill:#666666;fill-opacity:1;stroke:none;stroke-width:0.35714287;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2879)"
+       d="m -289.61151,-531.28589 v -52.67857 h 188.39286 188.392858 v 52.67857 52.67857 H -101.21865 -289.61151 Z"
+       id="path2577"
+       inkscape:connector-curvature="0"
+       transform="scale(0.26458333)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <g
+       id="g2621"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       style="filter:url(#filter2875)">
+      <rect
+         transform="scale(-1,1)"
+         y="-154.53981"
+         x="69.26413"
+         height="27.828497"
+         width="2.6458333"
+         id="rect2575"
+         style="opacity:1;fill:url(#linearGradient2601);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         style="opacity:1;fill:#aa4400;fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2609"
+         width="2.6458333"
+         height="27.828497"
+         x="66.618294"
+         y="-154.53981"
+         transform="scale(-1,1)" />
+      <rect
+         y="-154.53981"
+         x="-66.618294"
+         height="27.828497"
+         width="2.6458333"
+         id="rect2613"
+         style="opacity:1;fill:url(#linearGradient2615);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <g
+       id="g2629"
+       transform="translate(10.583333)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       style="filter:url(#filter2871)">
+      <rect
+         style="opacity:1;fill:url(#linearGradient2631);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2623"
+         width="2.6458333"
+         height="27.828497"
+         x="69.26413"
+         y="-154.53981"
+         transform="scale(-1,1)" />
+      <rect
+         transform="scale(-1,1)"
+         y="-154.53981"
+         x="66.618294"
+         height="27.828497"
+         width="2.6458333"
+         id="rect2625"
+         style="opacity:1;fill:#aa4400;fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         style="opacity:1;fill:url(#linearGradient2633);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2627"
+         width="2.6458333"
+         height="27.828497"
+         x="-66.618294"
+         y="-154.53981" />
+    </g>
+    <g
+       transform="translate(21.166667)"
+       id="g2641"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       style="filter:url(#filter2867)">
+      <rect
+         transform="scale(-1,1)"
+         y="-154.53981"
+         x="69.26413"
+         height="27.828497"
+         width="2.6458333"
+         id="rect2635"
+         style="opacity:1;fill:url(#linearGradient2643);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         style="opacity:1;fill:#aa4400;fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2637"
+         width="2.6458333"
+         height="27.828497"
+         x="66.618294"
+         y="-154.53981"
+         transform="scale(-1,1)" />
+      <rect
+         y="-154.53981"
+         x="-66.618294"
+         height="27.828497"
+         width="2.6458333"
+         id="rect2639"
+         style="opacity:1;fill:url(#linearGradient2645);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <g
+       id="g2653"
+       transform="translate(31.750001)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       style="filter:url(#filter2863)">
+      <rect
+         style="opacity:1;fill:url(#linearGradient2655);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2647"
+         width="2.6458333"
+         height="27.828497"
+         x="69.26413"
+         y="-154.53981"
+         transform="scale(-1,1)" />
+      <rect
+         transform="scale(-1,1)"
+         y="-154.53981"
+         x="66.618294"
+         height="27.828497"
+         width="2.6458333"
+         id="rect2649"
+         style="opacity:1;fill:#aa4400;fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         style="opacity:1;fill:url(#linearGradient2657);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2651"
+         width="2.6458333"
+         height="27.828497"
+         x="-66.618294"
+         y="-154.53981" />
+    </g>
+    <g
+       transform="translate(42.333335)"
+       id="g2665"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       style="filter:url(#filter2859)">
+      <rect
+         transform="scale(-1,1)"
+         y="-154.53981"
+         x="69.26413"
+         height="27.828497"
+         width="2.6458333"
+         id="rect2659"
+         style="opacity:1;fill:url(#linearGradient2667);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         style="opacity:1;fill:#aa4400;fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2661"
+         width="2.6458333"
+         height="27.828497"
+         x="66.618294"
+         y="-154.53981"
+         transform="scale(-1,1)" />
+      <rect
+         y="-154.53981"
+         x="-66.618294"
+         height="27.828497"
+         width="2.6458333"
+         id="rect2663"
+         style="opacity:1;fill:url(#linearGradient2669);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <g
+       id="g2677"
+       transform="translate(52.916669)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       style="filter:url(#filter2855)">
+      <rect
+         style="opacity:1;fill:url(#linearGradient2679);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2671"
+         width="2.6458333"
+         height="27.828497"
+         x="69.26413"
+         y="-154.53981"
+         transform="scale(-1,1)" />
+      <rect
+         transform="scale(-1,1)"
+         y="-154.53981"
+         x="66.618294"
+         height="27.828497"
+         width="2.6458333"
+         id="rect2673"
+         style="opacity:1;fill:#aa4400;fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         style="opacity:1;fill:url(#linearGradient2681);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2675"
+         width="2.6458333"
+         height="27.828497"
+         x="-66.618294"
+         y="-154.53981" />
+    </g>
+    <g
+       transform="translate(63.500003)"
+       id="g2689"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       style="filter:url(#filter2851)">
+      <rect
+         transform="scale(-1,1)"
+         y="-154.53981"
+         x="69.26413"
+         height="27.828497"
+         width="2.6458333"
+         id="rect2683"
+         style="opacity:1;fill:url(#linearGradient2691);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         style="opacity:1;fill:#aa4400;fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2685"
+         width="2.6458333"
+         height="27.828497"
+         x="66.618294"
+         y="-154.53981"
+         transform="scale(-1,1)" />
+      <rect
+         y="-154.53981"
+         x="-66.618294"
+         height="27.828497"
+         width="2.6458333"
+         id="rect2687"
+         style="opacity:1;fill:url(#linearGradient2693);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <g
+       id="g2701"
+       transform="translate(74.083337)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       style="filter:url(#filter2847)">
+      <rect
+         style="opacity:1;fill:url(#linearGradient2703);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2695"
+         width="2.6458333"
+         height="27.828497"
+         x="69.26413"
+         y="-154.53981"
+         transform="scale(-1,1)" />
+      <rect
+         transform="scale(-1,1)"
+         y="-154.53981"
+         x="66.618294"
+         height="27.828497"
+         width="2.6458333"
+         id="rect2697"
+         style="opacity:1;fill:#aa4400;fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         style="opacity:1;fill:url(#linearGradient2705);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2699"
+         width="2.6458333"
+         height="27.828497"
+         x="-66.618294"
+         y="-154.53981" />
+    </g>
+    <g
+       transform="translate(84.666671)"
+       id="g2713"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       style="filter:url(#filter2843)">
+      <rect
+         transform="scale(-1,1)"
+         y="-154.53981"
+         x="69.26413"
+         height="27.828497"
+         width="2.6458333"
+         id="rect2707"
+         style="opacity:1;fill:url(#linearGradient2715);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         style="opacity:1;fill:#aa4400;fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2709"
+         width="2.6458333"
+         height="27.828497"
+         x="66.618294"
+         y="-154.53981"
+         transform="scale(-1,1)" />
+      <rect
+         y="-154.53981"
+         x="-66.618294"
+         height="27.828497"
+         width="2.6458333"
+         id="rect2711"
+         style="opacity:1;fill:url(#linearGradient2717);fill-opacity:1;stroke:none;stroke-width:0.2634674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <rect
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.20000616;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2725)"
+       id="rect2719"
+       width="1.5119035"
+       height="27.828499"
+       x="-65.484367"
+       y="-154.53981"
+       transform="matrix(1,0,0,0.94727264,0,-7.4148146)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       transform="matrix(1,0,0,0.94727264,10.583333,-7.4148146)"
+       y="-154.53981"
+       x="-65.484367"
+       height="27.828499"
+       width="1.5119035"
+       id="rect2729"
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.20000616;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2725)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.20000616;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2725)"
+       id="rect2731"
+       width="1.5119035"
+       height="27.828499"
+       x="-65.484367"
+       y="-154.53981"
+       transform="matrix(1,0,0,0.94727264,21.166667,-7.4148146)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       transform="matrix(1,0,0,0.94727264,31.750001,-7.4148146)"
+       y="-154.53981"
+       x="-65.484367"
+       height="27.828499"
+       width="1.5119035"
+       id="rect2733"
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.20000616;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2725)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.20000616;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2725)"
+       id="rect2735"
+       width="1.5119035"
+       height="27.828499"
+       x="-65.484367"
+       y="-154.53981"
+       transform="matrix(1,0,0,0.94727264,42.333335,-7.4148146)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       transform="matrix(1,0,0,0.94727264,52.916669,-7.4148146)"
+       y="-154.53981"
+       x="-65.484367"
+       height="27.828499"
+       width="1.5119035"
+       id="rect2737"
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.20000616;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2725)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.20000616;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2725)"
+       id="rect2739"
+       width="1.5119035"
+       height="27.828499"
+       x="-65.484367"
+       y="-154.53981"
+       transform="matrix(1,0,0,0.94727264,63.500003,-7.4148146)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       transform="matrix(1,0,0,0.94727264,74.083337,-7.4148146)"
+       y="-154.53981"
+       x="-65.484367"
+       height="27.828499"
+       width="1.5119035"
+       id="rect2741"
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.20000616;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2725)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.20000616;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2725)"
+       id="rect2743"
+       width="1.5119035"
+       height="27.828499"
+       x="-65.484367"
+       y="-154.53981"
+       transform="matrix(1,0,0,0.94727264,84.666671,-7.4148146)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.15185595;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2803)"
+       id="rect2745"
+       width="0.45325917"
+       height="27.828499"
+       x="-72.363228"
+       y="-154.53981"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       y="-154.53981"
+       x="-61.779896"
+       height="27.828499"
+       width="0.45325917"
+       id="rect2747"
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.15185595;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2799)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.15185595;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2795)"
+       id="rect2749"
+       width="0.45325917"
+       height="27.828499"
+       x="-51.19656"
+       y="-154.53981"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       y="-154.53981"
+       x="-40.613224"
+       height="27.828499"
+       width="0.45325917"
+       id="rect2751"
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.15185595;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2791)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.15185595;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2787)"
+       id="rect2753"
+       width="0.45325917"
+       height="27.828499"
+       x="-30.02989"
+       y="-154.53981"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       y="-154.53981"
+       x="-19.446558"
+       height="27.828499"
+       width="0.45325917"
+       id="rect2755"
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.15185595;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2783)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.15185595;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2779)"
+       id="rect2757"
+       width="0.45325917"
+       height="27.828499"
+       x="-8.863224"
+       y="-154.53981"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       y="-154.53981"
+       x="1.7201093"
+       height="27.828499"
+       width="0.45325917"
+       id="rect2759"
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.15185595;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2775)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.15185595;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2771)"
+       id="rect2761"
+       width="0.45325917"
+       height="27.828499"
+       x="12.303443"
+       y="-154.53981"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       y="-154.53981"
+       x="22.886776"
+       height="27.828499"
+       width="0.45325917"
+       id="rect2763"
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.15185595;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter2767)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainer.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0.39500002;fill:#e3dbdb;fill-opacity:1;stroke:none;stroke-width:0.26922917;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2885"
+       width="101.27663"
+       height="29.527996"
+       x="-77.479729"
+       y="-155.42294"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainerBW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>

@@ -42,3 +42,7 @@ func _on_Bullet_body_entered(body):
 			$Sprite.hide()
 			yield($ThudNoise, "finished")
 			die()
+
+
+func _on_DurationTimer_timeout():
+	die()

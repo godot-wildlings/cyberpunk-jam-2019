@@ -7,8 +7,12 @@ export var damage_output_per_hit = 25
 
 export (Game.damage_types) var melee_damage_type
 
-onready var decision_timer = $DecisionTimer
-onready var reload_timer = $ReloadTimer
+onready var decision_timer : Timer = $DecisionTimer
+onready var reload_timer : Timer = $ReloadTimer
+onready var ghost_timer : Timer = $GhostTimer
+onready var ghost_tscn : PackedScene = preload("res://Ghost/Ghost.tscn") as PackedScene
+
+var current_sprite
 
 enum states { initializing, ready, passive, alert, dead, frozen }
 var state = states.initializing
@@ -30,15 +34,18 @@ export var damage_reduction : Dictionary = { # zero to one
 		damage_types.cold : 0
 }
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	#warning-ignore:return_value_discarded
+	ghost_timer.connect("timeout", self, "_on_GhostTimer_timout")
 	decision_timer.start()
 	reload_timer.start()
 	state = states.passive
+	current_sprite = $Sprites/RealSprite
+	$AnimationPlayer.play("walk")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+
+
 	var collision = move_and_collide(Vector2.RIGHT * direction * speed * delta)
 	if melee_weapon_state == melee_weapon_states.ready and collision != null:
 		var collider = collision.get_collider()
@@ -52,12 +59,25 @@ func melee_attack(object):
 		reload_timer.start()
 
 
+func _on_GhostTimer_timout():
+	if state != states.initializing and state != states.dead:
+		var ghost_instance : Node2D = ghost_tscn.instance()
+		get_parent().add_child(ghost_instance)
+		ghost_instance.position = position
+		ghost_instance.texture = current_sprite.texture
+		ghost_instance.frame = current_sprite.frame
+		ghost_instance.rotation = current_sprite.rotation
+		ghost_instance.flip_h = current_sprite.flip_h
+
 
 func _on_DecisionTimer_timeout():
 	if randf() < 0.5:
 		direction = 1
+		$Sprites/RealSprite.set_flip_h(false)
 	else:
 		direction = -1
+		$Sprites/RealSprite.set_flip_h(true)
+
 	decision_timer.start()
 
 
@@ -65,6 +85,15 @@ func _on_DecisionTimer_timeout():
 
 func _on_ReloadTimer_timeout():
 	melee_weapon_state = melee_weapon_states.ready
+
+
+func _on_Player_scanned():
+	$Sprites/RealSprite.hide()
+	$Sprites/VRSprite.show()
+	current_sprite = $Sprites/VRSprite
+	$GhostTimer.start()
+
+
 
 func hit(damage, damage_type):
 	$AnimationPlayer.play("hit")

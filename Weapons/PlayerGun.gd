@@ -20,4 +20,7 @@ func spawn_bullet():
 	var new_bullet = bullet_scene.instance()
 	$Bullets.add_child(new_bullet)
 	new_bullet.set_as_toplevel(true)
-	new_bullet.start($Muzzle.get_global_position(), Vector2.RIGHT * shooter.direction * bullet_speed, 0)
+	var rot = 0
+	if shooter.get_direction() == -1:
+		rot = PI
+	new_bullet.start($Muzzle.get_global_position(), Vector2.RIGHT * shooter.direction * bullet_speed, rot)

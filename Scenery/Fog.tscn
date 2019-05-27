@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenery/Fog.shader" type="Shader" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/color = Vector3( 0.35, 0.48, 0.95 )
+shader_param/OCTAVES = 4
+
+[node name="Fog" type="Sprite"]
+material = SubResource( 2 )
+scale = Vector2( 120, 120 )
+texture = ExtResource( 2 )
+

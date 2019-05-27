@@ -38,6 +38,19 @@ margin_bottom = 500.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 305.0
+margin_bottom = 150.0
+text = "Game developed for Cyberpunk Jam
+
+Plexsoup
+caevv
+TheBatMan
+AmerigoGazaway
+DoggieBalloon
+Regression
+"
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 margin_left = 309.0
 margin_right = 614.0
@@ -47,7 +60,7 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
 margin_right = 305.0
-margin_bottom = 201.0
+margin_bottom = 218.0
 text = "The fear was perpetual surveillance. We got that.
 
 Nobody expected the cultural-shift to volunatry, radical-transparency. We broadcast everything now. To all who would listen.
@@ -60,9 +73,9 @@ Enter the DHU : Digital Homicide Unit.
 autowrap = true
 
 [node name="StartButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 205.0
+margin_top = 222.0
 margin_right = 305.0
-margin_bottom = 225.0
+margin_bottom = 242.0
 shortcut = SubResource( 2 )
 text = "Start"
 
