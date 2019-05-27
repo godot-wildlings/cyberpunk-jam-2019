@@ -5,7 +5,11 @@ var shooter
 var bullet_speed : float = 400.0
 
 func _ready():
-	shooter = get_parent()
+
+	call_deferred("deferred_ready")
+
+func deferred_ready():
+	shooter = Game.player
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

@@ -51,6 +51,7 @@ func process_state(delta):
 
 			var reflect = collision.remainder.bounce(collision.normal)
 			jump_velocity = jump_velocity.bounce(collision.normal) * bounce_damping
+			#warning-ignore:return_value_discarded
 			player.move_and_collide(reflect)
 
 

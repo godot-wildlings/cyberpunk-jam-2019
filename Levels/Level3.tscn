@@ -13,7 +13,7 @@
 [ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=11]
 [ext_resource path="res://NPCs/Enemies/Enemy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://NPCs/Enemies/Robot.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Levels/DrawCollisionShapes.gd" type="Script" id=14]
+[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=14]
 [ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Intro_Theme_Rough.ogg" type="AudioStream" id=15]
 
 [sub_resource type="TileSet" id=1]
@@ -267,8 +267,7 @@ position = Vector2( 688.78, 486.024 )
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( -620.75, 493.792 )
 
-[node name="DrawCollisionShapes" type="Node2D" parent="."]
-script = ExtResource( 14 )
+[node name="iRealRenderer" parent="." instance=ExtResource( 14 )]
 
 [node name="Instructions" type="Node2D" parent="."]
 

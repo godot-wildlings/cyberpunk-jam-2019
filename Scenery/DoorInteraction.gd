@@ -55,6 +55,7 @@ func interact(interactor):
 		# what should happen? The door is already open
 		if interactor.has_method("enter"):
 			interactor.enter()
+			provide_reward(interactor)
 
 
 

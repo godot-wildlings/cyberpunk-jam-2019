@@ -32,11 +32,11 @@ onready var ray_front = $RayFront
 onready var ray_back = $RayBack
 onready var ground_rays = [ ray_front, ray_back ]
 
-onready var gun = $Gun
 
 
 
-enum states { idle, running, jumping, climbing, dropping, falling, dead, entering, hidden, exiting }
+
+enum states { idle, running, jumping, climbing, dropping, falling, dead, entering, hidden, exiting, attacking }
 var state = states.idle
 
 var state_names : Dictionary = {
@@ -49,7 +49,8 @@ var state_names : Dictionary = {
 		states.dead: "Dead",
 		states.entering: "Entering",
 		states.hidden: "Hidden",
-		states.exiting: "Exiting"
+		states.exiting: "Exiting",
+		states.attacking: "Attacking"
 }
 
 var current_state_node : Node2D
@@ -64,8 +65,10 @@ var interactive_objects_present : Array = []
 var max_health : float = 100.0
 var health : float = max_health
 
+onready var gun = $Actions/Attack/Gun
 var max_ammo : float = 16
 var ammo : float = max_ammo
+
 
 #warning-ignore:unused_class_variable
 var damage_types = Game.damage_types
@@ -78,15 +81,14 @@ var damage_reduction : Dictionary = { # zero to one
 		damage_types.cold : 0
 }
 
-enum actions { scan, knock, ghost, shoot, punch, ireal, arrest }
+enum actions { scan, knock, ghost, attack, iReal, arrest }
 #warning-ignore:unused_class_variable
 var action_names = {
 		actions.scan : "scan",
 		actions.knock : "knock",
 		actions.ghost : "ghost",
-		actions.shoot : "shoot",
-		actions.punch : "punch",
-		actions.ireal : "ireal",
+		actions.attack : "attack",
+		actions.iReal : "ireal",
 		actions.arrest : "arrest"
 }
 
@@ -94,14 +96,20 @@ var hitstun : bool = false
 
 var current_action = 0 setget set_current_action
 
+#warning-ignore:unused_class_variable
+var iReal_active : bool = false
 
 func _ready():
 	hide_sprites()
 	Game.player = self
 	character_height = $CollisionShape2D.get_shape().get_extents().y * 2
 	#call_deferred("deferred_ready")
-	holster_gun()
 	set_state(states.idle)
+
+	call_deferred("deferred_ready")
+
+func deferred_ready():
+	$Actions/Attack.holster_gun()
 
 
 func set_state(state_num, arguments : Array = []):
@@ -127,7 +135,7 @@ func flip_sprites(direction):
 		flip = true
 	for sprite in sprites:
 		sprite.set_flip_h(flip)
-	$Gun.set_scale(Vector2(abs($Gun.get_scale().x) * direction, $Gun.get_scale().y))
+	gun.set_scale(Vector2(abs(gun.get_scale().x) * direction, gun.get_scale().y))
 
 func get_direction() -> int:
 	return direction
@@ -230,17 +238,12 @@ func get_direction_pressed() -> int:
 		return 0
 
 func set_current_action(value):
-	if value == actions.shoot:
-		draw_gun()
-	else:
-		holster_gun()
+#	if value == actions.attack:
+#		draw_gun()
+#	else:
+#		holster_gun()
 	current_action = value
 
-func draw_gun():
-	gun.show()
-
-func holster_gun():
-	gun.hide()
 
 
 func use_action(action_num):
@@ -250,8 +253,10 @@ func use_action(action_num):
 		print("ghost")
 	elif action_num == actions.knock:
 		knock()
-	elif action_num == actions.shoot:
-		shoot()
+	elif action_num == actions.attack:
+		attack()
+	elif action_num == actions.iReal:
+		$Actions/iReal.use()
 
 
 func knock():
@@ -259,13 +264,9 @@ func knock():
 	$Actions/Knock.use()
 
 
-func shoot():
-	if ammo > 0:
-		if has_node("Gun") and get_node("Gun").has_method("shoot"):
-			get_node("Gun").shoot()
-			ammo -= 1
-			$AmmoBar.set_value(ammo/max_ammo * 100)
-
+func attack():
+	$Actions/Attack.use()
+	#set_state(states.attacking)
 
 func interact_with_object(object):
 	if object.has_method("interact"):

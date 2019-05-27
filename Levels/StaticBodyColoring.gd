@@ -9,7 +9,7 @@ func _ready():
 	my_color = rand_colors[randi()%rand_colors.size()]
 	desaturate(false)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#warning-ignore:unused_argument
 func _process(delta):
 	if Game.ticks % 20 == 0:
 		if Game.player.iReal_active != last_iReal_check:
@@ -18,6 +18,6 @@ func _process(delta):
 
 func desaturate(toggle):
 	if toggle == true:
-		$Sprite.set_self_modulate(Color.white)
+		$Sprite.set_self_modulate(Color(0.5, 0.5, 0.5, 0.5)) # mid-gray 50% opacity
 	else:
 		$Sprite.set_self_modulate(my_color)

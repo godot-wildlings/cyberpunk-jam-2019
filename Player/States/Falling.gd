@@ -31,6 +31,7 @@ func process_state(delta):
 			var damping : float = 0.5
 			var reflect = collision.remainder.bounce(collision.normal)
 			fall_velocity = fall_velocity.bounce(collision.normal) * damping
+			#warning-ignore:return_value_discarded
 			player.move_and_collide(reflect)
 
 
