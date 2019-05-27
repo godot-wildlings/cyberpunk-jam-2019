@@ -5,6 +5,7 @@ var jump_duration : float = 3.0 # not used yet.
 var jump_speed : float = 100.0
 var jump_velocity : Vector2 = Vector2.ZERO
 var time_of_jump : float
+var bounce_damping : float = 0.1
 
 #warning-ignore:unused_class_variable
 var jump_num : int = 0 # for double jump tracking
@@ -47,9 +48,9 @@ func process_state(delta):
 
 		var collision = player.move_and_collide(jump_velocity * delta)
 		if collision:
-			var damping : float = 0.5
+
 			var reflect = collision.remainder.bounce(collision.normal)
-			jump_velocity = jump_velocity.bounce(collision.normal) * damping
+			jump_velocity = jump_velocity.bounce(collision.normal) * bounce_damping
 			player.move_and_collide(reflect)
 
 
