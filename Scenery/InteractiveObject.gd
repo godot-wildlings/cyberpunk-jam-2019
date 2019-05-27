@@ -5,6 +5,7 @@ signal player_exited(body)
 
 
 enum object_types { door, terminal, letter, NPC }
+#warning-ignore:unused_class_variable
 export (object_types )var object_type : int = object_types.door
 
 export var hidden_to_player : bool = false

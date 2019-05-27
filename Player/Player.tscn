@@ -54,7 +54,7 @@ tracks/0/keys = {
 "values": [ 0, 11 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=5]
 resource_name = "exit"
 length = 0.6
 tracks/0/type = "value"
@@ -70,7 +70,7 @@ tracks/0/keys = {
 "values": [ 0, 11 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("States/Running/RunningSprite:visible")
@@ -133,7 +133,7 @@ tracks/4/keys = {
 "values": [ 6, 7, 6, 7, 6 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("States/Running/RunningSprite:visible")
@@ -184,7 +184,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 1.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("States/Idle/StandingSprite:visible")
@@ -247,7 +247,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -415,11 +415,11 @@ shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/enter = SubResource( 4 )
-anims/exit = SubResource( 9 )
-anims/fall = SubResource( 5 )
-anims/idle = SubResource( 6 )
-anims/jump = SubResource( 7 )
-anims/run = SubResource( 8 )
+anims/exit = SubResource( 5 )
+anims/fall = SubResource( 6 )
+anims/idle = SubResource( 7 )
+anims/jump = SubResource( 8 )
+anims/run = SubResource( 9 )
 
 [node name="RayFront" type="RayCast2D" parent="."]
 position = Vector2( 18.5238, 18.4018 )

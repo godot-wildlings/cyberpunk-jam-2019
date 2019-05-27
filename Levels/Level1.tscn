@@ -164,6 +164,7 @@ collision_mask = 3
 shape = SubResource( 3 )
 
 [node name="Crates" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="ShippingContainer1" parent="Crates" instance=ExtResource( 8 )]
 
@@ -230,6 +231,7 @@ shape = SubResource( 4 )
 [node name="Scenery" type="Node2D" parent="."]
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Console" parent="InteractiveObjects" instance=ExtResource( 9 )]
 position = Vector2( 3017.31, 499.855 )
@@ -322,6 +324,28 @@ margin_right = 39.1288
 margin_bottom = 454.294
 text = "I climb the stacks to find them where they live.
 (Press up or down while stationary)"
+align = 1
+
+[node name="Ghosts" type="Label" parent="Instructions"]
+margin_left = 171.999
+margin_top = 351.999
+margin_right = 409.999
+margin_bottom = 416.999
+text = "Some people are \"Ghosts\". 
+Living off-grid with no digital identity.
+That's identity fraud, and it's a felony.
+(Scan people to check ID)"
+align = 1
+
+[node name="Avatars" type="Label" parent="Instructions"]
+margin_left = 558.998
+margin_top = 352.999
+margin_right = 811.998
+margin_bottom = 417.999
+text = "Some Robots pose as humans.
+They've stolen or forged their digital ID.
+That's Identity Fraud, and it's a felony.
+(Scan robots to check ID)"
 align = 1
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
