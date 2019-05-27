@@ -75,7 +75,7 @@ func provide_reward(interactor):
 		Game.main.load_cutscene(scene)
 
 	elif door_type == door_types.portal:
-		Game.main.load_level(scene)
+		Game.main.switch_levels(scene)
 
 	elif door_type == door_types.shortcut:
 		Game.player.set_global_position(door.get_node("exit").get_global_position())

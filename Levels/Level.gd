@@ -1,9 +1,12 @@
 extends Node2D
 
+onready var player_spawn : Position2D = $PlayerSpawn
+
 enum states { initializing, running, paused, resetting }
+
 var state = states.initializing
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	state = states.running
 	spawn_player()
@@ -12,21 +15,17 @@ func _ready():
 func _process(delta):
 	update()
 
-
 func spawn_player():
+	assert is_instance_valid(player_spawn)
 	var player_scene = preload("res://Player/Player.tscn")
 	var new_player = player_scene.instance()
-	new_player.set_global_position($PlayerSpawn.get_global_position())
+	new_player.set_global_position(player_spawn.get_global_position())
 	add_child(new_player)
-
-
 
 func _on_ResetArea_body_entered(body):
 	if body == Game.player:
 		state = states.resetting
 		update()
 		Game.main.reset_level()
-
-
 
 

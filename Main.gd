@@ -25,12 +25,17 @@ func _ready():
 #	pass
 
 func remove_level(level):
-	level_container.remove_child(level)
-	level.call_deferred("queue_free")
+	if is_instance_valid(level):
+		level_container.remove_child(level)
+		level.call_deferred("queue_free")
 
 func load_level_num(num : int):
 	var level_scene = levels.values()[num]
 	load_level(level_scene)
+
+func switch_levels(level_tscn : PackedScene):
+	remove_level(level)
+	load_level(level_tscn)
 
 func load_level_name(level_name : String):
 	var level_scene = levels[level_name]
@@ -45,8 +50,6 @@ func load_cutscene(cutscene : PackedScene):
 	var new_cutscene = cutscene.instance()
 	cutscene_container.add_child(new_cutscene)
 	Game.pause()
-
-
 
 func next_level():
 	level_num = wrapi(level_num +1, 0, levels.size())
