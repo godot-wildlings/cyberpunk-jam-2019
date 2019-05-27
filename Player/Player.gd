@@ -95,6 +95,7 @@ func _ready():
 	Game.player = self
 	character_height = $CollisionShape2D.get_shape().get_extents().y * 2
 	call_deferred("deferred_ready")
+	holster_gun()
 
 func deferred_ready():
 	pass

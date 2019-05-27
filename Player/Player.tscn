@@ -337,14 +337,6 @@ collision_mask = 4
 [node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 5 )]
 margin_top = -87.0
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -285.5
-margin_right = 285.5
-margin_bottom = 14.0
-text = "WASD to move. Space to jump. Up/Down to switch platforms. Up to interact with objects."
-
 [node name="HitstunTimer" type="Timer" parent="."]
 
 [node name="HealthBar" type="TextureProgress" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Levels/Level1.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenery/FarBuildings.png" type="Texture" id=5]
 [ext_resource path="res://Scenery/StackedContainers.png" type="Texture" id=6]
 [ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Levels/ShippingContainer.png" type="Texture" id=8]
+[ext_resource path="res://Levels/ShippingContainer.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenery/Console.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=10]
 [ext_resource path="res://NPCs/Enemies/Enemy.tscn" type="PackedScene" id=11]
@@ -21,19 +21,7 @@ extents = Vector2( 2387.5, 93.431 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 2003.54, 10 )
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 762.032, 10 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 59.7148, 38.8595 )
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 22.7402, 17.5195 )
-
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 183.321, 13.0464 )
-
-[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 53.7192, 431.366 )
 
 [node name="Level1" type="Node2D"]
@@ -162,6 +150,7 @@ position = Vector2( 1551.55, 794.696 )
 shape = SubResource( 2 )
 
 [node name="Floors" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Floor1" type="StaticBody2D" parent="Floors" groups=[
 "platform",
@@ -173,75 +162,54 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor1"]
 shape = SubResource( 3 )
 
-[node name="Floor2" type="StaticBody2D" parent="Floors" groups=[
-"platform",
-]]
-position = Vector2( 1299.56, 359.65 )
-collision_layer = 4
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor2"]
-shape = SubResource( 7 )
-
 [node name="Crates" type="Node2D" parent="."]
 
-[node name="Obstacle" type="StaticBody2D" parent="Crates" groups=[
-"obstacle",
-]]
-editor/display_folded = true
-position = Vector2( 693.285, 480.527 )
-collision_layer = 12
-collision_mask = 19
+[node name="ShippingContainer1" parent="Crates" instance=ExtResource( 8 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Crates/Obstacle"]
-shape = SubResource( 4 )
+[node name="ShippingContainer13" parent="Crates" instance=ExtResource( 8 )]
+position = Vector2( -100.021, 319.708 )
 
-[node name="Obstacle2" type="StaticBody2D" parent="Crates" groups=[
-"obstacle",
-]]
-position = Vector2( 437.275, 490.308 )
-collision_layer = 12
-collision_mask = 19
+[node name="ShippingContainer14" parent="Crates" instance=ExtResource( 8 )]
+position = Vector2( -104.543, 215.701 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Crates/Obstacle2"]
-position = Vector2( 14.9642, 10.8831 )
-shape = SubResource( 5 )
+[node name="ShippingContainer15" parent="Crates" instance=ExtResource( 8 )]
+position = Vector2( -94.7639, 112.504 )
 
-[node name="ShippingContainer1" type="StaticBody2D" parent="Crates"]
-position = Vector2( -109.065, 423.714 )
-collision_layer = 4
-collision_mask = 3
+[node name="ShippingContainer16" parent="Crates" instance=ExtResource( 8 )]
+position = Vector2( -92.1102, 6.35714 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Crates/ShippingContainer1"]
-shape = SubResource( 8 )
+[node name="ShippingContainer2" parent="Crates" instance=ExtResource( 8 )]
+position = Vector2( 951.78, 423.904 )
 
-[node name="Sprite" type="Sprite" parent="Crates/ShippingContainer1"]
-position = Vector2( 0.598724, 41.3129 )
-texture = ExtResource( 8 )
+[node name="ShippingContainer3" parent="Crates" instance=ExtResource( 8 )]
+position = Vector2( 998.545, 318.682 )
 
-[node name="ShippingContainer2" type="StaticBody2D" parent="Crates"]
-position = Vector2( -107.268, 315.343 )
-collision_layer = 4
-collision_mask = 3
+[node name="ShippingContainer4" parent="Crates" instance=ExtResource( 8 )]
+position = Vector2( 966.812, 213.461 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Crates/ShippingContainer2"]
-shape = SubResource( 8 )
+[node name="ShippingContainer5" parent="Crates" instance=ExtResource( 8 )]
+position = Vector2( 985.184, 108.239 )
 
-[node name="Sprite" type="Sprite" parent="Crates/ShippingContainer2"]
-position = Vector2( 0.598724, 41.3129 )
-texture = ExtResource( 8 )
+[node name="ShippingContainer6" parent="Crates" instance=ExtResource( 8 )]
+position = Vector2( 1492.92, 427.244 )
 
-[node name="ShippingContainer3" type="StaticBody2D" parent="Crates"]
-position = Vector2( -107.003, 209.599 )
-collision_layer = 4
-collision_mask = 3
+[node name="ShippingContainer7" parent="Crates" instance=ExtResource( 8 )]
+position = Vector2( 1477.89, 322.022 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Crates/ShippingContainer3"]
-shape = SubResource( 8 )
+[node name="ShippingContainer8" parent="Crates" instance=ExtResource( 8 )]
+position = Vector2( 1487.91, 216.801 )
 
-[node name="Sprite" type="Sprite" parent="Crates/ShippingContainer3"]
-position = Vector2( 0.598724, 41.3129 )
-texture = ExtResource( 8 )
+[node name="ShippingContainer9" parent="Crates" instance=ExtResource( 8 )]
+position = Vector2( 1457.84, 113.25 )
+
+[node name="ShippingContainer10" parent="Crates" instance=ExtResource( 8 )]
+position = Vector2( 1253.79, 4.59845 )
+
+[node name="ShippingContainer11" parent="Crates" instance=ExtResource( 8 )]
+position = Vector2( 1271.37, -102.645 )
+
+[node name="ShippingContainer12" parent="Crates" instance=ExtResource( 8 )]
+position = Vector2( 1261.2, -208.223 )
 
 [node name="Walls" type="Node2D" parent="."]
 editor/display_folded = true
@@ -250,34 +218,34 @@ editor/display_folded = true
 position = Vector2( -722.279, 454.414 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallLeft"]
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="WallRight" type="StaticBody2D" parent="Walls"]
 position = Vector2( 3333.96, 406.581 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallRight"]
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="Scenery" type="Node2D" parent="."]
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Console" parent="InteractiveObjects" instance=ExtResource( 9 )]
 position = Vector2( 3017.31, 499.855 )
 
 [node name="Door" parent="InteractiveObjects" instance=ExtResource( 10 )]
-position = Vector2( 185.341, 474.421 )
+position = Vector2( -229.345, 52.3661 )
 
 [node name="Door2" parent="InteractiveObjects" instance=ExtResource( 10 )]
 position = Vector2( 994.058, 474.421 )
 
 [node name="LockedMedical" parent="InteractiveObjects" instance=ExtResource( 10 )]
-position = Vector2( 1478.92, 309.716 )
+position = Vector2( 1512.6, 265.506 )
 locked = true
 
 [node name="Door4" parent="InteractiveObjects" instance=ExtResource( 10 )]
 position = Vector2( 1649.17, 474.421 )
+hidden_to_player = false
 
 [node name="Door5" parent="InteractiveObjects" instance=ExtResource( 10 )]
 position = Vector2( 2413.51, 476.477 )
@@ -285,22 +253,30 @@ position = Vector2( 2413.51, 476.477 )
 [node name="elevator" parent="InteractiveObjects" instance=ExtResource( 10 )]
 editor/display_folded = true
 position = Vector2( 1422.59, 476.125 )
+hidden_to_player = false
 
 [node name="Interaction" parent="InteractiveObjects/elevator" index="1"]
 door_type = 4
 
+[node name="Label" parent="InteractiveObjects/elevator" index="5"]
+text = "Elevator"
+
 [node name="exit" parent="InteractiveObjects/elevator" index="6"]
-position = Vector2( 0.857361, -168.903 )
+position = Vector2( -1.41473, -514.258 )
 
 [node name="elevator2" parent="InteractiveObjects" instance=ExtResource( 10 )]
 editor/display_folded = true
-position = Vector2( 1219.13, 307.599 )
+position = Vector2( 1417.45, -54.5347 )
+hidden_to_player = false
 
 [node name="Interaction" parent="InteractiveObjects/elevator2" index="1"]
 door_type = 4
 
+[node name="Label" parent="InteractiveObjects/elevator2" index="5"]
+text = "Elevator"
+
 [node name="exit" parent="InteractiveObjects/elevator2" index="6"]
-position = Vector2( -0.857391, 169.76 )
+position = Vector2( 6.59634, 532.648 )
 
 [node name="Enemies" type="Node2D" parent="."]
 editor/display_folded = true
@@ -312,10 +288,39 @@ position = Vector2( 280.918, 493.807 )
 position = Vector2( 858.229, 501.343 )
 
 [node name="PlayerSpawn" type="Position2D" parent="."]
-position = Vector2( -1.948, 506.485 )
+position = Vector2( -620.75, 493.792 )
 
 [node name="DrawCollisionShapes" type="Node2D" parent="."]
 script = ExtResource( 12 )
+
+[node name="Instructions" type="Node2D" parent="."]
+
+[node name="Intro" type="Label" parent="Instructions"]
+margin_left = -697.505
+margin_top = 404.779
+margin_right = -423.505
+margin_bottom = 435.779
+text = "My name is Shakeduck.
+I hunt ghosts and sinners."
+align = 1
+
+[node name="HiddenDoors" type="Label" parent="Instructions"]
+margin_left = -197.207
+margin_top = 18.5889
+margin_right = 105.793
+margin_bottom = 49.5889
+text = "Some Doors are Hidden, but I have a scanner.
+(Press F to use your \"Scan\" ability.)"
+align = 1
+
+[node name="PlatformSwitching" type="Label" parent="Instructions"]
+margin_left = -263.871
+margin_top = 423.294
+margin_right = 39.1288
+margin_bottom = 454.294
+text = "I climb the stacks to find them where they live.
+(Press up or down while stationary)"
+align = 1
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
 
 [editable path="InteractiveObjects/elevator"]
