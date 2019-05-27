@@ -315,6 +315,8 @@ func jump():
 		jump_velocity = Vector2.UP * jump_speed
 
 func climb(): # switch to a higher platform
+	# note: Player ray is set to only scan bitmask 3: platforms
+
 	var ray = $RayUp
 	var distance_between_platforms = 150
 
@@ -347,6 +349,7 @@ func move_to_platform(platform):
 	print("moving to a new platform")
 	# need to tween this or something
 	var my_pos = get_global_position()
+	assert(platform.get_child(0) is CollisionShape2D)
 	var platform_floor = platform.get_global_position().y - platform.get_child(0).get_shape().get_extents().y
 
 	var new_position = Vector2(my_pos.x, platform_floor - character_height/2)

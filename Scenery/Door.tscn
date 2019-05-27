@@ -11,7 +11,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 26.0218, 44.9378 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=2]
 resource_name = "access_denied"
 length = 0.5
 step = 0.05
@@ -52,8 +52,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.341176, 0, 0, 1 ), Color( 0.176471, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "close"
+[sub_resource type="Animation" id=3]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -68,7 +67,7 @@ tracks/0/keys = {
 "values": [ 14, 20 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:visible")
@@ -108,7 +107,37 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=6]
-resource_name = "interact"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("InteractionSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 14, 7 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "open"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -134,39 +163,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "interact_old"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/path = NodePath("InteractionSprite:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, true, false ]
-}
-
-[sub_resource type="Animation" id=5]
-resource_name = "lock"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 14, 7 ]
-}
-
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:visible")
@@ -205,7 +202,7 @@ tracks/2/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:visible")
@@ -256,7 +253,7 @@ tracks/3/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -281,6 +278,8 @@ shape = SubResource( 1 )
 [node name="Interaction" type="Node2D" parent="."]
 script = ExtResource( 2 )
 
+[node name="CloseDelayTimer" type="Timer" parent="Interaction"]
+
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 vframes = 3
@@ -288,15 +287,15 @@ hframes = 7
 frame = 14
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/access_denied = SubResource( 10 )
-anims/close = SubResource( 2 )
-anims/hide = SubResource( 3 )
-anims/interact = SubResource( 6 )
-anims/interact_old = SubResource( 4 )
-anims/lock = SubResource( 5 )
-anims/reveal = SubResource( 7 )
-anims/show = SubResource( 8 )
-anims/unlock = SubResource( 9 )
+anims/access_denied = SubResource( 2 )
+anims/close = SubResource( 3 )
+anims/hide = SubResource( 4 )
+anims/interact_old = SubResource( 6 )
+anims/lock = SubResource( 7 )
+anims/open = SubResource( 5 )
+anims/reveal = SubResource( 8 )
+anims/show = SubResource( 9 )
+anims/unlock = SubResource( 10 )
 
 [node name="InteractionSprite" type="Sprite" parent="."]
 visible = false
@@ -324,3 +323,4 @@ stream = ExtResource( 6 )
 
 [node name="OpenNoise" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource( 7 )
+[connection signal="timeout" from="Interaction/CloseDelayTimer" to="." method="_on_CloseDelayTimer_timeout"]

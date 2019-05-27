@@ -21,20 +21,36 @@ export var amount : float = 100
 export var scene : PackedScene
 
 onready var door : Area2D
+var animation_player : AnimationPlayer
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	door = get_parent()
+	animation_player = door.get_node("AnimationPlayer")
 
 func get_name() -> String:
 	return door_names[door_type]
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func interact(interactor):
+	if not door.locked and not door.open:
+		provide_reward(interactor)
+		if animation_player.has_animation("open"):
+			animation_player.play("open")
+			door.open = true
+	elif door.locked:
+		if animation_player.has_animation("access_denied"):
+			animation_player.play("access_denied")
+	elif door.open:
+		# what should happen? The door is already open
+		pass
+
+
+
+func animate():
+	pass
+
+func provide_reward(interactor):
 	if door_type == door_types.ammo and interactor.has_method("add_ammo"):
 		interactor.add_ammo(amount)
 

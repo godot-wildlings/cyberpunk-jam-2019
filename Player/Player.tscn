@@ -386,6 +386,7 @@ stream = ExtResource( 13 )
 stream = ExtResource( 14 )
 
 [node name="Actions" type="Node2D" parent="."]
+visible = false
 
 [node name="Knock" type="Node2D" parent="Actions"]
 script = ExtResource( 15 )

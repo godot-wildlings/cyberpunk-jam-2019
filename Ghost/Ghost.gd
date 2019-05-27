@@ -7,5 +7,6 @@ func _ready():
 	alpha_tween.interpolate_property(self, "modulate", Color(1, 1, 1, 1), Color(1, 1, 1, 0), .6, Tween.TRANS_SINE, Tween.EASE_OUT)
 	alpha_tween.start()
 
+#warning-ignore:unused_argument
 func _on_AlphaTween_tween_completed(obj : Object, key : NodePath):
 		queue_free()

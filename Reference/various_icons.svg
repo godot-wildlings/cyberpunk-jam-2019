@@ -7,6 +7,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="64"
@@ -17,7 +18,198 @@
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="various_icons.svg">
   <defs
-     id="defs899" />
+     id="defs899">
+    <linearGradient
+       id="linearGradient1045"
+       inkscape:collect="always">
+      <stop
+         id="stop1041"
+         offset="0"
+         style="stop-color:#ce7031;stop-opacity:1" />
+      <stop
+         style="stop-color:#94877f;stop-opacity:1"
+         offset="0.54718101"
+         id="stop1047" />
+      <stop
+         id="stop1079"
+         offset="0.62839532"
+         style="stop-color:#afa39a;stop-opacity:1" />
+      <stop
+         id="stop1043"
+         offset="1"
+         style="stop-color:#6b8a94;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1019"
+       x1="36.215019"
+       y1="178.33232"
+       x2="36.081387"
+       y2="198.51117"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1083"
+       gradientUnits="userSpaceOnUse"
+       x1="36.215019"
+       y1="178.33232"
+       x2="36.081387"
+       y2="198.51117"
+       gradientTransform="translate(-15.875)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1087"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-31.750001)"
+       x1="36.215019"
+       y1="178.33232"
+       x2="36.081387"
+       y2="198.51117" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1091"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-47.625002)"
+       x1="36.215019"
+       y1="178.33232"
+       x2="36.081387"
+       y2="198.51117" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1095"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-63.500003)"
+       x1="36.215019"
+       y1="178.33232"
+       x2="36.081387"
+       y2="198.51117" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1099"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-79.375004)"
+       x1="36.215019"
+       y1="178.33232"
+       x2="36.081387"
+       y2="198.51117" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1103"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-95.250005)"
+       x1="36.215019"
+       y1="178.33232"
+       x2="36.081387"
+       y2="198.51117" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1111"
+       x1="-19.833012"
+       y1="202.81633"
+       x2="-19.833012"
+       y2="227.67239"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1113"
+       x1="-19.833012"
+       y1="202.81633"
+       x2="-19.833012"
+       y2="227.67239"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1115"
+       x1="-19.833012"
+       y1="202.81633"
+       x2="-19.833012"
+       y2="227.67239"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1117"
+       x1="-19.833012"
+       y1="202.81633"
+       x2="-19.833012"
+       y2="227.67239"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1119"
+       x1="-19.833012"
+       y1="202.81633"
+       x2="-19.833012"
+       y2="227.67239"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1121"
+       x1="-19.833012"
+       y1="202.81633"
+       x2="-19.833012"
+       y2="227.67239"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1123"
+       x1="-19.833012"
+       y1="202.81633"
+       x2="-19.833012"
+       y2="227.67239"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1125"
+       x1="-19.833012"
+       y1="202.81633"
+       x2="-19.833012"
+       y2="227.67239"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1129"
+       x1="-19.833012"
+       y1="202.81633"
+       x2="-19.833012"
+       y2="227.67239"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1131"
+       gradientUnits="userSpaceOnUse"
+       x1="-135.0787"
+       y1="-191.96973"
+       x2="-135.0787"
+       y2="-98.025551"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,0.03155723,253.60832)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1045"
+       id="linearGradient1133"
+       gradientUnits="userSpaceOnUse"
+       x1="-35.739574"
+       y1="229.27466"
+       x2="-35.739574"
+       y2="254.13072"
+       gradientTransform="translate(0.03155723,-26.458334)" />
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,9 +217,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="-117.82438"
-     inkscape:cy="103.85374"
+     inkscape:zoom="1.4"
+     inkscape:cx="5.5370017"
+     inkscape:cy="69.094509"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -37,7 +229,16 @@
      inkscape:window-height="1057"
      inkscape:window-x="1592"
      inkscape:window-y="112"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-global="false">
+    <sodipodi:guide
+       position="15.735493,55.391611"
+       orientation="1,0"
+       id="guide927"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
   <metadata
      id="metadata902">
     <rdf:RDF>
@@ -46,7 +247,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -421,18 +622,544 @@
        width="14.03165"
        height="24.856066"
        x="-65.61467"
-       y="245.1497"
+       y="229.27469"
        ry="2.0316348"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
     <rect
        ry="1.8870292"
-       y="246.03429"
+       y="230.15927"
        x="-64.73008"
        height="23.086885"
        width="12.262469"
        id="rect1648"
-       style="opacity:1;fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#008080;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="2.0316348"
+       y="229.27469"
+       x="-49.739666"
+       height="24.856066"
+       width="14.03165"
+       id="rect876"
+       style="opacity:1;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <g
+       id="g897"
+       transform="translate(0.03155723)"
+       style="fill:#008080"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         id="rect878"
+         transform="matrix(0.26458333,0,0,0.26458333,0,280.06665)"
+         d="m -161.625,-188.62695 v 87.25781 h 16.18945 c 3.95117,0 7.13282,-3.1797 7.13282,-7.13086 v -72.99414 c 0,-3.95116 -3.18165,-7.13281 -7.13282,-7.13281 z"
+         style="opacity:1;fill:#008080;fill-opacity:1;stroke:#000000;stroke-width:0.90095079;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         style="opacity:1;fill:#008080;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m -42.747516,230.1591 v 23.08697 h -4.283458 c -1.045414,0 -1.887226,-0.8413 -1.887226,-1.88671 v -19.31303 c 0,-1.04542 0.841812,-1.88723 1.887226,-1.88723 z"
+         id="path893" />
+    </g>
+    <rect
+       style="opacity:1;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect899"
+       width="14.03165"
+       height="24.856066"
+       x="-33.864662"
+       y="229.27469"
+       ry="2.0316348"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <path
+       id="path901"
+       d="m -25.79839,230.1591 v 23.08697 h 3.225126 c 1.045414,0 1.887225,-0.8413 1.887225,-1.88671 v -19.31303 c 0,-1.04542 -0.841811,-1.88723 -1.887225,-1.88723 z"
+       style="opacity:1;fill:#008080;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccssssc"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:#008080;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -27.899291,230.1591 v 23.08697 h -3.225125 c -1.045414,0 -1.887226,-0.8413 -1.887226,-1.88671 v -19.31303 c 0,-1.04542 0.841812,-1.88723 1.887226,-1.88723 z"
+       id="path903"
+       sodipodi:nodetypes="ccssssc"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="2.0316348"
+       y="229.27469"
+       x="-17.989664"
+       height="24.856066"
+       width="14.03165"
+       id="rect909"
+       style="opacity:1;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <path
+       sodipodi:nodetypes="ccssssc"
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:#008080;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -8.865056,230.1591 v 23.08697 h 2.1667927 c 1.045414,0 1.887225,-0.8413 1.887225,-1.88671 v -19.31303 c 0,-1.04542 -0.841811,-1.88723 -1.887225,-1.88723 z"
+       id="path911"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:nodetypes="ccssssc"
+       id="path913"
+       d="m -13.082623,230.1591 v 23.08697 h -2.166792 c -1.045414,0 -1.887226,-0.8413 -1.887226,-1.88671 v -19.31303 c 0,-1.04542 0.841812,-1.88723 1.887226,-1.88723 z"
+       style="opacity:1;fill:#008080;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:1;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect915"
+       width="14.03165"
+       height="24.856066"
+       x="-2.1146636"
+       y="229.27469"
+       ry="2.0316348"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <path
+       id="path917"
+       d="m 8.0682776,230.1591 v 23.08697 h 1.1084587 c 1.0454147,0 1.8872257,-0.8413 1.8872257,-1.88671 v -19.31303 c 0,-1.04542 -0.841811,-1.88723 -1.8872257,-1.88723 z"
+       style="opacity:1;fill:#008080;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccssssc"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:#008080;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 1.7340433,230.1591 v 23.08697 H 0.62558463 c -1.045413,0 -1.88722523,-0.8413 -1.88722523,-1.88671 v -19.31303 c 0,-1.04542 0.84181223,-1.88723 1.88722523,-1.88723 z"
+       id="path919"
+       sodipodi:nodetypes="ccssssc"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="2.0316348"
+       y="229.27469"
+       x="13.760337"
+       height="24.856066"
+       width="14.03165"
+       id="rect921"
+       style="opacity:1;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <path
+       sodipodi:nodetypes="csscc"
+       id="path925"
+       d="m 15.797937,253.11193 c -0.695515,-0.27751 -1.184578,-0.95575 -1.184578,-1.75257 v -19.31303 c 0,-0.74689 0.429687,-1.38986 1.056321,-1.69616 z"
+       style="opacity:1;fill:#008080;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:#008080;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 25.72586,253.11193 c 0.695515,-0.27751 1.184578,-0.95575 1.184578,-1.75257 v -19.31303 c 0,-0.74689 -0.429687,-1.38986 -1.056321,-1.69616 z"
+       id="path929"
+       sodipodi:nodetypes="csscc"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:1;fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect931"
+       width="14.03165"
+       height="24.856066"
+       x="29.635336"
+       y="229.27469"
+       ry="2.0316348"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="2.0316348"
+       y="202.81633"
+       x="-65.61467"
+       height="24.856066"
+       width="14.03165"
+       id="rect937"
+       style="opacity:1;fill:#d40000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       style="opacity:1;fill:url(#linearGradient1129);fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect939"
+       width="12.262469"
+       height="23.086885"
+       x="-64.73008"
+       y="203.70091"
+       ry="1.8870292"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <rect
+       style="opacity:1;fill:#d40000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect941"
+       width="14.03165"
+       height="24.856066"
+       x="-49.739666"
+       y="202.81633"
+       ry="2.0316348"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <path
+       id="path943"
+       d="m -42.731723,203.70077 v 23.08697 h 4.283458 c 1.045414,0 1.887225,-0.8413 1.887225,-1.88671 V 205.588 c 0,-1.04542 -0.841811,-1.88723 -1.887225,-1.88723 z"
+       style="opacity:1;fill:url(#linearGradient1131);fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:url(#linearGradient1133);fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -42.715959,203.70077 v 23.08697 h -4.283458 c -1.045414,0 -1.887226,-0.8413 -1.887226,-1.88671 V 205.588 c 0,-1.04542 0.841812,-1.88723 1.887226,-1.88723 z"
+       id="path945"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="2.0316348"
+       y="202.81633"
+       x="-33.864662"
+       height="24.856066"
+       width="14.03165"
+       id="rect949"
+       style="opacity:1;fill:#d40000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <path
+       sodipodi:nodetypes="ccssssc"
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:url(#linearGradient1123);fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -25.79839,203.70075 v 23.08697 h 3.225126 c 1.045414,0 1.887225,-0.8413 1.887225,-1.88671 v -19.31303 c 0,-1.04542 -0.841811,-1.88723 -1.887225,-1.88723 z"
+       id="path951"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:nodetypes="ccssssc"
+       id="path953"
+       d="m -27.899291,203.70075 v 23.08697 h -3.225125 c -1.045414,0 -1.887226,-0.8413 -1.887226,-1.88671 v -19.31303 c 0,-1.04542 0.841812,-1.88723 1.887226,-1.88723 z"
+       style="opacity:1;fill:url(#linearGradient1125);fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:1;fill:#d40000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect955"
+       width="14.03165"
+       height="24.856066"
+       x="-17.989664"
+       y="202.81633"
+       ry="2.0316348"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <path
+       id="path957"
+       d="m -8.865056,203.70075 v 23.08697 h 2.1667927 c 1.045414,0 1.887225,-0.8413 1.887225,-1.88671 v -19.31303 c 0,-1.04542 -0.841811,-1.88723 -1.887225,-1.88723 z"
+       style="opacity:1;fill:url(#linearGradient1119);fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccssssc"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:url(#linearGradient1121);fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -13.082623,203.70075 v 23.08697 h -2.166792 c -1.045414,0 -1.887226,-0.8413 -1.887226,-1.88671 v -19.31303 c 0,-1.04542 0.841812,-1.88723 1.887226,-1.88723 z"
+       id="path959"
+       sodipodi:nodetypes="ccssssc"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="2.0316348"
+       y="202.81633"
+       x="-2.1146636"
+       height="24.856066"
+       width="14.03165"
+       id="rect961"
+       style="opacity:1;fill:#d40000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <path
+       sodipodi:nodetypes="ccssssc"
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:url(#linearGradient1115);fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 8.0682776,203.70075 v 23.08697 h 1.1084587 c 1.0454147,0 1.8872257,-0.8413 1.8872257,-1.88671 v -19.31303 c 0,-1.04542 -0.841811,-1.88723 -1.8872257,-1.88723 z"
+       id="path963"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:nodetypes="ccssssc"
+       id="path965"
+       d="m 1.7340433,203.70075 v 23.08697 H 0.62558463 c -1.045413,0 -1.88722523,-0.8413 -1.88722523,-1.88671 v -19.31303 c 0,-1.04542 0.84181223,-1.88723 1.88722523,-1.88723 z"
+       style="opacity:1;fill:url(#linearGradient1117);fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:1;fill:#d40000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect967"
+       width="14.03165"
+       height="24.856066"
+       x="13.760337"
+       y="202.81633"
+       ry="2.0316348"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:url(#linearGradient1113);fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 15.797937,226.65358 c -0.695515,-0.27751 -1.184578,-0.95575 -1.184578,-1.75257 v -19.31303 c 0,-0.74689 0.429687,-1.38986 1.056321,-1.69616 z"
+       id="path969"
+       sodipodi:nodetypes="csscc"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:nodetypes="csscc"
+       id="path971"
+       d="m 25.72586,226.65358 c 0.695515,-0.27751 1.184578,-0.95575 1.184578,-1.75257 v -19.31303 c 0,-0.74689 -0.429687,-1.38986 -1.056321,-1.69616 z"
+       style="opacity:1;fill:url(#linearGradient1111);fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="2.0316348"
+       y="202.81633"
+       x="29.635336"
+       height="24.856066"
+       width="14.03165"
+       id="rect973"
+       style="opacity:1;fill:#d40000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <rect
+       style="opacity:1;fill:url(#linearGradient1019);fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1011"
+       width="14.03165"
+       height="24.856066"
+       x="29.635336"
+       y="176.35797"
+       ry="2.0316348"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="2.0316348"
+       y="176.35797"
+       x="13.760337"
+       height="24.856066"
+       width="14.03165"
+       id="rect1081"
+       style="opacity:1;fill:url(#linearGradient1083);fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <rect
+       style="opacity:1;fill:url(#linearGradient1087);fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1085"
+       width="14.03165"
+       height="24.856066"
+       x="-2.1146636"
+       y="176.35797"
+       ry="2.0316348"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="2.0316348"
+       y="176.35797"
+       x="-17.989664"
+       height="24.856066"
+       width="14.03165"
+       id="rect1089"
+       style="opacity:1;fill:url(#linearGradient1091);fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <rect
+       style="opacity:1;fill:url(#linearGradient1095);fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1093"
+       width="14.03165"
+       height="24.856066"
+       x="-33.864662"
+       y="176.35797"
+       ry="2.0316348"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="2.0316348"
+       y="176.35797"
+       x="-49.739666"
+       height="24.856066"
+       width="14.03165"
+       id="rect1097"
+       style="opacity:1;fill:url(#linearGradient1099);fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <rect
+       style="opacity:1;fill:url(#linearGradient1103);fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1101"
+       width="14.03165"
+       height="24.856066"
+       x="-65.61467"
+       y="176.35797"
+       ry="2.0316348"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <rect
+       ry="1.8870292"
+       y="177.24255"
+       x="-64.73008"
+       height="23.086885"
+       width="12.262469"
+       id="rect977"
+       style="opacity:1;fill:#552200;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png" />
+    <g
+       style="fill:#552200"
+       id="g985"
+       transform="translate(0.03155723,-52.916669)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         id="path981"
+         transform="matrix(0.26458333,0,0,0.26458333,0,280.06665)"
+         d="m -161.625,-188.62695 v 87.25781 h 16.18945 c 3.95117,0 7.13282,-3.1797 7.13282,-7.13086 v -72.99414 c 0,-3.95116 -3.18165,-7.13281 -7.13282,-7.13281 z"
+         style="opacity:1;fill:#552200;fill-opacity:1;stroke:#000000;stroke-width:0.90095079;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         style="opacity:1;fill:#552200;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         d="m -42.747516,230.1591 v 23.08697 h -4.283458 c -1.045414,0 -1.887226,-0.8413 -1.887226,-1.88671 v -19.31303 c 0,-1.04542 0.841812,-1.88723 1.887226,-1.88723 z"
+         id="path983" />
+    </g>
+    <path
+       id="path989"
+       d="m -25.79839,177.2424 v 23.08697 h 3.225126 c 1.045414,0 1.887225,-0.8413 1.887225,-1.88671 v -19.31303 c 0,-1.04542 -0.841811,-1.88723 -1.887225,-1.88723 z"
+       style="opacity:1;fill:#552200;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccssssc"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:#552200;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -27.899291,177.2424 v 23.08697 h -3.225125 c -1.045414,0 -1.887226,-0.8413 -1.887226,-1.88671 v -19.31303 c 0,-1.04542 0.841812,-1.88723 1.887226,-1.88723 z"
+       id="path991"
+       sodipodi:nodetypes="ccssssc"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:nodetypes="ccssssc"
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:#552200;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -8.865056,177.2424 v 23.08697 h 2.1667927 c 1.045414,0 1.887225,-0.8413 1.887225,-1.88671 v -19.31303 c 0,-1.04542 -0.841811,-1.88723 -1.887225,-1.88723 z"
+       id="path995"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:nodetypes="ccssssc"
+       id="path997"
+       d="m -13.082623,177.2424 v 23.08697 h -2.166792 c -1.045414,0 -1.887226,-0.8413 -1.887226,-1.88671 v -19.31303 c 0,-1.04542 0.841812,-1.88723 1.887226,-1.88723 z"
+       style="opacity:1;fill:#552200;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       id="path1001"
+       d="m 8.0682776,177.2424 v 23.08697 h 1.1084587 c 1.0454147,0 1.8872257,-0.8413 1.8872257,-1.88671 v -19.31303 c 0,-1.04542 -0.841811,-1.88723 -1.8872257,-1.88723 z"
+       style="opacity:1;fill:#552200;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccssssc"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:#552200;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 1.7340433,177.2424 v 23.08697 H 0.62558463 c -1.045413,0 -1.88722523,-0.8413 -1.88722523,-1.88671 v -19.31303 c 0,-1.04542 0.84181223,-1.88723 1.88722523,-1.88723 z"
+       id="path1003"
+       sodipodi:nodetypes="ccssssc"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:nodetypes="csscc"
+       id="path1007"
+       d="m 15.797937,200.19523 c -0.695515,-0.27751 -1.184578,-0.95575 -1.184578,-1.75257 v -19.31303 c 0,-0.74689 0.429687,-1.38986 1.056321,-1.69616 z"
+       style="opacity:1;fill:#552200;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:#552200;fill-opacity:1;stroke:#000000;stroke-width:0.23837656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 25.72586,200.19523 c 0.695515,-0.27751 1.184578,-0.95575 1.184578,-1.75257 v -19.31303 c 0,-0.74689 -0.429687,-1.38986 -1.056321,-1.69616 z"
+       id="path1009"
+       sodipodi:nodetypes="csscc"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       inkscape:tile-y0="-104.29685"
+       inkscape:tile-x0="-66.409198"
+       y="175.3365"
+       x="-66.482185"
+       height="79.661728"
+       width="111.01667"
+       id="use1141"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:0.26731995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\doors.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
   </g>
