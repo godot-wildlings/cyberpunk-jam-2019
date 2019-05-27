@@ -45,8 +45,13 @@ func process_state(delta):
 	if player.state == my_state_num:
 		jump_velocity.y += Game.gravity * delta
 
-		#warning-ignore:return_value_discarded
-		player.move_and_collide(jump_velocity * delta)
+		var collision = player.move_and_collide(jump_velocity * delta)
+		if collision:
+			var damping : float = 0.5
+			var reflect = collision.remainder.bounce(collision.normal)
+			jump_velocity = jump_velocity.bounce(collision.normal) * damping
+			player.move_and_collide(reflect)
+
 
 		if sign(jump_velocity.y) > 0:
 			if player.is_on_platform():

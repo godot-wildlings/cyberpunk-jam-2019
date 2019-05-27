@@ -25,7 +25,14 @@ func deactivate():
 func process_state(delta):
 	if player.state == my_state_num:
 		fall_velocity.y += Game.gravity * delta
-		#warning-ignore:return_value_discarded
-		player.move_and_collide(fall_velocity * delta)
+
+		var collision = player.move_and_collide(fall_velocity * delta)
+		if collision:
+			var damping : float = 0.5
+			var reflect = collision.remainder.bounce(collision.normal)
+			fall_velocity = fall_velocity.bounce(collision.normal) * damping
+			player.move_and_collide(reflect)
+
+
 		if player.is_on_platform() == true:
 			player.land(fall_velocity)

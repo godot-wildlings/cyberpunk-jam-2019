@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Levels/ShippingContainer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenery/crate.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20.411, 6.24581 )
+
+[node name="Crate" instance=ExtResource( 1 )]
+position = Vector2( 0, 0 )
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 0.598724, 2.83447 )
+scale = Vector2( 0.33, 0.33 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0.663422, -10.5896 )
+shape = SubResource( 1 )

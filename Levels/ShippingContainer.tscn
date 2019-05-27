@@ -4,7 +4,7 @@
 [ext_resource path="res://Levels/ShippingContainerBW.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 183.321, 13.0464 )
+extents = Vector2( 181.558, 13.0464 )
 
 [node name="ShippingContainer" type="StaticBody2D"]
 position = Vector2( -109.065, 423.714 )

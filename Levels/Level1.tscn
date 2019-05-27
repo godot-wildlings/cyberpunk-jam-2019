@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Levels/Level1.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -8,11 +8,15 @@
 [ext_resource path="res://Scenery/StackedContainers.png" type="Texture" id=6]
 [ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Levels/ShippingContainer.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenery/Console.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=10]
-[ext_resource path="res://NPCs/Enemies/Enemy.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Levels/DrawCollisionShapes.gd" type="Script" id=12]
-[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Intro_Theme_Rough.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Levels/Crate.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Levels/Barrel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenery/Console.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Levels/Level2.tscn" type="PackedScene" id=13]
+[ext_resource path="res://NPCs/Enemies/Enemy.tscn" type="PackedScene" id=14]
+[ext_resource path="res://NPCs/Enemies/Robot.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Levels/DrawCollisionShapes.gd" type="Script" id=16]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Intro_Theme_Rough.ogg" type="AudioStream" id=17]
 
 [sub_resource type="TileSet" id=1]
 
@@ -164,7 +168,6 @@ collision_mask = 3
 shape = SubResource( 3 )
 
 [node name="Crates" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="ShippingContainer1" parent="Crates" instance=ExtResource( 8 )]
 
@@ -213,6 +216,18 @@ position = Vector2( 1271.37, -102.645 )
 [node name="ShippingContainer12" parent="Crates" instance=ExtResource( 8 )]
 position = Vector2( 1261.2, -208.223 )
 
+[node name="Crate" parent="Crates" instance=ExtResource( 9 )]
+position = Vector2( 356.989, 496.944 )
+
+[node name="Crate2" parent="Crates" instance=ExtResource( 9 )]
+position = Vector2( -493.169, 497.128 )
+
+[node name="Barrel" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 1984.67, 496.652 )
+
+[node name="Barrel2" parent="Crates" instance=ExtResource( 10 )]
+position = Vector2( 2276.79, 498.42 )
+
 [node name="Walls" type="Node2D" parent="."]
 editor/display_folded = true
 
@@ -232,29 +247,35 @@ shape = SubResource( 4 )
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
 
-[node name="Console" parent="InteractiveObjects" instance=ExtResource( 9 )]
+[node name="Console" parent="InteractiveObjects" instance=ExtResource( 11 )]
 position = Vector2( 3015.51, 489.078 )
 object_type = 1
 
-[node name="Door" parent="InteractiveObjects" instance=ExtResource( 10 )]
+[node name="Door" parent="InteractiveObjects" instance=ExtResource( 12 )]
 position = Vector2( -229.345, 52.3661 )
 
-[node name="Door2" parent="InteractiveObjects" instance=ExtResource( 10 )]
+[node name="Door2" parent="InteractiveObjects" instance=ExtResource( 12 )]
 position = Vector2( 994.058, 474.421 )
 
-[node name="LockedMedical" parent="InteractiveObjects" instance=ExtResource( 10 )]
+[node name="LockedMedical" parent="InteractiveObjects" instance=ExtResource( 12 )]
 position = Vector2( 1512.6, 265.506 )
 hidden_to_player = false
 locked = true
 
-[node name="Door4" parent="InteractiveObjects" instance=ExtResource( 10 )]
+[node name="Door4" parent="InteractiveObjects" instance=ExtResource( 12 )]
 position = Vector2( 1649.17, 474.421 )
 hidden_to_player = false
 
-[node name="Door5" parent="InteractiveObjects" instance=ExtResource( 10 )]
-position = Vector2( 2413.51, 476.477 )
+[node name="PortalToLevel2" parent="InteractiveObjects" instance=ExtResource( 12 )]
+position = Vector2( 2523.1, 473.052 )
+hidden_to_player = false
+locked = true
 
-[node name="elevator" parent="InteractiveObjects" instance=ExtResource( 10 )]
+[node name="Interaction" parent="InteractiveObjects/PortalToLevel2" index="1"]
+door_type = 2
+scene = ExtResource( 13 )
+
+[node name="elevator" parent="InteractiveObjects" instance=ExtResource( 12 )]
 editor/display_folded = true
 position = Vector2( 1422.59, 476.125 )
 hidden_to_player = false
@@ -268,7 +289,7 @@ text = "Elevator"
 [node name="exit" parent="InteractiveObjects/elevator" index="6"]
 position = Vector2( -1.41473, -514.258 )
 
-[node name="elevator2" parent="InteractiveObjects" instance=ExtResource( 10 )]
+[node name="elevator2" parent="InteractiveObjects" instance=ExtResource( 12 )]
 editor/display_folded = true
 position = Vector2( 1417.45, -54.5347 )
 hidden_to_player = false
@@ -283,20 +304,31 @@ text = "Elevator"
 position = Vector2( 6.59634, 532.648 )
 
 [node name="Enemies" type="Node2D" parent="."]
+editor/display_folded = true
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 11 )]
+[node name="Enemy" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 280.918, 493.807 )
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 11 )]
-position = Vector2( 858.229, 501.343 )
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 14 )]
+position = Vector2( -60.8233, 271.034 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 14 )]
+position = Vector2( 857.566, 484.094 )
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 14 )]
+position = Vector2( 1073.02, 266.97 )
+
+[node name="Robot" parent="Enemies" instance=ExtResource( 15 )]
+position = Vector2( 688.78, 486.024 )
 
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( -620.75, 493.792 )
 
 [node name="DrawCollisionShapes" type="Node2D" parent="."]
-script = ExtResource( 12 )
+script = ExtResource( 16 )
 
 [node name="Instructions" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Intro" type="Label" parent="Instructions"]
 margin_left = -697.505
@@ -356,10 +388,12 @@ text = "Some doors are locked.
 Use \"knock\" action to unlock."
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 13 )
+stream = ExtResource( 17 )
 volume_db = -15.0
 autoplay = true
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
+
+[editable path="InteractiveObjects/PortalToLevel2"]
 
 [editable path="InteractiveObjects/elevator"]
 
