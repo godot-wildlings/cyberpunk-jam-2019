@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Levels/Level1.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=10]
 [ext_resource path="res://NPCs/Enemies/Enemy.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Levels/DrawCollisionShapes.gd" type="Script" id=12]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Intro_Theme_Rough.ogg" type="AudioStream" id=13]
 
 [sub_resource type="TileSet" id=1]
 
@@ -21,7 +22,7 @@ extents = Vector2( 2387.5, 93.431 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 2003.54, 10 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 53.7192, 431.366 )
 
 [node name="Level1" type="Node2D"]
@@ -218,13 +219,13 @@ editor/display_folded = true
 position = Vector2( -722.279, 454.414 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallLeft"]
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="WallRight" type="StaticBody2D" parent="Walls"]
 position = Vector2( 3333.96, 406.581 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallRight"]
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="Scenery" type="Node2D" parent="."]
 
@@ -321,6 +322,11 @@ margin_bottom = 454.294
 text = "I climb the stacks to find them where they live.
 (Press up or down while stationary)"
 align = 1
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -12.0
+autoplay = true
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
 
 [editable path="InteractiveObjects/elevator"]
