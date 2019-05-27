@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/thud.wav-dfe3ee4ba21815ee9f54d8674f0fc3ca.sample"
+
+[deps]
+
+source_file="res://Projectiles/thud.wav"
+dest_files=[ "res://.import/thud.wav-dfe3ee4ba21815ee9f54d8674f0fc3ca.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

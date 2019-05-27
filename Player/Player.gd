@@ -41,6 +41,8 @@ onready var ray_front = $RayFront
 onready var ray_back = $RayBack
 onready var ground_rays = [ ray_front, ray_back ]
 
+onready var gun = $Gun
+
 var gravity : float = 200.0
 
 enum states { idle, running, jumping, climbing, falling, dead }
@@ -58,20 +60,32 @@ var interactive_objects_present : Array = []
 var max_health : float = 100.0
 var health : float = max_health
 
+var max_ammo : float = 16
+var ammo : float = max_ammo
+
+var damage_types = Game.damage_types
 var damage_reduction : Dictionary = { # zero to one
-		"physical" : 0,
-		"electrical" : 0,
-		"fire" : 0,
-		"acid" : 0,
-		"poison" : 0,
-		"cold" : 0
+		damage_types.physical : 0.5,
+		damage_types.electrical : 0,
+		damage_types.fire : 0,
+		damage_types.acid : 0,
+		damage_types.poison : 0,
+		damage_types.cold : 0
 }
 
-var actions = [ "scan", "knock", "ghost", "shoot", "slash" ]
+enum actions { scan, knock, ghost, shoot, slash }
+#warning-ignore:unused_class_variable
+var action_names = {
+		actions.scan : "scan",
+		actions.knock : "knock",
+		actions.ghost : "ghost",
+		actions.shoot : "shoot",
+		actions.slash : "slash"
+}
 
 var hitstun : bool = false
 
-var current_action : int = 0
+var current_action = 0 setget set_current_action
 
 signal scanned()
 
@@ -127,6 +141,8 @@ func flip_sprites(direction):
 		flip = true
 	for sprite in sprites:
 		sprite.set_flip_h(flip)
+
+	$Gun.set_scale(Vector2(abs($Gun.get_scale().x) * direction, $Gun.get_scale().y))
 
 func land():
 	jump_num = 0
@@ -194,44 +210,72 @@ func _unhandled_key_input(event):
 		jump()
 	elif Input.is_action_just_pressed("mv_up"):
 		if state == states.idle:
+			print("interactive_objects_present == ", interactive_objects_present)
 			if interactive_objects_present.size() > 0:
 				for object in interactive_objects_present:
 					if object.get_overlapping_bodies().has(self):
 						interact_with_object(object)
 			else:
 				climb()
+		elif Input.is_action_pressed("mv_right") or Input.is_action_pressed("mv_left"):
+			jump()
 	elif Input.is_action_just_pressed("mv_down"):
 		if state == states.idle:
 			drop()
 			#crouch()
 
 	elif Input.is_action_just_pressed("action_0"):
-		current_action = 0
+		self.current_action = 0
 	elif Input.is_action_just_pressed("action_1"):
-		current_action = 1
+		self.current_action = 1
 	elif Input.is_action_just_pressed("action_2"):
-		current_action = 2
+		self.current_action = 2
 	elif Input.is_action_just_pressed("action_3"):
-		current_action = 3
+		self.current_action = 3
 	elif Input.is_action_just_pressed("action_4"):
-		current_action = 4
+		self.current_action = 4
 	elif Input.is_action_just_pressed("action_5"):
-		current_action = 5
+		self.current_action = 5
 	elif Input.is_action_just_pressed("action_selected"):
 		use_action(current_action)
 	elif Input.is_action_just_pressed("next_action"):
-		current_action = wrapi(current_action + 1, 0, actions.size())
+		self.current_action = wrapi(current_action + 1, 0, actions.size())
 	elif Input.is_action_just_pressed("prev_action"):
-		current_action = wrapi(current_action - 1, 0, actions.size())
+		self.current_action = wrapi(current_action - 1, 0, actions.size())
+
+func set_current_action(value):
+	if value == actions.shoot:
+		draw_gun()
+	else:
+		holster_gun()
+	current_action = value
+
+func draw_gun():
+	gun.show()
+
+func holster_gun():
+	gun.hide()
+
 
 func use_action(action_num):
-	if actions[action_num] == "scan":
+	if action_num == actions.scan:
 		print("scanning")
 		emit_signal("scanned")
-	elif actions[action_num] == "ghost":
+	elif action_num == actions.ghost:
 		print("ghost")
-	elif actions[action_num] == "knock":
+	elif action_num == actions.knock:
 		print("knock")
+	elif action_num == actions.shoot:
+		shoot()
+
+func shoot():
+	if ammo > 0:
+		if has_node("Gun") and get_node("Gun").has_method("shoot"):
+			get_node("Gun").shoot()
+			ammo -= 1
+			$AmmoBar.set_value(ammo/max_ammo * 100)
+
+
 
 
 func interact_with_object(object):
@@ -249,6 +293,7 @@ func jump():
 		time_of_jump = time_elapsed
 		modulate_sprites(Color.magenta + Color(0.5, 0.5, 0.5))
 		animation_player.play("jump")
+		$SFX/huNoise.play()
 		jump_velocity = Vector2.UP * jump_speed
 
 func climb(): # switch to a higher platform
@@ -258,6 +303,7 @@ func climb(): # switch to a higher platform
 	ray.position = Vector2.UP * character_height/2
 	ray.set_cast_to(Vector2.UP * distance_between_platforms)
 	if ray.is_colliding() and ray.get_collider() is StaticBody2D:
+		$SFX/hooahNoise.play()
 		move_to_platform(ray.get_collider())
 
 func drop(): # switch to a lower platform
@@ -275,6 +321,7 @@ func drop(): # switch to a lower platform
 		var distance_between_platforms = 150
 		ray.set_cast_to(Vector2.DOWN * distance_between_platforms)
 		if ray.is_colliding() and ray.get_collider() is StaticBody2D:
+			$SFX/huhNoise.play()
 			move_to_platform(ray.get_collider())
 
 func move_to_platform(platform):
@@ -301,20 +348,28 @@ func _on_InteractiveObject_player_entered(object):
 func _on_InteractiveObject_player_exited(object):
 	interactive_objects_present.erase(object)
 
-func hit(damage, damage_type):
+func hit(damage : float, damage_type : int):
 	if hitstun == false:
 		# might want to add a direction for knockback later
 		var damage_mod : float = 1
 		if damage_reduction.has(damage_type):
+			print("received damage: type == ", damage_type, ": " , Game.damage_type_names[damage_type])
+			print("damage_reduction == ", damage_reduction[damage_type])
 			damage_mod = 1 - damage_reduction[damage_type]
 		health -= damage * damage_mod
+		$SFX/OofNoise.play()
 		modulate_sprites(Color.red)
 		hitstun = true
 		$HitstunTimer.start()
 		$HealthBar.set_value(health)
 
+func recover_health(amount : float):
+	health = min(health + amount, max_health)
+	$HealthBar.set_value(health)
 
-
+func add_ammo(amount: int):
+	ammo = min(ammo + amount, max_ammo)
+	$AmmoBar.set_value(ammo/max_ammo * 100)
 
 func _on_HitstunTimer_timeout():
 	modulate_sprites(Color.white)
