@@ -8,6 +8,7 @@ func _ready():
 	level = get_parent()
 	containers_to_scan = [level.get_node("Floors"), level.get_node("Crates")]
 
+#warning-ignore:unused_argument
 func _process(delta):
 	update()
 

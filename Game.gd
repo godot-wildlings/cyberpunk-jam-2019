@@ -6,7 +6,12 @@ var main : Node
 var level : Node2D
 #warning-ignore:unused_class_variable
 var player : KinematicBody2D
-
+#warning-ignore:unused_class_variable
+var gravity : float = 200.0
+#warning-ignore:unused_class_variable
+var time_elapsed : float = 0.0
+#warning-ignore:unused_class_variable
+var ticks : int = 0
 
 enum damage_types {
 	physical,
@@ -32,5 +37,6 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	time_elapsed += delta
+	ticks += 1

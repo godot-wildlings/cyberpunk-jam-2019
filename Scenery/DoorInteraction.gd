@@ -1,3 +1,11 @@
+"""
+Doors should open, close, lock, unlock
+Players can enter doors and return from doors
+Some doors act as elevators
+Some doors replenish supplies (health, ammo)
+Some doors transition to a new scene or cutscene
+"""
+
 extends Node2D
 
 enum door_types {
@@ -5,7 +13,8 @@ enum door_types {
 	health,
 	portal,
 	cutscene,
-	shortcut
+	shortcut,
+	tutorial
 }
 
 var door_names : Dictionary = {
@@ -13,7 +22,8 @@ var door_names : Dictionary = {
 	door_types.health : "Medical",
 	door_types.portal : "101",
 	door_types.cutscene : "303",
-	door_types.shortcut : "Transit"
+	door_types.shortcut : "Transit",
+	door_types.tutorial : "press\nup"
 }
 
 export (door_types) var door_type = door_types.health
@@ -48,7 +58,10 @@ func interact(interactor):
 
 
 func animate():
-	pass
+	"""
+	First, animate the doors opening, then animate the player walking in
+	"""
+
 
 func provide_reward(interactor):
 	if door_type == door_types.ammo and interactor.has_method("add_ammo"):
