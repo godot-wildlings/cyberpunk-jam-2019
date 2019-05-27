@@ -78,9 +78,10 @@ var damage_reduction : Dictionary = { # zero to one
 		damage_types.cold : 0
 }
 
-enum actions { scan, knock, ghost, shoot, slash }
+enum actions { ireal, scan, knock, ghost, shoot, slash }
 #warning-ignore:unused_class_variable
 var action_names = {
+		actions.ireal : "ireal",
 		actions.scan : "scan",
 		actions.knock : "knock",
 		actions.ghost : "ghost",

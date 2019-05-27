@@ -396,6 +396,10 @@ texture = ExtResource( 17 )
 hframes = 12
 frame = 11
 
+[node name="Timer" type="Timer" parent="States/Entering"]
+wait_time = 0.6
+one_shot = true
+
 [node name="Hidden" type="Node2D" parent="States"]
 script = ExtResource( 18 )
 
@@ -406,6 +410,10 @@ script = ExtResource( 19 )
 texture = ExtResource( 20 )
 hframes = 12
 frame = 11
+
+[node name="Timer" type="Timer" parent="States/Exiting"]
+wait_time = 0.6
+one_shot = true
 
 [node name="Dead" type="Node2D" parent="States"]
 

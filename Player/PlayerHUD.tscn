@@ -23,32 +23,38 @@ margin_right = 1024.0
 margin_bottom = 33.0
 alignment = 1
 
-[node name="Scan" type="Label" parent="Actions"]
-margin_left = 417.0
-margin_right = 446.0
+[node name="Action0" type="Label" parent="Actions"]
+margin_left = 398.0
+margin_right = 427.0
 margin_bottom = 14.0
 text = "Scan"
 
-[node name="Knock" type="Label" parent="Actions"]
-margin_left = 450.0
-margin_right = 488.0
+[node name="Action1" type="Label" parent="Actions"]
+margin_left = 431.0
+margin_right = 469.0
 margin_bottom = 14.0
 text = "Knock"
 
-[node name="Ghost" type="Label" parent="Actions"]
-margin_left = 492.0
-margin_right = 530.0
+[node name="Action2" type="Label" parent="Actions"]
+margin_left = 473.0
+margin_right = 511.0
 margin_bottom = 14.0
 text = "Ghost"
 
-[node name="Shoot" type="Label" parent="Actions"]
-margin_left = 534.0
-margin_right = 570.0
+[node name="Action3" type="Label" parent="Actions"]
+margin_left = 515.0
+margin_right = 551.0
 margin_bottom = 14.0
 text = "Shoot"
 
-[node name="Slash" type="Label" parent="Actions"]
-margin_left = 574.0
-margin_right = 607.0
+[node name="Action4" type="Label" parent="Actions"]
+margin_left = 555.0
+margin_right = 588.0
+margin_bottom = 14.0
+text = "Slash"
+
+[node name="Action5" type="Label" parent="Actions"]
+margin_left = 592.0
+margin_right = 625.0
 margin_bottom = 14.0
 text = "Slash"
