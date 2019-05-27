@@ -61,5 +61,7 @@ func process_state(delta):
 
 		if Input.is_action_just_pressed("jump") and jump_num < max_jumps:
 			player.jump(jump_velocity)
+		elif Input.is_action_just_pressed("mv_up") and jump_num < max_jumps:
+			player.jump(jump_velocity)
 
 

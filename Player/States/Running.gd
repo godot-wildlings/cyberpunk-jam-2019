@@ -25,7 +25,7 @@ func process_state(delta):
 			player.stop(run_velocity)
 			return
 
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("mv_up"):
 			player.jump(run_velocity)
 			return
 
