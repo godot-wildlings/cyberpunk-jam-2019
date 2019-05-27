@@ -38,7 +38,7 @@ func activate(arguments : Array = []):
 func deactivate():
 	get_node("JumpingSprite").hide()
 	jump_velocity = Vector2.ZERO
-	jump_num = 0
+	#jump_num = 0
 
 
 func process_state(delta):
@@ -52,5 +52,8 @@ func process_state(delta):
 			if player.is_on_platform():
 				print("landing")
 				player.land(jump_velocity)
+
+		if Input.is_action_just_pressed("jump") and jump_num < max_jumps:
+			player.jump(jump_velocity)
 
 

@@ -78,15 +78,16 @@ var damage_reduction : Dictionary = { # zero to one
 		damage_types.cold : 0
 }
 
-enum actions { ireal, scan, knock, ghost, shoot, slash }
+enum actions { scan, knock, ghost, shoot, punch, ireal, arrest }
 #warning-ignore:unused_class_variable
 var action_names = {
-		actions.ireal : "ireal",
 		actions.scan : "scan",
 		actions.knock : "knock",
 		actions.ghost : "ghost",
 		actions.shoot : "shoot",
-		actions.slash : "slash"
+		actions.punch : "punch",
+		actions.ireal : "ireal",
+		actions.arrest : "arrest"
 }
 
 var hitstun : bool = false
@@ -138,6 +139,7 @@ func fall(initial_velocity : Vector2 = Vector2.ZERO):
 	set_state(states.falling, [initial_velocity])
 
 func land(fall_velocity):
+	$States/Jumping.jump_num = 0
 	if Input.is_action_pressed("mv_left") or Input.is_action_pressed("mv_right"):
 		run(fall_velocity)
 	else:

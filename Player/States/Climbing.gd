@@ -42,7 +42,7 @@ func move_to_platform(platform):
 	player.animation_player.play("jump")
 
 	if not warning_issued:
-		push_warning("yielding for movement probably isn't the best approach")
+		push_warning(self.name + ": yielding for movement probably isn't the best approach")
 		warning_issued = true
 	yield(player.tween, "tween_completed")
 	player.stop(Vector2.ZERO)

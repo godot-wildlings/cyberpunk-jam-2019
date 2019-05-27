@@ -24,6 +24,7 @@ func process_state(delta):
 		elif Input.is_action_just_pressed("jump"):
 			player.jump()
 		elif Input.is_action_just_pressed("mv_up"):
+			print(player.interactive_objects_present)
 			if player.interactive_objects_present.size() > 0:
 				for object in player.interactive_objects_present:
 					if object.get_overlapping_bodies().has(player):

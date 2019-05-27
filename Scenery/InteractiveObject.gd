@@ -21,6 +21,7 @@ func _ready():
 	if hidden_to_player:
 		$Sprite.set_visible(false)
 		$Sprite.set_self_modulate(Color(1,1,1,0))
+		$Label.hide()
 
 	if locked:
 		if has_node("AnimationPlayer") and $AnimationPlayer.has_animation("lock"):
@@ -68,7 +69,7 @@ func _on_InteractiveObject_body_exited(body):
 #warning-ignore:unused_argument
 func interact(interactor):
 	if has_node("Interaction") and get_node("Interaction").has_method("interact"):
-			$Interaction.interact(interactor)
+		$Interaction.interact(interactor)
 
 
 

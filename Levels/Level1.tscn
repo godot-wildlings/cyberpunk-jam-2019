@@ -231,10 +231,9 @@ shape = SubResource( 4 )
 [node name="Scenery" type="Node2D" parent="."]
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Console" parent="InteractiveObjects" instance=ExtResource( 9 )]
-position = Vector2( 3017.31, 499.855 )
+position = Vector2( 3015.51, 489.078 )
 object_type = 1
 
 [node name="Door" parent="InteractiveObjects" instance=ExtResource( 10 )]
@@ -245,6 +244,7 @@ position = Vector2( 994.058, 474.421 )
 
 [node name="LockedMedical" parent="InteractiveObjects" instance=ExtResource( 10 )]
 position = Vector2( 1512.6, 265.506 )
+hidden_to_player = false
 locked = true
 
 [node name="Door4" parent="InteractiveObjects" instance=ExtResource( 10 )]
@@ -346,6 +346,14 @@ They've stolen or forged their digital ID.
 That's Identity Fraud, and it's a felony.
 (Scan robots to check ID)"
 align = 1
+
+[node name="LockedDoors" type="Label" parent="Instructions"]
+margin_left = 1295.67
+margin_top = 212.023
+margin_right = 1483.67
+margin_bottom = 243.023
+text = "Some doors are locked.
+Use \"knock\" action to unlock."
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
