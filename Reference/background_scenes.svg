@@ -21,6 +21,25 @@
   <defs
      id="defs2">
     <linearGradient
+       id="linearGradient3576"
+       inkscape:collect="always">
+      <stop
+         id="stop3568"
+         offset="0"
+         style="stop-color:#d8d8d8;stop-opacity:1" />
+      <stop
+         id="stop3574"
+         offset="1"
+         style="stop-color:#464646;stop-opacity:1" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 148.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="210 : 148.5 : 1"
+       inkscape:persp3d-origin="105 : 99 : 1"
+       id="perspective3500" />
+    <linearGradient
        inkscape:collect="always"
        id="linearGradient2607">
       <stop
@@ -54,7 +73,7 @@
        patternTransform="matrix(0.26458333,0,0,0.26458333,659.24388,-455.52601)" />
     <linearGradient
        inkscape:collect="always"
-       id="linearGradient2576">
+       id="basic">
       <stop
          style="stop-color:#1b1b1b;stop-opacity:1"
          offset="0"
@@ -94,7 +113,7 @@
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2580"
        x1="-405.56845"
        y1="79.285713"
@@ -104,7 +123,7 @@
        gradientTransform="translate(-0.70550185)" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2600"
        x1="-369.72421"
        y1="4.9223542"
@@ -113,7 +132,7 @@
        gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2612"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(52.211167)"
@@ -123,7 +142,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2614"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -132,7 +151,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2648"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(-0.70550185)"
@@ -142,7 +161,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2650"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -151,7 +170,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2652"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(52.211167)"
@@ -161,7 +180,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2654"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -170,7 +189,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2666"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(52.211167)"
@@ -180,7 +199,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2668"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -189,7 +208,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2720"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(-0.70550185)"
@@ -199,7 +218,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2722"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -208,7 +227,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2724"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(52.211167)"
@@ -218,7 +237,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2726"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -227,7 +246,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2728"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(-0.70550185)"
@@ -237,7 +256,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2730"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -246,7 +265,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2732"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(52.211167)"
@@ -256,7 +275,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2734"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -265,7 +284,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2736"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(52.211167)"
@@ -275,7 +294,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2738"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -284,7 +303,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2790"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(-0.70550185)"
@@ -294,7 +313,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2792"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -303,7 +322,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2794"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(52.211167)"
@@ -313,7 +332,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2796"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -322,7 +341,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2798"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(-0.70550185)"
@@ -332,7 +351,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2800"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -341,7 +360,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2802"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(52.211167)"
@@ -351,7 +370,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2804"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -360,7 +379,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2806"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(52.211167)"
@@ -370,7 +389,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2808"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -379,7 +398,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2860"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(-0.70550185)"
@@ -389,7 +408,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2862"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -398,7 +417,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2864"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(52.211167)"
@@ -408,7 +427,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2866"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -417,7 +436,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2868"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(-0.70550185)"
@@ -427,7 +446,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2870"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -436,7 +455,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2872"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(52.211167)"
@@ -446,7 +465,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2874"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -455,7 +474,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2876"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(52.211167)"
@@ -465,7 +484,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2878"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -474,7 +493,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2906"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(52.211167)"
@@ -484,7 +503,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2908"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -493,7 +512,7 @@
        y2="-17.189253" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2977"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(52.211167)"
@@ -503,7 +522,7 @@
        y2="79.096725" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient2979"
        gradientUnits="userSpaceOnUse"
        x1="-369.72421"
@@ -5172,7 +5191,7 @@
     </pattern>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient10034"
        x1="15.639973"
        y1="146.3588"
@@ -5181,7 +5200,7 @@
        gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient10038"
        gradientUnits="userSpaceOnUse"
        x1="15.639973"
@@ -5190,7 +5209,7 @@
        y2="-48.37064" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient10042"
        gradientUnits="userSpaceOnUse"
        x1="15.639973"
@@ -5199,7 +5218,7 @@
        y2="-48.37064" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient10046"
        gradientUnits="userSpaceOnUse"
        x1="15.639973"
@@ -5208,7 +5227,7 @@
        y2="-48.37064" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient2576"
+       xlink:href="#basic"
        id="linearGradient10050"
        gradientUnits="userSpaceOnUse"
        x1="15.639973"
@@ -5667,6 +5686,60 @@
          values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
          id="feColorMatrix2881" />
     </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#basic"
+       id="linearGradient3498"
+       x1="-588.05872"
+       y1="-554.0968"
+       x2="-678.10437"
+       y2="-553.82056"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.26458333,0,0,0.17649913,0,-40.562257)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3576"
+       id="radialGradient3539"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.2037334,0.240532,-0.28603907,1.4314717,-14.826652,99.83987)"
+       cx="-141.47105"
+       cy="-152.57684"
+       fx="-141.47105"
+       fy="-152.57684"
+       r="0.74930829" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3576"
+       id="radialGradient3580"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.2037334,0.240532,-0.28603907,1.4314717,12.160848,99.83987)"
+       cx="-141.47105"
+       cy="-152.57684"
+       fx="-141.47105"
+       fy="-152.57684"
+       r="0.74930829" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3576"
+       id="radialGradient3584"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.2037334,0.240532,-0.28603907,1.4314717,12.160848,126.82739)"
+       cx="-141.47105"
+       cy="-152.57684"
+       fx="-141.47105"
+       fy="-152.57684"
+       r="0.74930829" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3576"
+       id="radialGradient3588"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.2037334,0.240532,-0.28603907,1.4314717,-14.826652,126.82739)"
+       cx="-141.47105"
+       cy="-152.57684"
+       fx="-141.47105"
+       fy="-152.57684"
+       r="0.74930829" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -5675,9 +5748,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.24748737"
-     inkscape:cx="-1182.5438"
-     inkscape:cy="1510.4398"
+     inkscape:zoom="3.6203867"
+     inkscape:cx="-553.31287"
+     inkscape:cy="1672.6377"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -5696,7 +5769,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -5704,6 +5777,24 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <path
+       sodipodi:nodetypes="ccccccc"
+       inkscape:connector-curvature="0"
+       id="path3593"
+       d="m -111.87018,-122.98185 h -30.98656 l -0.52916,-0.52916 v -30.98655 h 30.98656 l 0.52916,0.52915 z"
+       style="opacity:1;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\crate.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -143.91507,-155.02673 h 30.98656 l 0.52916,0.52916 v 30.98655 h -30.98656 l -0.52916,-0.52915 z"
+       id="rect3590"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\crate.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
@@ -8149,6 +8240,113 @@
        x="-77.479729"
        y="-155.42294"
        inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Levels\ShippingContainerBW.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3484"
+       d="m -167.10352,-127.86553 a 13.373901,2.2913182 0 0 0 -13.3597,2.24243 h -0.0144 v 0.049 1.44371 0.007 h 0.002 a 13.373901,2.2913182 0 0 0 13.37252,2.28449 13.373901,2.2913182 0 0 0 13.37199,-2.28449 h 0.003 v -1.49955 h -0.0107 a 13.373901,2.2913182 0 0 0 -13.36397,-2.24244 z"
+       style="opacity:1;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.21492746;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\barrel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:url(#linearGradient3498);fill-opacity:1;stroke:none;stroke-width:0.21195704;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -179.78076,-153.86298 v 27.57937 a 12.935428,2.0963125 0 0 0 -0.25838,0.41677 12.935428,2.0963125 0 0 0 12.93565,2.09662 12.935428,2.0963125 0 0 0 12.93564,-2.09662 12.935428,2.0963125 0 0 0 -0.18035,-0.34507 v -27.65107 z"
+       id="rect3470"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\barrel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.21492746;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -166.84512,-156.10541 a 13.373901,2.2913182 0 0 0 -13.3597,2.24243 h -0.0144 v 0.049 1.44371 0.007 h 0.002 a 13.373901,2.2913182 0 0 0 13.37252,2.28449 13.373901,2.2913182 0 0 0 13.37199,-2.28449 h 0.003 v -1.49955 h -0.0107 a 13.373901,2.2913182 0 0 0 -13.36397,-2.24244 z"
+       id="path3472"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\barrel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <ellipse
+       ry="2.0963125"
+       rx="12.935428"
+       cy="-153.81407"
+       cx="-166.84509"
+       id="ellipse3478"
+       style="opacity:1;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.20218018;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\barrel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:1;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3516"
+       width="30.986561"
+       height="30.986561"
+       x="-143.38591"
+       y="-154.49757"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\crate.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="opacity:1;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:0.20263582;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m -116.02754,-127.13849 v -23.73137 l -23.73085,23.73137 z"
+       id="rect3518"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\crate.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       id="path3527"
+       d="m -139.75839,-150.86985 v 23.73136 l 23.73085,-23.73136 z"
+       style="opacity:1;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.20263582;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\crate.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:1;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.18498595;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3520"
+       width="21.664551"
+       height="21.664551"
+       x="117.06102"
+       y="128.17177"
+       transform="scale(-1)"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\crate.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <circle
+       style="opacity:1;fill:url(#radialGradient3539);fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path3529"
+       cx="-141.3092"
+       cy="-152.50745"
+       r="0.74930829"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\crate.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <circle
+       r="0.74930829"
+       cy="-152.50745"
+       cx="-114.3217"
+       id="circle3578"
+       style="opacity:1;fill:url(#radialGradient3580);fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\crate.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <circle
+       style="opacity:1;fill:url(#radialGradient3584);fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle3582"
+       cx="-114.3217"
+       cy="-125.51994"
+       r="0.74930829"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\crate.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <circle
+       r="0.74930829"
+       cy="-125.51994"
+       cx="-141.3092"
+       id="circle3586"
+       style="opacity:1;fill:url(#radialGradient3588);fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Scenery\crate.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
   </g>
