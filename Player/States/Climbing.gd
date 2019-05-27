@@ -11,14 +11,9 @@ func _ready():
 
 #warning-ignore:unused_argument
 func activate(arguments : Array = []):
-	var ray = player.get_node("RayUp")
-	var distance_between_platforms = 150
-
-	ray.position = Vector2.UP * player.character_height/2
-	ray.set_cast_to(Vector2.UP * distance_between_platforms)
-	if ray.is_colliding() and ray.get_collider() is StaticBody2D:
+	if arguments.size() > 0:
 		$hooahNoise.play()
-		move_to_platform(ray.get_collider())
+		move_to_platform(arguments[0])
 	else:
 		player.jump(Vector2.ZERO)
 
@@ -26,7 +21,7 @@ func deactivate():
 	pass
 
 #warning-ignore:unused_argument
-func _process(delta):
+func process_state(delta):
 	if player.state == my_state_num:
 		if player.is_on_platform():
 			player.stop(Vector2.ZERO)

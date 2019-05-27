@@ -175,6 +175,19 @@ func is_on_platform():
 			on_platform = true
 	return on_platform
 
+func get_platform_above() -> StaticBody2D:
+	var ray = get_node("RayUp")
+	var distance_between_platforms = 150
+
+	ray.position = Vector2.UP * character_height/2
+	ray.set_cast_to(Vector2.UP * distance_between_platforms)
+	if ray.is_colliding() and ray.get_collider() is StaticBody2D:
+		return ray.get_collider()
+	else:
+		return null
+
+func _process(delta):
+	current_state_node.process_state(delta)
 
 #warning-ignore:unused_argument
 func _unhandled_key_input(event):
@@ -259,9 +272,9 @@ func interact_with_object(object):
 func jump(initial_velocity : Vector2 = Vector2.ZERO):
 	set_state(states.jumping, [initial_velocity])
 
-func climb(): # switch to a higher platform
+func climb(platform : StaticBody2D): # switch to a higher platform
 	# note: Player ray is set to only scan bitmask 3: platforms
-	set_state(states.climbing)
+	set_state(states.climbing, [platform])
 
 
 func drop(): # switch to a lower platform

@@ -22,7 +22,7 @@ func deactivate():
 	fall_velocity = Vector2.ZERO
 	$FallingSprite.hide()
 
-func _process(delta):
+func process_state(delta):
 	if player.state == my_state_num:
 		fall_velocity.y += Game.gravity * delta
 		#warning-ignore:return_value_discarded

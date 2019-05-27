@@ -55,3 +55,9 @@ func move_to_platform(platform):
 	push_warning("yielding for movement probably isn't the best approach")
 	yield(player.tween, "tween_completed")
 	player.stop(Vector2.ZERO)
+
+#warning-ignore:unused_argument
+func process_state(delta):
+	if player.state == my_state_num:
+		if player.is_on_platform():
+			player.stop(Vector2.ZERO)

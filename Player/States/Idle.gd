@@ -17,7 +17,7 @@ func deactivate():
 	$StandingSprite.hide()
 
 #warning-ignore:unused_argument
-func _process(delta):
+func process_state(delta):
 	if player.state == my_state_num:
 		if Input.is_action_just_pressed("mv_right") or Input.is_action_just_pressed("mv_left"):
 			player.run()
@@ -26,10 +26,14 @@ func _process(delta):
 		elif Input.is_action_just_pressed("mv_up"):
 			if player.interactive_objects_present.size() > 0:
 				for object in player.interactive_objects_present:
-					if object.get_overlapping_bodies().has(self):
+					if object.get_overlapping_bodies().has(player):
 						player.interact_with_object(object)
 			else:
-				player.climb()
+				var platform_above = player.get_platform_above()
+				if  platform_above != null:
+					player.climb(platform_above)
+				else:
+					player.jump()
 		elif Input.is_action_just_pressed("mv_down"):
 			player.drop()
 

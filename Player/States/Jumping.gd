@@ -41,7 +41,7 @@ func deactivate():
 	jump_num = 0
 
 
-func _process(delta):
+func process_state(delta):
 	if player.state == my_state_num:
 		jump_velocity.y += Game.gravity * delta
 

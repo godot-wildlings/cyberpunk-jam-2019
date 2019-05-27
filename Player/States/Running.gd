@@ -11,7 +11,7 @@ func _ready():
 	my_state_num = player.states.running
 
 #warning-ignore:unused_argument
-func _process(delta):
+func process_state(delta):
 	if player.state == my_state_num:
 		if player.is_on_platform() == false:
 			player.fall(run_velocity)
