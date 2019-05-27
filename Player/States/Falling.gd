@@ -14,11 +14,11 @@ func activate(arguments : Array = []):
 	if arguments.size() > 0:
 		initial_velocity = arguments[0]
 	fall_velocity = initial_velocity
-	player.modulate_sprites(Color.blue + Color(0.5, 0.5, 0.5))
 	player.animation_player.play("fall")
 	$FallingSprite.show()
 
 func deactivate():
+	player.animation_player.stop()
 	fall_velocity = Vector2.ZERO
 	$FallingSprite.hide()
 

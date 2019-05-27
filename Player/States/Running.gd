@@ -34,12 +34,14 @@ func _process(delta):
 
 
 
-func activate():
+func activate(arguments : Array = []):
+
 	get_node("RunningSprite").show()
 	$RunningSprite.set_modulate(Color.white)
 	player.animation_player.play("run")
 
 func deactivate():
+	player.animation_player.stop()
 	get_node("RunningSprite").hide()
 	run_velocity = Vector2.ZERO
 

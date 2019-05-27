@@ -18,7 +18,7 @@ func _ready():
 	player = get_parent().get_parent()
 	my_state_num = player.states.jumping
 
-func activate(arguments):
+func activate(arguments : Array = []):
 
 	var initial_velocity : Vector2 = Vector2.ZERO
 	if arguments.size() > 0:

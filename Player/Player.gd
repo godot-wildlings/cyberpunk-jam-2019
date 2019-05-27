@@ -3,24 +3,11 @@ extends KinematicBody2D
 #warning-ignore:unused_class_variable
 var speed : float = 200
 
-var direction : int = 1
+#var direction : int = 1
 #warning-ignore:unused_class_variable
-var velocity : Vector2 = Vector2.ZERO
+#var velocity : Vector2 = Vector2.ZERO
 
-var run_velocity : Vector2 = Vector2.ZERO
-
-##warning-ignore:unused_class_variable
-#var jump_duration : float = 3.0 # not used yet.
-#var jump_speed : float = 100.0
-#var jump_velocity : Vector2 = Vector2.ZERO
-#var time_of_jump : float
-#
-##warning-ignore:unused_class_variable
-#var jump_num : int = 0 # for double jump tracking
-#var max_jumps : int = 2
-
-
-
+#warning-ignore:unused_class_variable
 onready var animation_player = $AnimationPlayer
 
 #warning-ignore:unused_class_variable
@@ -49,7 +36,7 @@ onready var gun = $Gun
 
 
 
-enum states { idle, running, jumping, climbing, falling, dead, entering, hidden, exiting }
+enum states { idle, running, jumping, climbing, dropping, falling, dead, entering, hidden, exiting }
 var state = states.idle
 
 var state_names : Dictionary = {
@@ -57,6 +44,7 @@ var state_names : Dictionary = {
 		states.running: "Running",
 		states.jumping: "Jumping",
 		states.climbing: "Climbing",
+		states.dropping: "Dropping",
 		states.falling: "Falling",
 		states.dead: "Dead",
 		states.entering: "Entering",
@@ -136,21 +124,21 @@ func flip_sprites(direction):
 	$Gun.set_scale(Vector2(abs($Gun.get_scale().x) * direction, $Gun.get_scale().y))
 
 
-func run():
-	set_state(states.running)
+func run(initial_velocity : Vector2 = Vector2.ZERO):
+	set_state(states.running, [Vector2(initial_velocity.x, 0)])
 
 func fall(initial_velocity : Vector2 = Vector2.ZERO):
 	set_state(states.falling, [initial_velocity])
 
 func land(fall_velocity):
 	if Input.is_action_pressed("mv_left") or Input.is_action_pressed("mv_right"):
-		set_state(states.running)
+		run(fall_velocity)
 	else:
-		set_state(states.idle)
+		stop(fall_velocity)
 
 func stop(initial_velocity):
 	# might want some screech to a halt animation, or drift distance
-	set_state(states.idle)
+	set_state(states.idle, [initial_velocity])
 
 
 #func return_to_idle():
@@ -274,38 +262,24 @@ func climb(): # switch to a higher platform
 
 func drop(): # switch to a lower platform
 	if is_on_platform():
-		var platform = null
-		for ground_ray in ground_rays:
-			if ground_ray.is_colliding() and ground_ray.get_collider() is StaticBody2D:
-				platform = ground_ray.get_collider()
+		set_state(states.dropping)
 
-		var ray = $RayDown
-		# move the ray below the current platform so it doesn't see it.
-		var margin = 10.0
-		var platform_height = platform.get_child(0).get_shape().get_extents().y * 2
-		ray.position = Vector2.DOWN * (character_height/2 + platform_height + margin)
-		var distance_between_platforms = 150
-		ray.set_cast_to(Vector2.DOWN * distance_between_platforms)
-		if ray.is_colliding() and ray.get_collider() is StaticBody2D:
-			$SFX/huhNoise.play()
-			move_to_platform(ray.get_collider())
-
-func move_to_platform(platform):
-	state = states.climbing
-	print("moving to a new platform")
-	# need to tween this or something
-	var my_pos = get_global_position()
-	assert(platform.get_child(0) is CollisionShape2D)
-	var platform_floor = platform.get_global_position().y - platform.get_child(0).get_shape().get_extents().y
-
-	var new_position = Vector2(my_pos.x, platform_floor - character_height/2)
-	tween.interpolate_property(self, "position",
-		position, new_position, 0.35,
-		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	tween.start()
-	$AnimationPlayer.play("jump")
-	yield(tween, "tween_completed")
-	set_state(states.idle)
+#func move_to_platform(platform):
+#	state = states.climbing
+#	print("moving to a new platform")
+#	# need to tween this or something
+#	var my_pos = get_global_position()
+#	assert(platform.get_child(0) is CollisionShape2D)
+#	var platform_floor = platform.get_global_position().y - platform.get_child(0).get_shape().get_extents().y
+#
+#	var new_position = Vector2(my_pos.x, platform_floor - character_height/2)
+#	tween.interpolate_property(self, "position",
+#		position, new_position, 0.35,
+#		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+#	tween.start()
+#	$AnimationPlayer.play("jump")
+#	yield(tween, "tween_completed")
+#	set_state(states.idle)
 
 	#set_global_position(new_position)
 

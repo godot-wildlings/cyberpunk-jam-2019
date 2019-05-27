@@ -8,13 +8,15 @@ func _ready():
 	player = get_parent().get_parent()
 	my_state_num = player.states.idle
 
-func activate():
+#warning-ignore:unused_argument
+func activate(arguments : Array = []):
+	# might receive a velocity argument, but it's ignored
 	$StandingSprite.show()
 
 func deactivate():
 	$StandingSprite.hide()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#warning-ignore:unused_argument
 func _process(delta):
 	if player.state == my_state_num:
 		if Input.is_action_just_pressed("mv_right") or Input.is_action_just_pressed("mv_left"):
