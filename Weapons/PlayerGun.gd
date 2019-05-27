@@ -21,6 +21,6 @@ func spawn_bullet():
 	$Bullets.add_child(new_bullet)
 	new_bullet.set_as_toplevel(true)
 	var rot = 0
-	if shooter.direction == -1:
+	if shooter.get_direction() == -1:
 		rot = PI
 	new_bullet.start($Muzzle.get_global_position(), Vector2.RIGHT * shooter.direction * bullet_speed, rot)

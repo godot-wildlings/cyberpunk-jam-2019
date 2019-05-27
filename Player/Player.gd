@@ -3,7 +3,7 @@ extends KinematicBody2D
 #warning-ignore:unused_class_variable
 var speed : float = 200
 
-#var direction : int = 1
+var direction : int = 1
 #warning-ignore:unused_class_variable
 #var velocity : Vector2 = Vector2.ZERO
 
@@ -123,6 +123,8 @@ func flip_sprites(direction):
 		sprite.set_flip_h(flip)
 	$Gun.set_scale(Vector2(abs($Gun.get_scale().x) * direction, $Gun.get_scale().y))
 
+func get_direction() -> int:
+	return direction
 
 func run(initial_velocity : Vector2 = Vector2.ZERO):
 	set_state(states.running, [Vector2(initial_velocity.x, 0)])
@@ -197,9 +199,11 @@ func _unhandled_key_input(event):
 		self.current_action = wrapi(current_action - 1, 0, actions.size())
 
 	if Input.is_action_just_pressed("mv_right"):
-		flip_sprites(1)
+		direction = 1
+		flip_sprites(direction)
 	elif Input.is_action_just_pressed("mv_left"):
-		flip_sprites(-1)
+		direction = -1
+		flip_sprites(direction)
 
 
 func get_direction_pressed() -> int:
