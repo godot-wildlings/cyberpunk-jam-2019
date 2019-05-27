@@ -2,7 +2,7 @@ extends Node2D
 
 #warning-ignore:unused_class_variable
 var jump_duration : float = 3.0 # not used yet.
-var jump_speed : float = 100.0
+var jump_speed : float = 200.0
 var jump_velocity : Vector2 = Vector2.ZERO
 var time_of_jump : float
 var bounce_damping : float = 0.1

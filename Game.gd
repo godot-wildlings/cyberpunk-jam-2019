@@ -7,7 +7,7 @@ var level : Node2D
 #warning-ignore:unused_class_variable
 var player : KinematicBody2D
 #warning-ignore:unused_class_variable
-var gravity : float = 200.0
+var gravity : float = 500.0
 #warning-ignore:unused_class_variable
 var time_elapsed : float = 0.0
 #warning-ignore:unused_class_variable
