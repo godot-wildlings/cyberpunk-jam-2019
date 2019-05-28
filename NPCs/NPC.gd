@@ -61,7 +61,7 @@ func deferred_ready():
 func enable_collisions_with_player():
 	var player_bit = 0
 	var player_value = 1
-	set_collision_mask_bit( 0, 1 )
+	set_collision_mask_bit(player_bit, player_value)
 
 
 func _process(delta):

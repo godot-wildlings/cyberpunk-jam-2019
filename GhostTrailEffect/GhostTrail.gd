@@ -11,5 +11,6 @@ func _ready():
 	alpha_tween.start()
 
 #warning-ignore:unused_argument
+#warning-ignore:unused_argument
 func _on_AlphaTween_tween_completed(obj : Object, key : NodePath):
 		queue_free()

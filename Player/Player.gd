@@ -7,7 +7,7 @@ var direction : int = 1
 #warning-ignore:unused_class_variable
 var velocity : Vector2 = Vector2.ZERO
 
-##warning-ignore:unused_class_variable
+#warning-ignore:unused_class_variable
 onready var animation_player = $AnimationPlayer
 
 
@@ -16,14 +16,13 @@ onready var ray_front = $RayFront
 #warning-ignore:unused_class_variable
 onready var ray_back = $RayBack
 onready var ground_rays = [ ray_front, ray_back ]
-
-
-
-
+#warning-ignore:unused_class_variable
+onready var tween = $Tween
+#warning-ignore:unused_class_variable
+onready var gun = $Actions/Attack/Gun
 
 enum states { idle, running, jumping, climbing, dropping, falling, dead, entering, hidden, exiting, attacking, hit }
 var state = states.idle
-
 var state_names : Dictionary = {
 		states.idle: "Idle",
 		states.running: "Running",
@@ -41,17 +40,12 @@ var state_names : Dictionary = {
 
 var current_state_node : Node2D
 
-
 var character_height : float
-
-onready var tween = $Tween
-
 var interactive_objects_present : Array = []
 
 var max_health : float = 100.0
 var health : float = max_health
 
-onready var gun = $Actions/Attack/Gun
 var max_ammo : float = 16
 var ammo : float = max_ammo
 
@@ -59,6 +53,7 @@ var keys_held : int = 0
 
 #warning-ignore:unused_class_variable
 var damage_types = Game.damage_types
+#warning-ignore:unused_class_variable
 var damage_reduction : Dictionary = { # zero to one
 		damage_types.physical : 0.5,
 		damage_types.electrical : 0,

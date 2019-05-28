@@ -2,6 +2,7 @@ extends Node2D
 var player : KinematicBody2D
 var gun : Node2D
 var tween : Tween
+#warning-ignore:unused_class_variable
 var initial_punch_sprite_scale
 export var punch_damage : float = 10
 
