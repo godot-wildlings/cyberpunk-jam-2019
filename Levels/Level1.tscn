@@ -384,7 +384,7 @@ margin_top = 212.023
 margin_right = 1483.67
 margin_bottom = 243.023
 text = "Some doors are locked.
-Use \"knock\" action to unlock."
+Find keys to unlock them."
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
