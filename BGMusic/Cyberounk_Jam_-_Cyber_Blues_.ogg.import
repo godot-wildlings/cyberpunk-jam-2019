@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cyberounk_Jam_-_Cyber_Blues_.ogg-50b6fb315b20b35f71ddeca69b7421e7.oggstr"
+
+[deps]
+
+source_file="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg"
+dest_files=[ "res://.import/Cyberounk_Jam_-_Cyber_Blues_.ogg-50b6fb315b20b35f71ddeca69b7421e7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

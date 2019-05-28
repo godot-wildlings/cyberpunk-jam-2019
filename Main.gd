@@ -2,13 +2,15 @@ extends Node
 
 # Declare member variables here. Examples:
 var level_num : int = -1
-var level : Node2D
+var level : Node
 onready var level_container : Node2D = $Levels
 onready var cutscene_container : Node2D = $Cutscenes
 
 var levels : Dictionary = {
 		"intro" : preload("res://Levels/Intro.tscn"),
+		"FemmeFatale" : preload("res://Story/FemmeFatale.tscn"),
 		"1" : preload("res://Levels/Level1.tscn"),
+
 		"2" : preload("res://Levels/Level2.tscn")
 }
 
