@@ -22,9 +22,10 @@ onready var falling_sprite = $States/Falling/FallingSprite
 onready var entering_sprite = $States/Entering/EnteringSprite
 #warning-ignore:unused_class_variable
 onready var exiting_sprite = $States/Exiting/ExitingSprite
+#warning-ignore:unused_class_variable
+onready var punching_sprite = $States/Attacking/PunchingSprite
 
-
-onready var sprites = [running_sprite, jumping_sprite, standing_sprite, falling_sprite, entering_sprite, exiting_sprite]
+onready var sprites = [running_sprite, jumping_sprite, standing_sprite, falling_sprite, entering_sprite, exiting_sprite, punching_sprite]
 
 #warning-ignore:unused_class_variable
 onready var ray_front = $RayFront
@@ -92,9 +93,19 @@ var action_names = {
 		actions.arrest : "arrest"
 }
 
+#warning-ignore:unused_class_variable
+var action_descriptions = {
+		actions.scan : "Validate Identities, Find Hidden Structures",
+		actions.knock : "Unlock Sealed Portals",
+		actions.ghost : "Cause a Distraction",
+		actions.attack : "Punch or Shoot",
+		actions.iReal : "Realer than Real, A Better World(TM)",
+		actions.arrest : "Take them in for questioning"
+}
+
 var hitstun : bool = false
 
-var current_action = 0 setget set_current_action
+var current_action_num : int = 0 setget set_current_action_num
 
 #warning-ignore:unused_class_variable
 var iReal_active : bool = false
@@ -130,12 +141,16 @@ func hide_sprites():
 		sprite.hide()
 
 func flip_sprites(direction):
-	var flip = false
-	if direction == -1:
-		flip = true
-	for sprite in sprites:
-		sprite.set_flip_h(flip)
-	gun.set_scale(Vector2(abs(gun.get_scale().x) * direction, gun.get_scale().y))
+	for state_node in $States.get_children():
+		if state_node.has_method("flip_sprites"):
+			state_node.flip_sprites(direction)
+
+#	var flip = false
+#	if direction == -1:
+#		flip = true
+#	for sprite in sprites:
+#		sprite.set_flip_h(flip)
+#	gun.set_scale(Vector2(abs(gun.get_scale().x) * direction, gun.get_scale().y))
 
 func get_direction() -> int:
 	return direction
@@ -203,23 +218,23 @@ func _process(delta):
 func _unhandled_key_input(event):
 
 	if Input.is_action_just_pressed("action_0"):
-		self.current_action = 0
+		self.current_action_num = 0
 	elif Input.is_action_just_pressed("action_1"):
-		self.current_action = 1
+		self.current_action_num = 1
 	elif Input.is_action_just_pressed("action_2"):
-		self.current_action = 2
+		self.current_action_num = 2
 	elif Input.is_action_just_pressed("action_3"):
-		self.current_action = 3
+		self.current_action_num = 3
 	elif Input.is_action_just_pressed("action_4"):
-		self.current_action = 4
+		self.current_action_num = 4
 	elif Input.is_action_just_pressed("action_5"):
-		self.current_action = 5
+		self.current_action_num = 5
 	elif Input.is_action_just_pressed("action_selected"):
-		use_action(current_action)
+		use_action(current_action_num)
 	elif Input.is_action_just_pressed("next_action"):
-		self.current_action = wrapi(current_action + 1, 0, actions.size())
+		self.current_action_num = wrapi(current_action_num + 1, 0, actions.size())
 	elif Input.is_action_just_pressed("prev_action"):
-		self.current_action = wrapi(current_action - 1, 0, actions.size())
+		self.current_action_num = wrapi(current_action_num - 1, 0, actions.size())
 
 	if Input.is_action_just_pressed("mv_right"):
 		direction = 1
@@ -237,12 +252,8 @@ func get_direction_pressed() -> int:
 	else:
 		return 0
 
-func set_current_action(value):
-#	if value == actions.attack:
-#		draw_gun()
-#	else:
-#		holster_gun()
-	current_action = value
+func set_current_action_num(value):
+	current_action_num = value
 
 
 
@@ -266,7 +277,7 @@ func knock():
 
 func attack():
 	$Actions/Attack.use()
-	#set_state(states.attacking)
+	set_state(states.attacking)
 
 func interact_with_object(object):
 	if object.has_method("interact"):

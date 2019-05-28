@@ -7,7 +7,6 @@ export var punch_damage : float = 10
 
 func _ready():
 	call_deferred("deferred_ready")
-	initial_punch_sprite_scale = $PunchSprite.get_scale()
 
 func deferred_ready():
 	player = get_parent().get_parent()
@@ -29,8 +28,8 @@ func punch(punch_targets):
 	print("punching")
 	# change sprite to punching.
 	# auto-hit nearby opponent
-	$PunchSprite.scale = initial_punch_sprite_scale
-	$PunchSprite.scale.x *= player.get_direction()
+#	$PunchSprite.scale = initial_punch_sprite_scale
+#	$PunchSprite.scale.x *= player.get_direction()
 	player.animation_player.play("punch")
 
 	for target in punch_targets:
@@ -38,7 +37,7 @@ func punch(punch_targets):
 			target.hit(punch_damage, Game.damage_types.physical)
 
 func shoot():
-
+	gun.scale.x = abs(gun.scale.x) * player.get_direction()
 	draw_gun()
 	yield(tween, "tween_completed")
 	print("shooting")
@@ -54,20 +53,22 @@ func shoot():
 
 func draw_gun():
 	# should rotate the gun up
-	gun.rotation = PI/2
+	gun.rotation = -PI/2 * player.get_direction()
 	gun.show()
 
-
+	#warning-ignore:return_value_discarded
 	tween.interpolate_property(gun, "rotation",
-			PI/2, 0, 0.2,
+			null, 0, 0.2,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	#warning-ignore:return_value_discarded
 	tween.start()
 
 func holster_gun():
-	# should rotate the gun down.
+	#warning-ignore:return_value_discarded
 	tween.interpolate_property(gun, "rotation",
-			0, PI/2, 0.2,
+			null, -PI/2 * player.get_direction(), 0.2,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	#warning-ignore:return_value_discarded
 	tween.start()
 	yield(tween, "tween_completed")
 	gun.hide()

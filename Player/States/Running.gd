@@ -3,12 +3,13 @@ extends Node2D
 var player : KinematicBody2D
 var run_velocity: Vector2 = Vector2.ZERO
 var my_state_num : int
-
+var sprite : Sprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_parent().get_parent()
 	my_state_num = player.states.running
+	sprite = $RunningSprite
 
 #warning-ignore:unused_argument
 func process_state(delta):
@@ -32,12 +33,17 @@ func process_state(delta):
 		#warning-ignore:return_value_discarded
 		player.move_and_collide(run_velocity * delta)
 
+func flip_sprites(dir):
+	if dir > 0:
+		sprite.set_flip_h(false)
+	else:
+		sprite.set_flip_h(true)
 
 
 func activate(arguments : Array = []):
 
-	get_node("RunningSprite").show()
-	$RunningSprite.set_modulate(Color.white)
+	sprite.show()
+	sprite.set_modulate(Color.white)
 	player.animation_player.play("run")
 
 func deactivate():

@@ -28,6 +28,13 @@ func process_state(delta):
 		if player.is_on_platform():
 			player.stop(Vector2.ZERO)
 
+func flip_sprites(dir):
+	pass
+#	if player.get_direction() > 0:
+#		sprite.set_flip_h(false)
+#	else:
+#		sprite.set_flip_h(true)
+
 func move_to_platform(platform):
 	# need to tween this or something
 	var my_pos = player.get_global_position()

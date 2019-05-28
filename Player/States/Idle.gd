@@ -2,11 +2,13 @@ extends Node2D
 
 var player : KinematicBody2D
 var my_state_num
+var sprite : Sprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_parent().get_parent()
 	my_state_num = player.states.idle
+	sprite = $StandingSprite
 
 #warning-ignore:unused_argument
 func activate(arguments : Array = []):
@@ -15,6 +17,12 @@ func activate(arguments : Array = []):
 
 func deactivate():
 	$StandingSprite.hide()
+
+func flip_sprites(dir):
+	if dir > 0:
+		sprite.set_flip_h(false)
+	else:
+		sprite.set_flip_h(true)
 
 #warning-ignore:unused_argument
 func process_state(delta):
