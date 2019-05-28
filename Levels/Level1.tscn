@@ -318,16 +318,15 @@ text = "Elevator"
 position = Vector2( 6.59634, 532.648 )
 
 [node name="Enemies" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="NPC" parent="Enemies" instance=ExtResource( 15 )]
 position = Vector2( -12.3033, 479.833 )
+attack_type = 0
 
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( -620.75, 493.792 )
 
 [node name="Instructions" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Intro" type="Label" parent="Instructions"]
 margin_left = -697.505
