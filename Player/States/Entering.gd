@@ -6,6 +6,9 @@ var my_state_num : int
 #var warning_issued : bool = false
 onready var sprite : Sprite = get_node("EnteringSprite")
 
+var object_entered : Node2D # most likely a door
+
+
 func _ready():
 	player = get_parent().get_parent()
 	call_deferred("deferred_ready")
@@ -23,7 +26,11 @@ func deferred_ready():
 
 #warning-ignore:unused_argument
 func activate(arguments : Array = []):
+	if arguments.size() > 0:
+		object_entered = arguments[0]
 	sprite.show()
+	var vector_to_door = object_entered.get_global_position() - player.get_global_position()
+	player.position.x += vector_to_door.x
 	player.animation_player.play("enter")
 	$Timer.start()
 

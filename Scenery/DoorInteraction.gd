@@ -60,7 +60,7 @@ func interact(interactor):
 func admit(entity_entering):
 	# theoretically, could be player or NPC
 	if entity_entering.has_method("enter"):
-		entity_entering.enter()
+		entity_entering.enter(self)
 		provide_reward(entity_entering)
 
 

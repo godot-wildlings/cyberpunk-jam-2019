@@ -181,8 +181,8 @@ func idle():
 #	animation_player.play("idle")
 
 
-func enter():
-	set_state(states.entering)
+func enter(object):
+	set_state(states.entering, [object])
 
 func exit():
 	set_state(states.exiting)

@@ -50,7 +50,8 @@ func next_tab():
 func next_scene():
 	Game.main.switch_levels(exit_scene)
 
-func input(event):
+#warning-ignore:unused_argument
+func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):
 		next_tab()
 	elif Input.is_action_just_pressed("ui_cancel"):
