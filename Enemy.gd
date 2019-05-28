@@ -3,14 +3,19 @@ extends KinematicBody2D
 # Declare member variables here. Examples:
 var direction : int = 1
 var speed : float = 80.0
-export var damage_output_per_hit = 25
 
+export var friendly : bool = true
+enum attitudes { ignore, fight, flee }
+export (attitudes) var initial_attitude = attitudes.ignore
+export (attitudes) var scanned_attitude = attitudes.fight
+
+export var damage_output_per_hit = 25
 export (Game.damage_types) var melee_damage_type
 
 onready var decision_timer : Timer = $DecisionTimer
 onready var reload_timer : Timer = $ReloadTimer
 onready var ghost_timer : Timer = $GhostTimer
-onready var ghost_tscn : PackedScene = preload("res://Ghost/Ghost.tscn") as PackedScene
+onready var ghost_tscn : PackedScene = preload("res://GhostTrailEffect/GhostTrail.tscn") as PackedScene
 
 var current_sprite
 
@@ -47,10 +52,12 @@ func _process(delta):
 
 
 	var collision = move_and_collide(Vector2.RIGHT * direction * speed * delta)
-	if melee_weapon_state == melee_weapon_states.ready and collision != null:
-		var collider = collision.get_collider()
-		if collider == Game.player:
-			melee_attack(collider)
+
+	if not friendly:
+		if melee_weapon_state == melee_weapon_states.ready and collision != null:
+			var collider = collision.get_collider()
+			if collider == Game.player:
+				melee_attack(collider)
 
 func melee_attack(object):
 	if object.has_method("hit"):

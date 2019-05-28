@@ -334,6 +334,7 @@ tracks/4/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 28
 script = ExtResource( 1 )
 
 [node name="States" type="Node2D" parent="."]
@@ -433,6 +434,7 @@ hframes = 12
 frame = 11
 
 [node name="Actions" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Knock" type="Node2D" parent="Actions"]
 script = ExtResource( 21 )

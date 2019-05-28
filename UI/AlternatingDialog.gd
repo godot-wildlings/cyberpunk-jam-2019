@@ -1,30 +1,22 @@
 extends CanvasLayer
 
 onready var dialog_container = $MarginContainer/VBoxContainer/MarginContainer/DialogContainer
-var dialog : Array = []
-var exit_scene : PackedScene
+export var dialog : Array = []
+export var exit_scene : PackedScene
 var text_revealed : int = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	start([], null)
+	start()
 
-func start(dialog_arr : Array, exit_to_scene : PackedScene):
-	exit_scene = exit_to_scene
+func start():
 
 	if exit_scene == null:
 		exit_scene = preload("res://Levels/Level1.tscn")
 
-	dialog = dialog_arr
-
 	if dialog.size() == 0:
 		dialog = [
-			"I swear I didn't do it, Mr..",
-			"Deckard",
-			"I didn't commit Identity Fraud. My ident was stolen!",
-			"That's not up to me.",
-			"How can I convince you?",
-			"Start from the beginning..."
+			"........"
 		]
 
 	for i in range(dialog.size()):
