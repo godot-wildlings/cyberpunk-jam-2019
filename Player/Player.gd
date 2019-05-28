@@ -10,23 +10,6 @@ var velocity : Vector2 = Vector2.ZERO
 ##warning-ignore:unused_class_variable
 onready var animation_player = $AnimationPlayer
 
-#moved sprite coloring into states
-##warning-ignore:unused_class_variable
-#onready var running_sprite = $States/Running/RunningSprite
-##warning-ignore:unused_class_variable
-#onready var jumping_sprite = $States/Jumping/JumpingSprite
-##warning-ignore:unused_class_variable
-#onready var standing_sprite = $States/Idle/StandingSprite
-##warning-ignore:unused_class_variable
-#onready var falling_sprite = $States/Falling/FallingSprite
-##warning-ignore:unused_class_variable
-#onready var entering_sprite = $States/Entering/EnteringSprite
-##warning-ignore:unused_class_variable
-#onready var exiting_sprite = $States/Exiting/ExitingSprite
-##warning-ignore:unused_class_variable
-#onready var punching_sprite = $States/Attacking/PunchingSprite
-#
-#onready var sprites = [running_sprite, jumping_sprite, standing_sprite, falling_sprite, entering_sprite, exiting_sprite, punching_sprite]
 
 #warning-ignore:unused_class_variable
 onready var ray_front = $RayFront
@@ -84,7 +67,7 @@ var damage_reduction : Dictionary = { # zero to one
 		damage_types.cold : 0
 }
 
-enum actions { scan, knock, ghost, attack, iReal, arrest }
+enum actions { scan, knock, ghost, attack, arrest }
 #warning-ignore:unused_class_variable
 var action_names = {
 		actions.scan : "scan", # same as iReal
@@ -270,8 +253,8 @@ func use_action(action_num):
 		knock()
 	elif action_num == actions.attack:
 		attack()
-	elif action_num == actions.iReal:
-		$Actions/iReal.use()
+	elif action_num == actions.arrest:
+		print("you're under arrest")
 
 
 func knock():
