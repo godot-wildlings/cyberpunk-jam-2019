@@ -32,16 +32,16 @@
 [ext_resource path="res://Player/ammo_front.png" type="Texture" id=30]
 [ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=31]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 radius = 438.421
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 29.8278, 22.4791 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 17.9254, 18.9475 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("States/Entering/EnteringSprite:frame")
@@ -56,7 +56,7 @@ tracks/0/keys = {
 "values": [ 0, 11 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("States/Exiting/ExitingSprite:frame")
@@ -71,7 +71,7 @@ tracks/0/keys = {
 "values": [ 0, 11 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("States/Running/RunningSprite:visible")
@@ -134,7 +134,7 @@ tracks/4/keys = {
 "values": [ 6, 7, 6, 7, 6 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("States/Running/RunningSprite:visible")
@@ -185,7 +185,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 length = 1.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("States/Idle/StandingSprite:visible")
@@ -248,7 +248,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 resource_name = "punch"
 length = 0.6
 step = 0.05
@@ -265,7 +265,7 @@ tracks/0/keys = {
 "values": [ 0, 11 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -455,7 +455,7 @@ collision_layer = 0
 collision_mask = 46
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actions/Scan/EffectiveRange"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="DurationTimer" type="Timer" parent="Actions/Scan"]
 wait_time = 6.0
@@ -469,7 +469,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actions/Attack/MeleeRange"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Gun" parent="Actions/Attack" instance=ExtResource( 25 )]
 position = Vector2( 1.41703, -10.9583 )
@@ -477,16 +477,16 @@ scale = Vector2( 0.140732, 0.140732 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.407814, 3.87423 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/enter = SubResource( 5 )
-anims/exit = SubResource( 6 )
-anims/fall = SubResource( 7 )
-anims/idle = SubResource( 8 )
-anims/jump = SubResource( 9 )
-anims/punch = SubResource( 10 )
-anims/run = SubResource( 11 )
+anims/enter = SubResource( 4 )
+anims/exit = SubResource( 5 )
+anims/fall = SubResource( 6 )
+anims/idle = SubResource( 7 )
+anims/jump = SubResource( 8 )
+anims/punch = SubResource( 9 )
+anims/run = SubResource( 10 )
 
 [node name="RayFront" type="RayCast2D" parent="."]
 position = Vector2( 18.5238, 18.4018 )

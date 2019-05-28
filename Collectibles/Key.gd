@@ -10,10 +10,12 @@ func _ready():
 
 func die():
 	$Sprite.hide()
-	state = states.collected
 	call_deferred("queue_free")
 
 func _on_Key_body_entered(body):
 	if body == Game.player and state == states.ready:
+		state = states.collected
 		body.pickup_key()
+		$PickupNoise.play()
+		yield($PickupNoise, "finished")
 		die()
