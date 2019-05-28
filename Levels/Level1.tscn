@@ -16,7 +16,7 @@
 [ext_resource path="res://Levels/Level3.tscn" type="PackedScene" id=14]
 [ext_resource path="res://NPCs/Enemies/Enemy.tscn" type="PackedScene" id=15]
 [ext_resource path="res://NPCs/Enemies/Robot.tscn" type="PackedScene" id=16]
-[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Intro_Theme_Rough.ogg" type="AudioStream" id=17]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Nightfall.ogg" type="AudioStream" id=17]
 [ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=18]
 
 [sub_resource type="TileSet" id=1]

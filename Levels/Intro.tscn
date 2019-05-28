@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Levels/Intro.gd" type="Script" id=1]
+[ext_resource path="res://Scenery/apartment.png" type="Texture" id=2]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Intro_Theme_Rough.ogg" type="AudioStream" id=3]
 
 [sub_resource type="InputEventAction" id=1]
 action = "ui_accept"
@@ -33,13 +35,14 @@ margin_right = 974.0
 margin_bottom = 550.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-margin_right = 305.0
+margin_right = 365.0
 margin_bottom = 500.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.66
 
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_right = 305.0
+margin_right = 365.0
 margin_bottom = 150.0
 text = "Game developed for Cyberpunk Jam
 
@@ -51,16 +54,26 @@ DoggieBalloon
 Regression
 "
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 154.0
+margin_right = 365.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-margin_left = 309.0
-margin_right = 614.0
+margin_left = 369.0
+margin_right = 924.0
 margin_bottom = 500.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_right = 305.0
-margin_bottom = 218.0
+margin_right = 555.0
+margin_bottom = 167.0
 text = "The fear was perpetual surveillance. We got that.
 
 Nobody expected the cultural-shift to volunatry, radical-transparency. We broadcast everything now. To all who would listen.
@@ -73,16 +86,13 @@ Enter the DHU : Digital Homicide Unit.
 autowrap = true
 
 [node name="StartButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 222.0
-margin_right = 305.0
-margin_bottom = 242.0
+margin_top = 171.0
+margin_right = 555.0
+margin_bottom = 191.0
 shortcut = SubResource( 2 )
 text = "Start"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-margin_left = 618.0
-margin_right = 924.0
-margin_bottom = 500.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
 [connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2/StartButton" to="." method="_on_StartButton_pressed"]
