@@ -48,15 +48,20 @@ func interact(interactor):
 		if animation_player.has_animation("open"):
 			animation_player.play("open")
 			door.open = true
+			yield(animation_player, "animation_finished")
+			admit(interactor)
 	elif door.locked:
 		if animation_player.has_animation("access_denied"):
 			animation_player.play("access_denied")
 	elif door.open:
 		# what should happen? The door is already open
-		if interactor.has_method("enter"):
-			interactor.enter()
-			provide_reward(interactor)
+		admit(interactor)
 
+func admit(entity_entering):
+	# theoretically, could be player or NPC
+	if entity_entering.has_method("enter"):
+		entity_entering.enter()
+		provide_reward(entity_entering)
 
 
 func animate():

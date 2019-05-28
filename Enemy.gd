@@ -103,6 +103,7 @@ func hit(damage, damage_type):
 	health -= damage * (1-damage_reduction[damage_type])
 	if health <= 0:
 		die()
+	$HealthBar.set_value(health/max_health * 100)
 
 func die():
 	state = states.dead

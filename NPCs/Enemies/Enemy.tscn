@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Player/female_walking.png" type="Texture" id=2]
 [ext_resource path="res://NPCs/Enemies/warning.png" type="Texture" id=3]
 [ext_resource path="res://NPCs/Enemies/oof.wav" type="AudioStream" id=4]
 [ext_resource path="res://NPCs/Enemies/ow.wav" type="AudioStream" id=5]
+[ext_resource path="res://Player/health-red.png" type="Texture" id=6]
+[ext_resource path="res://Player/health-green.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 22.4294, 25.1545 )
@@ -98,5 +100,15 @@ stream = ExtResource( 4 )
 
 [node name="OwNoise" type="AudioStreamPlayer2D" parent="SFX/hits"]
 stream = ExtResource( 5 )
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = -23.0316
+margin_top = -41.3068
+margin_right = 68.9684
+margin_bottom = -1.30677
+rect_scale = Vector2( 0.503994, 0.503994 )
+value = 100.0
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
 [connection signal="timeout" from="DecisionTimer" to="." method="_on_DecisionTimer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]

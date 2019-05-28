@@ -2,9 +2,12 @@ extends Node2D
 var player : KinematicBody2D
 var gun : Node2D
 var tween : Tween
+var initial_punch_sprite_scale
+export var punch_damage : float = 10
 
 func _ready():
 	call_deferred("deferred_ready")
+	initial_punch_sprite_scale = $PunchSprite.get_scale()
 
 func deferred_ready():
 	player = get_parent().get_parent()
@@ -18,17 +21,24 @@ func use():
 
 	var melee_candidates = $MeleeRange.get_overlapping_bodies()
 	if melee_candidates.size() > 0:
-		punch()
+		punch(melee_candidates)
 	else:
 		shoot()
 
-func punch():
+func punch(punch_targets):
 	print("punching")
 	# change sprite to punching.
 	# auto-hit nearby opponent
+	$PunchSprite.scale = initial_punch_sprite_scale
+	$PunchSprite.scale.x *= player.get_direction()
 	player.animation_player.play("punch")
 
+	for target in punch_targets:
+		if target.has_method("hit"):
+			target.hit(punch_damage, Game.damage_types.physical)
+
 func shoot():
+
 	draw_gun()
 	yield(tween, "tween_completed")
 	print("shooting")

@@ -27,4 +27,4 @@ func spawn_bullet():
 	var rot = 0
 	if shooter.get_direction() == -1:
 		rot = PI
-	new_bullet.start($Muzzle.get_global_position(), Vector2.RIGHT * shooter.direction * bullet_speed, rot)
+	new_bullet.start($Muzzle.get_global_position(), Vector2.RIGHT * shooter.direction * bullet_speed, rot, shooter)

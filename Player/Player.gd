@@ -105,7 +105,7 @@ func _ready():
 	character_height = $CollisionShape2D.get_shape().get_extents().y * 2
 	#call_deferred("deferred_ready")
 	set_state(states.idle)
-
+	$Actions.show()
 	call_deferred("deferred_ready")
 
 func deferred_ready():
