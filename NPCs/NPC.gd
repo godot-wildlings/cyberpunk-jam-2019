@@ -4,10 +4,11 @@ extends KinematicBody2D
 var direction : int = 1
 var speed : float = 80.0
 
-export var friendly : bool = true
+#export var friendly : bool = true
 enum attitudes { ignore, fight, flee }
 export (attitudes) var initial_attitude = attitudes.ignore
 export (attitudes) var scanned_attitude = attitudes.fight
+var scanned : bool = false
 
 export var damage_output_per_hit = 25
 export (Game.damage_types) var melee_damage_type
@@ -39,6 +40,9 @@ export var damage_reduction : Dictionary = { # zero to one
 		damage_types.cold : 0
 }
 
+var warning_issued : bool = false
+
+
 func _ready():
 	#warning-ignore:return_value_discarded
 	ghost_timer.connect("timeout", self, "_on_GhostTimer_timout")
@@ -48,16 +52,43 @@ func _ready():
 	current_sprite = $Sprites/RealSprite
 	$AnimationPlayer.play("walk")
 
-func _process(delta):
+	call_deferred("deferred_ready")
 
+func deferred_ready():
+	if initial_attitude == attitudes.fight:
+		enable_collisions_with_player()
+
+func enable_collisions_with_player():
+	var player_bit = 0
+	var player_value = 1
+	set_collision_mask_bit( 0, 1 )
+
+
+func _process(delta):
 
 	var collision = move_and_collide(Vector2.RIGHT * direction * speed * delta)
 
-	if not friendly:
+	var current_attitude
+	if scanned == false:
+		current_attitude = initial_attitude
+	else:
+		current_attitude = scanned_attitude
+
+	if Game.ticks%30 == 0:
+		print(self.name, " current_attitude == ", current_attitude)
+
+	if current_attitude == attitudes.fight:
 		if melee_weapon_state == melee_weapon_states.ready and collision != null:
+			print(self.name, " attacking")
 			var collider = collision.get_collider()
 			if collider == Game.player:
 				melee_attack(collider)
+	elif current_attitude == attitudes.flee:
+		if Game.ticks %60 == 0:
+			print(self.name, " is running away")
+		if not warning_issued:
+			push_warning("NPCs still need fleeing behaviour")
+			warning_issued = true
 
 func melee_attack(object):
 	if object.has_method("hit"):
@@ -99,6 +130,11 @@ func _on_Player_scanned():
 	$Sprites/VRSprite.show()
 	current_sprite = $Sprites/VRSprite
 	$GhostTimer.start()
+	print(self.name, " scanned")
+	scanned = true
+	if scanned_attitude == attitudes.fight:
+		enable_collisions_with_player()
+
 
 
 

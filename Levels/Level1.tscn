@@ -316,8 +316,7 @@ position = Vector2( 6.59634, 532.648 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="NPC" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( 47.163, 485.984 )
-initial_attitude = 1
+position = Vector2( -12.3033, 479.833 )
 
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( -620.75, 493.792 )
@@ -384,13 +383,13 @@ Use \"knock\" action to unlock."
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
-volume_db = -15.0
+volume_db = -9.0
 autoplay = true
 bus = "Music"
 
 [node name="BGSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
-volume_db = -12.0
+volume_db = -20.0
 autoplay = true
 bus = "SFX"
 

@@ -38,7 +38,7 @@ onready var ground_rays = [ ray_front, ray_back ]
 
 
 
-enum states { idle, running, jumping, climbing, dropping, falling, dead, entering, hidden, exiting, attacking }
+enum states { idle, running, jumping, climbing, dropping, falling, dead, entering, hidden, exiting, attacking, hit }
 var state = states.idle
 
 var state_names : Dictionary = {
@@ -52,7 +52,8 @@ var state_names : Dictionary = {
 		states.entering: "Entering",
 		states.hidden: "Hidden",
 		states.exiting: "Exiting",
-		states.attacking: "Attacking"
+		states.attacking: "Attacking",
+		states.hit: "Hit"
 }
 
 var current_state_node : Node2D
@@ -86,21 +87,19 @@ var damage_reduction : Dictionary = { # zero to one
 enum actions { scan, knock, ghost, attack, iReal, arrest }
 #warning-ignore:unused_class_variable
 var action_names = {
-		actions.scan : "scan",
+		actions.scan : "scan", # same as iReal
 		actions.knock : "knock",
 		actions.ghost : "ghost",
 		actions.attack : "attack",
-		actions.iReal : "ireal",
 		actions.arrest : "arrest"
 }
 
 #warning-ignore:unused_class_variable
 var action_descriptions = {
-		actions.scan : "Validate Identities, Find Hidden Structures",
+		actions.scan : "iReal(TM): More real than real; a better world",
 		actions.knock : "Unlock Sealed Portals",
 		actions.ghost : "Cause a Distraction",
 		actions.attack : "Punch or Shoot",
-		actions.iReal : "Realer than Real, A Better World(TM)",
 		actions.arrest : "Take them in for questioning"
 }
 
