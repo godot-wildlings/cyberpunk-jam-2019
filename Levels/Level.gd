@@ -11,7 +11,7 @@ func _ready():
 	state = states.running
 	spawn_player()
 
-# warning-ignore:unused_argument
+#warning-ignore:unused_argument
 func _process(delta):
 	update()
 
@@ -29,7 +29,7 @@ func _on_ResetArea_body_entered(body):
 		Game.main.reset_level()
 
 func spawn_key(location):
-	var key_scene = preload("res://Collectibles/key.tscn")
+	var key_scene = preload("res://Collectibles/Key.tscn")
 	var new_key = key_scene.instance()
 	new_key.set_global_position(location)
 	$Collectibles.add_child(new_key)
