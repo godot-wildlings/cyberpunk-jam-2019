@@ -25,5 +25,8 @@ func spawn_bullet(target : Node2D):
 	var new_bullet = bullet_scene.instance()
 	$Bullets.add_child(new_bullet)
 	new_bullet.set_as_toplevel(true)
-
-	new_bullet.start($Muzzle.get_global_position(), Vector2.RIGHT * sign(target.global_position.x) * bullet_speed, 0, shooter)
+	var direction = sign((target.global_position - global_position).x)
+	var rot = 0
+	if target.get_direction() == -1:
+		rot = PI
+	new_bullet.start($Muzzle.get_global_position(), Vector2.RIGHT * direction * bullet_speed, rot, shooter)
