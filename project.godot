@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Player_State",
+"language": "GDScript",
+"path": "res://Player/States/State.gd"
+} ]
 _global_script_class_icons={
-
+"Player_State": ""
 }
 
 [application]

@@ -5,9 +5,9 @@ At the end of the duration timer:
 	switch to idle or running state, depending on keys pressed
 """
 
-extends Node2D
+extends Player_State
 
-var player : KinematicBody2D
+#var player : KinematicBody2D
 onready var sprite : Sprite = $PunchingSprite
 
 # Called when the node enters the scene tree for the first time.

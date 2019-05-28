@@ -5,27 +5,28 @@ var speed : float = 200
 
 var direction : int = 1
 #warning-ignore:unused_class_variable
-#var velocity : Vector2 = Vector2.ZERO
+var velocity : Vector2 = Vector2.ZERO
 
-#warning-ignore:unused_class_variable
+##warning-ignore:unused_class_variable
 onready var animation_player = $AnimationPlayer
 
-#warning-ignore:unused_class_variable
-onready var running_sprite = $States/Running/RunningSprite
-#warning-ignore:unused_class_variable
-onready var jumping_sprite = $States/Jumping/JumpingSprite
-#warning-ignore:unused_class_variable
-onready var standing_sprite = $States/Idle/StandingSprite
-#warning-ignore:unused_class_variable
-onready var falling_sprite = $States/Falling/FallingSprite
-#warning-ignore:unused_class_variable
-onready var entering_sprite = $States/Entering/EnteringSprite
-#warning-ignore:unused_class_variable
-onready var exiting_sprite = $States/Exiting/ExitingSprite
-#warning-ignore:unused_class_variable
-onready var punching_sprite = $States/Attacking/PunchingSprite
-
-onready var sprites = [running_sprite, jumping_sprite, standing_sprite, falling_sprite, entering_sprite, exiting_sprite, punching_sprite]
+#moved sprite coloring into states
+##warning-ignore:unused_class_variable
+#onready var running_sprite = $States/Running/RunningSprite
+##warning-ignore:unused_class_variable
+#onready var jumping_sprite = $States/Jumping/JumpingSprite
+##warning-ignore:unused_class_variable
+#onready var standing_sprite = $States/Idle/StandingSprite
+##warning-ignore:unused_class_variable
+#onready var falling_sprite = $States/Falling/FallingSprite
+##warning-ignore:unused_class_variable
+#onready var entering_sprite = $States/Entering/EnteringSprite
+##warning-ignore:unused_class_variable
+#onready var exiting_sprite = $States/Exiting/ExitingSprite
+##warning-ignore:unused_class_variable
+#onready var punching_sprite = $States/Attacking/PunchingSprite
+#
+#onready var sprites = [running_sprite, jumping_sprite, standing_sprite, falling_sprite, entering_sprite, exiting_sprite, punching_sprite]
 
 #warning-ignore:unused_class_variable
 onready var ray_front = $RayFront
@@ -103,7 +104,7 @@ var action_descriptions = {
 		actions.arrest : "Take them in for questioning"
 }
 
-var hitstun : bool = false
+#var hitstun : bool = false
 
 var current_action_num : int = 0 setget set_current_action_num
 
@@ -137,8 +138,12 @@ func set_state(state_num, arguments : Array = []):
 	state = state_num
 
 func hide_sprites():
-	for sprite in sprites:
-		sprite.hide()
+	# not yet implemented in states.
+	for state_node in $States.get_children():
+		if state_node.has_method("hide_sprites"):
+			state_node.hide_sprites()
+#	for sprite in sprites:
+#		sprite.hide()
 
 func flip_sprites(direction):
 	for state_node in $States.get_children():
@@ -187,10 +192,10 @@ func enter(object):
 func exit():
 	set_state(states.exiting)
 
-
-func modulate_sprites(color):
-	for sprite in sprites:
-		sprite.set_modulate(color)
+# move this to state
+#func modulate_sprites(color):
+#	for sprite in sprites:
+#		sprite.set_modulate(color)
 
 
 func is_on_platform():
@@ -321,19 +326,9 @@ func _on_InteractiveObject_player_exited(object):
 	interactive_objects_present.erase(object)
 
 func hit(damage : float, damage_type : int):
-	if hitstun == false:
-		# might want to add a direction for knockback later
-		var damage_mod : float = 1
-		if damage_reduction.has(damage_type):
-			print("received damage: type == ", damage_type, ": " , Game.damage_type_names[damage_type])
-			print("damage_reduction == ", damage_reduction[damage_type])
-			damage_mod = 1 - damage_reduction[damage_type]
-		health -= damage * damage_mod
-		$SFX/OofNoise.play()
-		modulate_sprites(Color.red)
-		hitstun = true
-		$HitstunTimer.start()
-		$HealthBar.set_value(health)
+	if state != states.hit:
+		set_state(states.hit, [damage, damage_type])
+
 
 func recover_health(amount : float):
 	health = min(health + amount, max_health)
@@ -343,6 +338,6 @@ func add_ammo(amount: int):
 	ammo = min(ammo + amount, max_ammo)
 	$AmmoBar.set_value(ammo/max_ammo * 100)
 
-func _on_HitstunTimer_timeout():
-	modulate_sprites(Color.white)
-	hitstun = false
+#func _on_HitstunTimer_timeout():
+#	modulate_sprites(Color.white)
+#	hitstun = false

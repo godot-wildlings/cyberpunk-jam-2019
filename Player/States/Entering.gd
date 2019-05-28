@@ -1,7 +1,6 @@
-extends Node2D
+extends Player_State
 
-
-var player : KinematicBody2D
+#var player : KinematicBody2D
 var my_state_num : int
 #var warning_issued : bool = false
 onready var sprite : Sprite = get_node("EnteringSprite")

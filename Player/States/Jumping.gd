@@ -1,4 +1,4 @@
-extends Node2D
+extends Player_State
 
 #warning-ignore:unused_class_variable
 var jump_duration : float = 3.0 # not used yet.
@@ -11,7 +11,7 @@ var bounce_damping : float = 0.1
 var jump_num : int = 0 # for double jump tracking
 var max_jumps : int = 2
 
-var player : KinematicBody2D
+#var player : KinematicBody2D
 var my_state_num : int
 
 var sprite : Sprite

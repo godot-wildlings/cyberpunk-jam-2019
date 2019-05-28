@@ -1,7 +1,7 @@
-extends Node2D
+extends Player_State
 
 var fall_velocity : Vector2 = Vector2.ZERO
-var player : KinematicBody2D
+#var player : KinematicBody2D
 var my_state_num : int
 onready var sprite : Sprite = $FallingSprite
 

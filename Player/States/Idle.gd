@@ -1,6 +1,6 @@
-extends Node2D
+extends Player_State
 
-var player : KinematicBody2D
+#var player : KinematicBody2D
 var my_state_num
 var sprite : Sprite
 
