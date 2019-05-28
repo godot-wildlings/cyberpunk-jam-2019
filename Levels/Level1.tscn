@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -17,7 +17,8 @@
 [ext_resource path="res://NPCs/Enemies/Enemy.tscn" type="PackedScene" id=15]
 [ext_resource path="res://NPCs/Enemies/Robot.tscn" type="PackedScene" id=16]
 [ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Nightfall.ogg" type="AudioStream" id=17]
-[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=18]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Rain__City_SFX.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=19]
 
 [sub_resource type="TileSet" id=1]
 
@@ -398,8 +399,15 @@ Use \"knock\" action to unlock."
 stream = ExtResource( 17 )
 volume_db = -15.0
 autoplay = true
+bus = "Music"
 
-[node name="iRealRenderer" parent="." instance=ExtResource( 18 )]
+[node name="BGSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -12.0
+autoplay = true
+bus = "SFX"
+
+[node name="iRealRenderer" parent="." instance=ExtResource( 19 )]
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
 
 [editable path="InteractiveObjects/AmmoDoor"]
