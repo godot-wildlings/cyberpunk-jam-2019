@@ -156,6 +156,7 @@ position = Vector2( 1551.55, 794.696 )
 shape = SubResource( 2 )
 
 [node name="Floors" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Floor1" type="StaticBody2D" parent="Floors" groups=[
 "platform",
@@ -251,7 +252,10 @@ shape = SubResource( 4 )
 
 [node name="Scenery" type="Node2D" parent="."]
 
+[node name="Collectibles" type="Node2D" parent="."]
+
 [node name="InteractiveObjects" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Console" parent="InteractiveObjects" instance=ExtResource( 12 )]
 position = Vector2( 3015.51, 489.078 )
@@ -314,6 +318,7 @@ text = "Elevator"
 position = Vector2( 6.59634, 532.648 )
 
 [node name="Enemies" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="NPC" parent="Enemies" instance=ExtResource( 15 )]
 position = Vector2( -12.3033, 479.833 )

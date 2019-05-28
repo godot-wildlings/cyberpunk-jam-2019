@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/States/Idle.gd" type="Script" id=2]
@@ -22,19 +22,15 @@
 [ext_resource path="res://Player/punching.png" type="Texture" id=20]
 [ext_resource path="res://Player/States/Hit.gd" type="Script" id=21]
 [ext_resource path="res://Player/oof2.wav" type="AudioStream" id=22]
-[ext_resource path="res://Player/Actions/Knock.gd" type="Script" id=23]
-[ext_resource path="res://Player/Actions/Scan.gd" type="Script" id=24]
-[ext_resource path="res://Player/Actions/Attack.gd" type="Script" id=25]
-[ext_resource path="res://Weapons/PlayerGun.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Player/PlayerHUD.tscn" type="PackedScene" id=27]
-[ext_resource path="res://Player/health-red.png" type="Texture" id=28]
-[ext_resource path="res://Player/health-green.png" type="Texture" id=29]
-[ext_resource path="res://Player/ammo_back.png" type="Texture" id=30]
-[ext_resource path="res://Player/ammo_front.png" type="Texture" id=31]
-[ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=32]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 183.277
+[ext_resource path="res://Player/Actions/Scan.gd" type="Script" id=23]
+[ext_resource path="res://Player/Actions/Attack.gd" type="Script" id=24]
+[ext_resource path="res://Weapons/PlayerGun.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Player/PlayerHUD.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Player/health-red.png" type="Texture" id=27]
+[ext_resource path="res://Player/health-green.png" type="Texture" id=28]
+[ext_resource path="res://Player/ammo_back.png" type="Texture" id=29]
+[ext_resource path="res://Player/ammo_front.png" type="Texture" id=30]
+[ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=31]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 438.421
@@ -451,18 +447,8 @@ stream = ExtResource( 22 )
 
 [node name="Actions" type="Node2D" parent="."]
 
-[node name="Knock" type="Node2D" parent="Actions"]
-script = ExtResource( 23 )
-
-[node name="EffectiveRange" type="Area2D" parent="Actions/Knock"]
-collision_layer = 0
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actions/Knock/EffectiveRange"]
-shape = SubResource( 1 )
-
 [node name="Scan" type="Node2D" parent="Actions"]
-script = ExtResource( 24 )
+script = ExtResource( 23 )
 
 [node name="EffectiveRange" type="Area2D" parent="Actions/Scan"]
 collision_layer = 0
@@ -476,7 +462,7 @@ wait_time = 6.0
 one_shot = true
 
 [node name="Attack" type="Node2D" parent="Actions"]
-script = ExtResource( 25 )
+script = ExtResource( 24 )
 
 [node name="MeleeRange" type="Area2D" parent="Actions/Attack"]
 collision_layer = 0
@@ -485,7 +471,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actions/Attack/MeleeRange"]
 shape = SubResource( 3 )
 
-[node name="Gun" parent="Actions/Attack" instance=ExtResource( 26 )]
+[node name="Gun" parent="Actions/Attack" instance=ExtResource( 25 )]
 position = Vector2( 1.41703, -10.9583 )
 scale = Vector2( 0.140732, 0.140732 )
 
@@ -533,7 +519,7 @@ collision_mask = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 27 )]
+[node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 26 )]
 margin_top = -87.0
 
 [node name="HitstunTimer" type="Timer" parent="."]
@@ -545,8 +531,8 @@ margin_right = 74.4759
 margin_bottom = 4.95181
 rect_scale = Vector2( 0.380881, 0.380881 )
 value = 100.0
-texture_under = ExtResource( 28 )
-texture_progress = ExtResource( 29 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="AmmoBar" type="TextureProgress" parent="."]
 margin_left = -17.6665
@@ -555,8 +541,8 @@ margin_right = 204.333
 margin_bottom = 6.26243
 rect_scale = Vector2( 0.157489, 0.131796 )
 value = 100.0
-texture_under = ExtResource( 30 )
-texture_progress = ExtResource( 31 )
+texture_under = ExtResource( 29 )
+texture_progress = ExtResource( 30 )
 
 [node name="SFX" type="Node2D" parent="."]
 
@@ -568,5 +554,5 @@ margin_left = -21.6071
 margin_top = -57.8135
 margin_right = 18.3929
 margin_bottom = -43.8135
-script = ExtResource( 32 )
+script = ExtResource( 31 )
 [connection signal="timeout" from="HitstunTimer" to="." method="_on_HitstunTimer_timeout"]

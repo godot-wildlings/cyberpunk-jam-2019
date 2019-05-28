@@ -139,20 +139,28 @@ func _on_Player_scanned():
 
 
 func hit(damage, damage_type):
-	$AnimationPlayer.play("hit")
-	var hits = $SFX/hits.get_children()
-	var rand_hit = hits[randi()%$SFX/hits.get_child_count()]
-	rand_hit.play()
-	health -= damage * (1-damage_reduction[damage_type])
-	if health <= 0:
-		die()
-	$HealthBar.set_value(health/max_health * 100)
+	if state != states.dead:
+		$AnimationPlayer.play("hit")
+		var hits = $SFX/hits.get_children()
+		var rand_hit = hits[randi()%$SFX/hits.get_child_count()]
+		rand_hit.play()
+		health -= damage * (1-damage_reduction[damage_type])
+		if health <= 0:
+			die()
+		$HealthBar.set_value(health/max_health * 100)
+
+func drop_key():
+	Game.main.level.spawn_key(get_global_position())
 
 func die():
-	state = states.dead
+	if state != states.dead:
+		if randf() < 1:
+			drop_key()
 
-	$AnimationPlayer.play("die")
-	yield($AnimationPlayer, "animation_finished")
+		state = states.dead
 
-	call_deferred("queue_free")
+		$AnimationPlayer.play("die")
+		yield($AnimationPlayer, "animation_finished")
+
+		call_deferred("queue_free")
 

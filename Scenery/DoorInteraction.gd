@@ -51,7 +51,10 @@ func interact(interactor):
 			yield(animation_player, "animation_finished")
 			admit(interactor)
 	elif door.locked:
-		if animation_player.has_animation("access_denied"):
+		if interactor.keys_held > 0:
+			door.unlock()
+			interactor.keys_held -= 1
+		elif animation_player.has_animation("access_denied"):
 			animation_player.play("access_denied")
 	elif door.open:
 		# what should happen? The door is already open

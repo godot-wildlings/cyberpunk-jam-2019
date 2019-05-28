@@ -55,6 +55,7 @@ onready var gun = $Actions/Attack/Gun
 var max_ammo : float = 16
 var ammo : float = max_ammo
 
+var keys_held : int = 0
 
 #warning-ignore:unused_class_variable
 var damage_types = Game.damage_types
@@ -67,11 +68,10 @@ var damage_reduction : Dictionary = { # zero to one
 		damage_types.cold : 0
 }
 
-enum actions { scan, knock, ghost, attack, arrest }
+enum actions { scan, ghost, attack, arrest }
 #warning-ignore:unused_class_variable
 var action_names = {
 		actions.scan : "scan", # same as iReal
-		actions.knock : "knock",
 		actions.ghost : "ghost",
 		actions.attack : "attack",
 		actions.arrest : "arrest"
@@ -80,7 +80,6 @@ var action_names = {
 #warning-ignore:unused_class_variable
 var action_descriptions = {
 		actions.scan : "iReal(TM): More real than real; a better world",
-		actions.knock : "Unlock Sealed Portals",
 		actions.ghost : "Cause a Distraction",
 		actions.attack : "Punch or Shoot",
 		actions.arrest : "Take them in for questioning"
@@ -249,17 +248,12 @@ func use_action(action_num):
 		$Actions/Scan.use()
 	elif action_num == actions.ghost:
 		print("ghost")
-	elif action_num == actions.knock:
-		knock()
 	elif action_num == actions.attack:
 		attack()
 	elif action_num == actions.arrest:
 		print("you're under arrest")
 
 
-func knock():
-	# unlock nearby locked objects..
-	$Actions/Knock.use()
 
 
 func attack():
@@ -282,30 +276,17 @@ func drop(): # switch to a lower platform
 	if is_on_platform():
 		set_state(states.dropping)
 
-#func move_to_platform(platform):
-#	state = states.climbing
-#	print("moving to a new platform")
-#	# need to tween this or something
-#	var my_pos = get_global_position()
-#	assert(platform.get_child(0) is CollisionShape2D)
-#	var platform_floor = platform.get_global_position().y - platform.get_child(0).get_shape().get_extents().y
-#
-#	var new_position = Vector2(my_pos.x, platform_floor - character_height/2)
-#	tween.interpolate_property(self, "position",
-#		position, new_position, 0.35,
-#		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-#	tween.start()
-#	$AnimationPlayer.play("jump")
-#	yield(tween, "tween_completed")
-#	set_state(states.idle)
 
-	#set_global_position(new_position)
 
 func _on_InteractiveObject_player_entered(object):
 	interactive_objects_present.push_back(object)
 
 func _on_InteractiveObject_player_exited(object):
 	interactive_objects_present.erase(object)
+
+func pickup_key():
+	keys_held += 1
+
 
 func hit(damage : float, damage_type : int):
 	if state != states.hit:
