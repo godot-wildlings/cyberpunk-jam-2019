@@ -323,6 +323,38 @@ position = Vector2( 6.59634, 532.648 )
 position = Vector2( -12.3033, 479.833 )
 attack_type = 0
 
+[node name="NPC3" parent="Enemies" instance=ExtResource( 15 )]
+position = Vector2( 635.019, 474.001 )
+attack_type = 0
+
+[node name="NPC4" parent="Enemies" instance=ExtResource( 15 )]
+position = Vector2( -96.2803, 167.252 )
+attack_type = 0
+
+[node name="NPC2" parent="Enemies" instance=ExtResource( 15 )]
+position = Vector2( 1211.19, 482.166 )
+attack_type = 0
+
+[node name="NPC5" parent="Enemies" instance=ExtResource( 15 )]
+position = Vector2( 977.925, 62.2809 )
+attack_type = 0
+
+[node name="NPC6" parent="Enemies" instance=ExtResource( 15 )]
+position = Vector2( 1879.51, 472.835 )
+attack_type = 0
+
+[node name="NPC7" parent="Enemies" instance=ExtResource( 15 )]
+position = Vector2( 2418.36, 474.001 )
+attack_type = 0
+
+[node name="NPC8" parent="Enemies" instance=ExtResource( 15 )]
+position = Vector2( 2833.58, 472.835 )
+attack_type = 0
+
+[node name="NPC9" parent="Enemies" instance=ExtResource( 15 )]
+position = Vector2( 1413.09, 164.803 )
+attack_type = 0
+
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( -620.75, 493.792 )
 
@@ -398,6 +430,7 @@ autoplay = true
 bus = "SFX"
 
 [node name="iRealRenderer" parent="." instance=ExtResource( 18 )]
+
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
 
 [editable path="InteractiveObjects/AmmoDoor"]
