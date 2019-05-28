@@ -268,6 +268,8 @@ tracks/0/keys = {
 }
 
 [node name="Door" type="Area2D"]
+collision_layer = 32
+collision_mask = 3
 script = ExtResource( 1 )
 hidden_to_player = true
 
