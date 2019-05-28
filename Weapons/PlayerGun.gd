@@ -5,7 +5,11 @@ var shooter
 var bullet_speed : float = 400.0
 
 func _ready():
-	shooter = get_parent()
+
+	call_deferred("deferred_ready")
+
+func deferred_ready():
+	shooter = Game.player
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -14,7 +18,14 @@ func _ready():
 
 func shoot():
 	spawn_bullet()
-	$AudioStreamPlayer2D.play()
+	play_shoot_sfx()
+
+func play_shoot_sfx():
+	randomize()
+	var sfx_container = $SFX
+	var sfx_options = sfx_container.get_children()
+	var sfx_node = sfx_options[randi()%sfx_options.size()]
+	sfx_node.play()
 
 func spawn_bullet():
 	var new_bullet = bullet_scene.instance()
@@ -23,4 +34,4 @@ func spawn_bullet():
 	var rot = 0
 	if shooter.get_direction() == -1:
 		rot = PI
-	new_bullet.start($Muzzle.get_global_position(), Vector2.RIGHT * shooter.direction * bullet_speed, rot)
+	new_bullet.start($Muzzle.get_global_position(), Vector2.RIGHT * shooter.direction * bullet_speed, rot, shooter)

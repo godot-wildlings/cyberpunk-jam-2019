@@ -68,5 +68,6 @@ func draw_all_static_bodies(container_node):
 
 func _draw():
 	if level.state == level.states.running:
-		for container in containers_to_scan:
-			draw_all_static_bodies(container)
+		if Game.player.iReal_active:
+			for container in containers_to_scan:
+				draw_all_static_bodies(container)

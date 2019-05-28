@@ -1,10 +1,14 @@
 extends Node2D
 
+var player : KinematicBody2D
+
 func _ready():
-	pass
+	#warning-ignore:return_value_discarded
+	$DurationTimer.connect("timeout", self, "_on_DurationTimer_timeout")
+	call_deferred("deferred_ready")
 
 func deferred_ready():
-	pass
+	player = get_parent().get_parent()
 
 
 func use():
@@ -16,3 +20,9 @@ func use():
 	for candidate in candidates:
 		if candidate.has_method("_on_Player_scanned"):
 			candidate._on_Player_scanned()
+
+	player.iReal_active = true
+	$DurationTimer.start()
+
+func _on_DurationTimer_timeout():
+	player.iReal_active = false

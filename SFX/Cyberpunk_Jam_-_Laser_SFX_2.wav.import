@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cyberpunk_Jam_-_Laser_SFX_2.wav-210869a848b2961f8f627f75733f6e5e.sample"
+
+[deps]
+
+source_file="res://SFX/Cyberpunk_Jam_-_Laser_SFX_2.wav"
+dest_files=[ "res://.import/Cyberpunk_Jam_-_Laser_SFX_2.wav-210869a848b2961f8f627f75733f6e5e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,8 +1,9 @@
-extends Node2D
+extends Player_State
 
 var fall_velocity : Vector2 = Vector2.ZERO
-var player : KinematicBody2D
+#var player : KinematicBody2D
 var my_state_num : int
+onready var sprite : Sprite = $FallingSprite
 
 func _ready():
 	player = get_parent().get_parent()
@@ -15,12 +16,12 @@ func activate(arguments : Array = []):
 		initial_velocity = arguments[0]
 	fall_velocity = initial_velocity
 	player.animation_player.play("fall")
-	$FallingSprite.show()
+	sprite.show()
 
 func deactivate():
 	player.animation_player.stop()
 	fall_velocity = Vector2.ZERO
-	$FallingSprite.hide()
+	sprite.hide()
 
 func process_state(delta):
 	if player.state == my_state_num:
@@ -31,8 +32,15 @@ func process_state(delta):
 			var damping : float = 0.5
 			var reflect = collision.remainder.bounce(collision.normal)
 			fall_velocity = fall_velocity.bounce(collision.normal) * damping
+			#warning-ignore:return_value_discarded
 			player.move_and_collide(reflect)
 
 
 		if player.is_on_platform() == true:
 			player.land(fall_velocity)
+
+func flip_sprites(dir):
+	if dir > 0:
+		sprite.set_flip_h(false)
+	else:
+		sprite.set_flip_h(true)

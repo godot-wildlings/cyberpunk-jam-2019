@@ -18,7 +18,7 @@ enum door_types {
 }
 
 var door_names : Dictionary = {
-	door_types.ammo : "Guns",
+	door_types.ammo : "Ammo",
 	door_types.health : "Medical",
 	door_types.portal : "101",
 	door_types.cutscene : "303",
@@ -48,14 +48,23 @@ func interact(interactor):
 		if animation_player.has_animation("open"):
 			animation_player.play("open")
 			door.open = true
+			yield(animation_player, "animation_finished")
+			admit(interactor)
 	elif door.locked:
-		if animation_player.has_animation("access_denied"):
+		if interactor.keys_held > 0:
+			door.unlock()
+			interactor.keys_held -= 1
+		elif animation_player.has_animation("access_denied"):
 			animation_player.play("access_denied")
 	elif door.open:
 		# what should happen? The door is already open
-		if interactor.has_method("enter"):
-			interactor.enter()
+		admit(interactor)
 
+func admit(entity_entering):
+	# theoretically, could be player or NPC
+	if entity_entering.has_method("enter"):
+		entity_entering.enter(self)
+		provide_reward(entity_entering)
 
 
 func animate():
@@ -75,7 +84,7 @@ func provide_reward(interactor):
 		Game.main.load_cutscene(scene)
 
 	elif door_type == door_types.portal:
-		Game.main.load_level(scene)
+		Game.main.switch_levels(scene)
 
 	elif door_type == door_types.shortcut:
 		Game.player.set_global_position(door.get_node("exit").get_global_position())

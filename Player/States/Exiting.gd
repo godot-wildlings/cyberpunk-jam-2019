@@ -1,9 +1,9 @@
-extends Node2D
+extends Player_State
 
-
-var player : KinematicBody2D
+#var player : KinematicBody2D
 var my_state_num : int
 #var warning_issued : bool = false
+onready var sprite = $ExitingSprite
 
 func _ready():
 	player = get_parent().get_parent()
@@ -21,13 +21,13 @@ func deferred_ready():
 
 #warning-ignore:unused_argument
 func activate(arguments : Array = []):
-	$ExitingSprite.show()
+	sprite.show()
 	player.animation_player.play("exit")
 	$Timer.start()
 
 func deactivate():
 #	player.animation_player.disconnect("animation_finished", self, "_on_animation_finished")
-	$ExitingSprite.hide()
+	sprite.hide()
 
 #warning-ignore:unused_argument
 func process_state(delta):
@@ -37,6 +37,13 @@ func process_state(delta):
 #func _on_animation_finished(anim_name):
 #	if anim_name == "exit":
 #		player.idle()
+
+func flip_sprites(dir):
+	if dir > 0:
+		sprite.set_flip_h(false)
+	else:
+		sprite.set_flip_h(true)
+
 
 func _on_Timer_timeout():
 	player.idle()

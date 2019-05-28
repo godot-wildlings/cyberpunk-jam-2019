@@ -1,0 +1,133 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://NPCs/NPC.gd" type="Script" id=1]
+[ext_resource path="res://Player/female_walking.png" type="Texture" id=2]
+[ext_resource path="res://NPCs/Enemies/warning.png" type="Texture" id=3]
+[ext_resource path="res://NPCs/Enemies/oof.wav" type="AudioStream" id=4]
+[ext_resource path="res://NPCs/Enemies/ow.wav" type="AudioStream" id=5]
+[ext_resource path="res://Player/health-red.png" type="Texture" id=6]
+[ext_resource path="res://Player/health-green.png" type="Texture" id=7]
+[ext_resource path="res://Weapons/EnemyGun.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 22.4294, 25.1545 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "die"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites/VRSprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 90.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites/VRSprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "walk"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites/RealSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 11 ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 200, 60 )
+
+[node name="NPC" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 28
+script = ExtResource( 1 )
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="RealSprite" type="Sprite" parent="Sprites"]
+texture = ExtResource( 2 )
+hframes = 12
+frame = 11
+
+[node name="VRSprite" type="Sprite" parent="Sprites"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="DecisionTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="."]
+
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="ShotTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/die = SubResource( 2 )
+anims/hit = SubResource( 3 )
+anims/walk = SubResource( 4 )
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="hits" type="Node2D" parent="SFX"]
+
+[node name="OofNoise" type="AudioStreamPlayer2D" parent="SFX/hits"]
+stream = ExtResource( 4 )
+
+[node name="OwNoise" type="AudioStreamPlayer2D" parent="SFX/hits"]
+stream = ExtResource( 5 )
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = -23.0316
+margin_top = -41.3068
+margin_right = 68.9684
+margin_bottom = -1.30677
+rect_scale = Vector2( 0.503994, 0.503994 )
+value = 100.0
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
+
+[node name="LineOfSight" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LineOfSight"]
+position = Vector2( -0.487671, -0.487671 )
+shape = SubResource( 5 )
+
+[node name="EnemyGun" parent="." instance=ExtResource( 8 )]
+position = Vector2( -0.875999, 0.409866 )
+scale = Vector2( 0.15, 0.15 )
+
+[connection signal="timeout" from="DecisionTimer" to="." method="_on_DecisionTimer_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]

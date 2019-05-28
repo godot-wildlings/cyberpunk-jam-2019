@@ -1,6 +1,6 @@
-extends Node2D
+extends Player_State
 
-var player : KinematicBody2D
+#var player : KinematicBody2D
 var my_state_num : int
 
 var warning_issued: bool = false
@@ -27,6 +27,13 @@ func process_state(delta):
 	if player.state == my_state_num:
 		if player.is_on_platform():
 			player.stop(Vector2.ZERO)
+
+func flip_sprites(dir):
+	pass
+#	if player.get_direction() > 0:
+#		sprite.set_flip_h(false)
+#	else:
+#		sprite.set_flip_h(true)
 
 func move_to_platform(platform):
 	# need to tween this or something

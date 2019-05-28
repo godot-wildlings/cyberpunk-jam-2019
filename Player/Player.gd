@@ -5,40 +5,24 @@ var speed : float = 200
 
 var direction : int = 1
 #warning-ignore:unused_class_variable
-#var velocity : Vector2 = Vector2.ZERO
+var velocity : Vector2 = Vector2.ZERO
 
 #warning-ignore:unused_class_variable
 onready var animation_player = $AnimationPlayer
 
-#warning-ignore:unused_class_variable
-onready var running_sprite = $States/Running/RunningSprite
-#warning-ignore:unused_class_variable
-onready var jumping_sprite = $States/Jumping/JumpingSprite
-#warning-ignore:unused_class_variable
-onready var standing_sprite = $States/Idle/StandingSprite
-#warning-ignore:unused_class_variable
-onready var falling_sprite = $States/Falling/FallingSprite
-#warning-ignore:unused_class_variable
-onready var entering_sprite = $States/Entering/EnteringSprite
-#warning-ignore:unused_class_variable
-onready var exiting_sprite = $States/Exiting/ExitingSprite
-
-
-onready var sprites = [running_sprite, jumping_sprite, standing_sprite, falling_sprite, entering_sprite, exiting_sprite]
 
 #warning-ignore:unused_class_variable
 onready var ray_front = $RayFront
 #warning-ignore:unused_class_variable
 onready var ray_back = $RayBack
 onready var ground_rays = [ ray_front, ray_back ]
+#warning-ignore:unused_class_variable
+onready var tween = $Tween
+#warning-ignore:unused_class_variable
+onready var gun = $Actions/Attack/Gun
 
-onready var gun = $Gun
-
-
-
-enum states { idle, running, jumping, climbing, dropping, falling, dead, entering, hidden, exiting }
+enum states { idle, running, jumping, climbing, dropping, falling, dead, entering, hidden, exiting, attacking, hit }
 var state = states.idle
-
 var state_names : Dictionary = {
 		states.idle: "Idle",
 		states.running: "Running",
@@ -49,16 +33,14 @@ var state_names : Dictionary = {
 		states.dead: "Dead",
 		states.entering: "Entering",
 		states.hidden: "Hidden",
-		states.exiting: "Exiting"
+		states.exiting: "Exiting",
+		states.attacking: "Attacking",
+		states.hit: "Hit"
 }
 
 var current_state_node : Node2D
 
-
 var character_height : float
-
-onready var tween = $Tween
-
 var interactive_objects_present : Array = []
 
 var max_health : float = 100.0
@@ -67,8 +49,11 @@ var health : float = max_health
 var max_ammo : float = 16
 var ammo : float = max_ammo
 
+var keys_held : int = 0
+
 #warning-ignore:unused_class_variable
 var damage_types = Game.damage_types
+#warning-ignore:unused_class_variable
 var damage_reduction : Dictionary = { # zero to one
 		damage_types.physical : 0.5,
 		damage_types.electrical : 0,
@@ -78,30 +63,41 @@ var damage_reduction : Dictionary = { # zero to one
 		damage_types.cold : 0
 }
 
-enum actions { scan, knock, ghost, shoot, punch, ireal, arrest }
+enum actions { scan, ghost, attack, arrest }
 #warning-ignore:unused_class_variable
 var action_names = {
-		actions.scan : "scan",
-		actions.knock : "knock",
+		actions.scan : "scan", # same as iReal
 		actions.ghost : "ghost",
-		actions.shoot : "shoot",
-		actions.punch : "punch",
-		actions.ireal : "ireal",
+		actions.attack : "attack",
 		actions.arrest : "arrest"
 }
 
-var hitstun : bool = false
+#warning-ignore:unused_class_variable
+var action_descriptions = {
+		actions.scan : "iReal(TM): More real than real; a better world",
+		actions.ghost : "Cause a Distraction",
+		actions.attack : "Punch or Shoot",
+		actions.arrest : "Take them in for questioning"
+}
 
-var current_action = 0 setget set_current_action
+#var hitstun : bool = false
 
+var current_action_num : int = 0 setget set_current_action_num
+
+#warning-ignore:unused_class_variable
+var iReal_active : bool = false
 
 func _ready():
 	hide_sprites()
 	Game.player = self
 	character_height = $CollisionShape2D.get_shape().get_extents().y * 2
 	#call_deferred("deferred_ready")
-	holster_gun()
 	set_state(states.idle)
+	$Actions.show()
+	call_deferred("deferred_ready")
+
+func deferred_ready():
+	$Actions/Attack.holster_gun()
 
 
 func set_state(state_num, arguments : Array = []):
@@ -118,16 +114,24 @@ func set_state(state_num, arguments : Array = []):
 	state = state_num
 
 func hide_sprites():
-	for sprite in sprites:
-		sprite.hide()
+	# not yet implemented in states.
+	for state_node in $States.get_children():
+		if state_node.has_method("hide_sprites"):
+			state_node.hide_sprites()
+#	for sprite in sprites:
+#		sprite.hide()
 
 func flip_sprites(direction):
-	var flip = false
-	if direction == -1:
-		flip = true
-	for sprite in sprites:
-		sprite.set_flip_h(flip)
-	$Gun.set_scale(Vector2(abs($Gun.get_scale().x) * direction, $Gun.get_scale().y))
+	for state_node in $States.get_children():
+		if state_node.has_method("flip_sprites"):
+			state_node.flip_sprites(direction)
+
+#	var flip = false
+#	if direction == -1:
+#		flip = true
+#	for sprite in sprites:
+#		sprite.set_flip_h(flip)
+#	gun.set_scale(Vector2(abs(gun.get_scale().x) * direction, gun.get_scale().y))
 
 func get_direction() -> int:
 	return direction
@@ -158,16 +162,16 @@ func idle():
 #	animation_player.play("idle")
 
 
-func enter():
-	set_state(states.entering)
+func enter(object):
+	set_state(states.entering, [object])
 
 func exit():
 	set_state(states.exiting)
 
-
-func modulate_sprites(color):
-	for sprite in sprites:
-		sprite.set_modulate(color)
+# move this to state
+#func modulate_sprites(color):
+#	for sprite in sprites:
+#		sprite.set_modulate(color)
 
 
 func is_on_platform():
@@ -195,23 +199,23 @@ func _process(delta):
 func _unhandled_key_input(event):
 
 	if Input.is_action_just_pressed("action_0"):
-		self.current_action = 0
+		self.current_action_num = 0
 	elif Input.is_action_just_pressed("action_1"):
-		self.current_action = 1
+		self.current_action_num = 1
 	elif Input.is_action_just_pressed("action_2"):
-		self.current_action = 2
+		self.current_action_num = 2
 	elif Input.is_action_just_pressed("action_3"):
-		self.current_action = 3
+		self.current_action_num = 3
 	elif Input.is_action_just_pressed("action_4"):
-		self.current_action = 4
+		self.current_action_num = 4
 	elif Input.is_action_just_pressed("action_5"):
-		self.current_action = 5
+		self.current_action_num = 5
 	elif Input.is_action_just_pressed("action_selected"):
-		use_action(current_action)
+		use_action(current_action_num)
 	elif Input.is_action_just_pressed("next_action"):
-		self.current_action = wrapi(current_action + 1, 0, actions.size())
+		self.current_action_num = wrapi(current_action_num + 1, 0, actions.size())
 	elif Input.is_action_just_pressed("prev_action"):
-		self.current_action = wrapi(current_action - 1, 0, actions.size())
+		self.current_action_num = wrapi(current_action_num - 1, 0, actions.size())
 
 	if Input.is_action_just_pressed("mv_right"):
 		direction = 1
@@ -229,18 +233,9 @@ func get_direction_pressed() -> int:
 	else:
 		return 0
 
-func set_current_action(value):
-	if value == actions.shoot:
-		draw_gun()
-	else:
-		holster_gun()
-	current_action = value
+func set_current_action_num(value):
+	current_action_num = value
 
-func draw_gun():
-	gun.show()
-
-func holster_gun():
-	gun.hide()
 
 
 func use_action(action_num):
@@ -248,24 +243,17 @@ func use_action(action_num):
 		$Actions/Scan.use()
 	elif action_num == actions.ghost:
 		print("ghost")
-	elif action_num == actions.knock:
-		knock()
-	elif action_num == actions.shoot:
-		shoot()
+	elif action_num == actions.attack:
+		attack()
+	elif action_num == actions.arrest:
+		print("you're under arrest")
 
 
-func knock():
-	# unlock nearby locked objects..
-	$Actions/Knock.use()
 
 
-func shoot():
-	if ammo > 0:
-		if has_node("Gun") and get_node("Gun").has_method("shoot"):
-			get_node("Gun").shoot()
-			ammo -= 1
-			$AmmoBar.set_value(ammo/max_ammo * 100)
-
+func attack():
+	$Actions/Attack.use()
+	set_state(states.attacking)
 
 func interact_with_object(object):
 	if object.has_method("interact"):
@@ -283,24 +271,7 @@ func drop(): # switch to a lower platform
 	if is_on_platform():
 		set_state(states.dropping)
 
-#func move_to_platform(platform):
-#	state = states.climbing
-#	print("moving to a new platform")
-#	# need to tween this or something
-#	var my_pos = get_global_position()
-#	assert(platform.get_child(0) is CollisionShape2D)
-#	var platform_floor = platform.get_global_position().y - platform.get_child(0).get_shape().get_extents().y
-#
-#	var new_position = Vector2(my_pos.x, platform_floor - character_height/2)
-#	tween.interpolate_property(self, "position",
-#		position, new_position, 0.35,
-#		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-#	tween.start()
-#	$AnimationPlayer.play("jump")
-#	yield(tween, "tween_completed")
-#	set_state(states.idle)
 
-	#set_global_position(new_position)
 
 func _on_InteractiveObject_player_entered(object):
 	interactive_objects_present.push_back(object)
@@ -308,20 +279,14 @@ func _on_InteractiveObject_player_entered(object):
 func _on_InteractiveObject_player_exited(object):
 	interactive_objects_present.erase(object)
 
+func pickup_key():
+	keys_held += 1
+
+
 func hit(damage : float, damage_type : int):
-	if hitstun == false:
-		# might want to add a direction for knockback later
-		var damage_mod : float = 1
-		if damage_reduction.has(damage_type):
-			print("received damage: type == ", damage_type, ": " , Game.damage_type_names[damage_type])
-			print("damage_reduction == ", damage_reduction[damage_type])
-			damage_mod = 1 - damage_reduction[damage_type]
-		health -= damage * damage_mod
-		$SFX/OofNoise.play()
-		modulate_sprites(Color.red)
-		hitstun = true
-		$HitstunTimer.start()
-		$HealthBar.set_value(health)
+	if state != states.hit:
+		set_state(states.hit, [damage, damage_type])
+
 
 func recover_health(amount : float):
 	health = min(health + amount, max_health)
@@ -331,6 +296,6 @@ func add_ammo(amount: int):
 	ammo = min(ammo + amount, max_ammo)
 	$AmmoBar.set_value(ammo/max_ammo * 100)
 
-func _on_HitstunTimer_timeout():
-	modulate_sprites(Color.white)
-	hitstun = false
+#func _on_HitstunTimer_timeout():
+#	modulate_sprites(Color.white)
+#	hitstun = false
