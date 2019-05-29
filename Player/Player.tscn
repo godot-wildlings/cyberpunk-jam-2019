@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/States/Idle.gd" type="Script" id=2]
@@ -36,7 +36,9 @@
 [ext_resource path="res://Player/health-green.png" type="Texture" id=34]
 [ext_resource path="res://Player/ammo_back.png" type="Texture" id=35]
 [ext_resource path="res://Player/ammo_front.png" type="Texture" id=36]
-[ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=37]
+[ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_1.wav" type="AudioStream" id=37]
+[ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_2.wav" type="AudioStream" id=38]
+[ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=39]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 438.421
@@ -620,11 +622,27 @@ texture_progress = ExtResource( 36 )
 
 [node name="huhNoise" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource( 22 )
+volume_db = -9.0
+
+[node name="Steps" type="Node2D" parent="SFX"]
+
+[node name="FootStepSFX1" type="AudioStreamPlayer2D" parent="SFX/Steps"]
+stream = ExtResource( 37 )
+volume_db = -9.0
+
+[node name="FootStepSFX2" type="AudioStreamPlayer2D" parent="SFX/Steps"]
+stream = ExtResource( 38 )
+volume_db = -9.0
+
+[node name="FootStepPauseTimer" type="Timer" parent="SFX"]
+wait_time = 0.25
+autostart = true
 
 [node name="StateLabel" type="Label" parent="."]
 margin_left = -21.6071
 margin_top = -57.8135
 margin_right = 18.3929
 margin_bottom = -43.8135
-script = ExtResource( 37 )
+script = ExtResource( 39 )
+
 [connection signal="timeout" from="HitstunTimer" to="." method="_on_HitstunTimer_timeout"]
