@@ -25,11 +25,12 @@ func activate(arguments : Array = []):
 func deactivate():
 	$CrouchingSprite.hide()
 	var shape = player.get_node("CollisionShape2D").get_shape()
-	var y_delta = shape.get_extents().y/2
+	var y_delta = shape.get_extents().y/3 # HAX <-- This isn't the correct distance, it's just close enough
 	shape.set_extents(Vector2(shape.get_extents().x, shape.get_extents().y*2))
 
 	#warning-ignore:return_value_discarded
 	player.move_and_collide(Vector2.UP * y_delta)
+
 	player.animation_player.stop()
 
 #warning-ignore:unused_argument
