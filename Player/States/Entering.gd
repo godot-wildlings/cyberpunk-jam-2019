@@ -49,6 +49,8 @@ func process_state(delta):
 
 func _on_Timer_timeout():
 	player.set_state(player.states.hidden)
+	if object_entered.has_method("movePlayer"):
+		object_entered.movePlayer()
 
 func flip_sprites(dir):
 	if dir > 0:

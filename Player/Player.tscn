@@ -356,7 +356,6 @@ collision_mask = 28
 script = ExtResource( 1 )
 
 [node name="States" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Idle" type="Node2D" parent="States"]
 editor/display_folded = true
@@ -515,8 +514,10 @@ volume_db = -9.0
 bus = "SFX"
 
 [node name="Actions" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Scan" type="Node2D" parent="Actions"]
+editor/display_folded = true
 script = ExtResource( 28 )
 
 [node name="EffectiveRange" type="Area2D" parent="Actions/Scan"]
@@ -536,6 +537,7 @@ volume_db = -15.0
 bus = "SFX"
 
 [node name="Attack" type="Node2D" parent="Actions"]
+editor/display_folded = true
 script = ExtResource( 30 )
 
 [node name="MeleeRange" type="Area2D" parent="Actions/Attack"]
@@ -593,6 +595,7 @@ collision_mask = 4
 [node name="Tween" type="Tween" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 32 )]
 margin_top = -87.0
@@ -620,6 +623,7 @@ texture_under = ExtResource( 35 )
 texture_progress = ExtResource( 36 )
 
 [node name="SFX" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="huhNoise" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource( 14 )
