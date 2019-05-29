@@ -33,6 +33,8 @@ export (String) var linkedElevatorName
 
 signal animDone
 
+var inside = null
+
 onready var linkedElevator = get_parent().get_parent().get_node(linkedElevatorName)
 onready var door : Area2D
 var animation_player : AnimationPlayer
@@ -46,8 +48,8 @@ func get_name() -> String:
 
 
 func interact(interactor):
+	inside = interactor
 	if not door.locked and not door.open:
-		provide_reward(interactor)
 		if animation_player.has_animation("open"):
 			animation_player.play("open")
 			door.open = true
@@ -104,4 +106,5 @@ func close():
 	if animation_player.has_animation("close"):
 			animation_player.play("close")
 			door.open = false
+			provide_reward(inside)
 
