@@ -45,7 +45,6 @@ func process_state(delta):
 				var platform_above = player.get_platform_above()
 				if  platform_above != null:
 					player.climb(platform_above)
-					player.play_random_climb_sfx()
 				else:
 					player.jump()
 		elif Input.is_action_just_pressed("mv_down"):

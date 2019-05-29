@@ -17,7 +17,7 @@ func _ready():
 func activate(arguments : Array = []):
 	if arguments.size() > 0:
 		sprite.show()
-		$hooahNoise.play()
+		player.play_random_climb_sfx()
 		move_to_platform(arguments[0])
 	else:
 		player.jump(Vector2.ZERO)
