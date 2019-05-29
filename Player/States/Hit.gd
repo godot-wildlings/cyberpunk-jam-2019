@@ -13,11 +13,16 @@ func _ready():
 func activate(arguments : Array = []):
 	show_sprites()
 	hitstun_timer.start()
-	$OofNoise.play()
+	play_random_hurt_noise()
 	take_damage(arguments[0], arguments[1])
 
 func deactivate():
 	hide_sprites()
+
+func play_random_hurt_noise():
+	var noises = $SFX.get_children()
+	var noise = noises[randi()%noises.size()]
+	noise.play()
 
 func show_sprites():
 	for child in get_children():

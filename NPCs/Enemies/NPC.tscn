@@ -1,15 +1,20 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://NPCs/NPC.gd" type="Script" id=1]
 [ext_resource path="res://Player/female_walking.png" type="Texture" id=2]
 [ext_resource path="res://NPCs/Enemies/warning.png" type="Texture" id=3]
-[ext_resource path="res://NPCs/Enemies/oof.wav" type="AudioStream" id=4]
-[ext_resource path="res://NPCs/Enemies/ow.wav" type="AudioStream" id=5]
-[ext_resource path="res://SFX/Cyberpunk_Jam_-_Ghost_Death_SFX.wav" type="AudioStream" id=6]
-[ext_resource path="res://SFX/Cyberpunk_Jam_-_Sinner_Death_SFX.wav" type="AudioStream" id=7]
-[ext_resource path="res://Player/health-red.png" type="Texture" id=8]
-[ext_resource path="res://Player/health-green.png" type="Texture" id=9]
-[ext_resource path="res://Weapons/EnemyGun.tscn" type="PackedScene" id=10]
+[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Enemy_Hurt_SFX_1.wav" type="AudioStream" id=4]
+[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Enemy_Hurt_SFX_2.wav" type="AudioStream" id=5]
+[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Enemy_Hurt_SFX_3.wav" type="AudioStream" id=6]
+[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Enemy_Hurt_SFX_4.wav" type="AudioStream" id=7]
+[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Enemy_Hurt_SFX_5.wav" type="AudioStream" id=8]
+[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Enemy_Hurt_SFX_6.wav" type="AudioStream" id=9]
+[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Enemy_Hurt_SFX_7.wav" type="AudioStream" id=10]
+[ext_resource path="res://SFX/Cyberpunk_Jam_-_Ghost_Death_SFX.wav" type="AudioStream" id=11]
+[ext_resource path="res://SFX/Cyberpunk_Jam_-_Sinner_Death_SFX.wav" type="AudioStream" id=12]
+[ext_resource path="res://Player/health-red.png" type="Texture" id=13]
+[ext_resource path="res://Player/health-green.png" type="Texture" id=14]
+[ext_resource path="res://Weapons/EnemyGun.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.6956, 25.1545 )
@@ -93,27 +98,51 @@ anims/hit = SubResource( 3 )
 anims/walk = SubResource( 4 )
 
 [node name="SFX" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="hits" type="Node2D" parent="SFX"]
 
-[node name="OofNoise" type="AudioStreamPlayer2D" parent="SFX/hits"]
+[node name="HurtNoise1" type="AudioStreamPlayer2D" parent="SFX/hits"]
 stream = ExtResource( 4 )
 volume_db = -9.0
 bus = "SFX"
 
-[node name="OwNoise" type="AudioStreamPlayer2D" parent="SFX/hits"]
+[node name="HurtNoise2" type="AudioStreamPlayer2D" parent="SFX/hits"]
 stream = ExtResource( 5 )
 volume_db = -9.0
 bus = "SFX"
 
-[node name="GhostDeath" type="AudioStreamPlayer2D" parent="SFX/hits"]
+[node name="HurtNoise3" type="AudioStreamPlayer2D" parent="SFX/hits"]
 stream = ExtResource( 6 )
 volume_db = -9.0
 bus = "SFX"
 
-[node name="SinnerDeath" type="AudioStreamPlayer2D" parent="SFX/hits"]
+[node name="HurtNoise4" type="AudioStreamPlayer2D" parent="SFX/hits"]
 stream = ExtResource( 7 )
+volume_db = -9.0
+bus = "SFX"
+
+[node name="HurtNoise5" type="AudioStreamPlayer2D" parent="SFX/hits"]
+stream = ExtResource( 8 )
+volume_db = -9.0
+bus = "SFX"
+
+[node name="HurtNoise6" type="AudioStreamPlayer2D" parent="SFX/hits"]
+stream = ExtResource( 9 )
+volume_db = -9.0
+bus = "SFX"
+
+[node name="HurtNoise7" type="AudioStreamPlayer2D" parent="SFX/hits"]
+stream = ExtResource( 10 )
+volume_db = -9.0
+bus = "SFX"
+
+[node name="GhostDeath" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 11 )
+volume_db = -9.0
+bus = "SFX"
+
+[node name="SinnerDeath" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource( 12 )
 volume_db = -9.0
 bus = "SFX"
 
@@ -124,8 +153,8 @@ margin_right = 68.9684
 margin_bottom = -1.30677
 rect_scale = Vector2( 0.503994, 0.503994 )
 value = 100.0
-texture_under = ExtResource( 8 )
-texture_progress = ExtResource( 9 )
+texture_under = ExtResource( 13 )
+texture_progress = ExtResource( 14 )
 
 [node name="GunRange" type="Area2D" parent="."]
 collision_layer = 2
@@ -134,7 +163,7 @@ collision_layer = 2
 position = Vector2( 343.186, -0.487671 )
 shape = SubResource( 5 )
 
-[node name="EnemyGun" parent="." instance=ExtResource( 10 )]
+[node name="EnemyGun" parent="." instance=ExtResource( 15 )]
 position = Vector2( -0.875999, 0.409866 )
 scale = Vector2( 0.15, 0.15 )
 

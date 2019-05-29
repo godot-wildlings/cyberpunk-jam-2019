@@ -260,7 +260,7 @@ func die():
 		state = states.dead
 
 		$AnimationPlayer.play("die")
-		$SFX/hits/GhostDeath.play()
+		$SFX/GhostDeath.play()
 		death_timer.start()
 
 

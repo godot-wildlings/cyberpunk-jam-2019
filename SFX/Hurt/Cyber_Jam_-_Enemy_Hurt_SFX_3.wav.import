@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cyber_Jam_-_Enemy_Hurt_SFX_3.wav-4b359249ff975d79b8c83ffd5d7ca667.sample"
+
+[deps]
+
+source_file="res://SFX/Hurt/Cyber_Jam_-_Enemy_Hurt_SFX_3.wav"
+dest_files=[ "res://.import/Cyber_Jam_-_Enemy_Hurt_SFX_3.wav-4b359249ff975d79b8c83ffd5d7ca667.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

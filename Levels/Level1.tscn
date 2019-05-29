@@ -251,7 +251,6 @@ shape = SubResource( 4 )
 [node name="Scenery" type="Node2D" parent="."]
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Console" parent="InteractiveObjects" instance=ExtResource( 12 )]
 position = Vector2( 3015.51, 489.078 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/States/Idle.gd" type="Script" id=2]
@@ -23,16 +23,19 @@
 [ext_resource path="res://Player/States/Attacking.gd" type="Script" id=21]
 [ext_resource path="res://Player/punching.png" type="Texture" id=22]
 [ext_resource path="res://Player/States/Hit.gd" type="Script" id=23]
-[ext_resource path="res://Player/oof2.wav" type="AudioStream" id=24]
-[ext_resource path="res://Player/Actions/Scan.gd" type="Script" id=25]
-[ext_resource path="res://Player/Actions/Attack.gd" type="Script" id=26]
-[ext_resource path="res://Weapons/PlayerGun.tscn" type="PackedScene" id=27]
-[ext_resource path="res://Player/PlayerHUD.tscn" type="PackedScene" id=28]
-[ext_resource path="res://Player/health-red.png" type="Texture" id=29]
-[ext_resource path="res://Player/health-green.png" type="Texture" id=30]
-[ext_resource path="res://Player/ammo_back.png" type="Texture" id=31]
-[ext_resource path="res://Player/ammo_front.png" type="Texture" id=32]
-[ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=33]
+[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_4.wav" type="AudioStream" id=24]
+[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_5.wav" type="AudioStream" id=25]
+[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_6.wav" type="AudioStream" id=26]
+[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_7.wav" type="AudioStream" id=27]
+[ext_resource path="res://Player/Actions/Scan.gd" type="Script" id=28]
+[ext_resource path="res://Player/Actions/Attack.gd" type="Script" id=29]
+[ext_resource path="res://Weapons/PlayerGun.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Player/PlayerHUD.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Player/health-red.png" type="Texture" id=32]
+[ext_resource path="res://Player/health-green.png" type="Texture" id=33]
+[ext_resource path="res://Player/ammo_back.png" type="Texture" id=34]
+[ext_resource path="res://Player/ammo_front.png" type="Texture" id=35]
+[ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=36]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 438.421
@@ -43,7 +46,7 @@ extents = Vector2( 29.8278, 22.4791 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 17.9254, 22.7849 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=4]
 resource_name = "duck_walk"
 length = 0.6
 loop = true
@@ -60,7 +63,7 @@ tracks/0/keys = {
 "values": [ 0, 3 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("States/Entering/EnteringSprite:frame")
@@ -75,7 +78,7 @@ tracks/0/keys = {
 "values": [ 0, 11 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("States/Exiting/ExitingSprite:frame")
@@ -90,7 +93,7 @@ tracks/0/keys = {
 "values": [ 0, 11 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("States/Running/RunningSprite:visible")
@@ -153,7 +156,7 @@ tracks/4/keys = {
 "values": [ 6, 7, 6, 7, 6 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("States/Running/RunningSprite:visible")
@@ -204,7 +207,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 1.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("States/Idle/StandingSprite:visible")
@@ -267,8 +270,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "punch"
+[sub_resource type="Animation" id=10]
 length = 0.6
 step = 0.05
 tracks/0/type = "value"
@@ -284,7 +286,7 @@ tracks/0/keys = {
 "values": [ 0, 11 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -365,6 +367,7 @@ hframes = 12
 frame = 6
 
 [node name="Crouching" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 4 )
 
 [node name="CrouchingSprite" type="Sprite" parent="States/Crouching"]
@@ -372,6 +375,7 @@ texture = ExtResource( 5 )
 hframes = 4
 
 [node name="Running" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 6 )
 
 [node name="RunningSprite" type="Sprite" parent="States/Running"]
@@ -474,7 +478,6 @@ hframes = 12
 frame = 11
 
 [node name="Hit" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 23 )
 
 [node name="HitstunTimer" type="Timer" parent="States/Hit"]
@@ -487,13 +490,33 @@ texture = ExtResource( 10 )
 hframes = 12
 frame = 11
 
-[node name="OofNoise" type="AudioStreamPlayer2D" parent="States/Hit"]
+[node name="SFX" type="Node2D" parent="States/Hit"]
+
+[node name="OofNoise" type="AudioStreamPlayer2D" parent="States/Hit/SFX"]
 stream = ExtResource( 24 )
+volume_db = -9.0
+bus = "SFX"
+
+[node name="OofNoise2" type="AudioStreamPlayer2D" parent="States/Hit/SFX"]
+stream = ExtResource( 25 )
+volume_db = -9.0
+bus = "SFX"
+
+[node name="OofNoise3" type="AudioStreamPlayer2D" parent="States/Hit/SFX"]
+stream = ExtResource( 26 )
+volume_db = -9.0
+bus = "SFX"
+
+[node name="OofNoise4" type="AudioStreamPlayer2D" parent="States/Hit/SFX"]
+stream = ExtResource( 27 )
+volume_db = -9.0
+bus = "SFX"
 
 [node name="Actions" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Scan" type="Node2D" parent="Actions"]
-script = ExtResource( 25 )
+script = ExtResource( 28 )
 
 [node name="EffectiveRange" type="Area2D" parent="Actions/Scan"]
 collision_layer = 0
@@ -507,7 +530,7 @@ wait_time = 6.0
 one_shot = true
 
 [node name="Attack" type="Node2D" parent="Actions"]
-script = ExtResource( 26 )
+script = ExtResource( 29 )
 
 [node name="MeleeRange" type="Area2D" parent="Actions/Attack"]
 collision_layer = 0
@@ -516,7 +539,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actions/Attack/MeleeRange"]
 shape = SubResource( 2 )
 
-[node name="Gun" parent="Actions/Attack" instance=ExtResource( 27 )]
+[node name="Gun" parent="Actions/Attack" instance=ExtResource( 30 )]
 position = Vector2( 1.41703, -10.9583 )
 scale = Vector2( 0.140732, 0.140732 )
 
@@ -525,14 +548,14 @@ position = Vector2( 0.407814, -0.406623 )
 shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/duck_walk = SubResource( 11 )
-anims/enter = SubResource( 4 )
-anims/exit = SubResource( 5 )
-anims/fall = SubResource( 6 )
-anims/idle = SubResource( 7 )
-anims/jump = SubResource( 8 )
-anims/punch = SubResource( 9 )
-anims/run = SubResource( 10 )
+anims/duck_walk = SubResource( 4 )
+anims/enter = SubResource( 5 )
+anims/exit = SubResource( 6 )
+anims/fall = SubResource( 7 )
+anims/idle = SubResource( 8 )
+anims/jump = SubResource( 9 )
+anims/punch = SubResource( 10 )
+anims/run = SubResource( 11 )
 
 [node name="RayFront" type="RayCast2D" parent="."]
 position = Vector2( 18.5238, 18.4018 )
@@ -565,7 +588,7 @@ collision_mask = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 28 )]
+[node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 31 )]
 margin_top = -87.0
 
 [node name="HitstunTimer" type="Timer" parent="."]
@@ -577,8 +600,8 @@ margin_right = 74.4759
 margin_bottom = 4.95181
 rect_scale = Vector2( 0.380881, 0.380881 )
 value = 100.0
-texture_under = ExtResource( 29 )
-texture_progress = ExtResource( 30 )
+texture_under = ExtResource( 32 )
+texture_progress = ExtResource( 33 )
 
 [node name="AmmoBar" type="TextureProgress" parent="."]
 margin_left = -17.6665
@@ -587,8 +610,8 @@ margin_right = 204.333
 margin_bottom = 6.26243
 rect_scale = Vector2( 0.157489, 0.131796 )
 value = 100.0
-texture_under = ExtResource( 31 )
-texture_progress = ExtResource( 32 )
+texture_under = ExtResource( 34 )
+texture_progress = ExtResource( 35 )
 
 [node name="SFX" type="Node2D" parent="."]
 
@@ -600,5 +623,5 @@ margin_left = -21.6071
 margin_top = -57.8135
 margin_right = 18.3929
 margin_bottom = -43.8135
-script = ExtResource( 33 )
+script = ExtResource( 36 )
 [connection signal="timeout" from="HitstunTimer" to="." method="_on_HitstunTimer_timeout"]
