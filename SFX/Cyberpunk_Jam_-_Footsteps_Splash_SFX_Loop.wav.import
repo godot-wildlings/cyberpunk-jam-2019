@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cyberpunk_Jam_-_Footsteps_Splash_SFX_Loop.wav-961efe6a33dfb1817eeee5d05e5f903b.sample"
+
+[deps]
+
+source_file="res://SFX/Cyberpunk_Jam_-_Footsteps_Splash_SFX_Loop.wav"
+dest_files=[ "res://.import/Cyberpunk_Jam_-_Footsteps_Splash_SFX_Loop.wav-961efe6a33dfb1817eeee5d05e5f903b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

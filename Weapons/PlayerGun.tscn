@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Weapons/PlayerGun.gd" type="Script" id=1]
-[ext_resource path="res://Projectiles/Bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Projectiles/Laser.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Weapons/gun1.png" type="Texture" id=3]
 [ext_resource path="res://SFX/Cyberpunk_Jam_-_Laser_SFX_1.wav" type="AudioStream" id=4]
 [ext_resource path="res://SFX/Cyberpunk_Jam_-_Laser_SFX_2.wav" type="AudioStream" id=5]

@@ -99,13 +99,16 @@ func _process(delta):
 
 func move_to_effective_range(delta):
 	if attack_type == attack_types.ranged:
-		var my_pos = get_global_position()
-		var target_pos = current_target.get_global_position()
-		var effective_range = 250
-		if my_pos.distance_squared_to(target_pos) > effective_range * effective_range:
-			move_and_collide(Vector2.RIGHT * direction * speed * delta)
-		else:
-			move_and_collide(Vector2.RIGHT * -direction * speed * delta)
+		if ranged_line_of_sight.get_overlapping_bodies().has(current_target):
+			var my_pos = get_global_position()
+			var target_pos = current_target.get_global_position()
+			var effective_range = 250
+			if my_pos.distance_squared_to(target_pos) > effective_range * effective_range:
+				move_and_collide(Vector2.RIGHT * direction * speed * delta)
+			else:
+				move_and_collide(Vector2.RIGHT * -direction * speed * delta)
+		else: # lost sight of the player
+			state = states.passive
 	elif attack_type == attack_types.melee:
 		move_and_collide(Vector2.RIGHT * direction * speed * delta)
 
@@ -245,6 +248,7 @@ func die():
 		state = states.dead
 
 		$AnimationPlayer.play("die")
+		$SFX/hits/GhostDeath.play()
 		yield($AnimationPlayer, "animation_finished")
 
 		call_deferred("queue_free")

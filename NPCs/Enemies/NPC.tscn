@@ -1,13 +1,16 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://NPCs/NPC.gd" type="Script" id=1]
 [ext_resource path="res://Player/female_walking.png" type="Texture" id=2]
 [ext_resource path="res://NPCs/Enemies/warning.png" type="Texture" id=3]
 [ext_resource path="res://NPCs/Enemies/oof.wav" type="AudioStream" id=4]
 [ext_resource path="res://NPCs/Enemies/ow.wav" type="AudioStream" id=5]
-[ext_resource path="res://Player/health-red.png" type="Texture" id=6]
-[ext_resource path="res://Player/health-green.png" type="Texture" id=7]
-[ext_resource path="res://Weapons/EnemyGun.tscn" type="PackedScene" id=8]
+[ext_resource path="res://SFX/Cyberpunk_Jam_-_Ghost_Death_SFX.wav" type="AudioStream" id=6]
+[ext_resource path="res://SFX/Cyberpunk_Jam_-_Sinner_Death_SFX.wav" type="AudioStream" id=7]
+[ext_resource path="res://Player/health-red.png" type="Texture" id=8]
+[ext_resource path="res://Player/health-green.png" type="Texture" id=9]
+[ext_resource path="res://Weapons/EnemyGun.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Projectiles/Bullet.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.6956, 25.1545 )
@@ -114,6 +117,12 @@ stream = ExtResource( 4 )
 [node name="OwNoise" type="AudioStreamPlayer2D" parent="SFX/hits"]
 stream = ExtResource( 5 )
 
+[node name="GhostDeath" type="AudioStreamPlayer2D" parent="SFX/hits"]
+stream = ExtResource( 6 )
+
+[node name="SinnerDeath" type="AudioStreamPlayer2D" parent="SFX/hits"]
+stream = ExtResource( 7 )
+
 [node name="HealthBar" type="TextureProgress" parent="."]
 margin_left = -23.0316
 margin_top = -41.3068
@@ -121,8 +130,8 @@ margin_right = 68.9684
 margin_bottom = -1.30677
 rect_scale = Vector2( 0.503994, 0.503994 )
 value = 100.0
-texture_under = ExtResource( 6 )
-texture_progress = ExtResource( 7 )
+texture_under = ExtResource( 8 )
+texture_progress = ExtResource( 9 )
 
 [node name="GunRange" type="Area2D" parent="."]
 collision_layer = 2
@@ -131,9 +140,10 @@ collision_layer = 2
 position = Vector2( 343.186, -0.487671 )
 shape = SubResource( 5 )
 
-[node name="EnemyGun" parent="." instance=ExtResource( 8 )]
+[node name="EnemyGun" parent="." instance=ExtResource( 10 )]
 position = Vector2( -0.875999, 0.409866 )
 scale = Vector2( 0.15, 0.15 )
+bullet_scene = ExtResource( 11 )
 
 [node name="MeleeRange" type="Area2D" parent="."]
 

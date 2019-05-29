@@ -15,11 +15,14 @@ func shoot(target : Node2D):
 	play_shoot_sfx()
 
 func play_shoot_sfx():
-	randomize()
-	var sfx_container = $SFX
-	var sfx_options = sfx_container.get_children()
-	var sfx_node = sfx_options[randi()%sfx_options.size()]
-	sfx_node.play()
+
+#	randomize()
+#	var sfx_container = $SFX
+#	var sfx_options = sfx_container.get_children()
+#	var sfx_node = sfx_options[randi()%sfx_options.size()]
+#	sfx_node.play()
+	$SFX/Gunshot.play()
+
 
 func spawn_bullet(target : Node2D):
 	var new_bullet = bullet_scene.instance()
