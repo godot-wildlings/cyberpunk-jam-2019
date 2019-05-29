@@ -10,6 +10,9 @@ onready var recognition_timer : Timer = $Timers/RecognitionTimer
 onready var ghost_tscn : PackedScene = preload("res://GhostTrailEffect/GhostTrail.tscn") as PackedScene
 onready var gun : Node2D = $EnemyGun
 
+enum character_types { citizen, ghost, sinner }
+export (character_types) var character_type : int = character_types.citizen
+
 enum attitudes { ignore, fight, flee }
 enum attack_types { ranged, melee }
 #export var friendly : bool = true

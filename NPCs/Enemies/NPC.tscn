@@ -23,7 +23,7 @@ extents = Vector2( 11.6956, 25.1545 )
 resource_name = "die"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprites/VRSprite:rotation_degrees")
+tracks/0/path = NodePath("Sprites/GhostSprite:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -39,7 +39,7 @@ tracks/0/keys = {
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprites/VRSprite:self_modulate")
+tracks/0/path = NodePath("Sprites/GhostSprite:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -85,9 +85,11 @@ texture = ExtResource( 2 )
 hframes = 12
 frame = 11
 
-[node name="VRSprite" type="Sprite" parent="Sprites"]
+[node name="GhostSprite" type="Sprite" parent="Sprites"]
 visible = false
 texture = ExtResource( 3 )
+
+[node name="SinnerSprite" type="Sprite" parent="Sprites"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
