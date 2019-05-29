@@ -46,6 +46,11 @@ func next_tab():
 		reveal_letter()
 
 		$TextRevealTimer.start()
+		if next_tab%2 == 0:
+			$TextRevealNoise.set_pitch_scale(1.0)
+		else:
+			$TextRevealNoise.set_pitch_scale(0.8)
+		$TextRevealNoise.play()
 
 func next_scene():
 	Game.main.switch_levels(exit_scene)
@@ -63,6 +68,8 @@ func _on_NextPageButton_pressed():
 func reveal_letter():
 	text_revealed += 1
 	dialog_container.get_child(dialog_container.get_current_tab()).set_visible_characters(text_revealed)
+	if text_revealed >= dialog_container.get_child(dialog_container.get_current_tab()).get_text().length():
+		$TextRevealNoise.stop()
 
 func _on_TextRevealTimer_timeout():
 	reveal_letter()

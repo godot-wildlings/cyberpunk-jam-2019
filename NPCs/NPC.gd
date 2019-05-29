@@ -47,6 +47,9 @@ var current_target : Node2D # probably the player
 export var max_health : float = 50.0
 var health : float = max_health
 
+var intended_movement_vector : Vector2 = Vector2.ZERO
+var gravity_vector : Vector2 = Vector2.ZERO
+
 #warning-ignore:unused_class_variable
 var damage_types = Game.damage_types
 export var damage_reduction : Dictionary = { # zero to one
@@ -91,34 +94,47 @@ func update_attitude():
 		current_attitude = scanned_attitude
 
 func _process(delta):
+	if not is_on_floor():
+		gravity_vector.y += Game.gravity * delta
+	else:
+		gravity_vector.y = 0.00
 
 	if state == states.passive:
 		#warning-ignore:unused_variable
-		var collision = move_and_collide(Vector2.RIGHT * direction * speed * delta)
+		intended_movement_vector = Vector2.RIGHT * direction * speed
+
 	elif state == states.aggressive:
-		move_to_effective_range(delta)
+		seek_effective_range(delta)
 
 	update_attitude()
 	consider_punching()
 	consider_shooting()
 	consider_fleeing()
 
-func move_to_effective_range(delta):
+	var collision = move_and_collide( (intended_movement_vector + gravity_vector) * delta)
+	if collision:
+		var reflect = collision.remainder.bounce(collision.normal) * 0.1
+		#velocity = velocity.bounce(collision.normal)
+		move_and_collide(reflect)
+
+func seek_effective_range(delta):
 	if attack_type == attack_types.ranged:
 		if ranged_line_of_sight.get_overlapping_bodies().has(current_target):
 			var my_pos = get_global_position()
 			var target_pos = current_target.get_global_position()
 			var effective_range = 250
 			if my_pos.distance_squared_to(target_pos) > effective_range * effective_range:
+				intended_movement_vector = Vector2.RIGHT * direction * speed
 				#warning-ignore:return_value_discarded
-				move_and_collide(Vector2.RIGHT * direction * speed * delta)
 			else:
+				intended_movement_vector = Vector2.RIGHT * -direction * speed
 				#warning-ignore:return_value_discarded
-				move_and_collide(Vector2.RIGHT * -direction * speed * delta)
+
+
 		else: # lost sight of the player
 			state = states.passive
 	elif attack_type == attack_types.melee:
-		move_and_collide(Vector2.RIGHT * direction * speed * delta)
+		intended_movement_vector = Vector2.RIGHT * direction * speed
 
 
 func consider_fleeing():

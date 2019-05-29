@@ -98,6 +98,7 @@ anims/hit = SubResource( 3 )
 anims/walk = SubResource( 4 )
 
 [node name="SFX" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="hits" type="Node2D" parent="SFX"]
 
@@ -157,6 +158,8 @@ texture_under = ExtResource( 13 )
 texture_progress = ExtResource( 14 )
 
 [node name="GunRange" type="Area2D" parent="."]
+editor/display_folded = true
+visible = false
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GunRange"]
@@ -168,6 +171,8 @@ position = Vector2( -0.875999, 0.409866 )
 scale = Vector2( 0.15, 0.15 )
 
 [node name="MeleeRange" type="Area2D" parent="."]
+editor/display_folded = true
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeRange"]
 shape = SubResource( 6 )

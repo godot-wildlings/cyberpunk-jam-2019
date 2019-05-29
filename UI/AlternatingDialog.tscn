@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UI/AlternatingDialog.gd" type="Script" id=1]
 [ext_resource path="res://UI/Themes/cyberpunk_theme.tres" type="Theme" id=2]
 [ext_resource path="res://Player/Protagonist.png" type="Texture" id=3]
 [ext_resource path="res://NPCs/lauren_bacall.png" type="Texture" id=4]
 [ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=5]
+[ext_resource path="res://SFX/Cyber_Jam-_Text_Dialogue_SFX_2_Lower_Pitch.wav" type="AudioStream" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -86,7 +87,7 @@ texture = ExtResource( 4 )
 expand = true
 stretch_mode = 6
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -12.0
 autoplay = true
@@ -95,5 +96,10 @@ bus = "Music"
 [node name="TextRevealTimer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
+
+[node name="TextRevealNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -9.0
+bus = "SFX"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/NextPageButton" to="." method="_on_NextPageButton_pressed"]
 [connection signal="timeout" from="TextRevealTimer" to="." method="_on_TextRevealTimer_timeout"]
