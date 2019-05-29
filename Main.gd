@@ -81,7 +81,8 @@ func reset_level():
 	load_level_num(level_num)
 
 func hover():
-	$HoverNoise.play()
+	var hover_noises = $HoverNoises.get_children()
+	hover_noises[randi()%hover_noises.size()].play()
 
 func click():
 	$ClickNoise.play()
