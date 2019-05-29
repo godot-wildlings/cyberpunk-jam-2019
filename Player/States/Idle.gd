@@ -27,6 +27,9 @@ func flip_sprites(dir):
 
 #warning-ignore:unused_argument
 func process_state(delta):
+	# no movement in idle, so velocity will generally be zero
+	velocity = Vector2.ZERO
+
 	if player.state == my_state_num:
 		if Input.is_action_just_pressed("mv_right") or Input.is_action_just_pressed("mv_left"):
 			player.run()

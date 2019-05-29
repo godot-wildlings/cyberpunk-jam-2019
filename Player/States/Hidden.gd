@@ -17,5 +17,7 @@ func deactivate():
 #warning-ignore:unused_argument
 func process_state(delta):
 	if player.state == my_state_num:
+		velocity = Vector2.ZERO
+
 		if Input.is_action_just_pressed("mv_down"):
 			player.exit()

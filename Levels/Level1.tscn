@@ -251,6 +251,7 @@ shape = SubResource( 4 )
 [node name="Scenery" type="Node2D" parent="."]
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Console" parent="InteractiveObjects" instance=ExtResource( 12 )]
 position = Vector2( 3015.51, 489.078 )
@@ -260,7 +261,6 @@ object_type = 1
 position = Vector2( -229.345, 52.3661 )
 
 [node name="AmmoDoor" parent="InteractiveObjects" instance=ExtResource( 13 )]
-editor/display_folded = true
 position = Vector2( 994.058, 474.421 )
 hidden_to_player = false
 
@@ -277,7 +277,6 @@ position = Vector2( 1649.17, 474.421 )
 hidden_to_player = false
 
 [node name="PortalToLevel2" parent="InteractiveObjects" instance=ExtResource( 13 )]
-editor/display_folded = true
 position = Vector2( 2523.1, 473.052 )
 hidden_to_player = false
 locked = true
@@ -287,12 +286,12 @@ door_type = 2
 scene = ExtResource( 14 )
 
 [node name="elevator" parent="InteractiveObjects" instance=ExtResource( 13 )]
+editor/display_folded = true
 position = Vector2( 1422.59, 476.125 )
 hidden_to_player = false
 
 [node name="Interaction" parent="InteractiveObjects/elevator" index="1"]
 door_type = 4
-linkedElevatorName = "elevator2"
 
 [node name="Label" parent="InteractiveObjects/elevator" index="5"]
 text = "Elevator"
@@ -301,12 +300,12 @@ text = "Elevator"
 position = Vector2( -1.41473, -514.258 )
 
 [node name="elevator2" parent="InteractiveObjects" instance=ExtResource( 13 )]
+editor/display_folded = true
 position = Vector2( 1417.45, -54.5347 )
 hidden_to_player = false
 
 [node name="Interaction" parent="InteractiveObjects/elevator2" index="1"]
 door_type = 4
-linkedElevatorName = "elevator"
 
 [node name="Label" parent="InteractiveObjects/elevator2" index="5"]
 text = "Elevator"

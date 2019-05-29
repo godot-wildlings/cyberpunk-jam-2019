@@ -32,7 +32,7 @@ func deactivate():
 #warning-ignore:unused_argument
 func process_state(delta):
 	if player.state == my_state_num:
-		pass
+		velocity = Vector2.ZERO
 
 #func _on_animation_finished(anim_name):
 #	if anim_name == "exit":

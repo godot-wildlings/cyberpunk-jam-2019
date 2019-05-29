@@ -34,8 +34,9 @@ func process_state(delta):
 			player.crouch(run_velocity)
 			return
 
-		#warning-ignore:return_value_discarded
-		player.move_and_collide(run_velocity * delta)
+		var damping = 0.1
+		var new_vel = move_and_bounce(run_velocity, delta, damping)
+		velocity = new_vel # important to update this every frame, even if we don't use it.
 
 func flip_sprites(dir):
 	if dir > 0:

@@ -52,22 +52,24 @@ func flip_sprites(dir):
 
 func process_state(delta):
 	if player.state == my_state_num:
-		jump_velocity.y += Game.gravity * delta
-
-		var collision = player.move_and_collide(jump_velocity * delta)
-		if collision:
-
-			var reflect = collision.remainder.bounce(collision.normal)
-			jump_velocity = jump_velocity.bounce(collision.normal) * bounce_damping
-			#warning-ignore:return_value_discarded
-			player.move_and_collide(reflect)
+		move(delta)
+		listen_for_exit_conditions()
 
 
-		if sign(jump_velocity.y) > 0:
-			if player.is_on_platform():
-				print("landing")
-				player.land(jump_velocity)
+func move(delta):
+	jump_velocity.y += Game.gravity * delta
 
+
+	var new_vel = move_and_bounce(jump_velocity, delta, bounce_damping)
+
+	if sign(new_vel.y) != sign(jump_velocity.y): # hit the ground?
+		if player.is_on_platform():
+			print("landing")
+			player.land(jump_velocity)
+
+	velocity = new_vel # important to update this every frame, even if we don't use it
+
+func listen_for_exit_conditions():
 		if Input.is_action_just_pressed("jump") and jump_num < max_jumps:
 			player.jump(jump_velocity)
 		elif Input.is_action_just_pressed("mv_up") and jump_num < max_jumps:

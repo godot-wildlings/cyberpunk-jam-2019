@@ -22,7 +22,9 @@ onready var tween = $Tween
 #warning-ignore:unused_class_variable
 onready var gun = $Actions/Attack/Gun
 
-enum states { idle, running, jumping, climbing, dropping, falling, crouching, dead, entering, hidden, exiting, attacking, hit }
+#enum states { idle, running, jumping, climbing, dropping, falling, crouching, dead, entering, hidden, exiting, attacking, hit }
+enum states { idle, running, jumping, climbing, dropping, falling, crouching, dead, entering, hidden, exiting }
+
 var state = states.idle
 var state_names : Dictionary = {
 		states.idle: "Idle",
@@ -35,9 +37,9 @@ var state_names : Dictionary = {
 		states.dead: "Dead",
 		states.entering: "Entering",
 		states.hidden: "Hidden",
-		states.exiting: "Exiting",
-		states.attacking: "Attacking",
-		states.hit: "Hit"
+		states.exiting: "Exiting"
+#		states.attacking: "Attacking",
+#		states.hit: "Hit"
 }
 
 var current_state_node : Node2D
@@ -100,11 +102,15 @@ func deferred_ready():
 
 
 func set_state(state_num, arguments : Array = []):
+	var previous_velocity : Vector2 = Vector2.ZERO
+
 	if current_state_node != null and current_state_node.has_method("deactivate"):
+		previous_velocity = current_state_node.get_velocity()
 		current_state_node.deactivate()
 
 	if $States.has_node(state_names[state_num]):
 		current_state_node = $States.get_node(state_names[state_num])
+		current_state_node.set_velocity(previous_velocity)
 		if arguments.size() > 0:
 			current_state_node.activate(arguments)
 		else:
@@ -139,7 +145,7 @@ func run(initial_velocity : Vector2 = Vector2.ZERO):
 	set_state(states.running, [Vector2(initial_velocity.x, 0)])
 
 func fall(initial_velocity : Vector2 = Vector2.ZERO):
-	set_state(states.falling, [initial_velocity])
+	set_state(states.falling, [])
 
 func land(fall_velocity):
 	$States/Jumping.jump_num = 0
@@ -280,7 +286,7 @@ func scan():
 
 func attack():
 	$Actions/Attack.use()
-	set_state(states.attacking)
+	#set_state(states.attacking)
 
 func interact_with_object(object):
 	if object.has_method("interact"):
@@ -311,8 +317,7 @@ func pickup_key():
 
 
 func hit(damage : float, damage_type : int):
-	if state != states.hit:
-		set_state(states.hit, [damage, damage_type])
+	$Actions/GetHit.use(damage, damage_type)
 
 
 func recover_health(amount : float):

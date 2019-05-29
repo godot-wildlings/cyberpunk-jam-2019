@@ -6,41 +6,27 @@ onready var hitstun_timer = $HitstunTimer
 
 func _ready():
 	player = get_parent().get_parent()
-	my_state_num = player.states.hidden
 	hitstun_timer.connect("timeout", self, "_on_HitstunTimer_timeout")
 
-#warning-ignore:unused_argument
-func activate(arguments : Array = []):
-	show_sprites()
-	hitstun_timer.start()
-	play_random_hurt_noise()
-	take_damage(arguments[0], arguments[1])
 
-func deactivate():
-	hide_sprites()
+func use(damage, damage_type):
+	if hitstun_timer.is_stopped():
+		hitstun_timer.start()
+		play_random_hurt_noise()
+		take_damage(damage, damage_type)
+		flash_red()
+
+
+func flash_red():
+	player.set_modulate(Color.red)
 
 func play_random_hurt_noise():
 	var noises = $SFX.get_children()
 	var noise = noises[randi()%noises.size()]
 	noise.play()
 
-func show_sprites():
-	for child in get_children():
-		if child is Sprite:
-			child.show()
 
-func hide_sprites():
-	for child in get_children():
-		if child is Sprite:
-			child.hide()
 
-#warning-ignore:unused_argument
-func process_state(delta):
-	if player.state == my_state_num:
-		pass
-
-func _on_HitstunTimer_timeout():
-	player.set_state(player.states.idle)
 
 func take_damage(damage, damage_type):
 	var damage_mod : float = 1
@@ -51,6 +37,5 @@ func take_damage(damage, damage_type):
 	player.health -= damage * damage_mod
 	player.get_node("HealthBar").set_value(player.health)
 
-############
-
-
+func _on_HitstunTimer_timeout():
+	player.set_modulate(Color.white)

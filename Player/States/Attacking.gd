@@ -27,9 +27,20 @@ func deactivate():
 #warning-ignore:unused_argument
 func process_state(delta):
 	# should they be able to move slowly during attacks?
-	pass
+
+	# can you shoot in the air? Should be able to.
+	var damping = 0.5
+	if player.is_on_platform():
+		velocity *= damping
+
+
+
+
+
+
 
 func _on_AttackTimer_timeout():
+
 	if Input.is_action_pressed("mv_down"):
 		player.crouch(Vector2.ZERO)
 	else:
