@@ -317,7 +317,7 @@ func drop_key():
 func die():
 	if state != states.dead:
 		#$Sprites.hide()
-		if randf() < 1:
+		if randf() < 0.2:
 			drop_key()
 
 		state = states.dead

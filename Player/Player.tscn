@@ -284,13 +284,25 @@ tracks/4/keys = {
 length = 0.6
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("States/Attacking/PunchingSprite:frame")
+tracks/0/path = NodePath("Actions/Attack/MeleeRange/PunchingSprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.6 ),
+"times": PoolRealArray( 0, 0.05, 0.55, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Actions/Attack/MeleeRange/PunchingSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.05, 0.55 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0, 11 ]
@@ -447,21 +459,21 @@ one_shot = true
 
 [node name="Dead" type="Node2D" parent="States"]
 
-[node name="Attacking" type="Node2D" parent="States"]
-editor/display_folded = true
+[node name="Attacking-notused" type="Node2D" parent="States"]
 script = ExtResource( 17 )
 
-[node name="AttackTimer" type="Timer" parent="States/Attacking"]
+[node name="AttackTimer" type="Timer" parent="States/Attacking-notused"]
 wait_time = 0.6
 one_shot = true
 
-[node name="PunchingSprite" type="Sprite" parent="States/Attacking"]
+[node name="PunchingSprite" type="Sprite" parent="States/Attacking-notused"]
 scale = Vector2( 0.66, 0.66 )
 texture = ExtResource( 18 )
 hframes = 12
 frame = 11
 
 [node name="Climbing" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 19 )
 
 [node name="hooahNoise" type="AudioStreamPlayer2D" parent="States/Climbing"]
@@ -497,6 +509,7 @@ stream = ExtResource( 25 )
 volume_db = -9.0
 
 [node name="Dropping" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 26 )
 
 [node name="huhNoise-notused" type="AudioStreamPlayer2D" parent="States/Dropping"]
@@ -532,7 +545,6 @@ volume_db = -15.0
 bus = "SFX"
 
 [node name="Attack" type="Node2D" parent="Actions"]
-editor/display_folded = true
 script = ExtResource( 30 )
 
 [node name="MeleeRange" type="Area2D" parent="Actions/Attack"]
@@ -543,13 +555,23 @@ collision_mask = 2
 visible = false
 shape = SubResource( 2 )
 
+[node name="PunchingSprite" type="Sprite" parent="Actions/Attack/MeleeRange"]
+visible = false
+scale = Vector2( 0.66, 0.66 )
+texture = ExtResource( 18 )
+hframes = 12
+frame = 11
+
+[node name="PunchTimer" type="Timer" parent="Actions/Attack/MeleeRange"]
+wait_time = 0.6
+one_shot = true
+
 [node name="Gun" parent="Actions/Attack" instance=ExtResource( 31 )]
 visible = false
 position = Vector2( 1.41703, -10.9583 )
 scale = Vector2( 0.140732, 0.140732 )
 
 [node name="GetHit" type="Node2D" parent="Actions"]
-editor/display_folded = true
 script = ExtResource( 32 )
 
 [node name="HitstunTimer" type="Timer" parent="Actions/GetHit"]
@@ -626,7 +648,7 @@ collision_mask = 4
 [node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 37 )]
 margin_top = -87.0
 
-[node name="HitstunTimer" type="Timer" parent="."]
+[node name="HitstunTimer-notused" type="Timer" parent="."]
 
 [node name="HealthBar" type="TextureProgress" parent="."]
 margin_left = -17.5241
@@ -682,4 +704,4 @@ margin_top = -57.8135
 margin_right = 18.3929
 margin_bottom = -43.8135
 script = ExtResource( 46 )
-[connection signal="timeout" from="HitstunTimer" to="." method="_on_HitstunTimer_timeout"]
+[connection signal="timeout" from="Actions/Attack/MeleeRange/PunchTimer" to="Actions/Attack" method="_on_PunchTimer_timeout"]

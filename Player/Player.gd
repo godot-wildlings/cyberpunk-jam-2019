@@ -313,7 +313,7 @@ func drop(): # switch to a lower platform
 		set_state(states.dropping)
 
 func _on_FootStepPauseTimer_timeout():
-	print(state)
+	#print(state)
 	if state == states.running:
 		play_random_step_sfx()
 

@@ -4,6 +4,8 @@ var gun : Node2D
 var tween : Tween
 #warning-ignore:unused_class_variable
 var initial_punch_sprite_scale
+onready var punching_sprite : Sprite = $MeleeRange/PunchingSprite
+onready var punching_timer: Timer = $MeleeRange/PunchTimer
 export var punch_damage : float = 10
 
 func _ready():
@@ -26,12 +28,18 @@ func use():
 		shoot()
 
 func punch(punch_targets):
-	print("punching")
+	punching_timer.start()
+	if player.get_direction() > 0:
+		punching_sprite.set_flip_h(false)
+	else:
+		punching_sprite.set_flip_h(true)
+	#print("punching")
 	# change sprite to punching.
 	# auto-hit nearby opponent
 #	$PunchSprite.scale = initial_punch_sprite_scale
 #	$PunchSprite.scale.x *= player.get_direction()
 	player.animation_player.play("punch")
+
 
 	for target in punch_targets:
 		if target.has_method("hit"):
@@ -75,3 +83,7 @@ func holster_gun():
 	tween.start()
 	yield(tween, "tween_completed")
 	gun.hide()
+
+
+func _on_PunchTimer_timeout():
+	punching_sprite.hide()
