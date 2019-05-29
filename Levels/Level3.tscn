@@ -13,7 +13,7 @@
 [ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=11]
 [ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=13]
-[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Intro_Theme_Rough.ogg" type="AudioStream" id=14]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Intro_Theme_Rough_2.ogg" type="AudioStream" id=14]
 
 [sub_resource type="TileSet" id=1]
 
@@ -291,6 +291,7 @@ align = 1
 stream = ExtResource( 14 )
 volume_db = -15.0
 autoplay = true
+
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
 
 [editable path="InteractiveObjects/PortalToLevel2"]
