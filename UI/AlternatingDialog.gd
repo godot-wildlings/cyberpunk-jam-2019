@@ -35,6 +35,10 @@ func start():
 #func _process(delta):
 #	pass
 
+func queue_next_tab():
+	$TabDelayTimer.start()
+
+
 func next_tab():
 
 	text_revealed = -1
@@ -58,12 +62,12 @@ func next_scene():
 #warning-ignore:unused_argument
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):
-		next_tab()
+		queue_next_tab()
 	elif Input.is_action_just_pressed("ui_cancel"):
 		next_scene()
 
 func _on_NextPageButton_pressed():
-	next_tab()
+	queue_next_tab()
 	Game.main.click()
 
 func reveal_letter():
@@ -79,3 +83,7 @@ func _on_TextRevealTimer_timeout():
 func _on_AnyButton_hover():
 	Game.main.hover()
 
+
+
+func _on_TabDelayTimer_timeout():
+	next_tab()

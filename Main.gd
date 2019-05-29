@@ -85,4 +85,6 @@ func hover():
 	hover_noises[randi()%hover_noises.size()].play()
 
 func click():
-	$ClickNoise.play()
+	var click_noises = $ClickNoises.get_children()
+	click_noises[randi()%click_noises.size()].play()
+
