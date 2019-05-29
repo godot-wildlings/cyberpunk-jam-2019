@@ -19,6 +19,7 @@ func start():
 			"........"
 		]
 
+
 	for i in range(dialog.size()):
 		var new_panel = Label.new()
 		new_panel.set_text(dialog[i])
@@ -28,6 +29,8 @@ func start():
 			new_panel.set_align(Label.ALIGN_LEFT)
 		dialog_container.add_child(new_panel)
 
+	dialog_container.set_current_tab(dialog.size())
+	next_tab()
 
 
 

@@ -6,7 +6,7 @@
 [ext_resource path="res://Story/Chief.png" type="Texture" id=4]
 [ext_resource path="res://BGMusic/Cyber_Jam_-_Police_Station_Theme.ogg" type="AudioStream" id=5]
 
-[node name="HQ1" index="0" instance=ExtResource( 1 )]
+[node name="HQ1" instance=ExtResource( 1 )]
 dialog = [ "Listen Mick, we can't have anymore incidents like last time.", "That was not my fault. Her ident was garbage!", "Not again. The department can't take the bad publicity.", "hmm", "Use your damn scanner! We pay good cred for those.", "I know, I know. Citizens are off limits. Only Ghosts and Sinners" ]
 exit_scene = ExtResource( 2 )
 

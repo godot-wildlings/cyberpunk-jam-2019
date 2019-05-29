@@ -349,7 +349,7 @@ margin_left = -697.505
 margin_top = 404.779
 margin_right = -423.505
 margin_bottom = 435.779
-text = "My name is Shakeduck.
+text = "My name is Mick.
 I hunt ghosts and sinners."
 align = 1
 
@@ -393,14 +393,14 @@ They pose no threat.
 align = 1
 
 [node name="Avatars" type="Label" parent="ForegroundLayer/ParallaxForeground/Front/Instructions"]
-margin_left = 558.998
-margin_top = 352.999
-margin_right = 811.998
-margin_bottom = 417.999
-text = "Some Robots pose as humans.
-They've stolen or forged their digital ID.
-That's Identity Fraud, and it's a felony.
-(Scan robots to check ID)"
+margin_left = 498.197
+margin_top = 357.749
+margin_right = 751.197
+margin_bottom = 422.749
+text = "Robots posing as human are Sinners.
+Sinning is also a felony. Scan everyone.
+
+Press F to use your weapon."
 align = 1
 
 [node name="LockedDoors" type="Label" parent="ForegroundLayer/ParallaxForeground/Front/Instructions"]
