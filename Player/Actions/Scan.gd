@@ -22,6 +22,7 @@ func use():
 			candidate._on_Player_scanned()
 
 	player.iReal_active = true
+	$ScanNoise.play()
 	$DurationTimer.start()
 
 func _on_DurationTimer_timeout():
