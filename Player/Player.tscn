@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/States/Idle.gd" type="Script" id=2]
@@ -42,9 +42,10 @@
 [ext_resource path="res://Player/ammo_back.png" type="Texture" id=40]
 [ext_resource path="res://Player/ammo_front.png" type="Texture" id=41]
 [ext_resource path="res://SFX/Cyberounk_Jam_-_Out_of_Ammo_SFX.wav" type="AudioStream" id=42]
-[ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_1.wav" type="AudioStream" id=43]
-[ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_2.wav" type="AudioStream" id=44]
-[ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=45]
+[ext_resource path="res://SFX/Cyberounk_Jam_-_Reload_SFX_1.wav" type="AudioStream" id=43]
+[ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_1.wav" type="AudioStream" id=44]
+[ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_2.wav" type="AudioStream" id=45]
+[ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=46]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 438.421
@@ -656,14 +657,18 @@ volume_db = -9.0
 stream = ExtResource( 42 )
 volume_db = -9.0
 
-[node name="Steps" type="Node2D" parent="SFX"]
-
-[node name="FootStepSFX1" type="AudioStreamPlayer2D" parent="SFX/Steps"]
+[node name="PickUpAmmoSFX" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource( 43 )
 volume_db = -9.0
 
-[node name="FootStepSFX2" type="AudioStreamPlayer2D" parent="SFX/Steps"]
+[node name="Steps" type="Node2D" parent="SFX"]
+
+[node name="FootStepSFX1" type="AudioStreamPlayer2D" parent="SFX/Steps"]
 stream = ExtResource( 44 )
+volume_db = -9.0
+
+[node name="FootStepSFX2" type="AudioStreamPlayer2D" parent="SFX/Steps"]
+stream = ExtResource( 45 )
 volume_db = -9.0
 
 [node name="FootStepPauseTimer" type="Timer" parent="SFX"]
@@ -675,6 +680,6 @@ margin_left = -21.6071
 margin_top = -57.8135
 margin_right = 18.3929
 margin_bottom = -43.8135
-script = ExtResource( 45 )
+script = ExtResource( 46 )
 
 [connection signal="timeout" from="HitstunTimer" to="." method="_on_HitstunTimer_timeout"]
