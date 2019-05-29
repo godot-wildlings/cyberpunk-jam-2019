@@ -68,7 +68,7 @@ func _on_InteractiveObject_body_exited(body):
 
 #warning-ignore:unused_argument
 func interact(interactor):
-	if has_node("Interaction") and get_node("Interaction").has_method("interact") and not hidden_to_player:
+	if has_node("Interaction") and get_node("Interaction").has_method("interact"):
 		$Interaction.interact(interactor)
 
 
@@ -77,7 +77,6 @@ func _on_Player_scanned():
 	print(self.name, " received signal: Player_scanned")
 	if hidden_to_player:
 		$AnimationPlayer.play("reveal")
-		hidden_to_player = not hidden_to_player
 
 func unlock():
 	print(self.name, " unlocking" )
