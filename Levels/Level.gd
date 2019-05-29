@@ -32,4 +32,10 @@ func spawn_key(location):
 	var key_scene = preload("res://Collectibles/Key.tscn")
 	var new_key = key_scene.instance()
 	new_key.set_global_position(location)
-	$Collectibles.call_deferred("add_child", new_key)
+	if has_node("Collectibles"):
+		$Collectibles.call_deferred("add_child", new_key)
+	else:
+		var new_node = Node2D.new()
+		new_node.set_name("Collectibles")
+		add_child(new_node)
+		$Collectibles.call_deferred("add_child", new_key)
