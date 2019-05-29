@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cyber_Jam_-_Police_Station_Theme.ogg-d1f20e9371279edc68364ead201ee9fb.oggstr"
+
+[deps]
+
+source_file="res://BGMusic/Cyber_Jam_-_Police_Station_Theme.ogg"
+dest_files=[ "res://.import/Cyber_Jam_-_Police_Station_Theme.ogg-d1f20e9371279edc68364ead201ee9fb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

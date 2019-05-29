@@ -139,10 +139,8 @@ func desaturate_sprite():
 	$Sprites/RealSprite.set_self_modulate(Color.white)
 
 func _process(delta):
-	if not is_on_floor():
-		gravity_vector.y += Game.gravity * delta
-	else:
-		gravity_vector.y = 0.00
+	if state == states.dead:
+		return
 
 	if state == states.passive:
 		#warning-ignore:unused_variable
@@ -156,11 +154,20 @@ func _process(delta):
 	consider_shooting()
 	consider_fleeing()
 
+
+	gravity_vector.y += Game.gravity * delta
+
 	var collision = move_and_collide( (intended_movement_vector + gravity_vector) * delta)
+
 	if collision:
 		var reflect = collision.remainder.bounce(collision.normal) * 0.1
 		#velocity = velocity.bounce(collision.normal)
 		move_and_collide(reflect)
+
+	if is_on_floor():
+		gravity_vector.y = 0.00
+
+
 
 func seek_effective_range(delta):
 	if attack_type == attack_types.ranged:
@@ -302,6 +309,16 @@ func _on_Player_scanned():
 
 func hit(damage, damage_type):
 	if state != states.dead:
+		if not scanned:
+			scanned = true
+
+		if current_attitude == attitudes.ignore:
+			if character_type == character_types.citizen:
+				if randf() < 0.33:
+					current_attitude = attitudes.fight
+				else:
+					current_attitude = attitudes.flee
+
 		$AnimationPlayer.play("hit")
 		var hits = $SFX/hits.get_children()
 		var rand_hit = hits[randi()%$SFX/hits.get_child_count()]
@@ -316,11 +333,12 @@ func drop_key():
 
 func die():
 	if state != states.dead:
+		state = states.dead
 		#$Sprites.hide()
 		if randf() < 0.2:
 			drop_key()
 
-		state = states.dead
+		$CollisionShape2D.call_deferred("set_disabled", true)
 
 		$AnimationPlayer.play("die")
 		$SFX/GhostDeath.play()

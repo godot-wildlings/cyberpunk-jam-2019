@@ -8,10 +8,11 @@ onready var cutscene_container : Node2D = $Cutscenes
 
 var levels : Dictionary = {
 		"intro" : preload("res://Levels/Intro.tscn"),
-		"FemmeFatale" : preload("res://Story/FemmeFatale.tscn"),
-		"1" : preload("res://Levels/Level1.tscn"),
+		"HQ1" : preload("res://Story/HQ1.tscn"),
+		#"FemmeFatale" : preload("res://Story/FemmeFatale.tscn"),
+		"1" : preload("res://Levels/Level1.tscn")
 
-		"2" : preload("res://Levels/Level2.tscn")
+		#"2" : preload("res://Levels/Level2.tscn")
 }
 
 onready var tween = get_node("Tween")

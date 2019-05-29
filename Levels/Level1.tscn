@@ -358,7 +358,7 @@ margin_left = -197.207
 margin_top = 18.5889
 margin_right = 105.793
 margin_bottom = 49.5889
-text = "Some Doors are Hidden, but I have a scanner.
+text = "I have a scanner to check their identity.
 (Press Q to use your \"Scan\" ability.)"
 align = 1
 
@@ -441,8 +441,6 @@ position = Vector2( 2615.07, 486.206 )
 
 [node name="NPC" parent="NPCs/Enemies" instance=ExtResource( 18 )]
 position = Vector2( -12.3033, 479.833 )
-character_type = 1
-scanned_attitude = 1
 
 [node name="NPC3" parent="NPCs/Enemies" instance=ExtResource( 18 )]
 position = Vector2( 623.873, 486.004 )
@@ -451,8 +449,6 @@ scanned_attitude = 1
 
 [node name="NPC4" parent="NPCs/Enemies" instance=ExtResource( 18 )]
 position = Vector2( -96.2803, 167.252 )
-character_type = 1
-scanned_attitude = 1
 
 [node name="NPC2" parent="NPCs/Enemies" instance=ExtResource( 18 )]
 position = Vector2( 1211.19, 482.166 )
