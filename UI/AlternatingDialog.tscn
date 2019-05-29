@@ -101,11 +101,6 @@ one_shot = true
 stream = ExtResource( 6 )
 volume_db = -9.0
 bus = "SFX"
-
-[node name="TabDelayTimer" type="Timer" parent="."]
-wait_time = 0.8
-one_shot = true
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/NextPageButton" to="." method="_on_AnyButton_hover"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/NextPageButton" to="." method="_on_NextPageButton_pressed"]
 [connection signal="timeout" from="TextRevealTimer" to="." method="_on_TextRevealTimer_timeout"]
-[connection signal="timeout" from="TabDelayTimer" to="." method="_on_TabDelayTimer_timeout"]
