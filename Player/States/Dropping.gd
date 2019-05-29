@@ -27,21 +27,24 @@ func deactivate():
 
 
 func drop():
-	var platform = null
-	for ground_ray in player.ground_rays:
-		if ground_ray.is_colliding() and ground_ray.get_collider() is StaticBody2D:
-			platform = ground_ray.get_collider()
+#	var platform = null
+#	for ground_ray in player.ground_rays:
+#		if ground_ray.is_colliding() and ground_ray.get_collider() is StaticBody2D:
+#			platform = ground_ray.get_collider()
 
-	var ray = player.get_node("RayDown")
-	# move the ray below the current platform so it doesn't see it.
-	var margin = 10.0
-	var platform_height = platform.get_child(0).get_shape().get_extents().y * 2
-	ray.position = Vector2.DOWN * (player.character_height/2 + platform_height + margin)
-	var distance_between_platforms = 150
-	ray.set_cast_to(Vector2.DOWN * distance_between_platforms)
-	if ray.is_colliding() and ray.get_collider() is StaticBody2D:
+#	var ray = player.get_node("RayDown")
+#	# move the ray below the current platform so it doesn't see it.
+#	var margin = 10.0
+#	var platform_height = platform.get_child(0).get_shape().get_extents().y * 2
+#	ray.position = Vector2.DOWN * (player.character_height/2 + platform_height + margin)
+#	var distance_between_platforms = 150
+#	ray.set_cast_to(Vector2.DOWN * distance_between_platforms)
+#	if ray.is_colliding() and ray.get_collider() is StaticBody2D:
+
+	var platform = player.get_platform_below()
+	if platform != null:
 		$huhNoise.play()
-		move_to_platform(ray.get_collider())
+		move_to_platform(platform)
 
 func move_to_platform(platform):
 	# need to tween this or something

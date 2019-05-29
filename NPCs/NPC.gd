@@ -1,9 +1,12 @@
 extends KinematicBody2D
 
-onready var decision_timer : Timer = $DecisionTimer
-onready var reload_timer : Timer = $ReloadTimer
-onready var ghost_timer : Timer = $GhostTimer
-#onready var shot_timer : Timer = $ShotTimer
+onready var decision_timer : Timer = $Timers/DecisionTimer
+onready var reload_timer : Timer = $Timers/ReloadTimer
+onready var ghost_timer : Timer = $Timers/GhostTimer
+#onready var shot_timer : Timer = $Timers/ShotTimer
+onready var death_timer : Timer = $Timers/DeathTimer
+onready var recognition_timer : Timer = $Timers/RecognitionTimer
+
 onready var ghost_tscn : PackedScene = preload("res://GhostTrailEffect/GhostTrail.tscn") as PackedScene
 onready var gun : Node2D = $EnemyGun
 
@@ -16,6 +19,7 @@ export (attack_types) var attack_type = attack_types.ranged
 export var damage_output_per_hit = 25
 export (Game.damage_types) var melee_damage_type
 
+#warning-ignore:unused_class_variable
 export var can_fly : bool = false
 
 var current_attitude
@@ -34,6 +38,7 @@ var state = states.initializing
 enum weapon_states { reloading, ready }
 var melee_weapon_state = weapon_states.reloading
 var ranged_weapon_state = weapon_states.reloading
+
 onready var ranged_line_of_sight = $GunRange
 onready var melee_range = $MeleeRange
 
@@ -88,6 +93,7 @@ func update_attitude():
 func _process(delta):
 
 	if state == states.passive:
+		#warning-ignore:unused_variable
 		var collision = move_and_collide(Vector2.RIGHT * direction * speed * delta)
 	elif state == states.aggressive:
 		move_to_effective_range(delta)
@@ -104,8 +110,10 @@ func move_to_effective_range(delta):
 			var target_pos = current_target.get_global_position()
 			var effective_range = 250
 			if my_pos.distance_squared_to(target_pos) > effective_range * effective_range:
+				#warning-ignore:return_value_discarded
 				move_and_collide(Vector2.RIGHT * direction * speed * delta)
 			else:
+				#warning-ignore:return_value_discarded
 				move_and_collide(Vector2.RIGHT * -direction * speed * delta)
 		else: # lost sight of the player
 			state = states.passive
@@ -140,14 +148,18 @@ func melee_attack(object):
 
 
 func consider_shooting():
+	if not recognition_timer.is_stopped():
+		return
+
 	if current_attitude == attitudes.fight and attack_type == attack_types.ranged:
 		if ranged_line_of_sight.get_overlapping_bodies().has(Game.player):
 			$EnemySightedLabel.show()
 			current_target = Game.player
 			state = states.aggressive # track the player instead of switching dir randomly
 
-			yield(get_tree().create_timer(.2), "timeout")
-			shoot(Game.player)
+
+			recognition_timer.start()
+
 			#$RecognitionTimer.start() # small delay between sighting target and shooting target to make it seem more plausible
 		else:
 			$EnemySightedLabel.hide()
@@ -213,14 +225,14 @@ func _on_ReloadTimer_timeout():
 #	can_shoot = true
 
 func _on_RecognitionTimer_timeout():
-	print("recognition delay passed")
-	shoot(current_target)
+
+	shoot(Game.player)
 
 func _on_Player_scanned():
 	$Sprites/RealSprite.hide()
 	$Sprites/VRSprite.show()
 	current_sprite = $Sprites/VRSprite
-	$GhostTimer.start()
+	ghost_timer.start()
 	print(self.name, " scanned")
 	scanned = true
 	if scanned_attitude == attitudes.fight:
@@ -249,7 +261,11 @@ func die():
 
 		$AnimationPlayer.play("die")
 		$SFX/hits/GhostDeath.play()
-		yield($AnimationPlayer, "animation_finished")
+		death_timer.start()
 
-		call_deferred("queue_free")
 
+
+
+
+func _on_DeathTimer_timeout():
+	call_deferred("queue_free")

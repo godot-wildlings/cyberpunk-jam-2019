@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://NPCs/NPC.gd" type="Script" id=1]
 [ext_resource path="res://Player/female_walking.png" type="Texture" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://Player/health-red.png" type="Texture" id=8]
 [ext_resource path="res://Player/health-green.png" type="Texture" id=9]
 [ext_resource path="res://Weapons/EnemyGun.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Projectiles/Bullet.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.6956, 25.1545 )
@@ -88,40 +87,35 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="DecisionTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="ReloadTimer" type="Timer" parent="."]
-
-[node name="GhostTimer" type="Timer" parent="."]
-wait_time = 0.1
-
-[node name="ShotTimer" type="Timer" parent="."]
-
-[node name="RecognitionTimer" type="Timer" parent="."]
-wait_time = 0.24
-one_shot = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/die = SubResource( 2 )
 anims/hit = SubResource( 3 )
 anims/walk = SubResource( 4 )
 
 [node name="SFX" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="hits" type="Node2D" parent="SFX"]
 
 [node name="OofNoise" type="AudioStreamPlayer2D" parent="SFX/hits"]
 stream = ExtResource( 4 )
+volume_db = -9.0
+bus = "SFX"
 
 [node name="OwNoise" type="AudioStreamPlayer2D" parent="SFX/hits"]
 stream = ExtResource( 5 )
+volume_db = -9.0
+bus = "SFX"
 
 [node name="GhostDeath" type="AudioStreamPlayer2D" parent="SFX/hits"]
 stream = ExtResource( 6 )
+volume_db = -9.0
+bus = "SFX"
 
 [node name="SinnerDeath" type="AudioStreamPlayer2D" parent="SFX/hits"]
 stream = ExtResource( 7 )
+volume_db = -9.0
+bus = "SFX"
 
 [node name="HealthBar" type="TextureProgress" parent="."]
 margin_left = -23.0316
@@ -143,7 +137,6 @@ shape = SubResource( 5 )
 [node name="EnemyGun" parent="." instance=ExtResource( 10 )]
 position = Vector2( -0.875999, 0.409866 )
 scale = Vector2( 0.15, 0.15 )
-bullet_scene = ExtResource( 11 )
 
 [node name="MeleeRange" type="Area2D" parent="."]
 
@@ -157,6 +150,23 @@ margin_top = -56.9993
 margin_right = 50.2647
 margin_bottom = -42.9993
 text = "Enemy Sighted"
-[connection signal="timeout" from="DecisionTimer" to="." method="_on_DecisionTimer_timeout"]
-[connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
-[connection signal="timeout" from="RecognitionTimer" to="." method="_on_RecognitionTimer_timeout"]
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="DecisionTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="Timers"]
+
+[node name="GhostTimer" type="Timer" parent="Timers"]
+wait_time = 0.1
+
+[node name="RecognitionTimer" type="Timer" parent="Timers"]
+wait_time = 0.2
+one_shot = true
+
+[node name="DeathTimer" type="Timer" parent="Timers"]
+[connection signal="timeout" from="Timers/DecisionTimer" to="." method="_on_DecisionTimer_timeout"]
+[connection signal="timeout" from="Timers/ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
+[connection signal="timeout" from="Timers/RecognitionTimer" to="." method="_on_RecognitionTimer_timeout"]
+[connection signal="timeout" from="Timers/DeathTimer" to="." method="_on_DeathTimer_timeout"]

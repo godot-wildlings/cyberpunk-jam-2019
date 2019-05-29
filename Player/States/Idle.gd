@@ -44,7 +44,12 @@ func process_state(delta):
 				else:
 					player.jump()
 		elif Input.is_action_just_pressed("mv_down"):
-			player.drop()
+			var platform_below = player.get_platform_below()
+			if platform_below != null:
+				player.drop()
+			else:
+				player.crouch()
+
 
 
 

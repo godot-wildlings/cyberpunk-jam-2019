@@ -23,6 +23,10 @@ position = Vector2( 174.774, -28.8503 )
 
 [node name="Laser1" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource( 4 )
+volume_db = -12.0
+bus = "SFX"
 
 [node name="Laser2" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource( 5 )
+volume_db = -12.0
+bus = "SFX"

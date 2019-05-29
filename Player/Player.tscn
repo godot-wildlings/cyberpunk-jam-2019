@@ -1,36 +1,38 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/States/Idle.gd" type="Script" id=2]
 [ext_resource path="res://Player/walking.png" type="Texture" id=3]
-[ext_resource path="res://Player/States/Running.gd" type="Script" id=4]
-[ext_resource path="res://Player/running.png" type="Texture" id=5]
-[ext_resource path="res://Player/States/Jumping.gd" type="Script" id=6]
-[ext_resource path="res://Player/hu.wav" type="AudioStream" id=7]
-[ext_resource path="res://Player/jumping.png" type="Texture" id=8]
-[ext_resource path="res://Player/States/Climbing.gd" type="Script" id=9]
-[ext_resource path="res://Player/hooah.wav" type="AudioStream" id=10]
-[ext_resource path="res://Player/States/Dropping.gd" type="Script" id=11]
-[ext_resource path="res://Player/huh.wav" type="AudioStream" id=12]
-[ext_resource path="res://Player/States/Falling.gd" type="Script" id=13]
-[ext_resource path="res://Player/States/Entering.gd" type="Script" id=14]
-[ext_resource path="res://Player/entering.png" type="Texture" id=15]
-[ext_resource path="res://Player/States/Hidden.gd" type="Script" id=16]
-[ext_resource path="res://Player/States/Exiting.gd" type="Script" id=17]
-[ext_resource path="res://Player/exiting.png" type="Texture" id=18]
-[ext_resource path="res://Player/States/Attacking.gd" type="Script" id=19]
-[ext_resource path="res://Player/punching.png" type="Texture" id=20]
-[ext_resource path="res://Player/States/Hit.gd" type="Script" id=21]
-[ext_resource path="res://Player/oof2.wav" type="AudioStream" id=22]
-[ext_resource path="res://Player/Actions/Scan.gd" type="Script" id=23]
-[ext_resource path="res://Player/Actions/Attack.gd" type="Script" id=24]
-[ext_resource path="res://Weapons/PlayerGun.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Player/PlayerHUD.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Player/health-red.png" type="Texture" id=27]
-[ext_resource path="res://Player/health-green.png" type="Texture" id=28]
-[ext_resource path="res://Player/ammo_back.png" type="Texture" id=29]
-[ext_resource path="res://Player/ammo_front.png" type="Texture" id=30]
-[ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=31]
+[ext_resource path="res://Player/States/Crouching.gd" type="Script" id=4]
+[ext_resource path="res://Player/crouching.png" type="Texture" id=5]
+[ext_resource path="res://Player/States/Running.gd" type="Script" id=6]
+[ext_resource path="res://Player/running.png" type="Texture" id=7]
+[ext_resource path="res://Player/States/Jumping.gd" type="Script" id=8]
+[ext_resource path="res://Player/hu.wav" type="AudioStream" id=9]
+[ext_resource path="res://Player/jumping.png" type="Texture" id=10]
+[ext_resource path="res://Player/States/Climbing.gd" type="Script" id=11]
+[ext_resource path="res://Player/hooah.wav" type="AudioStream" id=12]
+[ext_resource path="res://Player/States/Dropping.gd" type="Script" id=13]
+[ext_resource path="res://Player/huh.wav" type="AudioStream" id=14]
+[ext_resource path="res://Player/States/Falling.gd" type="Script" id=15]
+[ext_resource path="res://Player/States/Entering.gd" type="Script" id=16]
+[ext_resource path="res://Player/entering.png" type="Texture" id=17]
+[ext_resource path="res://Player/States/Hidden.gd" type="Script" id=18]
+[ext_resource path="res://Player/States/Exiting.gd" type="Script" id=19]
+[ext_resource path="res://Player/exiting.png" type="Texture" id=20]
+[ext_resource path="res://Player/States/Attacking.gd" type="Script" id=21]
+[ext_resource path="res://Player/punching.png" type="Texture" id=22]
+[ext_resource path="res://Player/States/Hit.gd" type="Script" id=23]
+[ext_resource path="res://Player/oof2.wav" type="AudioStream" id=24]
+[ext_resource path="res://Player/Actions/Scan.gd" type="Script" id=25]
+[ext_resource path="res://Player/Actions/Attack.gd" type="Script" id=26]
+[ext_resource path="res://Weapons/PlayerGun.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Player/PlayerHUD.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Player/health-red.png" type="Texture" id=29]
+[ext_resource path="res://Player/health-green.png" type="Texture" id=30]
+[ext_resource path="res://Player/ammo_back.png" type="Texture" id=31]
+[ext_resource path="res://Player/ammo_front.png" type="Texture" id=32]
+[ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=33]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 438.421
@@ -334,7 +336,6 @@ collision_mask = 28
 script = ExtResource( 1 )
 
 [node name="States" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Idle" type="Node2D" parent="States"]
 script = ExtResource( 2 )
@@ -345,65 +346,72 @@ texture = ExtResource( 3 )
 hframes = 12
 frame = 6
 
-[node name="Running" type="Node2D" parent="States"]
+[node name="Crouching" type="Node2D" parent="States"]
 script = ExtResource( 4 )
+
+[node name="CrouchingSprite" type="Sprite" parent="States/Crouching"]
+visible = false
+texture = ExtResource( 5 )
+
+[node name="Running" type="Node2D" parent="States"]
+script = ExtResource( 6 )
 
 [node name="RunningSprite" type="Sprite" parent="States/Running"]
 visible = false
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 hframes = 6
 
 [node name="Jumping" type="Node2D" parent="States"]
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
 [node name="huNoise" type="AudioStreamPlayer2D" parent="States/Jumping"]
-stream = ExtResource( 7 )
+stream = ExtResource( 9 )
 
 [node name="JumpingSprite" type="Sprite" parent="States/Jumping"]
 visible = false
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 hframes = 12
 frame = 3
 
 [node name="Climbing" type="Node2D" parent="States"]
-script = ExtResource( 9 )
+script = ExtResource( 11 )
 
 [node name="hooahNoise" type="AudioStreamPlayer2D" parent="States/Climbing"]
-stream = ExtResource( 10 )
+stream = ExtResource( 12 )
 
 [node name="ClimbingSprite" type="Sprite" parent="States/Climbing"]
 visible = false
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 hframes = 12
 frame = 3
 
 [node name="Dropping" type="Node2D" parent="States"]
-script = ExtResource( 11 )
+script = ExtResource( 13 )
 
 [node name="huhNoise" type="AudioStreamPlayer2D" parent="States/Dropping"]
-stream = ExtResource( 12 )
+stream = ExtResource( 14 )
 
 [node name="DroppingSprite" type="Sprite" parent="States/Dropping"]
 visible = false
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 hframes = 12
 frame = 3
 
 [node name="Falling" type="Node2D" parent="States"]
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 
 [node name="FallingSprite" type="Sprite" parent="States/Falling"]
 visible = false
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 hframes = 12
 frame = 6
 
 [node name="Entering" type="Node2D" parent="States"]
-script = ExtResource( 14 )
+script = ExtResource( 16 )
 
 [node name="EnteringSprite" type="Sprite" parent="States/Entering"]
 visible = false
-texture = ExtResource( 15 )
+texture = ExtResource( 17 )
 hframes = 12
 frame = 11
 
@@ -412,13 +420,13 @@ wait_time = 0.6
 one_shot = true
 
 [node name="Hidden" type="Node2D" parent="States"]
-script = ExtResource( 16 )
+script = ExtResource( 18 )
 
 [node name="Exiting" type="Node2D" parent="States"]
-script = ExtResource( 17 )
+script = ExtResource( 19 )
 
 [node name="ExitingSprite" type="Sprite" parent="States/Exiting"]
-texture = ExtResource( 18 )
+texture = ExtResource( 20 )
 hframes = 12
 frame = 11
 
@@ -429,7 +437,7 @@ one_shot = true
 [node name="Dead" type="Node2D" parent="States"]
 
 [node name="Attacking" type="Node2D" parent="States"]
-script = ExtResource( 19 )
+script = ExtResource( 21 )
 
 [node name="AttackTimer" type="Timer" parent="States/Attacking"]
 wait_time = 0.6
@@ -437,12 +445,12 @@ one_shot = true
 
 [node name="PunchingSprite" type="Sprite" parent="States/Attacking"]
 scale = Vector2( 0.66, 0.66 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 hframes = 12
 frame = 11
 
 [node name="Hit" type="Node2D" parent="States"]
-script = ExtResource( 21 )
+script = ExtResource( 23 )
 
 [node name="HitstunTimer" type="Timer" parent="States/Hit"]
 wait_time = 0.1
@@ -450,18 +458,17 @@ one_shot = true
 
 [node name="HurtSprite" type="Sprite" parent="States/Hit"]
 rotation = -0.942478
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 hframes = 12
 frame = 11
 
 [node name="OofNoise" type="AudioStreamPlayer2D" parent="States/Hit"]
-stream = ExtResource( 22 )
+stream = ExtResource( 24 )
 
 [node name="Actions" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Scan" type="Node2D" parent="Actions"]
-script = ExtResource( 23 )
+script = ExtResource( 25 )
 
 [node name="EffectiveRange" type="Area2D" parent="Actions/Scan"]
 collision_layer = 0
@@ -475,7 +482,7 @@ wait_time = 6.0
 one_shot = true
 
 [node name="Attack" type="Node2D" parent="Actions"]
-script = ExtResource( 24 )
+script = ExtResource( 26 )
 
 [node name="MeleeRange" type="Area2D" parent="Actions/Attack"]
 collision_layer = 0
@@ -484,7 +491,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actions/Attack/MeleeRange"]
 shape = SubResource( 2 )
 
-[node name="Gun" parent="Actions/Attack" instance=ExtResource( 25 )]
+[node name="Gun" parent="Actions/Attack" instance=ExtResource( 27 )]
 position = Vector2( 1.41703, -10.9583 )
 scale = Vector2( 0.140732, 0.140732 )
 
@@ -532,7 +539,7 @@ collision_mask = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 26 )]
+[node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 28 )]
 margin_top = -87.0
 
 [node name="HitstunTimer" type="Timer" parent="."]
@@ -544,8 +551,8 @@ margin_right = 74.4759
 margin_bottom = 4.95181
 rect_scale = Vector2( 0.380881, 0.380881 )
 value = 100.0
-texture_under = ExtResource( 27 )
-texture_progress = ExtResource( 28 )
+texture_under = ExtResource( 29 )
+texture_progress = ExtResource( 30 )
 
 [node name="AmmoBar" type="TextureProgress" parent="."]
 margin_left = -17.6665
@@ -554,18 +561,18 @@ margin_right = 204.333
 margin_bottom = 6.26243
 rect_scale = Vector2( 0.157489, 0.131796 )
 value = 100.0
-texture_under = ExtResource( 29 )
-texture_progress = ExtResource( 30 )
+texture_under = ExtResource( 31 )
+texture_progress = ExtResource( 32 )
 
 [node name="SFX" type="Node2D" parent="."]
 
 [node name="huhNoise" type="AudioStreamPlayer2D" parent="SFX"]
-stream = ExtResource( 12 )
+stream = ExtResource( 14 )
 
 [node name="StateLabel" type="Label" parent="."]
 margin_left = -21.6071
 margin_top = -57.8135
 margin_right = 18.3929
 margin_bottom = -43.8135
-script = ExtResource( 31 )
+script = ExtResource( 33 )
 [connection signal="timeout" from="HitstunTimer" to="." method="_on_HitstunTimer_timeout"]

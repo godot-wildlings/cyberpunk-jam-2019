@@ -21,7 +21,7 @@ onready var tween = $Tween
 #warning-ignore:unused_class_variable
 onready var gun = $Actions/Attack/Gun
 
-enum states { idle, running, jumping, climbing, dropping, falling, dead, entering, hidden, exiting, attacking, hit }
+enum states { idle, running, jumping, climbing, dropping, falling, crouching, dead, entering, hidden, exiting, attacking, hit }
 var state = states.idle
 var state_names : Dictionary = {
 		states.idle: "Idle",
@@ -30,6 +30,7 @@ var state_names : Dictionary = {
 		states.climbing: "Climbing",
 		states.dropping: "Dropping",
 		states.falling: "Falling",
+		states.crouching: "Crouching",
 		states.dead: "Dead",
 		states.entering: "Entering",
 		states.hidden: "Hidden",
@@ -161,6 +162,8 @@ func idle():
 #	run_velocity = Vector2.ZERO
 #	animation_player.play("idle")
 
+func crouch():
+	set_state(states.crouching, [])
 
 func enter(object):
 	set_state(states.entering, [object])
@@ -187,6 +190,26 @@ func get_platform_above() -> StaticBody2D:
 
 	ray.position = Vector2.UP * character_height/2
 	ray.set_cast_to(Vector2.UP * distance_between_platforms)
+	if ray.is_colliding() and ray.get_collider() is StaticBody2D:
+		return ray.get_collider()
+	else:
+		return null
+
+func get_platform_below() -> StaticBody2D:
+	var platform = null
+	for ground_ray in ground_rays:
+		if ground_ray.is_colliding() and ground_ray.get_collider() is StaticBody2D:
+			platform = ground_ray.get_collider()
+
+	var ray = get_node("RayDown")
+	# move the ray below the current platform so it doesn't see it.
+	var margin = 10.0
+	var platform_height = 100
+	if platform != null and platform.get_child_count() > 0:
+		platform_height = platform.get_child(0).get_shape().get_extents().y * 2
+	ray.position = Vector2.DOWN * (character_height/2 + platform_height + margin)
+	var distance_between_platforms = 150
+	ray.set_cast_to(Vector2.DOWN * distance_between_platforms)
 	if ray.is_colliding() and ray.get_collider() is StaticBody2D:
 		return ray.get_collider()
 	else:
