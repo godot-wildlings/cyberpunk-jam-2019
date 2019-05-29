@@ -32,4 +32,4 @@ func spawn_key(location):
 	var key_scene = preload("res://Collectibles/Key.tscn")
 	var new_key = key_scene.instance()
 	new_key.set_global_position(location)
-	$Collectibles.add_child(new_key)
+	$Collectibles.call_deferred("add_child", new_key)

@@ -5,22 +5,25 @@ var my_state_num : int
 
 var warning_issued: bool = false
 
+var sprite : Sprite
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_parent().get_parent()
 	my_state_num = player.states.climbing
-
+	sprite = $ClimbingSprite
 
 #warning-ignore:unused_argument
 func activate(arguments : Array = []):
 	if arguments.size() > 0:
+		sprite.show()
 		$hooahNoise.play()
 		move_to_platform(arguments[0])
 	else:
 		player.jump(Vector2.ZERO)
 
 func deactivate():
-	pass
+	sprite.hide()
 
 #warning-ignore:unused_argument
 func process_state(delta):
@@ -46,7 +49,7 @@ func move_to_platform(platform):
 		player.position, new_position, 0.35,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	player.tween.start()
-	player.animation_player.play("jump")
+	#player.animation_player.play("jump")
 
 	if not warning_issued:
 		push_warning(self.name + ": yielding for movement probably isn't the best approach")

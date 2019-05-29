@@ -39,7 +39,7 @@ radius = 438.421
 extents = Vector2( 29.8278, 22.4791 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 17.9254, 18.9475 )
+extents = Vector2( 17.9254, 22.7849 )
 
 [sub_resource type="Animation" id=4]
 length = 0.6
@@ -371,11 +371,23 @@ script = ExtResource( 9 )
 [node name="hooahNoise" type="AudioStreamPlayer2D" parent="States/Climbing"]
 stream = ExtResource( 10 )
 
+[node name="ClimbingSprite" type="Sprite" parent="States/Climbing"]
+visible = false
+texture = ExtResource( 8 )
+hframes = 12
+frame = 3
+
 [node name="Dropping" type="Node2D" parent="States"]
 script = ExtResource( 11 )
 
 [node name="huhNoise" type="AudioStreamPlayer2D" parent="States/Dropping"]
 stream = ExtResource( 12 )
+
+[node name="DroppingSprite" type="Sprite" parent="States/Dropping"]
+visible = false
+texture = ExtResource( 8 )
+hframes = 12
+frame = 3
 
 [node name="Falling" type="Node2D" parent="States"]
 script = ExtResource( 13 )
@@ -446,6 +458,7 @@ frame = 11
 stream = ExtResource( 22 )
 
 [node name="Actions" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Scan" type="Node2D" parent="Actions"]
 script = ExtResource( 23 )
@@ -476,7 +489,7 @@ position = Vector2( 1.41703, -10.9583 )
 scale = Vector2( 0.140732, 0.140732 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.407814, 3.87423 )
+position = Vector2( 0.407814, -0.406623 )
 shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

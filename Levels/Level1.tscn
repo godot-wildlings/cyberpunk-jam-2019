@@ -430,7 +430,6 @@ autoplay = true
 bus = "SFX"
 
 [node name="iRealRenderer" parent="." instance=ExtResource( 18 )]
-
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
 
 [editable path="InteractiveObjects/AmmoDoor"]

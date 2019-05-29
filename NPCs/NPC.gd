@@ -3,7 +3,7 @@ extends KinematicBody2D
 onready var decision_timer : Timer = $DecisionTimer
 onready var reload_timer : Timer = $ReloadTimer
 onready var ghost_timer : Timer = $GhostTimer
-onready var shot_timer : Timer = $ShotTimer
+#onready var shot_timer : Timer = $ShotTimer
 onready var ghost_tscn : PackedScene = preload("res://GhostTrailEffect/GhostTrail.tscn") as PackedScene
 onready var gun : Node2D = $EnemyGun
 
@@ -12,23 +12,32 @@ enum attack_types { ranged, melee }
 #export var friendly : bool = true
 export (attitudes) var initial_attitude = attitudes.ignore
 export (attitudes) var scanned_attitude = attitudes.fight
-export (attack_types) var attack_type = attack_types.melee
+export (attack_types) var attack_type = attack_types.ranged
 export var damage_output_per_hit = 25
 export (Game.damage_types) var melee_damage_type
+
+export var can_fly : bool = false
+
+var current_attitude
+
 
 var direction : int = 1
 var speed : float = 80.0
 var scanned : bool = false
-var can_shoot : bool = true
+#var can_shoot : bool = true
 
 var current_sprite
 
-enum states { initializing, ready, passive, alert, dead, frozen }
+enum states { initializing, ready, passive, alert, aggressive, dead, frozen }
 var state = states.initializing
 
 enum weapon_states { reloading, ready }
 var melee_weapon_state = weapon_states.reloading
 var ranged_weapon_state = weapon_states.reloading
+onready var ranged_line_of_sight = $GunRange
+onready var melee_range = $MeleeRange
+
+var current_target : Node2D # probably the player
 
 export var max_health : float = 50.0
 var health : float = max_health
@@ -50,8 +59,8 @@ var warning_issued : bool = false
 func _ready():
 	#warning-ignore:return_value_discarded
 	ghost_timer.connect("timeout", self, "_on_GhostTimer_timeout")
-	#warning-ignore:return_value_discarded	
-	shot_timer.connect("timeout", self, "_on_ShotTimer_timeout")
+	#warning-ignore:return_value_discarded
+	#shot_timer.connect("timeout", self, "_on_ShotTimer_timeout")
 	decision_timer.start()
 	reload_timer.start()
 	state = states.passive
@@ -70,38 +79,53 @@ func enable_collisions_with_player():
 	var player_value = 1
 	set_collision_mask_bit(player_bit, player_value)
 
-
-func _process(delta):
-
-	var collision = move_and_collide(Vector2.RIGHT * direction * speed * delta)
-
-	var current_attitude
+func update_attitude():
 	if scanned == false:
 		current_attitude = initial_attitude
 	else:
 		current_attitude = scanned_attitude
 
-	if Game.ticks%30 == 0:
-		print(self.name, " current_attitude == ", current_attitude)
+func _process(delta):
 
-	if current_attitude == attitudes.fight:
-		if attack_type == attack_types.melee:
-			if melee_weapon_state == weapon_states.ready and collision != null:
-				print(self.name, " attacking")
-				var collider = collision.get_collider()
-				if collider == Game.player:
-					melee_attack(collider)
-		elif attack_type == attack_types.ranged:
-			gun.visible = true
-			for body in $LineOfSight.get_overlapping_bodies():
-				if body == Game.player and can_shoot:
-					shoot(body)
-	elif current_attitude == attitudes.flee:
+	if state == states.passive:
+		var collision = move_and_collide(Vector2.RIGHT * direction * speed * delta)
+	elif state == states.aggressive:
+		move_to_effective_range(delta)
+
+	update_attitude()
+	consider_punching()
+	consider_shooting()
+	consider_fleeing()
+
+func move_to_effective_range(delta):
+	if attack_type == attack_types.ranged:
+		var my_pos = get_global_position()
+		var target_pos = current_target.get_global_position()
+		var effective_range = 250
+		if my_pos.distance_squared_to(target_pos) > effective_range * effective_range:
+			move_and_collide(Vector2.RIGHT * direction * speed * delta)
+		else:
+			move_and_collide(Vector2.RIGHT * -direction * speed * delta)
+	elif attack_type == attack_types.melee:
+		move_and_collide(Vector2.RIGHT * direction * speed * delta)
+
+
+func consider_fleeing():
+	if current_attitude == attitudes.flee:
 		if Game.ticks %60 == 0:
 			print(self.name, " is running away")
 		if not warning_issued:
 			push_warning("NPCs still need fleeing behaviour")
 			warning_issued = true
+
+
+
+func consider_punching():
+	if current_attitude == attitudes.fight and attack_type == attack_types.melee:
+		if melee_weapon_state == weapon_states.ready:
+			if melee_range.get_overlapping_bodies().has(Game.player):
+				current_target = Game.player
+				melee_attack(current_target)
 
 func melee_attack(object):
 	if object.has_method("hit"):
@@ -109,13 +133,30 @@ func melee_attack(object):
 		melee_weapon_state = weapon_states.reloading
 		reload_timer.start()
 
+		push_warning("NPCs still need melee attack animation")
+
+
+func consider_shooting():
+	if current_attitude == attitudes.fight and attack_type == attack_types.ranged:
+		if ranged_line_of_sight.get_overlapping_bodies().has(Game.player):
+			$EnemySightedLabel.show()
+			current_target = Game.player
+			state = states.aggressive # track the player instead of switching dir randomly
+
+			yield(get_tree().create_timer(.2), "timeout")
+			shoot(Game.player)
+			#$RecognitionTimer.start() # small delay between sighting target and shooting target to make it seem more plausible
+		else:
+			$EnemySightedLabel.hide()
+
 func shoot(target):
-	assert is_instance_valid(gun)
-	if gun.has_method("shoot"):
-		gun.shoot(target)
-		can_shoot = false
-		shot_timer.start()
-		
+	if is_instance_valid(gun) and gun.has_method("shoot"):
+		if ranged_weapon_state == weapon_states.ready:
+			gun.shoot(target)
+			ranged_weapon_state = weapon_states.reloading
+			reload_timer.start()
+
+
 
 func _on_GhostTimer_timeout():
 	if state != states.initializing and state != states.dead:
@@ -130,21 +171,47 @@ func _on_GhostTimer_timeout():
 func get_direction() -> int:
 	return direction
 
+func switch_direction(dir):
+	if direction != dir:
+		ranged_line_of_sight.scale.x *= -1
+		if dir > 0:
+			$Sprites/RealSprite.set_flip_h(false)
+		else:
+			$Sprites/RealSprite.set_flip_h(true)
+	direction = dir
+
+
 func _on_DecisionTimer_timeout():
-	if randf() < 0.5:
-		direction = 1
-		$Sprites/RealSprite.set_flip_h(false)
-	else:
-		direction = -1
-		$Sprites/RealSprite.set_flip_h(true)
+	if state != states.aggressive:
+		# change directions randomly
+		if randf() < 0.5:
+			switch_direction(-1)
+		else:
+			switch_direction(1)
+	elif state == states.aggressive:
+		# chase the player
+		follow(current_target)
 
 	decision_timer.start()
 
+func follow(target):
+	var my_pos = get_global_position()
+	var target_pos = target.get_global_position()
+	var new_dir = sign((target_pos - my_pos).x)
+	if new_dir != direction:
+		switch_direction(new_dir)
+
 func _on_ReloadTimer_timeout():
 	melee_weapon_state = weapon_states.ready
+	ranged_weapon_state = weapon_states.ready
+	#can_shoot = true
 
-func _on_ShotTimer_timeout():
-	can_shoot = true
+#func _on_ShotTimer_timeout():
+#	can_shoot = true
+
+func _on_RecognitionTimer_timeout():
+	print("recognition delay passed")
+	shoot(current_target)
 
 func _on_Player_scanned():
 	$Sprites/RealSprite.hide()

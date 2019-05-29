@@ -3,11 +3,13 @@ extends Player_State
 #var player : KinematicBody2D
 var my_state_num : int
 var warning_issued : bool = false
+var sprite : Sprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_parent().get_parent()
 	my_state_num = player.states.dropping
+	sprite = $DroppingSprite
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -17,10 +19,11 @@ func _ready():
 
 
 func activate():
+	sprite.show()
 	drop()
 
 func deactivate():
-	pass
+	sprite.hide()
 
 
 func drop():
@@ -51,7 +54,7 @@ func move_to_platform(platform):
 		player.position, new_position, 0.35,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	player.tween.start()
-	player.animation_player.play("jump")
+	#player.animation_player.play("jump")
 
 	if not warning_issued:
 		push_warning(self.name + ": yielding for movement probably isn't the best approach")
