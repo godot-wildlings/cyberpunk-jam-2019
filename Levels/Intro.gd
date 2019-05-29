@@ -14,4 +14,10 @@ func _ready():
 
 
 func _on_StartButton_pressed():
+	Game.main.click()
 	Game.main.next_level()
+
+
+func _on_AnyButton_hover():
+	Game.main.hover()
+

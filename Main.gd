@@ -79,3 +79,9 @@ func reset_level():
 		remove_child(level)
 	fade_in()
 	load_level_num(level_num)
+
+func hover():
+	$HoverNoise.play()
+
+func click():
+	$ClickNoise.play()

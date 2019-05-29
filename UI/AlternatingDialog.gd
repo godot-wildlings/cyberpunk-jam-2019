@@ -64,6 +64,7 @@ func _input(event):
 
 func _on_NextPageButton_pressed():
 	next_tab()
+	Game.main.click()
 
 func reveal_letter():
 	text_revealed += 1
@@ -74,3 +75,7 @@ func reveal_letter():
 func _on_TextRevealTimer_timeout():
 	reveal_letter()
 	$TextRevealTimer.start()
+
+func _on_AnyButton_hover():
+	Game.main.hover()
+

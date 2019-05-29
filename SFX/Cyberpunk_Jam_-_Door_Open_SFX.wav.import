@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cyberpunk_Jam_-_Door_Open_SFX.wav-64fbdc5400ef50b51ec80d6ca56f9b3f.sample"
+
+[deps]
+
+source_file="res://SFX/Cyberpunk_Jam_-_Door_Open_SFX.wav"
+dest_files=[ "res://.import/Cyberpunk_Jam_-_Door_Open_SFX.wav-64fbdc5400ef50b51ec80d6ca56f9b3f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
