@@ -341,6 +341,7 @@ func recover_health(amount : float):
 	$HealthBar.set_value(health)
 
 func add_ammo(amount: int):
+	assert is_instance_valid(pick_up_ammo_sfx)
 	ammo = min(ammo + amount, max_ammo)
 	$AmmoBar.set_value(ammo/max_ammo * 100)
 	pick_up_ammo_sfx.play()
