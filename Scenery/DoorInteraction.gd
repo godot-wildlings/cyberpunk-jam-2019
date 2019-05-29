@@ -29,7 +29,11 @@ var door_names : Dictionary = {
 export (door_types) var door_type = door_types.health
 export var amount : float = 100
 export var scene : PackedScene
+export (String) var linkedElevatorName
 
+signal animDone
+
+onready var linkedElevator = get_parent().get_parent().get_node(linkedElevatorName)
 onready var door : Area2D
 var animation_player : AnimationPlayer
 
@@ -86,5 +90,18 @@ func provide_reward(interactor):
 
 func movePlayer():
 	if door_type == door_types.shortcut:
-		Game.player.set_global_position(door.get_node("exit").get_global_position())
+		Game.player.set_global_position(linkedElevator.position)
+		Game.player.currentlyIn = linkedElevator
+
+func open():
+	if animation_player.has_animation("open"):
+			animation_player.play("open")
+			door.open = true
+			yield(animation_player,"animation_finished")
+	emit_signal("animDone")
+
+func close():
+	if animation_player.has_animation("close"):
+			animation_player.play("close")
+			door.open = false
 

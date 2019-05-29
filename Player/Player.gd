@@ -9,7 +9,8 @@ var velocity : Vector2 = Vector2.ZERO
 
 #warning-ignore:unused_class_variable
 onready var animation_player = $AnimationPlayer
-
+#track in which door one is
+var currentlyIn = null
 
 #warning-ignore:unused_class_variable
 onready var ray_front = $RayFront
@@ -164,8 +165,12 @@ func crouch(initial_velocity):
 
 func enter(object):
 	set_state(states.entering, [object])
+	currentlyIn = object
 
 func exit():
+	if currentlyIn && currentlyIn.has_method("open"):
+		currentlyIn.open()
+		yield(currentlyIn, "animDone")
 	set_state(states.exiting)
 
 # move this to state

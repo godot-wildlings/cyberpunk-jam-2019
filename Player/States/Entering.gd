@@ -5,13 +5,12 @@ var my_state_num : int
 #var warning_issued : bool = false
 onready var sprite : Sprite = get_node("EnteringSprite")
 
-var object_entered : Node2D # most likely a door
+var object_entered # most likely a door
 
 
 func _ready():
 	player = get_parent().get_parent()
 	call_deferred("deferred_ready")
-
 	#warning-ignore:return_value_discarded
 	$Timer.connect("timeout", self, "_on_Timer_timeout")
 
@@ -51,6 +50,8 @@ func _on_Timer_timeout():
 	player.set_state(player.states.hidden)
 	if object_entered.has_method("movePlayer"):
 		object_entered.movePlayer()
+	if player.currentlyIn && player.currentlyIn.has_method("close"):
+		player.currentlyIn.close()
 
 func flip_sprites(dir):
 	if dir > 0:
