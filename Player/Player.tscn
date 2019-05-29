@@ -532,7 +532,7 @@ one_shot = true
 
 [node name="ScanNoise" type="AudioStreamPlayer2D" parent="Actions/Scan"]
 stream = ExtResource( 29 )
-volume_db = -9.0
+volume_db = -15.0
 bus = "SFX"
 
 [node name="Attack" type="Node2D" parent="Actions"]

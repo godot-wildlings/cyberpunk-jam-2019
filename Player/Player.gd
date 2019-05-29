@@ -230,12 +230,12 @@ func _unhandled_key_input(event):
 #		self.current_action_num = 4
 #	elif Input.is_action_just_pressed("action_5"):
 #		self.current_action_num = 5
-	if Input.is_action_just_pressed("action_selected"):
-		use_action(current_action_num)
-	elif Input.is_action_just_pressed("next_action"):
-		self.current_action_num = wrapi(current_action_num + 1, 0, actions.size())
-	elif Input.is_action_just_pressed("prev_action"):
-		self.current_action_num = wrapi(current_action_num - 1, 0, actions.size())
+#	if Input.is_action_just_pressed("action_selected"):
+#		use_action(current_action_num)
+#	elif Input.is_action_just_pressed("next_action"):
+#		self.current_action_num = wrapi(current_action_num + 1, 0, actions.size())
+#	elif Input.is_action_just_pressed("prev_action"):
+#		self.current_action_num = wrapi(current_action_num - 1, 0, actions.size())
 
 	if Input.is_action_just_pressed("mv_right"):
 		direction = 1
@@ -244,6 +244,10 @@ func _unhandled_key_input(event):
 		direction = -1
 		flip_sprites(direction)
 
+	if Input.is_action_just_pressed("attack"):
+		attack()
+	elif Input.is_action_just_pressed("scan"):
+		scan()
 
 func get_direction_pressed() -> int:
 	if Input.is_action_pressed("mv_right"):
@@ -260,13 +264,14 @@ func set_current_action_num(value):
 
 func use_action(action_num):
 	if action_num == actions.scan:
-		$Actions/Scan.use()
+		scan()
 	elif action_num == actions.attack:
 		attack()
 
 
 
-
+func scan():
+	$Actions/Scan.use()
 
 func attack():
 	$Actions/Attack.use()
