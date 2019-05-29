@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Weapons/PlayerGun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Weapons/EnemyGun.gd" type="Script" id=2]
-[ext_resource path="res://Projectiles/Bullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Projectiles/NPCBullet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://SFX/Cyberounk_Jam_-_Gunshot_SFX_1.wav" type="AudioStream" id=4]
 [ext_resource path="res://SFX/Cyberounk_Jam_-_Gunshot__Reload_SFX.wav" type="AudioStream" id=5]
 
