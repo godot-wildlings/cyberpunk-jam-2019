@@ -462,6 +462,7 @@ hframes = 12
 frame = 11
 
 [node name="Climbing" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 19 )
 
 [node name="hooahNoise" type="AudioStreamPlayer2D" parent="States/Climbing"]
@@ -533,6 +534,7 @@ volume_db = -15.0
 bus = "SFX"
 
 [node name="Attack" type="Node2D" parent="Actions"]
+editor/display_folded = true
 script = ExtResource( 30 )
 
 [node name="MeleeRange" type="Area2D" parent="Actions/Attack"]
@@ -549,6 +551,7 @@ position = Vector2( 1.41703, -10.9583 )
 scale = Vector2( 0.140732, 0.140732 )
 
 [node name="GetHit" type="Node2D" parent="Actions"]
+editor/display_folded = true
 script = ExtResource( 32 )
 
 [node name="HitstunTimer" type="Timer" parent="Actions/GetHit"]
