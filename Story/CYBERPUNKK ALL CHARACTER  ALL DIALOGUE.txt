@@ -1,0 +1,167 @@
+[NEW GAME] 
+
+1. NEO GHIBLI CITY 2154 
+
+[LEVEL 1]
+
+1.	Neon Novice Nights
+
+[LOCATION] 
+
+1. KAMAGASAKI SPRAWL: 131ST & KOWLOON
+
+[TUTORIAL] 
+
+1. CONTROL
+Okay Rookie, ready for your first shift.
+
+2. PLAYER
+[YES/NO] 
+
+3. CONTROL
+[Y] Yabba Dabba Doozy! The Dex on this guy. That’s what we like to hear. With an attitude like that you’ll make Detective in no time. I don’t need to explain how everything works so we will just get right into it, shall we?  
+
+4. CONTROL
+[N] You’ll get the hang of it. You’re still woozy from the surgery. Get a feel for your new augments. 
+
+5. CONTROL
+[IF PLAYER DISCHARGES WEAPON] Whoa! Easy, if you kill anyone or anything legal, that’s a hole heck of paperwork.
+
+6. CONTROL
+[IF PLAYER DISCHARGES WEAPON AND ACCIDENTLY KILLS A LEGAL PERSON, ROBOT OR DRONE.] I hope you got the monies to cover them legal fees. This is gonna cost you. 
+
+7. CONTROL
+Don’t get skittish. The Sprawl can be an intimidating place. You’ll find it’s a hopeless grime ridden hell hole but not without its distractions. 
+
+8. CONTROL
+Sure, the city is run by soulless corporate monoliths and wealthy clueless elites. Walled behind their black glass barbicans and ivory towers but hey, they the pay the wages. 
+
+9. CONTROL
+Yes, it’s unfair. Us working slobs packed down here in the Sprawl like rats packed in a barrel. Them sitting on their wealth like dragons in some goddamn fairy-tale and us looking up… Envious, hungry and hateful. Who wouldn’t be pissed?  
+
+10. CONTROL
+You’re a quiet one. First time experiencing AR?
+
+11. PLAYER
+[YES/NO] 
+
+12. CONTROL
+[NO] Okay, let’s make some money. That is why we’re here, right? Do you see that glitch in the ident? That’s a 100% tell-tale giveaway of illicit criminality.
+
+13. CONTROL
+[YES] Right flip [COMMAND TBD] on your Tracker. You’ll find in your inventory. You won’t be able to shoot while you’re in AR REAL.
+
+14. CONTROL
+In a mostly automated world, what else is there left for a man with nothing, but crime? Keep your eyes peeled for anything out of the ordinary. We watch everything, we see everything and yet there are still those that try and hide in the shadows. Slip under the radar. Unplugged and invisible. Ghost’s and SINners, and that my silent friend is a crime. 
+
+15. CONTROL
+[IF PLAYER IS WRECKLESS] Holy Hell! Be careful, not everything is a threat!
+
+16. CONTROL
+[IF PLAYER IS MEASURED] Good, good. You’re a natural.
+
+17. CONTROL
+Okay, now try flipping into the iREAL. Use [COMMAND TBD] on your Tracker.
+
+19. CONTROL
+A seething surplus mass of weak flesh, each one directly plugged through personal CPU’s into the all-encompassing overlapping VR of the iREAL.
+
+20. CONTROL
+Yeah, a little bit different, right. Feeling dizzy? 
+
+21. PLAYER
+[YES/NO]
+
+22. CONTROL
+[YES] It’s the new corporate implants. You’ll get used to it. Don’t flip back and forth too much, otherwise it will get worse. Try and limit how many switches you do. 
+
+23. CONTROL
+[NO] Great stuff. What did I tell you? Natural. What we’re looking for here is IDENTS without bodies. We call them Ghosts. Also, fair game. So, go to town and watch the dollar-yen roll in.
+
+24. CONTROL
+Blast them to Hell!
+
+[OBJECTIVE] 
+
+1. COMPLETE A PASS OF THE SPRAWL WITHOUT GETTING FIRED FROM YOUR JOB OR KILLED.] 
+
+
+[LEVEL 2]
+
+1. Ghosts and SINners and Drones, Oo My.
+
+[LOCATION]
+
+1. KAMAGASAKI SPRAWL: 69TH & TOIRE
+
+[INVENTORY UPDATE]
+
+1. YOU NOW HAVE THE OPTION TO PURCHASE ERASE  STAMP DELETIONS FROM YOUR SERVICE RECORD.
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+G
+
+NIGHT - STREET VIEW. THE BACKDROP, A CITY OF A THOUSAND STARS. IT’S RAINING HERE. THIS AREA IS MOSTLY WAREHOUSES AND STORAGE CONTAINERS. CONTROL BUZZES IN. AN HOLOPAD FILLS THE SCREEN WITH DETAILS OF A NEW BOUNTY.
+
+CONTROL
+Hey Rookie, we have a new bounty! You up for this?
+
+PLAYER
+[YES/NO]
+
+CONTROL
+[YES]$1200¥ to close to some drone-scammers on the other side of the Sprawl. Make your way to the Abunai District. I’ve updated your map.  
+
+CONTROL
+[NO]Fair enough. I will keep it as long as I can but you really don’t want to knock by too many jobs.
+
+[OBJECTIVE: FIND THE DRONE CHOP SHOP SCAMMERS.] 
+
+
+
+
+
+
+
+
