@@ -33,7 +33,6 @@ export var scene : PackedScene
 onready var door : Area2D
 var animation_player : AnimationPlayer
 
-
 func _ready():
 	door = get_parent()
 	animation_player = door.get_node("AnimationPlayer")
@@ -64,7 +63,6 @@ func admit(entity_entering):
 	# theoretically, could be player or NPC
 	if entity_entering.has_method("enter"):
 		entity_entering.enter(self)
-		provide_reward(entity_entering)
 
 
 func animate():
@@ -86,8 +84,7 @@ func provide_reward(interactor):
 	elif door_type == door_types.portal:
 		Game.main.switch_levels(scene)
 
-	elif door_type == door_types.shortcut:
+func movePlayer():
+	if door_type == door_types.shortcut:
 		Game.player.set_global_position(door.get_node("exit").get_global_position())
-
-
 
