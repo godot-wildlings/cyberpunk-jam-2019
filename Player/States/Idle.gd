@@ -3,6 +3,7 @@ extends Player_State
 #var player : KinematicBody2D
 var my_state_num
 var sprite : Sprite
+var gravity_vector : Vector2 = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -49,6 +50,11 @@ func process_state(delta):
 				player.drop()
 			else:
 				player.crouch(Vector2.ZERO)
+
+		else: # no important keys pressed
+			#warning-ignore:return_value_discarded
+			player.move_and_collide(gravity_vector * delta)
+
 
 
 

@@ -14,10 +14,10 @@
 [ext_resource path="res://Scenery/Console.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Levels/Level3.tscn" type="PackedScene" id=14]
-[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=15]
-[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Nightfall.ogg" type="AudioStream" id=16]
-[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Rain__City_SFX.ogg" type="AudioStream" id=17]
-[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=18]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Nightfall.ogg" type="AudioStream" id=15]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Rain__City_SFX.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=17]
+[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=18]
 
 [sub_resource type="TileSet" id=1]
 
@@ -251,6 +251,7 @@ shape = SubResource( 4 )
 [node name="Scenery" type="Node2D" parent="."]
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Console" parent="InteractiveObjects" instance=ExtResource( 12 )]
 position = Vector2( 3015.51, 489.078 )
@@ -314,67 +315,34 @@ position = Vector2( 6.59634, 532.648 )
 
 [node name="Collectibles" type="Node2D" parent="."]
 
-[node name="Enemies" type="Node2D" parent="."]
-editor/display_folded = true
-
-[node name="NPC" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( -12.3033, 479.833 )
-
-[node name="NPC3" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( 635.019, 474.001 )
-
-[node name="NPC4" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( -96.2803, 167.252 )
-
-[node name="NPC2" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( 1211.19, 482.166 )
-
-[node name="NPC5" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( 977.925, 62.2809 )
-
-[node name="NPC6" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( 1879.51, 472.835 )
-
-[node name="NPC7" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( 2418.36, 474.001 )
-
-[node name="NPC8" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( 2833.58, 472.835 )
-
-[node name="NPC9" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( 1413.09, 164.803 )
-
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( -620.75, 493.792 )
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 16 )
+stream = ExtResource( 15 )
 volume_db = -9.0
 autoplay = true
 bus = "Music"
 
 [node name="BGSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 17 )
+stream = ExtResource( 16 )
 volume_db = -20.0
 autoplay = true
 bus = "SFX"
 
-[node name="iRealRenderer" parent="." instance=ExtResource( 18 )]
+[node name="iRealRenderer" parent="." instance=ExtResource( 17 )]
 
 [node name="ForegroundLayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 layer = 2
 
 [node name="ParallaxForeground" type="ParallaxBackground" parent="ForegroundLayer"]
 layer = 2
 
 [node name="Front" type="ParallaxLayer" parent="ForegroundLayer/ParallaxForeground"]
-editor/display_folded = true
 z_index = 5
 motion_scale = Vector2( 1.25, 1 )
 
 [node name="Instructions" type="Node2D" parent="ForegroundLayer/ParallaxForeground/Front"]
-editor/display_folded = true
 
 [node name="Intro" type="Label" parent="ForegroundLayer/ParallaxForeground/Front/Instructions"]
 margin_left = -697.505
@@ -391,7 +359,7 @@ margin_top = 18.5889
 margin_right = 105.793
 margin_bottom = 49.5889
 text = "Some Doors are Hidden, but I have a scanner.
-(Press F to use your \"Scan\" ability.)"
+(Press Q to use your \"Scan\" ability.)"
 align = 1
 
 [node name="PlatformSwitching" type="Label" parent="ForegroundLayer/ParallaxForeground/Front/Instructions"]
@@ -414,6 +382,16 @@ That's identity fraud, and it's a felony.
 (Scan people to check ID)"
 align = 1
 
+[node name="Citizens" type="Label" parent="ForegroundLayer/ParallaxForeground/Front/Instructions"]
+margin_left = -78.5987
+margin_top = 230.28
+margin_right = 159.401
+margin_bottom = 295.28
+text = "Most people are Citizens. 
+They pose no threat.
+"
+align = 1
+
 [node name="Avatars" type="Label" parent="ForegroundLayer/ParallaxForeground/Front/Instructions"]
 margin_left = 558.998
 margin_top = 352.999
@@ -432,6 +410,81 @@ margin_right = 1483.67
 margin_bottom = 243.023
 text = "Some doors are locked.
 Find keys to unlock them."
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="Citizens" type="Node2D" parent="NPCs"]
+editor/display_folded = true
+
+[node name="NPC" parent="NPCs/Citizens" instance=ExtResource( 18 )]
+position = Vector2( 227.209, 486.228 )
+
+[node name="NPC2" parent="NPCs/Citizens" instance=ExtResource( 18 )]
+position = Vector2( 738.431, 486.228 )
+
+[node name="NPC3" parent="NPCs/Citizens" instance=ExtResource( 18 )]
+position = Vector2( 502.133, 481.684 )
+
+[node name="NPC4" parent="NPCs/Citizens" instance=ExtResource( 18 )]
+position = Vector2( 1133.78, 481.684 )
+
+[node name="NPC5" parent="NPCs/Citizens" instance=ExtResource( 18 )]
+position = Vector2( 2107.15, 485.289 )
+
+[node name="NPC6" parent="NPCs/Citizens" instance=ExtResource( 18 )]
+position = Vector2( 2208.09, 481.684 )
+
+[node name="NPC7" parent="NPCs/Citizens" instance=ExtResource( 18 )]
+position = Vector2( 2615.07, 486.206 )
+
+[node name="Enemies" type="Node2D" parent="NPCs"]
+
+[node name="NPC" parent="NPCs/Enemies" instance=ExtResource( 18 )]
+position = Vector2( -12.3033, 479.833 )
+character_type = 1
+scanned_attitude = 1
+
+[node name="NPC3" parent="NPCs/Enemies" instance=ExtResource( 18 )]
+position = Vector2( 623.873, 486.004 )
+character_type = 2
+scanned_attitude = 1
+
+[node name="NPC4" parent="NPCs/Enemies" instance=ExtResource( 18 )]
+position = Vector2( -96.2803, 167.252 )
+character_type = 1
+scanned_attitude = 1
+
+[node name="NPC2" parent="NPCs/Enemies" instance=ExtResource( 18 )]
+position = Vector2( 1211.19, 482.166 )
+character_type = 1
+scanned_attitude = 1
+
+[node name="NPC5" parent="NPCs/Enemies" instance=ExtResource( 18 )]
+position = Vector2( 977.925, 62.2809 )
+character_type = 1
+initial_attitude = 1
+scanned_attitude = 1
+
+[node name="NPC6" parent="NPCs/Enemies" instance=ExtResource( 18 )]
+position = Vector2( 1879.51, 472.835 )
+character_type = 1
+scanned_attitude = 1
+
+[node name="NPC7" parent="NPCs/Enemies" instance=ExtResource( 18 )]
+position = Vector2( 2418.36, 474.001 )
+character_type = 2
+scanned_attitude = 1
+
+[node name="NPC8" parent="NPCs/Enemies" instance=ExtResource( 18 )]
+position = Vector2( 2833.58, 472.835 )
+character_type = 2
+initial_attitude = 1
+scanned_attitude = 1
+
+[node name="NPC9" parent="NPCs/Enemies" instance=ExtResource( 18 )]
+position = Vector2( 1413.09, 164.803 )
+character_type = 2
+scanned_attitude = 1
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
 
 [editable path="InteractiveObjects/AmmoDoor"]
