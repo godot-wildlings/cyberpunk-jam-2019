@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cyberpunk_Jam_Elevator_Arriving_Pt._1.wav-6bebc48179508035027e6c4b2468cb81.sample"
+
+[deps]
+
+source_file="res://SFX/Cyberpunk_Jam_Elevator_Arriving_Pt._1.wav"
+dest_files=[ "res://.import/Cyberpunk_Jam_Elevator_Arriving_Pt._1.wav-6bebc48179508035027e6c4b2468cb81.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
