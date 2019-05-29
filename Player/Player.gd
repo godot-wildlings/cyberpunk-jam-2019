@@ -22,7 +22,10 @@ onready var tween = $Tween
 #warning-ignore:unused_class_variable
 onready var gun = $Actions/Attack/Gun
 onready var footstep_pause_timer : Timer = $SFX/FootStepPauseTimer
+#warning-ignore:unused_class_variable
+onready var sfx_container : Node2D = $SFX
 onready var footstep_sfx_container : Node2D = $SFX/Steps
+onready var out_of_ammo_sfx : AudioStreamPlayer2D = $SFX/OutOfAmmoSFX
 
 #enum states { idle, running, jumping, climbing, dropping, falling, crouching, dead, entering, hidden, exiting, attacking, hit }
 enum states { idle, running, jumping, climbing, dropping, falling, crouching, dead, entering, hidden, exiting }

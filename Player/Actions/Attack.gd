@@ -47,6 +47,8 @@ func shoot():
 		player.ammo -= 1
 		player.get_node("AmmoBar").set_value(player.ammo/player.max_ammo * 100)
 	else:
+		assert is_instance_valid(player.out_of_ammo_sfx)
+		player.out_of_ammo_sfx.play()
 		print("out of ammo")
 
 	holster_gun()
