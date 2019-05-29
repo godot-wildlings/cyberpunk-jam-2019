@@ -43,7 +43,7 @@ func drop():
 
 	var platform = player.get_platform_below()
 	if platform != null:
-		$huhNoise.play()
+		player.play_random_climb_sfx() #WTF?!
 		move_to_platform(platform)
 
 func move_to_platform(platform):

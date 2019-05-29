@@ -70,6 +70,7 @@ var warning_issued : bool = false
 func _ready():
 	# we need a lot of NPCs, but we don't have any artwork, so I'll colorize these.
 	colorize_sprites()
+	display_correct_sprite()
 
 	#warning-ignore:return_value_discarded
 	ghost_timer.connect("timeout", self, "_on_GhostTimer_timeout")
@@ -78,11 +79,26 @@ func _ready():
 	decision_timer.start()
 	reload_timer.start()
 	state = states.passive
+
+
 	current_sprite = $Sprites/RealSprite
+
 	$AnimationPlayer.play("walk")
 	gun.visible = false
 
 	call_deferred("deferred_ready")
+
+func display_correct_sprite():
+	if not scanned:
+		current_sprite = $Sprites/RealSprite
+	elif character_type == character_types.ghost:
+		current_sprite = $Sprites/GhostSprite
+	elif character_type == character_types.sinner:
+		current_sprite = $Sprites/SinnerSprite
+
+	for sprite in $Sprites.get_children():
+		sprite.hide()
+	current_sprite.show()
 
 
 func deferred_ready():
@@ -274,23 +290,13 @@ func _on_RecognitionTimer_timeout():
 	shoot(Game.player)
 
 func _on_Player_scanned():
-	$Sprites/RealSprite.hide()
-
-	if character_type == character_types.ghost:
-		current_sprite = $Sprites/GhostSprite
-		ghost_timer.start()
-	elif character_type == character_types.sinner:
-		current_sprite = $Sprites/SinnerSprite
-	elif character_type == character_types.citizen:
-		current_sprite = $Sprites/RealSprite
-		desaturate_sprite()
-
-	current_sprite.show()
-
-
 	scanned = true
+	display_correct_sprite()
+	desaturate_sprite()
 	if scanned_attitude == attitudes.fight:
 		enable_collisions_with_player()
+
+
 
 
 
@@ -310,7 +316,7 @@ func drop_key():
 
 func die():
 	if state != states.dead:
-		$Sprites.hide()
+		#$Sprites.hide()
 		if randf() < 1:
 			drop_key()
 
