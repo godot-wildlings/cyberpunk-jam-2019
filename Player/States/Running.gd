@@ -30,6 +30,10 @@ func process_state(delta):
 			player.jump(run_velocity)
 			return
 
+		if Input.is_action_just_pressed("mv_down"):
+			player.crouch(run_velocity)
+			return
+
 		#warning-ignore:return_value_discarded
 		player.move_and_collide(run_velocity * delta)
 

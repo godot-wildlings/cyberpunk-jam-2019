@@ -30,7 +30,10 @@ func process_state(delta):
 	pass
 
 func _on_AttackTimer_timeout():
-	player.set_state(player.states.idle)
+	if Input.is_action_pressed("mv_down"):
+		player.crouch(Vector2.ZERO)
+	else:
+		player.idle()
 
 func flip_sprites(dir):
 	if dir > 0:

@@ -30,12 +30,29 @@ func deactivate():
 
 	#warning-ignore:return_value_discarded
 	player.move_and_collide(Vector2.UP * y_delta)
-
+	player.animation_player.stop()
 
 #warning-ignore:unused_argument
 func process_state(delta):
 
 	if player.state == my_state_num:
+
+		var mv_velocity = Vector2.ZERO
+		var crouching_mv_speed = player.speed / 3
+		if Input.is_action_pressed("mv_right") or Input.is_action_pressed("mv_left"):
+			mv_velocity = Vector2.RIGHT * player.get_direction() * crouching_mv_speed
+			player.move_and_collide(mv_velocity * delta)
+			if not player.animation_player.is_playing():
+				player.animation_player.play("duck_walk")
+
+		if player.is_on_platform() == false:
+			player.fall(mv_velocity)
+
+		if Input.is_action_just_pressed("mv_right"):
+			flip_sprites(1)
+		elif Input.is_action_just_pressed("mv_left"):
+			flip_sprites(-1)
+
 #		fall_velocity.y += Game.gravity * delta
 #
 #		var collision = player.move_and_collide(fall_velocity * delta)
@@ -50,9 +67,14 @@ func process_state(delta):
 		if player.is_on_platform() == true:
 			fall_velocity = Vector2.ZERO
 
-
-
-
 		if not Input.is_action_pressed("mv_down"):
-			player.set_state(player.states.idle)
+			if Input.is_action_pressed("mv_right") or Input.is_action_pressed("mv_left"):
+				player.run(mv_velocity)
+			else:
+				player.idle()
 
+func flip_sprites(dir):
+	if dir > 0:
+		sprite.set_flip_h(false)
+	else:
+		sprite.set_flip_h(true)

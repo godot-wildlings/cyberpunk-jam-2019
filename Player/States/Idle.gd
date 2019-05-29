@@ -48,7 +48,7 @@ func process_state(delta):
 			if platform_below != null:
 				player.drop()
 			else:
-				player.crouch()
+				player.crouch(Vector2.ZERO)
 
 
 

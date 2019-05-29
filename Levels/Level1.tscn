@@ -40,10 +40,8 @@ format = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
-editor/display_folded = true
 
 [node name="Far" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-editor/display_folded = true
 modulate = Color( 0.298039, 0.298039, 0.298039, 1 )
 motion_scale = Vector2( 0.5, 1 )
 
@@ -252,8 +250,6 @@ shape = SubResource( 4 )
 
 [node name="Scenery" type="Node2D" parent="."]
 
-[node name="Collectibles" type="Node2D" parent="."]
-
 [node name="InteractiveObjects" type="Node2D" parent="."]
 editor/display_folded = true
 
@@ -317,105 +313,40 @@ text = "Elevator"
 [node name="exit" parent="InteractiveObjects/elevator2" index="6"]
 position = Vector2( 6.59634, 532.648 )
 
+[node name="Collectibles" type="Node2D" parent="."]
+
 [node name="Enemies" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="NPC" parent="Enemies" instance=ExtResource( 15 )]
 position = Vector2( -12.3033, 479.833 )
-attack_type = 0
 
 [node name="NPC3" parent="Enemies" instance=ExtResource( 15 )]
 position = Vector2( 635.019, 474.001 )
-attack_type = 0
 
 [node name="NPC4" parent="Enemies" instance=ExtResource( 15 )]
 position = Vector2( -96.2803, 167.252 )
-attack_type = 0
 
 [node name="NPC2" parent="Enemies" instance=ExtResource( 15 )]
 position = Vector2( 1211.19, 482.166 )
-attack_type = 0
 
 [node name="NPC5" parent="Enemies" instance=ExtResource( 15 )]
 position = Vector2( 977.925, 62.2809 )
-attack_type = 0
 
 [node name="NPC6" parent="Enemies" instance=ExtResource( 15 )]
 position = Vector2( 1879.51, 472.835 )
-attack_type = 0
 
 [node name="NPC7" parent="Enemies" instance=ExtResource( 15 )]
 position = Vector2( 2418.36, 474.001 )
-attack_type = 0
 
 [node name="NPC8" parent="Enemies" instance=ExtResource( 15 )]
 position = Vector2( 2833.58, 472.835 )
-attack_type = 0
 
 [node name="NPC9" parent="Enemies" instance=ExtResource( 15 )]
 position = Vector2( 1413.09, 164.803 )
-attack_type = 0
 
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( -620.75, 493.792 )
-
-[node name="Instructions" type="Node2D" parent="."]
-
-[node name="Intro" type="Label" parent="Instructions"]
-margin_left = -697.505
-margin_top = 404.779
-margin_right = -423.505
-margin_bottom = 435.779
-text = "My name is Shakeduck.
-I hunt ghosts and sinners."
-align = 1
-
-[node name="HiddenDoors" type="Label" parent="Instructions"]
-margin_left = -197.207
-margin_top = 18.5889
-margin_right = 105.793
-margin_bottom = 49.5889
-text = "Some Doors are Hidden, but I have a scanner.
-(Press F to use your \"Scan\" ability.)"
-align = 1
-
-[node name="PlatformSwitching" type="Label" parent="Instructions"]
-margin_left = -263.871
-margin_top = 423.294
-margin_right = 39.1288
-margin_bottom = 454.294
-text = "I climb the stacks to find them where they live.
-(Press up or down while stationary)"
-align = 1
-
-[node name="Ghosts" type="Label" parent="Instructions"]
-margin_left = 171.999
-margin_top = 351.999
-margin_right = 409.999
-margin_bottom = 416.999
-text = "Some people are \"Ghosts\". 
-Living off-grid with no digital identity.
-That's identity fraud, and it's a felony.
-(Scan people to check ID)"
-align = 1
-
-[node name="Avatars" type="Label" parent="Instructions"]
-margin_left = 558.998
-margin_top = 352.999
-margin_right = 811.998
-margin_bottom = 417.999
-text = "Some Robots pose as humans.
-They've stolen or forged their digital ID.
-That's Identity Fraud, and it's a felony.
-(Scan robots to check ID)"
-align = 1
-
-[node name="LockedDoors" type="Label" parent="Instructions"]
-margin_left = 1295.67
-margin_top = 212.023
-margin_right = 1483.67
-margin_bottom = 243.023
-text = "Some doors are locked.
-Find keys to unlock them."
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
@@ -430,6 +361,78 @@ autoplay = true
 bus = "SFX"
 
 [node name="iRealRenderer" parent="." instance=ExtResource( 18 )]
+
+[node name="ForegroundLayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
+layer = 2
+
+[node name="ParallaxForeground" type="ParallaxBackground" parent="ForegroundLayer"]
+layer = 2
+
+[node name="Front" type="ParallaxLayer" parent="ForegroundLayer/ParallaxForeground"]
+editor/display_folded = true
+z_index = 5
+motion_scale = Vector2( 1.25, 1 )
+
+[node name="Instructions" type="Node2D" parent="ForegroundLayer/ParallaxForeground/Front"]
+editor/display_folded = true
+
+[node name="Intro" type="Label" parent="ForegroundLayer/ParallaxForeground/Front/Instructions"]
+margin_left = -697.505
+margin_top = 404.779
+margin_right = -423.505
+margin_bottom = 435.779
+text = "My name is Shakeduck.
+I hunt ghosts and sinners."
+align = 1
+
+[node name="HiddenDoors" type="Label" parent="ForegroundLayer/ParallaxForeground/Front/Instructions"]
+margin_left = -197.207
+margin_top = 18.5889
+margin_right = 105.793
+margin_bottom = 49.5889
+text = "Some Doors are Hidden, but I have a scanner.
+(Press F to use your \"Scan\" ability.)"
+align = 1
+
+[node name="PlatformSwitching" type="Label" parent="ForegroundLayer/ParallaxForeground/Front/Instructions"]
+margin_left = -263.871
+margin_top = 423.294
+margin_right = 39.1288
+margin_bottom = 454.294
+text = "I climb the stacks to find them where they live.
+(Press up or down while stationary)"
+align = 1
+
+[node name="Ghosts" type="Label" parent="ForegroundLayer/ParallaxForeground/Front/Instructions"]
+margin_left = 171.999
+margin_top = 351.999
+margin_right = 409.999
+margin_bottom = 416.999
+text = "Some people are \"Ghosts\". 
+Living off-grid with no digital identity.
+That's identity fraud, and it's a felony.
+(Scan people to check ID)"
+align = 1
+
+[node name="Avatars" type="Label" parent="ForegroundLayer/ParallaxForeground/Front/Instructions"]
+margin_left = 558.998
+margin_top = 352.999
+margin_right = 811.998
+margin_bottom = 417.999
+text = "Some Robots pose as humans.
+They've stolen or forged their digital ID.
+That's Identity Fraud, and it's a felony.
+(Scan robots to check ID)"
+align = 1
+
+[node name="LockedDoors" type="Label" parent="ForegroundLayer/ParallaxForeground/Front/Instructions"]
+margin_left = 1295.67
+margin_top = 212.023
+margin_right = 1483.67
+margin_bottom = 243.023
+text = "Some doors are locked.
+Find keys to unlock them."
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
 
 [editable path="InteractiveObjects/AmmoDoor"]

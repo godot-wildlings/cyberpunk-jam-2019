@@ -15,6 +15,7 @@ func die():
 func _on_Key_body_entered(body):
 	if body == Game.player and state == states.ready:
 		state = states.collected
+		$Sprite.hide()
 		body.pickup_key()
 		$PickupNoise.play()
 		yield($PickupNoise, "finished")

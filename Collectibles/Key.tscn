@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Collectibles/Key.gd" type="Script" id=1]
 [ext_resource path="res://Collectibles/key.png" type="Texture" id=2]
-[ext_resource path="res://Weapons/blam.wav" type="AudioStream" id=3]
+[ext_resource path="res://SFX/Cyber_Jam_-_Pickup_Item_SFX_1.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 26.4023, 17.4588 )
@@ -21,5 +21,6 @@ shape = SubResource( 1 )
 
 [node name="PickupNoise" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
-pitch_scale = 1.58
+volume_db = -9.0
+bus = "SFX"
 [connection signal="body_entered" from="." to="." method="_on_Key_body_entered"]

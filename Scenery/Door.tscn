@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenery/DoorInteraction.gd" type="Script" id=2]
 [ext_resource path="res://Scenery/doors.png" type="Texture" id=3]
 [ext_resource path="res://Scenery/click.png" type="Texture" id=4]
-[ext_resource path="res://InteractiveObjects/LockedNoise.wav" type="AudioStream" id=5]
+[ext_resource path="res://SFX/Cyberpunk_Jam_-_Access_Denied_SFX.wav" type="AudioStream" id=5]
 [ext_resource path="res://InteractiveObjects/unlockNoise.wav" type="AudioStream" id=6]
 [ext_resource path="res://InteractiveObjects/openDoorNoise.wav" type="AudioStream" id=7]
 
@@ -318,10 +318,16 @@ align = 1
 
 [node name="LockedNoise" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource( 5 )
+volume_db = -9.0
+bus = "SFX"
 
 [node name="UnlockNoise" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource( 6 )
+volume_db = -9.0
+bus = "SFX"
 
 [node name="OpenNoise" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource( 7 )
+volume_db = -9.0
+bus = "SFX"
 [connection signal="timeout" from="Interaction/CloseDelayTimer" to="." method="_on_CloseDelayTimer_timeout"]

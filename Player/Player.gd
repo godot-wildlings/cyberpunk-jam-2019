@@ -64,21 +64,18 @@ var damage_reduction : Dictionary = { # zero to one
 		damage_types.cold : 0
 }
 
-enum actions { scan, ghost, attack, arrest }
+enum actions { scan, attack }
 #warning-ignore:unused_class_variable
 var action_names = {
 		actions.scan : "scan", # same as iReal
-		actions.ghost : "ghost",
-		actions.attack : "attack",
-		actions.arrest : "arrest"
+		actions.attack : "attack"
+
 }
 
 #warning-ignore:unused_class_variable
 var action_descriptions = {
 		actions.scan : "iReal(TM): More real than real; a better world",
-		actions.ghost : "Cause a Distraction",
-		actions.attack : "Punch or Shoot",
-		actions.arrest : "Take them in for questioning"
+		actions.attack : "Punch or Shoot"
 }
 
 #var hitstun : bool = false
@@ -162,8 +159,8 @@ func idle():
 #	run_velocity = Vector2.ZERO
 #	animation_player.play("idle")
 
-func crouch():
-	set_state(states.crouching, [])
+func crouch(initial_velocity):
+	set_state(states.crouching, [initial_velocity])
 
 func enter(object):
 	set_state(states.entering, [object])
@@ -221,19 +218,19 @@ func _process(delta):
 #warning-ignore:unused_argument
 func _unhandled_key_input(event):
 
-	if Input.is_action_just_pressed("action_0"):
-		self.current_action_num = 0
-	elif Input.is_action_just_pressed("action_1"):
-		self.current_action_num = 1
-	elif Input.is_action_just_pressed("action_2"):
-		self.current_action_num = 2
-	elif Input.is_action_just_pressed("action_3"):
-		self.current_action_num = 3
-	elif Input.is_action_just_pressed("action_4"):
-		self.current_action_num = 4
-	elif Input.is_action_just_pressed("action_5"):
-		self.current_action_num = 5
-	elif Input.is_action_just_pressed("action_selected"):
+#	if Input.is_action_just_pressed("action_0"):
+#		self.current_action_num = 0
+#	elif Input.is_action_just_pressed("action_1"):
+#		self.current_action_num = 1
+#	elif Input.is_action_just_pressed("action_2"):
+#		self.current_action_num = 2
+#	elif Input.is_action_just_pressed("action_3"):
+#		self.current_action_num = 3
+#	elif Input.is_action_just_pressed("action_4"):
+#		self.current_action_num = 4
+#	elif Input.is_action_just_pressed("action_5"):
+#		self.current_action_num = 5
+	if Input.is_action_just_pressed("action_selected"):
 		use_action(current_action_num)
 	elif Input.is_action_just_pressed("next_action"):
 		self.current_action_num = wrapi(current_action_num + 1, 0, actions.size())
@@ -264,12 +261,9 @@ func set_current_action_num(value):
 func use_action(action_num):
 	if action_num == actions.scan:
 		$Actions/Scan.use()
-	elif action_num == actions.ghost:
-		print("ghost")
 	elif action_num == actions.attack:
 		attack()
-	elif action_num == actions.arrest:
-		print("you're under arrest")
+
 
 
 
