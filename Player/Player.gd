@@ -25,8 +25,8 @@ onready var footstep_pause_timer : Timer = $SFX/FootStepPauseTimer
 #warning-ignore:unused_class_variable
 onready var sfx_container : Node2D = $SFX
 onready var footstep_sfx_container : Node2D = $SFX/Steps
+onready var climbing_sfx_container : Node2D = $States/Climbing/SFX
 onready var out_of_ammo_sfx : AudioStreamPlayer2D = $SFX/OutOfAmmoSFX
-
 #enum states { idle, running, jumping, climbing, dropping, falling, crouching, dead, entering, hidden, exiting, attacking, hit }
 enum states { idle, running, jumping, climbing, dropping, falling, crouching, dead, entering, hidden, exiting }
 
@@ -326,15 +326,10 @@ func pickup_key():
 	keys_held += 1
 
 func play_random_step_sfx():
-	assert is_instance_valid(footstep_sfx_container)
-	print("play rnd step sfx")
-	var sfx_count : int = footstep_sfx_container.get_child_count()
-	var rnd_sfx_idx : int = randi() % sfx_count
-	var sfx_audio_player : AudioStreamPlayer2D = footstep_sfx_container.get_child(rnd_sfx_idx)
-	if is_instance_valid(sfx_audio_player):
-		if not sfx_audio_player.playing:
-			sfx_audio_player.play()
-			
+	Game.play_random_sfx(footstep_sfx_container)
+
+func play_random_climb_sfx():
+	Game.play_random_sfx(climbing_sfx_container)
 
 func hit(damage : float, damage_type : int):
 	$Actions/GetHit.use(damage, damage_type)

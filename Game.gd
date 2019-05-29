@@ -40,3 +40,12 @@ func _ready():
 func _process(delta):
 	time_elapsed += delta
 	ticks += 1
+
+func play_random_sfx(container : Node2D):
+	if is_instance_valid(container):
+		var sfx_count : int = container.get_child_count()
+		var rnd_sfx_idx : int = randi() % sfx_count
+		var sfx_audio_player : AudioStreamPlayer2D = container.get_child(rnd_sfx_idx)
+		if is_instance_valid(sfx_audio_player):
+			if not sfx_audio_player.playing:
+				sfx_audio_player.play()
