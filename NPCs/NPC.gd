@@ -17,7 +17,7 @@ enum attitudes { ignore, fight, flee }
 enum attack_types { ranged, melee }
 #export var friendly : bool = true
 export (attitudes) var initial_attitude = attitudes.ignore
-export (attitudes) var scanned_attitude = attitudes.fight
+export (attitudes) var scanned_attitude = attitudes.ignore
 export (attack_types) var attack_type = attack_types.ranged
 export var damage_output_per_hit = 25
 export (Game.damage_types) var melee_damage_type
@@ -26,7 +26,7 @@ export (Game.damage_types) var melee_damage_type
 export var can_fly : bool = false
 
 var current_attitude
-
+var my_color : Color # to make up for lack of artwork, we'll use lots of colors
 
 var direction : int = 1
 var speed : float = 80.0
@@ -68,6 +68,9 @@ var warning_issued : bool = false
 
 
 func _ready():
+	# we need a lot of NPCs, but we don't have any artwork, so I'll colorize these.
+	colorize_sprites()
+
 	#warning-ignore:return_value_discarded
 	ghost_timer.connect("timeout", self, "_on_GhostTimer_timeout")
 	#warning-ignore:return_value_discarded
@@ -80,6 +83,7 @@ func _ready():
 	gun.visible = false
 
 	call_deferred("deferred_ready")
+
 
 func deferred_ready():
 	if initial_attitude == attitudes.fight:
@@ -95,6 +99,28 @@ func update_attitude():
 		current_attitude = initial_attitude
 	else:
 		current_attitude = scanned_attitude
+
+func colorize_sprites():
+	var random_colors = [
+			Color.khaki,
+			Color.azure,
+			Color.beige,
+			Color.bisque,
+			Color.burlywood,
+			Color.brown,
+			Color.darkkhaki,
+			Color.sienna,
+			Color.goldenrod
+	]
+
+	my_color = random_colors[randi()%random_colors.size()]
+	saturate_sprite()
+
+func saturate_sprite():
+	$Sprites/RealSprite.set_self_modulate(my_color)
+
+func desaturate_sprite():
+	$Sprites/RealSprite.set_self_modulate(Color.white)
 
 func _process(delta):
 	if not is_on_floor():
@@ -249,13 +275,24 @@ func _on_RecognitionTimer_timeout():
 
 func _on_Player_scanned():
 	$Sprites/RealSprite.hide()
-	$Sprites/VRSprite.show()
-	current_sprite = $Sprites/VRSprite
-	ghost_timer.start()
-	print(self.name, " scanned")
+
+	if character_type == character_types.ghost:
+		current_sprite = $Sprites/GhostSprite
+		ghost_timer.start()
+	elif character_type == character_types.sinner:
+		current_sprite = $Sprites/SinnerSprite
+	elif character_type == character_types.citizen:
+		current_sprite = $Sprites/RealSprite
+		desaturate_sprite()
+
+	current_sprite.show()
+
+
 	scanned = true
 	if scanned_attitude == attitudes.fight:
 		enable_collisions_with_player()
+
+
 
 func hit(damage, damage_type):
 	if state != states.dead:
@@ -288,3 +325,7 @@ func die():
 
 func _on_DeathTimer_timeout():
 	call_deferred("queue_free")
+
+
+func _on_ScanTimer_timeout():
+	saturate_sprite()

@@ -515,6 +515,7 @@ volume_db = -9.0
 bus = "SFX"
 
 [node name="Actions" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Scan" type="Node2D" parent="Actions"]
 script = ExtResource( 28 )
