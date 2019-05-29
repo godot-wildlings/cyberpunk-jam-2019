@@ -1,6 +1,6 @@
 extends Player_State
 
-#var fall_velocity : Vector2 = Vector2.ZERO
+var fall_velocity : Vector2 = Vector2.ZERO
 #var player : KinematicBody2D
 var my_state_num : int
 onready var sprite : Sprite = $FallingSprite
@@ -15,11 +15,11 @@ func _ready():
 func activate(arguments : Array = []):
 
 	# moved to velocity, set in player.set_state
-#	print(self.name, " arguments == ", arguments)
-#	var initial_velocity : Vector2 = Vector2.ZERO
-#	if arguments.size() > 0:
-#		initial_velocity = arguments[0]
-#	fall_velocity = initial_velocity
+	print(self.name, " arguments == ", arguments)
+	var initial_velocity : Vector2 = Vector2.ZERO
+	if arguments.size() > 0:
+		initial_velocity = arguments[0]
+	fall_velocity = initial_velocity
 
 	player.animation_player.play("fall")
 	sprite.show()
@@ -34,18 +34,18 @@ func process_state(delta):
 
 	if player.state == my_state_num:
 		if ticks%120 == 0:
-			print(self.name, " velocity == ", velocity)
+			print(self.name, " fall_velocity == ", fall_velocity)
 
-		velocity.y += get_gravity_vector(delta).y
+		fall_velocity.y += Game.gravity * delta
 
 		var damping = 0.1
-		var new_vel = move_and_bounce(velocity, delta, damping)
+		var new_vel = move_and_bounce(fall_velocity, delta, damping)
 		velocity = new_vel
 
 
 		if player.is_on_platform() == true:
 			print(self.name, " on platform" )
-			velocity.y = 0
+			#velocity.y = 0
 			player.land(new_vel)
 
 

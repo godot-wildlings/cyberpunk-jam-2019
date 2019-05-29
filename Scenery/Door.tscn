@@ -330,5 +330,4 @@ bus = "SFX"
 stream = ExtResource( 7 )
 volume_db = -9.0
 bus = "SFX"
-
 [connection signal="timeout" from="Interaction/CloseDelayTimer" to="." method="_on_CloseDelayTimer_timeout"]

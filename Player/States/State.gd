@@ -34,7 +34,7 @@ func set_velocity(vel : Vector2):
 
 func get_gravity_vector(delta) -> Vector2:
 	print(self.name, " velocity == ", velocity )
-	return Vector2(0, velocity.y * Game.gravity * delta)
+	return Vector2(0, Game.gravity * delta)
 
 func move_and_bounce(vel, delta, damping) -> Vector2:
 

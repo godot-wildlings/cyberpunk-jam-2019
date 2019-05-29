@@ -681,5 +681,4 @@ margin_top = -57.8135
 margin_right = 18.3929
 margin_bottom = -43.8135
 script = ExtResource( 46 )
-
 [connection signal="timeout" from="HitstunTimer" to="." method="_on_HitstunTimer_timeout"]

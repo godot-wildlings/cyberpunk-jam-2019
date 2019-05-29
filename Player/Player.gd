@@ -101,7 +101,7 @@ func _ready():
 	set_state(states.idle)
 	$Actions.show()
 	#warning-ignore:return_value_discarded
-	footstep_pause_timer.connect("timeout", self, "_on_FootStepPauseTimer_timeout") 
+	footstep_pause_timer.connect("timeout", self, "_on_FootStepPauseTimer_timeout")
 	call_deferred("deferred_ready")
 
 func deferred_ready():
@@ -152,7 +152,7 @@ func run(initial_velocity : Vector2 = Vector2.ZERO):
 	set_state(states.running, [Vector2(initial_velocity.x, 0)])
 
 func fall(initial_velocity : Vector2 = Vector2.ZERO):
-	set_state(states.falling, [])
+	set_state(states.falling, [initial_velocity])
 
 func land(fall_velocity):
 	$States/Jumping.jump_num = 0
