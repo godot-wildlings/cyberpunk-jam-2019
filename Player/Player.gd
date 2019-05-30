@@ -255,6 +255,9 @@ func _unhandled_key_input(event):
 	if Input.is_action_just_pressed("die"):
 		die()
 
+	if state == states.dead:
+		return
+
 	if Input.is_action_just_pressed("mv_right"):
 		direction = 1
 		flip_sprites(direction)
@@ -292,8 +295,9 @@ func scan():
 	$Actions/Scan.use()
 
 func attack():
-	$Actions/Attack.use()
-	#set_state(states.attacking)
+	if state != states.dead:
+		$Actions/Attack.use()
+		#set_state(states.attacking)
 
 func interact_with_object(object):
 	if object.has_method("interact"):
