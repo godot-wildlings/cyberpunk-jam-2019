@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "Door",
+"language": "GDScript",
+"path": "res://Scenery/Door2.gd"
+}, {
 "base": "Node2D",
 "class": "Player_State",
 "language": "GDScript",
 "path": "res://Player/States/State.gd"
 } ]
 _global_script_class_icons={
+"Door": "",
 "Player_State": ""
 }
 

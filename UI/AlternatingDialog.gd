@@ -5,9 +5,27 @@ export var dialog : Array = []
 export var exit_scene : PackedScene
 var text_revealed : int = -1
 
+var current_tab_num : int = -1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	start()
+
+	instantiate_tabs()
+
+
+	$MusicLeadTimer.start()
+
+func instantiate_tabs():
+	for i in range(dialog.size()):
+		var new_panel = Label.new()
+		new_panel.set_text(dialog[i])
+		new_panel.set_visible_characters(0)
+		if i%2 == 0:
+			new_panel.set_align(Label.ALIGN_RIGHT)
+		else:
+			new_panel.set_align(Label.ALIGN_LEFT)
+		dialog_container.add_child(new_panel)
+
 
 func start():
 
@@ -20,14 +38,7 @@ func start():
 		]
 
 
-	for i in range(dialog.size()):
-		var new_panel = Label.new()
-		new_panel.set_text(dialog[i])
-		if i%2 == 0:
-			new_panel.set_align(Label.ALIGN_RIGHT)
-		else:
-			new_panel.set_align(Label.ALIGN_LEFT)
-		dialog_container.add_child(new_panel)
+
 
 	dialog_container.set_current_tab(0)
 	next_tab()
@@ -41,19 +52,19 @@ func start():
 func next_tab():
 
 	text_revealed = -1
-	var next_tab = dialog_container.get_current_tab()+1
-	if next_tab == dialog.size():
+	current_tab_num += 1
+	#var next_tab = dialog_container.get_current_tab()+1
+	if current_tab_num == dialog.size():
 		next_scene()
 	else:
-		dialog_container.set_current_tab(next_tab)
+		dialog_container.set_current_tab(current_tab_num)
 		reveal_letter()
 
 		$TextRevealTimer.start()
-		if next_tab%2 == 0:
-			$TextRevealNoise.set_pitch_scale(1.0)
+		if current_tab_num%2 == 0:
+			$TextRevealNoiseRight.play()
 		else:
-			$TextRevealNoise.set_pitch_scale(0.8)
-		$TextRevealNoise.play()
+			$TextRevealNoiseLeft.play()
 
 func next_scene():
 	Game.main.switch_levels(exit_scene)
@@ -70,10 +81,12 @@ func _on_NextPageButton_pressed():
 	Game.main.click()
 
 func reveal_letter():
+
 	text_revealed += 1
-	dialog_container.get_child(dialog_container.get_current_tab()).set_visible_characters(text_revealed)
-	if text_revealed >= dialog_container.get_child(dialog_container.get_current_tab()).get_text().length():
-		$TextRevealNoise.stop()
+	dialog_container.get_child(current_tab_num).set_visible_characters(text_revealed)
+	if text_revealed >= dialog_container.get_child(current_tab_num).get_text().length():
+		$TextRevealNoiseLeft.stop()
+		$TextRevealNoiseRight.stop()
 
 func _on_TextRevealTimer_timeout():
 	reveal_letter()
@@ -82,3 +95,7 @@ func _on_TextRevealTimer_timeout():
 func _on_AnyButton_hover():
 	Game.main.hover()
 
+
+
+func _on_MusicLeadTimer_timeout():
+	start()

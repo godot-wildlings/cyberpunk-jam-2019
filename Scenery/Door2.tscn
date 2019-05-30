@@ -318,8 +318,6 @@ rect_min_size = Vector2( 75, 0 )
 text = "Door"
 align = 1
 
-[node name="exit" type="Position2D" parent="."]
-
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="LockedNoise" type="AudioStreamPlayer2D" parent="Audio"]

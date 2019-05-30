@@ -7,6 +7,7 @@ Some doors transition to a new scene or cutscene
 """
 
 extends Area2D
+class_name Door
 
 signal player_entered(body)
 signal player_exited(body)
@@ -39,7 +40,8 @@ signal animDone
 
 var inside = null
 
-onready var linkedElevator = get_parent().get_parent().get_node(linkedElevatorName)
+#onready var linkedElevator = get_parent().get_parent().get_node(linkedElevatorName)
+var linkedElevator : Door
 onready var door : Area2D = self
 onready var animation_player : AnimationPlayer = $AnimationPlayer
 
@@ -81,6 +83,8 @@ func deferred_ready():
 	else:
 		push_error("Interactive object is trying to connect to Game.player object, but can't.")
 
+	if door_type == door_types.shortcut:
+		linkedElevator = get_parent().get_node(linkedElevatorName)
 
 
 func connect_signals():
@@ -141,7 +145,7 @@ func provide_reward(interactor):
 
 func movePlayer():
 	if door_type == door_types.shortcut:
-		Game.player.set_global_position(linkedElevator.position)
+		Game.player.set_global_position(linkedElevator.get_global_position())
 		Game.player.currentlyIn = linkedElevator
 
 #func open_door():
