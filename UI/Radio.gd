@@ -58,7 +58,7 @@ func _on_BGMusicLoop_finished() -> void:
 	var song_name = play_random_loop()
 	emit_signal("song_changed", song_name)
 
-
+#warning-ignore:return_value_discarded
 func pause():
 	stop_all_songs()
 
@@ -67,22 +67,23 @@ func _on_VolumeSlider_value_changed(value : float):
 	AudioServer.set_bus_volume_db(1, log(ratio) * 20)
 	$VolumeDisplay.set_value(value)
 
+#warning-ignore:return_value_discarded
 func _on_PrevButton_pressed():
 	play_last_song()
 
-
+#warning-ignore:return_value_discarded
 func _on_PlayButton_pressed():
 	play_current_song()
 
 
 
-
+#warning-ignore:return_value_discarded
 func _on_PauseButton_pressed():
 	pause()
 
 
 
-
+#warning-ignore:return_value_discarded
 func _on_NextButton_pressed():
 	play_next_song()
 

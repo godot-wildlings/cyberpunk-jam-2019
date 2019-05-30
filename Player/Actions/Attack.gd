@@ -33,11 +33,7 @@ func punch(punch_targets):
 		punching_sprite.set_flip_h(false)
 	else:
 		punching_sprite.set_flip_h(true)
-	#print("punching")
-	# change sprite to punching.
-	# auto-hit nearby opponent
-#	$PunchSprite.scale = initial_punch_sprite_scale
-#	$PunchSprite.scale.x *= player.get_direction()
+
 	player.animation_player.play("punch")
 
 
@@ -49,7 +45,6 @@ func shoot():
 	gun.scale.x = abs(gun.scale.x) * player.get_direction()
 	draw_gun()
 	yield(tween, "tween_completed")
-	print("shooting")
 	if player.ammo > 0:
 		player.gun.shoot()
 		player.ammo -= 1
@@ -57,7 +52,6 @@ func shoot():
 	else:
 		assert is_instance_valid(player.out_of_ammo_sfx)
 		player.out_of_ammo_sfx.play()
-		print("out of ammo")
 
 	holster_gun()
 

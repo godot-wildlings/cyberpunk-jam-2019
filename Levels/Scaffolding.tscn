@@ -7,12 +7,14 @@
 extents = Vector2( 259.922, 20.9738 )
 
 [node name="Scaffolding" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.857361, 21.9531 )
+position = Vector2( -0.857361, -173.208 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -6.07501, 99.3255 )
+position = Vector2( -6.07501, -95.8354 )
 texture = ExtResource( 2 )

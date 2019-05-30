@@ -141,7 +141,7 @@ func provide_reward(interactor):
 		Game.main.load_cutscene(scene_name)
 
 	elif door_type == door_types.scene_change and scene_name:
-		print(self.name, " switching levels to  ", scene_name )
+
 		Game.main.switch_levels_by_name(scene_name)
 
 func actOnPlayer():
@@ -152,7 +152,7 @@ func actOnPlayer():
 		provide_reward(Game.player)
 
 func open_door():
-	print("Opening...")
+
 	if animation_player.has_animation("open"):
 			animation_player.play("open")
 			door.open = true
@@ -188,13 +188,13 @@ func _on_InteractiveObject_body_exited(body):
 
 
 func _on_Player_scanned():
-	print(self.name, " received signal: Player_scanned")
+
 	if hidden_to_player:
 		$AnimationPlayer.play("reveal")
 		hidden_to_player = not hidden_to_player
 
 func unlock():
-	print(self.name, " unlocking" )
+
 	if animation_player.has_animation("unlock"):
 		animation_player.play("unlock")
 	locked = false

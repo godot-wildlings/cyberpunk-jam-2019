@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenery/concrete.png" type="Texture" id=3]
 [ext_resource path="res://Levels/Crate.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Levels/Barrel.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Levels/Scaffolding.tscn" type="PackedScene" id=6]
-[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=8]
-[ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Levels/ShippingContainer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/Scaffolding2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2387.5, 93.431 )
@@ -81,86 +82,32 @@ position = Vector2( 1984.67, 496.652 )
 [node name="Barrel2" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( 2276.79, 498.42 )
 
-[node name="Scaffolding" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 341.07, 323.423 )
+[node name="ShippingContainer" parent="Crates" instance=ExtResource( 6 )]
+position = Vector2( 328.35, 361.361 )
 
-[node name="Scaffolding8" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1799.06, 319.429 )
+[node name="Scaffolding" parent="Crates" instance=ExtResource( 7 )]
+position = Vector2( 334.189, 159.29 )
 
-[node name="Scaffolding15" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1064.07, -659.224 )
+[node name="Scaffolding2" parent="Crates" instance=ExtResource( 7 )]
+position = Vector2( 1045.65, 326.605 )
 
-[node name="Scaffolding2" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1172.73, 319.429 )
+[node name="Scaffolding3" parent="Crates" instance=ExtResource( 7 )]
+position = Vector2( 1849.28, 329.858 )
 
-[node name="Scaffolding12" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 2630.72, 315.434 )
+[node name="Scaffolding4" parent="Crates" instance=ExtResource( 7 )]
+position = Vector2( 1452.35, 128.138 )
 
-[node name="Scaffolding18" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1895.73, -663.219 )
+[node name="Scaffolding5" parent="Crates" instance=ExtResource( 7 )]
+position = Vector2( 2555.3, 320.098 )
 
-[node name="Scaffolding3" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 345.863, 132.087 )
+[node name="Scaffolding6" parent="Crates" instance=ExtResource( 7 )]
+position = Vector2( 2210.42, 124.885 )
 
-[node name="Scaffolding13" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1803.86, 128.092 )
+[node name="Scaffolding7" parent="Crates" instance=ExtResource( 7 )]
+position = Vector2( 1842.77, -70.3284 )
 
-[node name="Scaffolding17" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1068.87, -850.561 )
-
-[node name="Scaffolding4" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 751.704, -459.699 )
-
-[node name="Scaffolding10" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 2209.7, -463.693 )
-
-[node name="Scaffolding21" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1474.71, -1442.35 )
-
-[node name="Scaffolding24" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1470.91, -470.883 )
-
-[node name="Scaffolding27" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1476.87, -2037.29 )
-
-[node name="Scaffolding5" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1174.72, 124.297 )
-
-[node name="Scaffolding11" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 2632.72, 120.303 )
-
-[node name="Scaffolding16" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1897.73, -858.35 )
-
-[node name="Scaffolding6" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 754.301, -63.4443 )
-
-[node name="Scaffolding14" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 2212.29, -67.4388 )
-
-[node name="Scaffolding19" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1477.31, -1046.09 )
-
-[node name="Scaffolding22" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1473.51, -74.6288 )
-
-[node name="Scaffolding26" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1479.46, -1641.04 )
-
-[node name="Scaffolding7" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 752.275, -261.051 )
-
-[node name="Scaffolding9" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 2210.27, -265.046 )
-
-[node name="Scaffolding20" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1475.28, -1243.7 )
-
-[node name="Scaffolding23" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1471.48, -272.236 )
-
-[node name="Scaffolding25" parent="Crates" instance=ExtResource( 6 )]
-position = Vector2( 1477.44, -1838.64 )
+[node name="Scaffolding8" parent="Crates" instance=ExtResource( 7 )]
+position = Vector2( 1842.77, -268.795 )
 
 [node name="Walls" type="Node2D" parent="."]
 editor/display_folded = true
@@ -184,31 +131,31 @@ shape = SubResource( 3 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Ghost" parent="Enemies" instance=ExtResource( 7 )]
+[node name="Ghost" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 280.918, 493.807 )
 character_type = 1
 initial_attitude = 1
 scanned_attitude = 1
 
-[node name="Ghost2" parent="Enemies" instance=ExtResource( 7 )]
+[node name="Ghost2" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( -30.9358, 487.279 )
 character_type = 1
 initial_attitude = 1
 scanned_attitude = 1
 
-[node name="Ghost3" parent="Enemies" instance=ExtResource( 7 )]
+[node name="Ghost3" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 857.566, 484.094 )
 character_type = 1
 initial_attitude = 1
 scanned_attitude = 1
 
-[node name="Sinner1" parent="Enemies" instance=ExtResource( 7 )]
+[node name="Sinner1" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 1477.45, 487.361 )
 character_type = 2
 initial_attitude = 1
 scanned_attitude = 1
 
-[node name="Sinner2" parent="Enemies" instance=ExtResource( 7 )]
+[node name="Sinner2" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 688.78, 486.024 )
 character_type = 2
 initial_attitude = 1
@@ -217,10 +164,10 @@ scanned_attitude = 1
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( -620.75, 493.792 )
 
-[node name="iRealRenderer" parent="." instance=ExtResource( 8 )]
+[node name="iRealRenderer" parent="." instance=ExtResource( 9 )]
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource( 10 )
 volume_db = -15.0
 autoplay = true
 
@@ -235,24 +182,4 @@ motion_scale = Vector2( 1.25, 1 )
 
 [node name="Instructions" type="Node2D" parent="CanvasLayer2/ParallaxBackground/ParallaxLayer"]
 position = Vector2( 74.1735, -52.0001 )
-
-[node name="SilverSpires" type="Label" parent="CanvasLayer2/ParallaxBackground/ParallaxLayer/Instructions"]
-margin_left = -687.59
-margin_top = 399.86
-margin_right = -444.59
-margin_bottom = 430.86
-text = "The silver spires of
-Kamagasaki Urban District.
-- Reeks of entitlement."
-align = 1
-
-[node name="SilverSpires2" type="Label" parent="CanvasLayer2/ParallaxBackground/ParallaxLayer/Instructions"]
-margin_left = 328.235
-margin_top = 388.253
-margin_right = 571.235
-margin_bottom = 436.253
-text = "She mentioned the 
-Mazui-Hito Corporation.
-Must be around here somewhere."
-align = 1
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]

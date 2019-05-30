@@ -55,8 +55,7 @@ func switch_levels_by_name(scene_name : String):
 
 func load_level_name(level_name : String):
 	var level_scene = levels[level_name]
-	print(self.name, " load_level_name: ", level_name)
-	print(level_scene)
+
 	load_level(level_scene)
 
 func load_level(level_scene : PackedScene):
@@ -119,3 +118,7 @@ func hover():
 
 func click():
 	$ClickNoise.play()
+
+func _unhandled_key_input(event):
+	if Input.is_action_just_pressed("jump-to-end"):
+		switch_levels_by_name("Corporation")

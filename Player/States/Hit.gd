@@ -30,8 +30,6 @@ func play_random_hurt_noise():
 func take_damage(damage, damage_type):
 	var damage_mod : float = 1
 	if player.damage_reduction.has(damage_type):
-		print("received damage: type == ", damage_type, ": " , Game.damage_type_names[damage_type])
-		print("damage_reduction == ", player.damage_reduction[damage_type])
 		damage_mod = 1 - player.damage_reduction[damage_type]
 	player.health -= damage * damage_mod
 	player.get_node("HealthBar").set_value(player.health)

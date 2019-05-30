@@ -479,7 +479,6 @@ one_shot = true
 wait_time = 0.7
 
 [node name="Climbing" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 18 )
 
 [node name="hooahNoise" type="AudioStreamPlayer2D" parent="States/Climbing"]

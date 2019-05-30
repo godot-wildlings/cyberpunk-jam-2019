@@ -12,7 +12,6 @@ func deferred_ready():
 
 
 func use():
-	print("scanning")
 
 	var candidates = $EffectiveRange.get_overlapping_areas()
 	candidates += $EffectiveRange.get_overlapping_bodies()

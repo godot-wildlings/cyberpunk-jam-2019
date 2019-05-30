@@ -64,7 +64,6 @@ func move(delta):
 
 	if sign(new_vel.y) != sign(jump_velocity.y): # hit the ground?
 		if player.is_on_platform():
-			print("landing")
 			player.land(jump_velocity)
 
 	velocity = new_vel # important to update this every frame, even if we don't use it

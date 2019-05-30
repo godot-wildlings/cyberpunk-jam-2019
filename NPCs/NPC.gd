@@ -193,8 +193,7 @@ func seek_effective_range(delta):
 
 func consider_fleeing():
 	if current_attitude == attitudes.flee:
-		if Game.ticks %60 == 0:
-			print(self.name, " is running away")
+
 		if not warning_issued:
 			push_warning("NPCs still need fleeing behaviour")
 			warning_issued = true
