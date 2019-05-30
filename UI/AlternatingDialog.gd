@@ -12,7 +12,7 @@ func _ready():
 func start():
 
 	if exit_scene == null:
-		exit_scene = preload("res://Levels/Level1.tscn")
+		exit_scene = load("res://Levels/Level1.tscn")
 
 	if dialog.size() == 0:
 		dialog = [

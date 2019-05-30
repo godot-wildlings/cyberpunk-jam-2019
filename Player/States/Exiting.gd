@@ -47,5 +47,5 @@ func flip_sprites(dir):
 
 func _on_Timer_timeout():
 	player.idle()
-	if player.currentlyIn && player.currentlyIn.has_method("close"):
-		player.currentlyIn.close()
+	if player.currentlyIn && player.currentlyIn.has_method("close_door"):
+		player.currentlyIn.close_door()

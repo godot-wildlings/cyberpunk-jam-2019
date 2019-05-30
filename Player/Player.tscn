@@ -444,7 +444,6 @@ one_shot = true
 script = ExtResource( 14 )
 
 [node name="Exiting" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 15 )
 
 [node name="ExitingSprite" type="Sprite" parent="States/Exiting"]

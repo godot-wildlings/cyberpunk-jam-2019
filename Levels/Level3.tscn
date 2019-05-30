@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -7,13 +7,14 @@
 [ext_resource path="res://Scenery/FarBuildings.png" type="Texture" id=5]
 [ext_resource path="res://Scenery/SilverSpires.png" type="Texture" id=6]
 [ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Levels/Crate.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Levels/Barrel.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenery/Console.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=11]
-[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=13]
-[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Intro_Theme_Rough_2.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Scenery/concrete.png" type="Texture" id=8]
+[ext_resource path="res://Levels/Crate.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Levels/Barrel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenery/Console.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=12]
+[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=14]
+[ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=15]
 
 [sub_resource type="TileSet" id=1]
 
@@ -38,6 +39,7 @@ format = 1
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 
 [node name="Far" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+editor/display_folded = true
 modulate = Color( 0.298039, 0.298039, 0.298039, 1 )
 motion_scale = Vector2( 0.5, 1 )
 
@@ -108,6 +110,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 8892, 652 )
 
 [node name="Near" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+editor/display_folded = true
 modulate = Color( 0.427451, 0, 0.690196, 1 )
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
@@ -139,6 +142,13 @@ texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 3260, 982 )
 
+[node name="SilverSpires2" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
+position = Vector2( 1468.01, 768.853 )
+scale = Vector2( 2.16, -0.5 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 3260, 982 )
+
 [node name="Fog" parent="CanvasLayer/ParallaxBackground" instance=ExtResource( 7 )]
 
 [node name="ResetZone" type="Node2D" parent="."]
@@ -151,7 +161,6 @@ position = Vector2( 1551.55, 794.696 )
 shape = SubResource( 2 )
 
 [node name="Floors" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Floor1" type="StaticBody2D" parent="Floors" groups=[
 "platform",
@@ -163,18 +172,24 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor1"]
 shape = SubResource( 3 )
 
+[node name="Sprite" type="Sprite" parent="Floors/Floor1"]
+position = Vector2( 0, -8.24518 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4096, 24 )
+
 [node name="Crates" type="Node2D" parent="."]
 
-[node name="Crate" parent="Crates" instance=ExtResource( 8 )]
+[node name="Crate" parent="Crates" instance=ExtResource( 9 )]
 position = Vector2( 356.989, 496.944 )
 
-[node name="Crate2" parent="Crates" instance=ExtResource( 8 )]
+[node name="Crate2" parent="Crates" instance=ExtResource( 9 )]
 position = Vector2( -493.169, 497.128 )
 
-[node name="Barrel" parent="Crates" instance=ExtResource( 9 )]
+[node name="Barrel" parent="Crates" instance=ExtResource( 10 )]
 position = Vector2( 1984.67, 496.652 )
 
-[node name="Barrel2" parent="Crates" instance=ExtResource( 9 )]
+[node name="Barrel2" parent="Crates" instance=ExtResource( 10 )]
 position = Vector2( 2276.79, 498.42 )
 
 [node name="Walls" type="Node2D" parent="."]
@@ -196,21 +211,21 @@ shape = SubResource( 4 )
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
 
-[node name="Console" parent="InteractiveObjects" instance=ExtResource( 10 )]
+[node name="Console" parent="InteractiveObjects" instance=ExtResource( 11 )]
 position = Vector2( 3015.51, 489.078 )
 object_type = 1
 
-[node name="Door" parent="InteractiveObjects" instance=ExtResource( 11 )]
+[node name="Door" parent="InteractiveObjects" instance=ExtResource( 12 )]
 position = Vector2( -162.397, 479.161 )
 
-[node name="Door2" parent="InteractiveObjects" instance=ExtResource( 11 )]
+[node name="Door2" parent="InteractiveObjects" instance=ExtResource( 12 )]
 position = Vector2( 994.058, 474.421 )
 
-[node name="Door4" parent="InteractiveObjects" instance=ExtResource( 11 )]
+[node name="Door4" parent="InteractiveObjects" instance=ExtResource( 12 )]
 position = Vector2( 1649.17, 474.421 )
 hidden_to_player = false
 
-[node name="PortalToLevel2" parent="InteractiveObjects" instance=ExtResource( 11 )]
+[node name="PortalToLevel2" parent="InteractiveObjects" instance=ExtResource( 12 )]
 editor/display_folded = true
 position = Vector2( 2523.1, 473.052 )
 hidden_to_player = false
@@ -219,7 +234,7 @@ locked = true
 [node name="Interaction" parent="InteractiveObjects/PortalToLevel2" index="1"]
 door_type = 2
 
-[node name="elevator" parent="InteractiveObjects" instance=ExtResource( 11 )]
+[node name="elevator" parent="InteractiveObjects" instance=ExtResource( 12 )]
 editor/display_folded = true
 position = Vector2( 1422.59, 476.125 )
 hidden_to_player = false
@@ -233,7 +248,8 @@ text = "Elevator"
 [node name="exit" parent="InteractiveObjects/elevator" index="6"]
 position = Vector2( -1.41473, -514.258 )
 
-[node name="elevator2" parent="InteractiveObjects" instance=ExtResource( 11 )]
+[node name="elevator2" parent="InteractiveObjects" instance=ExtResource( 12 )]
+editor/display_folded = true
 position = Vector2( 1412.15, -51.8847 )
 hidden_to_player = false
 
@@ -247,26 +263,27 @@ text = "Elevator"
 position = Vector2( 6.59634, 532.648 )
 
 [node name="Enemies" type="Node2D" parent="."]
+editor/display_folded = true
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 12 )]
+[node name="Enemy" parent="Enemies" instance=ExtResource( 13 )]
 position = Vector2( 280.918, 493.807 )
 
-[node name="Enemy4" parent="Enemies" instance=ExtResource( 12 )]
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 13 )]
 position = Vector2( -30.9358, 487.279 )
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 12 )]
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 13 )]
 position = Vector2( 857.566, 484.094 )
 
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 12 )]
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 13 )]
 position = Vector2( 1073.02, 266.97 )
 
-[node name="Robot" parent="Enemies" instance=ExtResource( 12 )]
+[node name="Robot" parent="Enemies" instance=ExtResource( 13 )]
 position = Vector2( 688.78, 486.024 )
 
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( -620.75, 493.792 )
 
-[node name="iRealRenderer" parent="." instance=ExtResource( 13 )]
+[node name="iRealRenderer" parent="." instance=ExtResource( 14 )]
 
 [node name="Instructions" type="Node2D" parent="."]
 
@@ -288,10 +305,9 @@ It stinks of wealth."
 align = 1
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
+stream = ExtResource( 15 )
 volume_db = -15.0
 autoplay = true
-
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
 
 [editable path="InteractiveObjects/PortalToLevel2"]

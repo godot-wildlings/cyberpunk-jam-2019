@@ -154,21 +154,23 @@ func _process(delta):
 	consider_shooting()
 	consider_fleeing()
 
+	move(delta)
+
+
+func move(delta):
 
 	gravity_vector.y += Game.gravity * delta
 
-	var collision = move_and_collide( (intended_movement_vector + gravity_vector) * delta)
 
-	if collision:
-		var reflect = collision.remainder.bounce(collision.normal) * 0.1
-		#velocity = velocity.bounce(collision.normal)
-		move_and_collide(reflect)
+	#warning-ignore:return_value_discarded
+	move_and_slide( (intended_movement_vector + gravity_vector))
+
 
 	if is_on_floor():
 		gravity_vector.y = 0.00
 
 
-
+#warning-ignore:unused_argument
 func seek_effective_range(delta):
 	if attack_type == attack_types.ranged:
 		if ranged_line_of_sight.get_overlapping_bodies().has(current_target):

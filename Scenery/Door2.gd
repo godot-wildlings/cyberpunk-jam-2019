@@ -6,7 +6,11 @@ Some doors replenish supplies (health, ammo)
 Some doors transition to a new scene or cutscene
 """
 
-extends Node2D
+extends Area2D
+
+signal player_entered(body)
+signal player_exited(body)
+
 
 enum door_types {
 	ammo,
@@ -36,12 +40,56 @@ signal animDone
 var inside = null
 
 onready var linkedElevator = get_parent().get_parent().get_node(linkedElevatorName)
-onready var door : Area2D
-var animation_player : AnimationPlayer
+onready var door : Area2D = self
+onready var animation_player : AnimationPlayer = $AnimationPlayer
+
+
+export var hidden_to_player : bool = false
+#warning-ignore:unused_class_variable
+export var locked : bool = false
+#warning-ignore:unused_class_variable
+export var open : bool = false
+
+
+
 
 func _ready():
-	door = get_parent()
-	animation_player = door.get_node("AnimationPlayer")
+
+	if hidden_to_player:
+		$Sprite.set_visible(false)
+		$Sprite.set_self_modulate(Color(1,1,1,0))
+		$Label.hide()
+
+	if locked:
+		if has_node("AnimationPlayer") and $AnimationPlayer.has_animation("lock"):
+			$AnimationPlayer.play("lock")
+
+	call_deferred("deferred_ready")
+
+	connect_signals()
+
+	if has_node("Label"):
+		$Label.set_text(door_names[door_type])
+
+
+func deferred_ready():
+	if Game.player != null and Game.player.has_method("_on_InteractiveObject_player_entered"):
+		#warning-ignore:return_value_discarded
+		connect("player_entered", Game.player, "_on_InteractiveObject_player_entered")
+		#warning-ignore:return_value_discarded
+		connect("player_exited", Game.player, "_on_InteractiveObject_player_exited")
+	else:
+		push_error("Interactive object is trying to connect to Game.player object, but can't.")
+
+
+
+func connect_signals():
+	#warning-ignore:return_value_discarded
+	connect("body_entered", self, "_on_InteractiveObject_body_entered")
+	#warning-ignore:return_value_discarded
+	connect("body_exited", self, "_on_InteractiveObject_body_exited")
+
+
 
 func get_name() -> String:
 	return door_names[door_type]
@@ -95,18 +143,45 @@ func movePlayer():
 		Game.player.set_global_position(linkedElevator.position)
 		Game.player.currentlyIn = linkedElevator
 
-func open():
-	if animation_player.has_animation("open"):
-			animation_player.play("open")
-			door.open = true
-			yield(animation_player,"animation_finished")
-	emit_signal("animDone")
-
-func close():
+#func open_door():
+#	if animation_player.has_animation("open"):
+#			animation_player.play("open")
+#			door.open = true
+#			yield(animation_player,"animation_finished")
+#	emit_signal("animDone")
+#
+func close_door():
 	if animation_player.has_animation("close"):
 			animation_player.play("close")
 			door.open = false
 			provide_reward(inside)
+
+
+
+func _on_InteractiveObject_body_entered(body):
+	if body == Game.player:
+		emit_signal("player_entered", self)
+
+func _on_InteractiveObject_body_exited(body):
+	if body == Game.player:
+		emit_signal("player_exited", self)
+
+
+
+
+
+
+func _on_Player_scanned():
+	print(self.name, " received signal: Player_scanned")
+	if hidden_to_player:
+		$AnimationPlayer.play("reveal")
+		hidden_to_player = not hidden_to_player
+
+func unlock():
+	print(self.name, " unlocking" )
+	if animation_player.has_animation("unlock"):
+		animation_player.play("unlock")
+	locked = false
 
 
 

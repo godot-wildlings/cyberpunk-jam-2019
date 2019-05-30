@@ -54,24 +54,24 @@ margin_bottom = 550.0
 custom_constants/separation = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-margin_right = 356.0
+margin_right = 286.0
 margin_bottom = 500.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.66
-custom_constants/separation = 50
+size_flags_stretch_ratio = 0.5
+custom_constants/separation = 5
 
 [node name="Title" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_right = 356.0
+margin_right = 286.0
 margin_bottom = 26.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.913725, 0.486275, 0.258824, 1 )
 text = "Ghosts and Sinners"
 
 [node name="Credits" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 76.0
-margin_right = 356.0
-margin_bottom = 370.0
+margin_top = 31.0
+margin_right = 286.0
+margin_bottom = 325.0
 text = "Game developed for
 Cyberpunk Jam 2019
 by
@@ -85,46 +85,47 @@ Regression
 "
 align = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-margin_left = 456.0
-margin_right = 924.0
-margin_bottom = 500.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 50
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
 self_modulate = Color( 0.184314, 0.623529, 0.666667, 1 )
-margin_right = 468.0
-margin_bottom = 184.0
+margin_top = 330.0
+margin_right = 286.0
+margin_bottom = 465.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 234.0
-margin_right = 468.0
-margin_bottom = 420.0
-text = "The fear was perpetual surveillance...
- We got that.
-
-In it's wake, we got Rampant Identity Fraud.
-
-I work in Identity Crime, I hunt Ghosts and Sinners."
-autowrap = true
-
-[node name="StartButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="StartButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
 margin_top = 470.0
-margin_right = 468.0
+margin_right = 286.0
 margin_bottom = 500.0
 shortcut_in_tooltip = false
 shortcut = SubResource( 3 )
 text = "Start"
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+margin_left = 386.0
+margin_right = 924.0
+margin_bottom = 564.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 50
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 538.0
+margin_bottom = 564.0
+text = "GHIBLI CITY 2154 – A lofty neon-dream of glass and stone, a promised glittering future of tech-based wonders and endless possibilities. As long as you had money or power.  
+
+The reality a soulless metropolis run by indifferent mega-corps and corrupt politicians, shielded safely behind their black glass barbicans and ivory towers. 
+
+The rest of the eight billion soul population crammed into the four hundred square kilometer slums of the Kamagasaki Sprawl under the crushing yoke of perpetual surveillance, hunger and envy. 
+
+I am MICK JAEGER, trapped between two worlds, both literal and figurative, one real and one digital. A mainframe merc, a corporate cop, indentured to wage war upon the weak, to hunt ghosts and sinners, alike."
+autowrap = true
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
-[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2/StartButton" to="." method="_on_AnyButton_hover"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_AnyButton_hover"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
