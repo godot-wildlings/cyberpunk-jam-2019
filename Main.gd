@@ -10,13 +10,15 @@ var levels : Dictionary = {
 		"intro" : load("res://Levels/Intro.tscn"),
 		"PoorQuarter" : load("res://Levels/PoorQuarter.tscn"),
 		"RichQuarter" : load("res://Levels/RichQuarter.tscn"),
+		"Corporation" : load("res://Levels/Mazui-Hito-Fight.tscn")
 
 		#"2" : preload("res://Levels/Level2.tscn")
 }
 
 var cutscenes : Dictionary = {
 		"HQ1" : load("res://Story/HQ1.tscn"),
-		"FemmeFatale" : load("res://Story/FemmeFatale.tscn")
+		"FemmeFatale" : load("res://Story/FemmeFatale.tscn"),
+		"Doppleganger" : load("res://Story/Mazui-Hito.tscn")
 }
 
 
