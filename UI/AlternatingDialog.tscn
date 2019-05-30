@@ -5,8 +5,8 @@
 [ext_resource path="res://Player/Protagonist.png" type="Texture" id=3]
 [ext_resource path="res://NPCs/lauren_bacall.png" type="Texture" id=4]
 [ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=5]
-[ext_resource path="res://SFX/Cyber_Jam_-_Control_Vocals_SFX_1.wav" type="AudioStream" id=6]
-[ext_resource path="res://SFX/Cyber_Jam_-_Control_Talking_Vocals_SFX_3.wav" type="AudioStream" id=7]
+[ext_resource path="res://SFX/Cyber_Jam_-_Computer_Terminal_SFX_3.wav" type="AudioStream" id=6]
+[ext_resource path="res://SFX/Cyber_Jam_-_Computer_Terminal_SFX_2.wav" type="AudioStream" id=7]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
