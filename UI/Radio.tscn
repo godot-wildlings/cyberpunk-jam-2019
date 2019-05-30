@@ -12,9 +12,9 @@
 [ext_resource path="res://UI/radio/volumeBack.png" type="Texture" id=10]
 [ext_resource path="res://UI/radio/volumeFront.png" type="Texture" id=11]
 [ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=12]
-[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Nightfall.ogg" type="AudioStream" id=13]
-[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Rain__City_SFX.ogg" type="AudioStream" id=14]
-[ext_resource path="res://BGMusic/Cyber_Jam_-_Police_Station_Theme.ogg" type="AudioStream" id=15]
+[ext_resource path="res://BGMusic/Cyber_Jam_-_Police_Station_Theme.ogg" type="AudioStream" id=13]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Intro_Theme_Rough_2.ogg" type="AudioStream" id=14]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Nightfall.ogg" type="AudioStream" id=15]
 
 [node name="Radio" type="HBoxContainer"]
 margin_left = 725.0
@@ -69,6 +69,7 @@ rect_min_size = Vector2( 50, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 value = 50.0
+ticks_on_borders = true
 
 [node name="VolumeDisplay" type="TextureProgress" parent="."]
 margin_left = 198.0
@@ -83,22 +84,20 @@ texture_progress = ExtResource( 11 )
 
 [node name="Tracks" type="Node" parent="."]
 
-[node name="CyberBlues" type="AudioStreamPlayer" parent="Tracks"]
+[node name="Sinner Blues" type="AudioStreamPlayer" parent="Tracks"]
 stream = ExtResource( 12 )
 volume_db = -9.0
 bus = "Music"
 
-[node name="Nightfall" type="AudioStreamPlayer" parent="Tracks"]
+[node name="Police Station" type="AudioStreamPlayer" parent="Tracks"]
 stream = ExtResource( 13 )
 volume_db = -9.0
 bus = "Music"
 
-[node name="RainCity" type="AudioStreamPlayer" parent="Tracks"]
+[node name="Ghost Town" type="AudioStreamPlayer" parent="Tracks"]
 stream = ExtResource( 14 )
-volume_db = -9.0
-bus = "Music"
 
-[node name="PoliceStation" type="AudioStreamPlayer" parent="Tracks"]
+[node name="Nightfall" type="AudioStreamPlayer" parent="Tracks"]
 stream = ExtResource( 15 )
 volume_db = -9.0
 bus = "Music"
