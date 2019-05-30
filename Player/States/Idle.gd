@@ -16,6 +16,12 @@ func activate(arguments : Array = []):
 	# might receive a velocity argument, but it's ignored
 	$StandingSprite.show()
 
+#	if Input.is_action_pressed("mv_down"):
+#		player.crouch(Vector2.ZERO)
+#	elif Input.is_action_pressed("mv_right") or Input.is_action_pressed("mv_right"):
+#		player.run(Vector2.ZERO)
+
+
 func deactivate():
 	$StandingSprite.hide()
 
@@ -31,9 +37,9 @@ func process_state(delta):
 	velocity = Vector2.ZERO
 
 	if player.state == my_state_num:
-		if Input.is_action_just_pressed("mv_right") or Input.is_action_just_pressed("mv_left"):
+		if Input.is_action_pressed("mv_right") or Input.is_action_just_pressed("mv_left"):
 			player.run()
-		elif Input.is_action_just_pressed("jump"):
+		elif Input.is_action_pressed("jump"):
 			player.jump()
 		elif Input.is_action_just_pressed("mv_up"):
 			if player.interactive_objects_present.size() > 0:
@@ -46,7 +52,7 @@ func process_state(delta):
 					player.climb(platform_above)
 				else:
 					player.jump()
-		elif Input.is_action_just_pressed("mv_down"):
+		elif Input.is_action_pressed("mv_down"):
 			var platform_below = player.get_platform_below()
 			if platform_below != null:
 				player.drop()
