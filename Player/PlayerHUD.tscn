@@ -22,17 +22,24 @@ rect_min_size = Vector2( 0, 75 )
 custom_constants/separation = 25
 alignment = 1
 
+[node name="FullscreenToggle" type="CheckBox" parent="VBoxContainer"]
+margin_left = 51.0
+margin_right = 75.0
+margin_bottom = 75.0
+focus_mode = 0
+enabled_focus_mode = 0
+
 [node name="Instructions" type="Label" parent="VBoxContainer"]
-margin_left = 76.0
+margin_left = 100.0
 margin_top = 22.0
-margin_right = 570.0
+margin_right = 594.0
 margin_bottom = 53.0
 text = "Move: WASD, Jump: Space, Attack: F, Scan: Q"
 align = 1
 
 [node name="KeyImage" type="TextureRect" parent="VBoxContainer"]
-margin_left = 595.0
-margin_right = 645.0
+margin_left = 619.0
+margin_right = 669.0
 margin_bottom = 75.0
 rect_min_size = Vector2( 50, 32 )
 texture = ExtResource( 3 )
@@ -40,15 +47,16 @@ expand = true
 stretch_mode = 6
 
 [node name="NumKeys" type="Label" parent="VBoxContainer"]
-margin_left = 670.0
+margin_left = 694.0
 margin_top = 22.0
-margin_right = 686.0
+margin_right = 710.0
 margin_bottom = 53.0
 text = "0"
 
 [node name="Radio" parent="VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 711.0
-margin_right = 948.0
+margin_left = 735.0
+margin_right = 972.0
 margin_bottom = 75.0
+[connection signal="toggled" from="VBoxContainer/FullscreenToggle" to="." method="_on_FullscreenToggle_toggled"]

@@ -1,13 +1,16 @@
 extends Player_State
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
+#warning-ignore:unused_class_variable
 var alreadyTimedOut = false
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	$DeadSprite.visible = false
+
+	#warning-ignore:return_value_discarded
 	$Timer.connect("timeout", self, "_on_Timer_timeout")
+	#warning-ignore:return_value_discarded
 	$Timer2.connect("timeout", self, "reload") # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

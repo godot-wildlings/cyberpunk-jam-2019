@@ -64,8 +64,9 @@ func pause():
 
 func _on_VolumeSlider_value_changed(value : float):
 	var ratio = clamp(value/100, 0, 1.0)
-	AudioServer.set_bus_volume_db(1, log(ratio) * 20)
-	$VolumeDisplay.set_value(value)
+	AudioServer.set_bus_volume_db(1, ( (log(ratio) * 20) + 7))
+	$HBoxContainer/VolumeDisplay.set_value(value)
+	print(self.name, " bus 1 vol == " , AudioServer.get_bus_volume_db(1))
 
 #warning-ignore:return_value_discarded
 func _on_PrevButton_pressed():

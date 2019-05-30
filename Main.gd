@@ -124,6 +124,7 @@ func hover():
 func click():
 	$ClickNoise.play()
 
+#warning-ignore:unused_argument
 func _unhandled_key_input(event):
 	if Input.is_action_just_pressed("jump-to-end"):
 		switch_levels_by_name("Corporation")

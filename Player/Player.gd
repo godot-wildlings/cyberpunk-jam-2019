@@ -31,9 +31,9 @@ onready var footstep_pause_timer : Timer = $SFX/FootStepPauseTimer
 onready var sfx_container : Node2D = $SFX
 onready var footstep_sfx_container : Node2D = $SFX/Steps
 onready var climbing_sfx_container : Node2D = $States/Climbing/SFX
+#warning-ignore:unused_class_variable
 onready var out_of_ammo_sfx : AudioStreamPlayer2D = $SFX/OutOfAmmoSFX
 onready var pick_up_ammo_sfx : AudioStreamPlayer2D = $SFX/PickUpAmmoSFX
-#enum states { idle, running, jumping, climbing, dropping, falling, crouching, dead, entering, hidden, exiting, attacking, hit }
 enum states { idle, running, jumping, climbing, dropping, falling, crouching, dead, entering, hidden, exiting }
 
 var state = states.idle
