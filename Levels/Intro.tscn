@@ -50,12 +50,12 @@ custom_constants/margin_bottom = 50
 margin_left = 50.0
 margin_top = 50.0
 margin_right = 974.0
-margin_bottom = 560.0
+margin_bottom = 550.0
 custom_constants/separation = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 margin_right = 286.0
-margin_bottom = 510.0
+margin_bottom = 500.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
@@ -80,6 +80,7 @@ Plexsoup
 caevv
 TheBatMan
 AmerigoGazaway
+Sequoia
 DoggieBalloon
 Regression
 "
@@ -89,7 +90,7 @@ align = 1
 self_modulate = Color( 0.184314, 0.623529, 0.666667, 1 )
 margin_top = 330.0
 margin_right = 286.0
-margin_bottom = 475.0
+margin_bottom = 465.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 5 )
@@ -97,9 +98,9 @@ expand = true
 stretch_mode = 6
 
 [node name="StartButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 480.0
+margin_top = 470.0
 margin_right = 286.0
-margin_bottom = 510.0
+margin_bottom = 500.0
 shortcut_in_tooltip = false
 shortcut = SubResource( 3 )
 text = "Start"
@@ -107,14 +108,14 @@ text = "Start"
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 margin_left = 386.0
 margin_right = 924.0
-margin_bottom = 510.0
+margin_bottom = 500.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 50
 
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer2"]
 margin_right = 538.0
-margin_bottom = 510.0
+margin_bottom = 483.0
 text = "GHIBLI CITY 2154 – A lofty neon-dream of glass and stone, a promised glittering future of tech-based wonders and endless possibilities. As long as you had money or power.  
 
 The reality: a soulless metropolis run by indifferent mega-corps and corrupt politicians, shielded safely behind their black glass barbicans and ivory towers. 
