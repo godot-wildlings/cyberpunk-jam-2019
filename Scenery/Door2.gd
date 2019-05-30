@@ -122,8 +122,6 @@ func admit(entity_entering):
 	# theoretically, could be player or NPC
 	if entity_entering.has_method("enter"):
 		entity_entering.enter(self)
-		if door_type == door_types.cutscene or door_type == door_types.shortcut:
-			provide_reward(entity_entering)
 
 
 func animate():
@@ -146,10 +144,12 @@ func provide_reward(interactor):
 		print(self.name, " switching levels to  ", scene_name )
 		Game.main.switch_levels_by_name(scene_name)
 
-func movePlayer():
+func actOnPlayer():
 	if door_type == door_types.shortcut:
 		Game.player.set_global_position(linkedElevator.get_global_position())
 		Game.player.currentlyIn = linkedElevator
+	if door_type == door_types.cutscene:
+		provide_reward(Game.player)
 
 func open_door():
 	print("Opening...")
@@ -164,7 +164,8 @@ func close_door():
 			animation_player.play("close")
 			door.open = false
 			if door_type == door_types.cutscene:
-				pass
+				yield(animation_player, "animation_finished")
+				emit_signal("animDone")
 			elif door_type == door_types.shortcut:
 				yield(animation_player, "animation_finished")
 				emit_signal("animDone")

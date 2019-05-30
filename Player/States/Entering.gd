@@ -50,9 +50,9 @@ func _on_Timer_timeout():
 	player.set_state(player.states.hidden)
 	if player.currentlyIn && player.currentlyIn.has_method("close_door"):
 		player.currentlyIn.close_door()
-	if object_entered.has_method("movePlayer"):
+	if object_entered.has_method("actOnPlayer"):
 		yield(object_entered, "animDone")
-		object_entered.movePlayer()
+		object_entered.actOnPlayer()
 
 func flip_sprites(dir):
 	if dir > 0:
