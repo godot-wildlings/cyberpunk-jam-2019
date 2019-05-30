@@ -58,6 +58,8 @@ func start():
 
 func next_tab():
 
+
+
 	text_revealed = -1
 	current_tab_num += 1
 	#var next_tab = dialog_container.get_current_tab()+1
@@ -86,13 +88,30 @@ func end_scene():
 #warning-ignore:unused_argument
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):
-		next_tab()
+		advance_story()
 	elif Input.is_action_just_pressed("ui_cancel"):
 		end_scene()
 
 func _on_NextPageButton_pressed():
-	next_tab()
+	advance_story()
+
+func advance_story():
+	var showing = dialog_container.get_child(current_tab_num).get_visible_characters()
+	var length = dialog_container.get_child(current_tab_num).get_text().length()
+	if showing < length:
+		reveal_all_letters()
+	else:
+		next_tab()
 	Game.main.click()
+
+func reveal_all_letters():
+	text_revealed = dialog_container.get_child(current_tab_num).get_text().length()
+	stop_mumbling()
+
+func stop_mumbling():
+	$TextRevealNoiseLeft.stop()
+	$TextRevealNoiseRight.stop()
+
 
 func reveal_letter():
 
