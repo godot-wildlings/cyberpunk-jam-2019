@@ -82,7 +82,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 14, 20 ]
+"values": [ 20, 14 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -552,6 +552,7 @@ door_type = 4
 linkedElevatorName = "Elevator2"
 
 [node name="Elevator2" parent="InteractiveObjects" instance=ExtResource( 13 )]
+editor/display_folded = true
 position = Vector2( 1484.26, -475.229 )
 door_type = 4
 linkedElevatorName = "Elevator1"

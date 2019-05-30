@@ -142,7 +142,7 @@ func provide_reward(interactor):
 	elif door_type == door_types.cutscene:
 		Game.main.load_cutscene(scene_name)
 
-	elif door_type == door_types.scene_change and scene_name != null:
+	elif door_type == door_types.scene_change and scene_name:
 		print(self.name, " switching levels to  ", scene_name )
 		Game.main.switch_levels_by_name(scene_name)
 
@@ -152,6 +152,7 @@ func movePlayer():
 		Game.player.currentlyIn = linkedElevator
 
 func open_door():
+	print("Opening...")
 	if animation_player.has_animation("open"):
 			animation_player.play("open")
 			door.open = true
@@ -162,9 +163,11 @@ func close_door():
 	if animation_player.has_animation("close"):
 			animation_player.play("close")
 			door.open = false
-
-			if door_type == door_types.cutscene or door_type == door_types.shortcut:
+			if door_type == door_types.cutscene:
 				pass
+			elif door_type == door_types.shortcut:
+				yield(animation_player, "animation_finished")
+				emit_signal("animDone")
 			else:
 				provide_reward(inside)
 
