@@ -143,6 +143,9 @@ func _process(delta):
 		return
 
 	if state == states.passive:
+
+		avoid_ledges()
+
 		#warning-ignore:unused_variable
 		intended_movement_vector = Vector2.RIGHT * direction * speed
 
@@ -155,6 +158,11 @@ func _process(delta):
 	consider_fleeing()
 
 	move(delta)
+
+func avoid_ledges():
+	var ray = $Rays/GroundDectorFront
+	if not ( ray.is_colliding() ):
+		switch_direction(direction * -1)
 
 
 func move(delta):

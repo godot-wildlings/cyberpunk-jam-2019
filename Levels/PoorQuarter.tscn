@@ -694,7 +694,7 @@ position = Vector2( 2632.72, 488.727 )
 [node name="Enemies" type="Node2D" parent="NPCs"]
 
 [node name="NPC" parent="NPCs/Enemies" instance=ExtResource( 17 )]
-position = Vector2( -464.511, 354.722 )
+position = Vector2( 56.6255, -163.897 )
 
 [node name="NPC3" parent="NPCs/Enemies" instance=ExtResource( 17 )]
 position = Vector2( 623.873, 486.004 )
@@ -710,7 +710,7 @@ character_type = 1
 scanned_attitude = 1
 
 [node name="NPC5" parent="NPCs/Enemies" instance=ExtResource( 17 )]
-position = Vector2( 977.925, 62.2809 )
+position = Vector2( 939.143, 155.357 )
 character_type = 1
 initial_attitude = 1
 scanned_attitude = 1
@@ -732,7 +732,7 @@ initial_attitude = 1
 scanned_attitude = 1
 
 [node name="NPC9" parent="NPCs/Enemies" instance=ExtResource( 17 )]
-position = Vector2( 1413.09, 164.803 )
+position = Vector2( 1751.06, 147.349 )
 character_type = 2
 scanned_attitude = 1
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
