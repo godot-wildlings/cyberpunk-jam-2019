@@ -3,8 +3,8 @@
 [ext_resource path="res://UI/AlternatingDialog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Protagonist.png" type="Texture" id=2]
 
-[node name="AlternatingDialog" instance=ExtResource( 1 )]
-dialog = [ "Hello Mick", "Wha.. What the hell is this?", "Try to relax. Welcome Back", "I swear...", "I'm afraid you can't leave." ]
+[node name="AlternatingDialog" index="0" instance=ExtResource( 1 )]
+dialog = [ "Hello again, Agent 11 Jaeger.", "Wha… What is this? Who the Hell are you, why do you look like me?", "Please try to remain calm. I am Agent 12 Jaeger. Has your memory processor been corrupted again? The Jaeger archetype does so have a penchant for getting into scrapes.", "I swear on Tecken’s grave, I’ll blast you to kingdom come if I don’t start getting answers that make a little god damn sense! Where is this place, where’s the door?", "Leave? To go where? Keisatsu Control, we have a faulty tech-slave. Shut down Unit Jaeger 11, with intent to recall for priority one diagnostic and prepare for drone evac. Purge systems and flense the weak flesh.", "Don’t you move. SIT. DOWN! I SAID DON’T... \\\\\\\\\\010000100<<<<" ]
 
 [node name="TextureRect2" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]
 grow_horizontal = 2
