@@ -29,7 +29,7 @@ func start():
 			new_panel.set_align(Label.ALIGN_LEFT)
 		dialog_container.add_child(new_panel)
 
-	dialog_container.set_current_tab(dialog.size())
+	dialog_container.set_current_tab(0)
 	next_tab()
 
 

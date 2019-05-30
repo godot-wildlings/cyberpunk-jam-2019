@@ -101,8 +101,9 @@ func interact(interactor):
 		if animation_player.has_animation("open"):
 			animation_player.play("open")
 			door.open = true
-			yield(animation_player, "animation_finished")
+			#yield(animation_player, "animation_finished")
 			admit(interactor)
+
 	elif door.locked:
 		if interactor.keys_held > 0:
 			door.unlock()
@@ -149,7 +150,7 @@ func movePlayer():
 #			door.open = true
 #			yield(animation_player,"animation_finished")
 #	emit_signal("animDone")
-#
+
 func close_door():
 	if animation_player.has_animation("close"):
 			animation_player.play("close")

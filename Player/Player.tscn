@@ -30,7 +30,7 @@
 [ext_resource path="res://Player/Actions/Attack.gd" type="Script" id=28]
 [ext_resource path="res://Player/punching.png" type="Texture" id=29]
 [ext_resource path="res://Weapons/PlayerGun.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Player/States/Hit.gd" type="Script" id=31]
+[ext_resource path="res://Player/Actions/GetHit.gd" type="Script" id=31]
 [ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_4.wav" type="AudioStream" id=32]
 [ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_5.wav" type="AudioStream" id=33]
 [ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_6.wav" type="AudioStream" id=34]
@@ -427,7 +427,6 @@ hframes = 12
 frame = 6
 
 [node name="Entering" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 12 )
 
 [node name="EnteringSprite" type="Sprite" parent="States/Entering"]
@@ -437,7 +436,7 @@ hframes = 12
 frame = 11
 
 [node name="Timer" type="Timer" parent="States/Entering"]
-wait_time = 0.6
+wait_time = 1.2
 one_shot = true
 
 [node name="Hidden" type="Node2D" parent="States"]
