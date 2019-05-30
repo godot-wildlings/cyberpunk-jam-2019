@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -10,11 +10,12 @@
 [ext_resource path="res://Scenery/concrete.png" type="Texture" id=8]
 [ext_resource path="res://Levels/Crate.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Levels/Barrel.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenery/Console.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenery/Door.tscn" type="PackedScene" id=12]
-[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=14]
-[ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Scenery/trolley.png" type="Texture" id=11]
+[ext_resource path="res://Scenery/Console.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenery/Door2.tscn" type="PackedScene" id=13]
+[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=15]
+[ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=16]
 
 [sub_resource type="TileSet" id=1]
 
@@ -193,7 +194,6 @@ position = Vector2( 1984.67, 496.652 )
 position = Vector2( 2276.79, 498.42 )
 
 [node name="Walls" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="WallLeft" type="StaticBody2D" parent="Walls"]
 position = Vector2( -722.279, 454.414 )
@@ -209,81 +209,64 @@ shape = SubResource( 4 )
 
 [node name="Scenery" type="Node2D" parent="."]
 
+[node name="Sprite" type="Sprite" parent="Scenery"]
+position = Vector2( 3099.4, 471.075 )
+rotation = -0.00872665
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+
 [node name="InteractiveObjects" type="Node2D" parent="."]
 
-[node name="Console" parent="InteractiveObjects" instance=ExtResource( 11 )]
-position = Vector2( 3015.51, 489.078 )
+[node name="Console" parent="InteractiveObjects" instance=ExtResource( 12 )]
+position = Vector2( 2664.5, -554.185 )
 object_type = 1
 
-[node name="Door" parent="InteractiveObjects" instance=ExtResource( 12 )]
-position = Vector2( -162.397, 479.161 )
+[node name="Elevator1" parent="InteractiveObjects" instance=ExtResource( 13 )]
+position = Vector2( 243.949, 471.157 )
+door_type = 4
+linkedElevatorName = "Elevator2"
 
-[node name="Door2" parent="InteractiveObjects" instance=ExtResource( 12 )]
-position = Vector2( 994.058, 474.421 )
+[node name="Elevator2" parent="InteractiveObjects" instance=ExtResource( 13 )]
+position = Vector2( 267.792, -1288.22 )
+door_type = 4
+linkedElevatorName = "Elevator1"
 
-[node name="Door4" parent="InteractiveObjects" instance=ExtResource( 12 )]
-position = Vector2( 1649.17, 474.421 )
-hidden_to_player = false
+[node name="Elevator3" parent="InteractiveObjects" instance=ExtResource( 13 )]
+position = Vector2( 2668.04, 469.068 )
+door_type = 4
+linkedElevatorName = "Elevator4"
 
-[node name="PortalToLevel2" parent="InteractiveObjects" instance=ExtResource( 12 )]
-editor/display_folded = true
-position = Vector2( 2523.1, 473.052 )
-hidden_to_player = false
-locked = true
+[node name="Elevator4" parent="InteractiveObjects" instance=ExtResource( 13 )]
+position = Vector2( 2720.07, -572.003 )
+door_type = 4
+linkedElevatorName = "Elevator3"
 
-[node name="Interaction" parent="InteractiveObjects/PortalToLevel2" index="1"]
+[node name="SceneChange" parent="InteractiveObjects" instance=ExtResource( 13 )]
+position = Vector2( 2920.57, 478.741 )
 door_type = 2
-
-[node name="elevator" parent="InteractiveObjects" instance=ExtResource( 12 )]
-editor/display_folded = true
-position = Vector2( 1422.59, 476.125 )
-hidden_to_player = false
-
-[node name="Interaction" parent="InteractiveObjects/elevator" index="1"]
-door_type = 4
-
-[node name="Label" parent="InteractiveObjects/elevator" index="5"]
-text = "Elevator"
-
-[node name="exit" parent="InteractiveObjects/elevator" index="6"]
-position = Vector2( -1.41473, -514.258 )
-
-[node name="elevator2" parent="InteractiveObjects" instance=ExtResource( 12 )]
-editor/display_folded = true
-position = Vector2( 1412.15, -51.8847 )
-hidden_to_player = false
-
-[node name="Interaction" parent="InteractiveObjects/elevator2" index="1"]
-door_type = 4
-
-[node name="Label" parent="InteractiveObjects/elevator2" index="5"]
-text = "Elevator"
-
-[node name="exit" parent="InteractiveObjects/elevator2" index="6"]
-position = Vector2( 6.59634, 532.648 )
 
 [node name="Enemies" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 13 )]
+[node name="Enemy" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 280.918, 493.807 )
 
-[node name="Enemy4" parent="Enemies" instance=ExtResource( 13 )]
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( -30.9358, 487.279 )
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 13 )]
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 857.566, 484.094 )
 
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 13 )]
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 1073.02, 266.97 )
 
-[node name="Robot" parent="Enemies" instance=ExtResource( 13 )]
+[node name="Robot" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 688.78, 486.024 )
 
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( -620.75, 493.792 )
 
-[node name="iRealRenderer" parent="." instance=ExtResource( 14 )]
+[node name="iRealRenderer" parent="." instance=ExtResource( 15 )]
 
 [node name="Instructions" type="Node2D" parent="."]
 
@@ -305,13 +288,7 @@ It stinks of wealth."
 align = 1
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 15 )
+stream = ExtResource( 16 )
 volume_db = -15.0
 autoplay = true
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
-
-[editable path="InteractiveObjects/PortalToLevel2"]
-
-[editable path="InteractiveObjects/elevator"]
-
-[editable path="InteractiveObjects/elevator2"]

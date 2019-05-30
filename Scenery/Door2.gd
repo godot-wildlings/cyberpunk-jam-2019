@@ -140,7 +140,8 @@ func provide_reward(interactor):
 	elif door_type == door_types.cutscene:
 		Game.main.load_cutscene(scene)
 
-	elif door_type == door_types.portal:
+	elif door_type == door_types.portal and scene != null:
+		print(self.name, " switching levels to  ", scene )
 		Game.main.switch_levels(scene)
 
 func movePlayer():

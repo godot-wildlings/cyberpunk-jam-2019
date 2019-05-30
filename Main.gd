@@ -7,10 +7,10 @@ onready var level_container : Node2D = $Levels
 onready var cutscene_container : Node2D = $Cutscenes
 
 var levels : Dictionary = {
-		"intro" : preload("res://Levels/Intro.tscn"),
-		"HQ1" : preload("res://Story/HQ1.tscn"),
+		"intro" : load("res://Levels/Intro.tscn"),
+		"HQ1" : load("res://Story/HQ1.tscn"),
 		#"FemmeFatale" : preload("res://Story/FemmeFatale.tscn"),
-		"1" : preload("res://Levels/Level1.tscn")
+		"1" : load("res://Levels/Level1.tscn")
 
 		#"2" : preload("res://Levels/Level2.tscn")
 }
@@ -45,9 +45,12 @@ func load_level_name(level_name : String):
 	load_level(level_scene)
 
 func load_level(level_scene : PackedScene):
-	var new_level = level_scene.instance()
-	level_container.add_child(new_level)
-	level = new_level
+	if level_scene != null:
+		var new_level = level_scene.instance()
+		level_container.add_child(new_level)
+		level = new_level
+	else:
+		push_warning("problem loading scene")
 
 func load_cutscene(cutscene : PackedScene):
 	var new_cutscene = cutscene.instance()
