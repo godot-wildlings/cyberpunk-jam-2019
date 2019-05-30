@@ -1,20 +1,23 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenery/Rain.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenery/StackedContainers.png" type="Texture" id=3]
 [ext_resource path="res://Scenery/FarBuildings.png" type="Texture" id=4]
-[ext_resource path="res://Scenery/SilverSpires.png" type="Texture" id=5]
-[ext_resource path="res://UI/Themes/Fonts/RacingSansOne-Regular.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenery/concrete.png" type="Texture" id=8]
-[ext_resource path="res://Levels/Crate.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Levels/Barrel.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenery/trolley.png" type="Texture" id=11]
-[ext_resource path="res://Scenery/Door2.tscn" type="PackedScene" id=12]
-[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=14]
-[ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Scenery/skyline1.png" type="Texture" id=5]
+[ext_resource path="res://Scenery/SilverSpires.png" type="Texture" id=6]
+[ext_resource path="res://Scenery/Corporation.png" type="Texture" id=7]
+[ext_resource path="res://Scenery/spire.png" type="Texture" id=8]
+[ext_resource path="res://UI/Themes/Fonts/RacingSansOne-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenery/concrete.png" type="Texture" id=11]
+[ext_resource path="res://Levels/Crate.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Levels/Barrel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenery/trolley.png" type="Texture" id=14]
+[ext_resource path="res://Scenery/Door2.tscn" type="PackedScene" id=15]
+[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=17]
+[ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=18]
 
 [sub_resource type="TileSet" id=1]
 
@@ -22,7 +25,7 @@
 size = 48
 outline_size = 1
 outline_color = Color( 1, 0.968627, 0.478431, 1 )
-font_data = ExtResource( 6 )
+font_data = ExtResource( 9 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 2387.5, 93.431 )
@@ -78,29 +81,63 @@ texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 8892, 652 )
 
+[node name="Skyline" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
+position = Vector2( 861.306, 143.038 )
+scale = Vector2( 1.9953, 2 )
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 1940, 647 )
+
+[node name="SkylineMirror" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
+position = Vector2( 864.581, 813.557 )
+scale = Vector2( 2, -1 )
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 1940, 647 )
+
 [node name="Near" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 
 [node name="SilverSpires" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
+visible = false
 modulate = Color( 0.403922, 0.639216, 0.596078, 1 )
 position = Vector2( 1467.73, -536.633 )
 scale = Vector2( 2.16, 2.16 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 3260, 982 )
 
 [node name="MirroredSpires2" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
+visible = false
 self_modulate = Color( 0.180392, 0.14902, 0.14902, 1 )
 position = Vector2( 1468.01, 768.853 )
 scale = Vector2( 2.16, -0.5 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 3260, 982 )
 
-[node name="Label" type="Label" parent="CanvasLayer/ParallaxBackground/Near"]
-margin_left = 2527.28
-margin_top = 327.472
-margin_right = 2813.28
-margin_bottom = 388.472
+[node name="Corp" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
+position = Vector2( 2660.33, -255.647 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 7 )
+
+[node name="CorpMirror" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
+position = Vector2( 2660.33, 905.869 )
+scale = Vector2( 6, -3 )
+texture = ExtResource( 7 )
+
+[node name="Spire" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
+position = Vector2( 2316.8, -866.803 )
+scale = Vector2( 3, 4 )
+texture = ExtResource( 8 )
+
+[node name="SpireMirror" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
+position = Vector2( 2316.58, 1228.63 )
+scale = Vector2( 3, -2 )
+texture = ExtResource( 8 )
+
+[node name="CorpLabel" type="Label" parent="CanvasLayer/ParallaxBackground/Near"]
+margin_left = 2173.18
+margin_top = 346.857
+margin_right = 2459.18
+margin_bottom = 407.857
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.396078, 0.4, 0.0235294, 1 )
 custom_colors/font_color_shadow = Color( 0.160784, 0.137255, 0, 1 )
@@ -108,7 +145,8 @@ custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 text = "Mazui-Hitow"
 
-[node name="Fog" parent="CanvasLayer/ParallaxBackground" instance=ExtResource( 7 )]
+[node name="Fog" parent="CanvasLayer/ParallaxBackground" instance=ExtResource( 10 )]
+position = Vector2( 1377.6, 116.966 )
 
 [node name="ResetZone" type="Node2D" parent="."]
 editor/display_folded = true
@@ -133,22 +171,22 @@ shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Floors/Floor1"]
 position = Vector2( 0, -8.24518 )
-texture = ExtResource( 8 )
+texture = ExtResource( 11 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 24 )
 
 [node name="Crates" type="Node2D" parent="."]
 
-[node name="Crate" parent="Crates" instance=ExtResource( 9 )]
+[node name="Crate" parent="Crates" instance=ExtResource( 12 )]
 position = Vector2( 356.989, 496.944 )
 
-[node name="Crate2" parent="Crates" instance=ExtResource( 9 )]
+[node name="Crate2" parent="Crates" instance=ExtResource( 12 )]
 position = Vector2( -493.169, 497.128 )
 
-[node name="Barrel" parent="Crates" instance=ExtResource( 10 )]
+[node name="Barrel" parent="Crates" instance=ExtResource( 13 )]
 position = Vector2( 1984.67, 496.652 )
 
-[node name="Barrel2" parent="Crates" instance=ExtResource( 10 )]
+[node name="Barrel2" parent="Crates" instance=ExtResource( 13 )]
 position = Vector2( 2276.79, 498.42 )
 
 [node name="Walls" type="Node2D" parent="."]
@@ -173,54 +211,54 @@ self_modulate = Color( 0, 0.337255, 0.580392, 1 )
 position = Vector2( 3099.4, 471.075 )
 rotation = -0.00872665
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
+texture = ExtResource( 14 )
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
 
-[node name="Elevator1" parent="InteractiveObjects" instance=ExtResource( 12 )]
+[node name="Elevator1" parent="InteractiveObjects" instance=ExtResource( 15 )]
 position = Vector2( 243.949, 471.157 )
 door_type = 4
 linkedElevatorName = "Elevator2"
 
-[node name="Elevator2" parent="InteractiveObjects" instance=ExtResource( 12 )]
+[node name="Elevator2" parent="InteractiveObjects" instance=ExtResource( 15 )]
 position = Vector2( 267.792, -1288.22 )
 door_type = 4
 linkedElevatorName = "Elevator1"
 
-[node name="Elevator3" parent="InteractiveObjects" instance=ExtResource( 12 )]
-position = Vector2( 2668.04, 469.068 )
+[node name="Elevator3" parent="InteractiveObjects" instance=ExtResource( 15 )]
+position = Vector2( 2419.91, 472.945 )
 door_type = 2
 scene_name = "Corporation"
 
-[node name="SceneChange" parent="InteractiveObjects" instance=ExtResource( 12 )]
+[node name="SceneChange" parent="InteractiveObjects" instance=ExtResource( 15 )]
 position = Vector2( 2920.57, 478.741 )
 door_type = 2
 scene_name = "PoorQuarter"
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 13 )]
+[node name="Enemy" parent="Enemies" instance=ExtResource( 16 )]
 position = Vector2( 280.918, 493.807 )
 
-[node name="Enemy4" parent="Enemies" instance=ExtResource( 13 )]
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 16 )]
 position = Vector2( -30.9358, 487.279 )
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 13 )]
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 16 )]
 position = Vector2( 857.566, 484.094 )
 
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 13 )]
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 16 )]
 position = Vector2( 1084.71, 483.199 )
 
-[node name="Robot" parent="Enemies" instance=ExtResource( 13 )]
+[node name="Robot" parent="Enemies" instance=ExtResource( 16 )]
 position = Vector2( 688.78, 486.024 )
 
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( -620.75, 493.792 )
 
-[node name="iRealRenderer" parent="." instance=ExtResource( 14 )]
+[node name="iRealRenderer" parent="." instance=ExtResource( 17 )]
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 15 )
+stream = ExtResource( 18 )
 volume_db = -15.0
 autoplay = true
 

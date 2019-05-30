@@ -69,7 +69,6 @@ rect_min_size = Vector2( 50, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 value = 50.0
-ticks_on_borders = false
 
 [node name="VolumeDisplay" type="TextureProgress" parent="."]
 margin_left = 198.0

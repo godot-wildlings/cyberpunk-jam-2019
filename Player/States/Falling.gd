@@ -14,8 +14,6 @@ func _ready():
 #warning-ignore:unused_arguments
 func activate(arguments : Array = []):
 
-	# moved to velocity, set in player.set_state
-	print(self.name, " arguments == ", arguments)
 	var initial_velocity : Vector2 = Vector2.ZERO
 	if arguments.size() > 0:
 		initial_velocity = arguments[0]
@@ -33,8 +31,6 @@ func process_state(delta):
 	ticks += 1
 
 	if player.state == my_state_num:
-		if ticks%120 == 0:
-			print(self.name, " fall_velocity == ", fall_velocity)
 
 		fall_velocity.y += Game.gravity * delta
 
@@ -44,7 +40,6 @@ func process_state(delta):
 		velocity = fall_velocity
 
 		if player.is_on_platform() == true:
-			print(self.name, " on platform" )
 			#velocity.y = 0
 			player.land(new_vel)
 
