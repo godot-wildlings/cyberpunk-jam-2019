@@ -153,6 +153,30 @@ character_type = 1
 initial_attitude = 1
 scanned_attitude = 1
 
+[node name="Ghost4" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 1525.61, 85.5897 )
+character_type = 1
+initial_attitude = 1
+scanned_attitude = 1
+
+[node name="Ghost5" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 1363.16, 88.4397 )
+character_type = 1
+initial_attitude = 1
+scanned_attitude = 1
+
+[node name="Ghost6" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 1784.01, -110.11 )
+character_type = 1
+initial_attitude = 1
+scanned_attitude = 1
+
+[node name="Ghost7" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 2016.76, 84.6397 )
+character_type = 1
+initial_attitude = 1
+scanned_attitude = 1
+
 [node name="Ghost3" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 857.566, 484.094 )
 character_type = 1
@@ -161,6 +185,42 @@ scanned_attitude = 1
 
 [node name="Sinner1" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 1477.45, 487.361 )
+character_type = 2
+initial_attitude = 1
+scanned_attitude = 1
+
+[node name="Sinner3" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 2326.8, 86.6612 )
+character_type = 2
+initial_attitude = 1
+scanned_attitude = 1
+
+[node name="Sinner4" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 2682.97, 281.874 )
+character_type = 2
+initial_attitude = 1
+scanned_attitude = 1
+
+[node name="Sinner5" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 2491.19, 483.936 )
+character_type = 2
+initial_attitude = 1
+scanned_attitude = 1
+
+[node name="Sinner6" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 2652.15, 480.511 )
+character_type = 2
+initial_attitude = 1
+scanned_attitude = 1
+
+[node name="Sinner7" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 2364.47, 281.874 )
+character_type = 2
+initial_attitude = 1
+scanned_attitude = 1
+
+[node name="Sinner8" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 2172.68, 487.361 )
 character_type = 2
 initial_attitude = 1
 scanned_attitude = 1

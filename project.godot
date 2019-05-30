@@ -158,8 +158,9 @@ die={
 2d_physics/layer_2="NPCs"
 2d_physics/layer_3="Platforms"
 2d_physics/layer_4="Obstacles"
-2d_physics/layer_5="Bullets"
+2d_physics/layer_5="PlayerBullets"
 2d_physics/layer_6="InteractiveObjects"
+2d_physics/layer_7="NPCBullets"
 
 [rendering]
 

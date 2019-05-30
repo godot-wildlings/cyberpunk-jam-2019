@@ -6,7 +6,7 @@ var tween : Tween
 var initial_punch_sprite_scale
 onready var punching_sprite : Sprite = $MeleeRange/PunchingSprite
 onready var punching_timer: Timer = $MeleeRange/PunchTimer
-export var punch_damage : float = 10
+export var punch_damage : float = 50
 
 func _ready():
 	call_deferred("deferred_ready")
