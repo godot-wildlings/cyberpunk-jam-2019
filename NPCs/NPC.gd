@@ -274,10 +274,15 @@ func switch_direction(dir):
 	if direction != dir:
 		ranged_line_of_sight.scale.x *= -1
 		if dir > 0:
-			$Sprites/RealSprite.set_flip_h(false)
+			flip_sprites(false)
 		else:
-			$Sprites/RealSprite.set_flip_h(true)
+			flip_sprites(true)
 	direction = dir
+
+func flip_sprites(flipped):
+	for sprite in $Sprites.get_children():
+		sprite.set_flip_h(flipped)
+
 
 
 func _on_DecisionTimer_timeout():
