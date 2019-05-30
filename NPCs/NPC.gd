@@ -88,6 +88,12 @@ func _ready():
 
 	call_deferred("deferred_ready")
 
+	relocate_gun_to_make_things_interesting()
+
+func relocate_gun_to_make_things_interesting():
+	if character_type == character_types.ghost:
+		gun.position.y += 20
+
 func display_correct_sprite():
 	if not scanned:
 		current_sprite = $Sprites/RealSprite

@@ -3,7 +3,7 @@
 [ext_resource path="res://NPCs/NPC.gd" type="Script" id=1]
 [ext_resource path="res://Player/female_walking.png" type="Texture" id=2]
 [ext_resource path="res://NPCs/Enemies/warning.png" type="Texture" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://NPCs/Enemies/sinners3.png" type="Texture" id=4]
 [ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Enemy_Hurt_SFX_1.wav" type="AudioStream" id=5]
 [ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Enemy_Hurt_SFX_2.wav" type="AudioStream" id=6]
 [ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Enemy_Hurt_SFX_3.wav" type="AudioStream" id=7]
@@ -100,11 +100,11 @@ frame = 1
 
 [node name="GhostSprite" type="Sprite" parent="Sprites"]
 visible = false
+position = Vector2( 0.527039, 8.69614 )
 texture = ExtResource( 3 )
 
 [node name="SinnerSprite" type="Sprite" parent="Sprites"]
-visible = false
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.33, 0.33 )
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

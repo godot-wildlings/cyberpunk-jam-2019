@@ -33,6 +33,7 @@ func deactivate():
 	sprite.hide()
 	if player.currentlyIn and player.currentlyIn.has_method("close_door"):
 		player.currentlyIn.close_door()
+	player.collision_shape.call_deferred("set_disabled", false)
 
 #warning-ignore:unused_argument
 func process_state(delta):

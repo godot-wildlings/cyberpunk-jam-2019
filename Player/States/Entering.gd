@@ -32,6 +32,9 @@ func activate(arguments : Array = []):
 	player.animation_player.play("enter")
 	$WaitToEnterTimer.start()
 
+	# Why isn't this in the hidden state? Are we using the hidden state?
+	player.collision_shape.call_deferred("set_disabled", true)
+
 func deactivate():
 	#player.animation_player.disconnect("animation_finished", self, "_on_animation_finished")
 	sprite.hide()

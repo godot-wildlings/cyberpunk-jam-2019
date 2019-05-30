@@ -18,6 +18,9 @@ onready var HUD = $CanvasLayer/PlayerHUD
 
 
 #warning-ignore:unused_class_variable
+onready var collision_shape = $CollisionShape2D
+
+#warning-ignore:unused_class_variable
 onready var ray_front = $RayFront
 #warning-ignore:unused_class_variable
 onready var ray_back = $RayBack

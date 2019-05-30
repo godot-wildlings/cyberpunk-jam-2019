@@ -377,7 +377,6 @@ collision_mask = 92
 script = ExtResource( 1 )
 
 [node name="States" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Idle" type="Node2D" parent="States"]
 editor/display_folded = true
@@ -429,7 +428,6 @@ hframes = 12
 frame = 6
 
 [node name="Entering" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 12 )
 
 [node name="EnteringSprite" type="Sprite" parent="States/Entering"]
@@ -446,7 +444,6 @@ one_shot = true
 script = ExtResource( 14 )
 
 [node name="Exiting" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 15 )
 
 [node name="ExitingSprite" type="Sprite" parent="States/Exiting"]
@@ -531,6 +528,7 @@ frame = 3
 [node name="Node2D" type="Node2D" parent="States"]
 
 [node name="Actions" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Scan" type="Node2D" parent="Actions"]
 script = ExtResource( 27 )
