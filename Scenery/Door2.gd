@@ -36,9 +36,6 @@ export var amount : float = 100
 export var scene_name : String
 export (String) var linkedElevatorName
 
-export (bool) var openOnEliminationOfGroup
-export (String) var groupName
-
 signal animDone
 
 var inside = null
@@ -115,8 +112,6 @@ func interact(interactor):
 		if interactor.keys_held > 0:
 			door.unlock()
 			interactor.keys_held -= 1
-		elif openOnEliminationOfGroup and get_tree().get_nodes_in_group(groupName).size() == 0:
-			door.unlock()
 		elif animation_player.has_animation("access_denied"):
 			animation_player.play("access_denied")
 	elif door.open:
