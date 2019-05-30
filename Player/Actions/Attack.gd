@@ -25,7 +25,8 @@ func use():
 	if melee_candidates.size() > 0:
 		punch(melee_candidates)
 	else:
-		shoot()
+		if gun.state == gun.states.ready:
+			shoot()
 
 func punch(punch_targets):
 	punching_timer.start()
@@ -63,7 +64,7 @@ func draw_gun():
 
 	#warning-ignore:return_value_discarded
 	tween.interpolate_property(gun, "rotation",
-			null, 0, 0.2,
+			null, 0, 0.15,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	#warning-ignore:return_value_discarded
 	tween.start()
@@ -71,7 +72,7 @@ func draw_gun():
 func holster_gun():
 	#warning-ignore:return_value_discarded
 	tween.interpolate_property(gun, "rotation",
-			null, -PI/2 * player.get_direction(), 0.2,
+			null, -PI/2 * player.get_direction(), 0.1,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	#warning-ignore:return_value_discarded
 	tween.start()

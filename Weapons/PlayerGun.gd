@@ -4,6 +4,9 @@ export var bullet_scene : PackedScene
 var shooter
 var bullet_speed : float = 400.0
 
+enum states { ready, reloading }
+var state = states.ready
+
 func _ready():
 
 	call_deferred("deferred_ready")
@@ -17,8 +20,14 @@ func deferred_ready():
 
 
 func shoot():
-	spawn_bullet()
-	play_shoot_sfx()
+	if state == states.ready:
+		spawn_bullet()
+		play_shoot_sfx()
+		state = states.reloading
+		$ReloadTimer.start()
+	else:
+		pass
+
 
 func play_shoot_sfx():
 	randomize()
@@ -35,3 +44,8 @@ func spawn_bullet():
 	if shooter.get_direction() == -1:
 		rot = PI
 	new_bullet.start($Muzzle.get_global_position(), Vector2.RIGHT * shooter.direction * bullet_speed, rot, shooter)
+
+
+
+func _on_ReloadTimer_timeout():
+	state = states.ready

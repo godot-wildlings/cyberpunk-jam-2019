@@ -2,8 +2,14 @@
 
 [ext_resource path="res://UI/AlternatingDialog.tscn" type="PackedScene" id=1]
 
-[node name="FemmeFatale" instance=ExtResource( 1 )]
-dialog = [ "I swear I didn't do it, Mr..", "Mick", "I didn't commit Identity Fraud, Mick. My ident was stolen!", "That's not up to me.", "How can I convince you?", "Start from the beginning..." ]
+[node name="FemmeFatale" index="0" instance=ExtResource( 1 )]
+dialog = [ "This is all just a terrible misunderstanding, Michael. Mick, please. 
+", "It’s Agent 11 Jaeger, to you. Only my friends get to call me Mick. For a start, you can quit with the waterworks lady. That ain’t gonna cut any mustard with me, Miss..? 
+", "Miss Koviack. Kim Koviack. So, that’s the way it’s going to be is it, Agent 11 Jaeger. All business, like. You haven’t perchance got a light on you?
+", "You can’t smoke in the Bull Pen, Blondie. You were caught in flagrante delicto at Tabemono Heights trying to trip creds from a nutri-printer with a phoney ident. When I tried to arbitrate, you bolted like a hare with the scent of hounds in their nostrils. You’re lucky I didn’t put a slug in the back of your pretty blonde head. Which I might add I am permitted to do.
+", "How can I make you understand? It was damaged when you threw me against the wall. You really have no clue who I am, do you? Tell me, why didn’t you just shoot me? That’s what you thugs normally do isn’t it?  
+", "Never mind that, Miss Koviack, if that’s really who you are. Let’s go over this one more time. From the very beginning... 
+" ]
 
 [node name="TextureRect2" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1"]
 stretch_mode = 5
