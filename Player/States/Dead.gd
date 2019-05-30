@@ -16,6 +16,8 @@ func _ready():
 
 func activate():
 	$Timer.start()
+
+	#hardcore
 	for other_state in get_parent().get_children():
 		if other_state.name != self.name:
 			get_parent().remove_child(other_state)
@@ -33,4 +35,4 @@ func _on_Timer_timeout():
 	$Timer2.start()
 
 func reload():
-	get_tree().reload_current_scene()
+	Game.main.switch_levels_by_name("Death")

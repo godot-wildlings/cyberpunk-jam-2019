@@ -240,30 +240,17 @@ func get_platform_below() -> StaticBody2D:
 func _process(delta):
 	if state != states.dead:
 		current_state_node.process_state(delta)
-		if health <= 0:
-			set_state(states.dead)
+
+		# could move this to hit(). It's the only time we take damage.
+
+
+func die():
+	set_state(states.dead)
 
 #warning-ignore:unused_argument
 func _unhandled_key_input(event):
-
-#	if Input.is_action_just_pressed("action_0"):
-#		self.current_action_num = 0
-#	elif Input.is_action_just_pressed("action_1"):
-#		self.current_action_num = 1
-#	elif Input.is_action_just_pressed("action_2"):
-#		self.current_action_num = 2
-#	elif Input.is_action_just_pressed("action_3"):
-#		self.current_action_num = 3
-#	elif Input.is_action_just_pressed("action_4"):
-#		self.current_action_num = 4
-#	elif Input.is_action_just_pressed("action_5"):
-#		self.current_action_num = 5
-#	if Input.is_action_just_pressed("action_selected"):
-#		use_action(current_action_num)
-#	elif Input.is_action_just_pressed("next_action"):
-#		self.current_action_num = wrapi(current_action_num + 1, 0, actions.size())
-#	elif Input.is_action_just_pressed("prev_action"):
-#		self.current_action_num = wrapi(current_action_num - 1, 0, actions.size())
+	if Input.is_action_just_pressed("die"):
+		die()
 
 	if Input.is_action_just_pressed("mv_right"):
 		direction = 1

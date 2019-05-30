@@ -4,6 +4,7 @@
 [ext_resource path="res://Story/Chief.png" type="Texture" id=2]
 
 [node name="DeathReveal" index="0" instance=ExtResource( 1 )]
+scene_type = 2
 dialog = [ "Welcome back Rookie, try to relax. Your memory will return incrementally. The augment surgery was a success and the bio-feed patch appears to be active. Which is why you can now hear me in your head. I am KEISATSU CONTROL. You are Novice Agent 11 Jaeger; a Shinisou Tech-Slave for the Mazui-Hito Corporation. Now, you’re gonna feel woozy for the next forty-eight hours until the Thorazine wears off.", "Mick. My name is Mick. I think I’m gonna call you Jiminy Cricket. Oh, and why do I have gun grafted to my hand? Sorry did you say Tech-Slave?", "See, what did I tell you? And I heard you didn’t have a sense of humour. Now Agent 11 Jaeger, you must patrol the Kamagasaki Urban District and protect the cooperate interests across the REAL and the iREAL. Root out illicit cyber-criminal activity wherever you find it and crush it wholesale! ", "Yeah, and how long do I have to do that for?", "Ha ha. Oh, you’re not joking. I am sorry, I thought you knew. Forever, the rest of your unnatural life. Legally you’re dead and are now the property of Mazui-Hito Corporation.", "Ah but am I technically dead?", "No Agent 11 Jaeger, you’re a ghost. You know, you really should read the fine print." ]
 
 [node name="MarginContainer" parent="MarginContainer/VBoxContainer" index="0"]

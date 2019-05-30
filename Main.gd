@@ -10,7 +10,8 @@ var levels : Dictionary = {
 		"intro" : load("res://Levels/Intro.tscn"),
 		"PoorQuarter" : load("res://Levels/PoorQuarter.tscn"),
 		"RichQuarter" : load("res://Levels/RichQuarter.tscn"),
-		"Corporation" : load("res://Levels/Mazui-Hito-Fight.tscn")
+		"Corporation" : load("res://Levels/Mazui-Hito-Fight.tscn"),
+		"Death" : load("res://Story/DeathReveal.tscn")
 
 		#"2" : preload("res://Levels/Level2.tscn")
 }
@@ -18,7 +19,7 @@ var levels : Dictionary = {
 var cutscenes : Dictionary = {
 		"HQ1" : load("res://Story/HQ1.tscn"),
 		"FemmeFatale" : load("res://Story/FemmeFatale.tscn"),
-		"Doppleganger" : load("res://Story/Mazui-Hito.tscn")
+		"Doppleganger" : load("res://Story/Mazui-Hito.tscn"),
 }
 
 
@@ -84,6 +85,10 @@ func end_cutscene(cutscene_node):
 	cutscene_container.remove_child(cutscene_node)
 	Game.player.HUD.show()
 	Game.resume()
+
+func end_final_scene():
+	level_num = -1
+	next_level()
 
 func next_level():
 	level_num = wrapi(level_num +1, 0, levels.size())

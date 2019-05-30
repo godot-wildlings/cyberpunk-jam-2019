@@ -1,5 +1,9 @@
 extends CanvasLayer
 
+enum scene_types { cutscene, level, final }
+export (scene_types) var scene_type = scene_types.cutscene
+
+
 onready var dialog_container = $MarginContainer/VBoxContainer/MarginContainer/DialogContainer
 export var dialog : Array = []
 
@@ -24,6 +28,7 @@ func instantiate_tabs():
 		var new_panel = Label.new()
 		new_panel.set_text(dialog[i])
 		new_panel.set_visible_characters(0)
+		new_panel.set_autowrap(true)
 		if i%2 == 0:
 			new_panel.set_align(Label.ALIGN_RIGHT)
 		else:
@@ -57,7 +62,7 @@ func next_tab():
 	current_tab_num += 1
 	#var next_tab = dialog_container.get_current_tab()+1
 	if current_tab_num == dialog.size():
-		end_cutscene()
+		end_scene()
 	else:
 		dialog_container.set_current_tab(current_tab_num)
 		reveal_letter()
@@ -68,15 +73,22 @@ func next_tab():
 		else:
 			$TextRevealNoiseLeft.play()
 
-func end_cutscene():
-	Game.main.end_cutscene(self)
+func end_scene():
+	if scene_type == scene_types.cutscene:
+		Game.main.end_cutscene(self)
+	elif scene_type == scene_types.final:
+		Game.main.end_final_scene()
+
+	else:
+		Game.main.next_level()
+
 
 #warning-ignore:unused_argument
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):
 		next_tab()
 	elif Input.is_action_just_pressed("ui_cancel"):
-		end_cutscene()
+		end_scene()
 
 func _on_NextPageButton_pressed():
 	next_tab()

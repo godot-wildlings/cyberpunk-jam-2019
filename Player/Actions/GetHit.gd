@@ -32,7 +32,11 @@ func take_damage(damage, damage_type):
 	if player.damage_reduction.has(damage_type):
 		damage_mod = 1 - player.damage_reduction[damage_type]
 	player.health -= damage * damage_mod
+	if player.health <= 0:
+		player.die()
+
 	player.get_node("HealthBar").set_value(player.health)
+
 
 func _on_HitstunTimer_timeout():
 	player.set_modulate(Color.white)
