@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=2]
@@ -7,9 +7,10 @@
 [ext_resource path="res://Levels/Barrel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Levels/ShippingContainer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/Scaffolding2.tscn" type="PackedScene" id=7]
-[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=9]
-[ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Scenery/Door2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2387.5, 93.431 )
@@ -129,33 +130,38 @@ shape = SubResource( 3 )
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
 
+[node name="Door2" parent="InteractiveObjects" instance=ExtResource( 8 )]
+position = Vector2( 3164.03, 474.009 )
+door_type = 2
+scene_name = "Death"
+
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Ghost" parent="Enemies" instance=ExtResource( 8 )]
+[node name="Ghost" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 280.918, 493.807 )
 character_type = 1
 initial_attitude = 1
 scanned_attitude = 1
 
-[node name="Ghost2" parent="Enemies" instance=ExtResource( 8 )]
+[node name="Ghost2" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( -30.9358, 487.279 )
 character_type = 1
 initial_attitude = 1
 scanned_attitude = 1
 
-[node name="Ghost3" parent="Enemies" instance=ExtResource( 8 )]
+[node name="Ghost3" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 857.566, 484.094 )
 character_type = 1
 initial_attitude = 1
 scanned_attitude = 1
 
-[node name="Sinner1" parent="Enemies" instance=ExtResource( 8 )]
+[node name="Sinner1" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 1477.45, 487.361 )
 character_type = 2
 initial_attitude = 1
 scanned_attitude = 1
 
-[node name="Sinner2" parent="Enemies" instance=ExtResource( 8 )]
+[node name="Sinner2" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 688.78, 486.024 )
 character_type = 2
 initial_attitude = 1
@@ -164,10 +170,10 @@ scanned_attitude = 1
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( -620.75, 493.792 )
 
-[node name="iRealRenderer" parent="." instance=ExtResource( 9 )]
+[node name="iRealRenderer" parent="." instance=ExtResource( 10 )]
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 volume_db = -15.0
 autoplay = true
 
