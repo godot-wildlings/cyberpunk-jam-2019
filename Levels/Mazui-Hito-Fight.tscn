@@ -10,13 +10,13 @@
 [ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=8]
 [ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=9]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2387.5, 93.431 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2003.54, 10 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 53.7192, 431.366 )
 
 [node name="Mazui-Hito-Fight" type="Node2D"]
@@ -47,7 +47,7 @@ editor/display_folded = true
 position = Vector2( 1551.55, 794.696 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResetZone/ResetArea"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Floors" type="Node2D" parent="."]
 
@@ -59,7 +59,7 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor1"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Floors/Floor1"]
 position = Vector2( 0, -8.24518 )
@@ -169,14 +169,14 @@ editor/display_folded = true
 position = Vector2( -722.279, 454.414 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallLeft"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="WallRight" type="StaticBody2D" parent="Walls"]
 position = Vector2( 3333.96, 406.581 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallRight"]
 position = Vector2( 3.59229, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="Scenery" type="Node2D" parent="."]
 
