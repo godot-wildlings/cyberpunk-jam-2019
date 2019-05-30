@@ -114,19 +114,20 @@ func deferred_ready():
 
 
 func set_state(state_num, arguments : Array = []):
-	var previous_velocity : Vector2 = Vector2.ZERO
+	if state != states.dead:
+		var previous_velocity : Vector2 = Vector2.ZERO
 
-	if current_state_node != null and current_state_node.has_method("deactivate"):
-		previous_velocity = current_state_node.get_velocity()
-		current_state_node.deactivate()
+		if current_state_node != null and current_state_node.has_method("deactivate"):
+			previous_velocity = current_state_node.get_velocity()
+			current_state_node.deactivate()
 
-	if $States.has_node(state_names[state_num]):
-		current_state_node = $States.get_node(state_names[state_num])
-		current_state_node.set_velocity(previous_velocity)
-		if arguments.size() > 0:
-			current_state_node.activate(arguments)
-		else:
-			current_state_node.activate()
+		if $States.has_node(state_names[state_num]):
+			current_state_node = $States.get_node(state_names[state_num])
+			current_state_node.set_velocity(previous_velocity)
+			if arguments.size() > 0:
+				current_state_node.activate(arguments)
+			else:
+				current_state_node.activate()
 
 	state = state_num
 
@@ -237,7 +238,10 @@ func get_platform_below() -> StaticBody2D:
 		return null
 
 func _process(delta):
-	current_state_node.process_state(delta)
+	if state != states.dead:
+		current_state_node.process_state(delta)
+		if health <= 0:
+			set_state(states.dead)
 
 #warning-ignore:unused_argument
 func _unhandled_key_input(event):
