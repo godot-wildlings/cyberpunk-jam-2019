@@ -615,13 +615,13 @@ current = true
 [node name="RayUp" type="RayCast2D" parent="."]
 position = Vector2( 0.713486, -10.4644 )
 enabled = true
-cast_to = Vector2( 0, -150 )
+cast_to = Vector2( 0, -200 )
 collision_mask = 4
 
 [node name="RayDown" type="RayCast2D" parent="."]
-position = Vector2( 0.713486, 64.9846 )
+position = Vector2( 0.173111, 80.6549 )
 enabled = true
-cast_to = Vector2( 0, 150 )
+cast_to = Vector2( 0, 250 )
 collision_mask = 4
 
 [node name="Tween" type="Tween" parent="."]

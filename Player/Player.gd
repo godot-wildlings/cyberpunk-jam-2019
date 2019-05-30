@@ -224,12 +224,12 @@ func get_platform_below() -> StaticBody2D:
 
 	var ray = get_node("RayDown")
 	# move the ray below the current platform so it doesn't see it.
-	var margin = 10.0
-	var platform_height = 100
+	var margin = 50.0
+	var platform_height = 200
 	if platform != null and platform.get_child_count() > 0:
 		platform_height = platform.get_child(0).get_shape().get_extents().y * 2
 	ray.position = Vector2.DOWN * (character_height/2 + platform_height + margin)
-	var distance_between_platforms = 150
+	var distance_between_platforms = 250
 	ray.set_cast_to(Vector2.DOWN * distance_between_platforms)
 	if ray.is_colliding() and ray.get_collider() is StaticBody2D:
 		return ray.get_collider()

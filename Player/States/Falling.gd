@@ -40,8 +40,8 @@ func process_state(delta):
 
 		var damping = 0.1
 		var new_vel = move_and_bounce(fall_velocity, delta, damping)
-		velocity = new_vel
-
+		fall_velocity = new_vel
+		velocity = fall_velocity
 
 		if player.is_on_platform() == true:
 			print(self.name, " on platform" )

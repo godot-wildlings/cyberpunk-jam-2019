@@ -4,17 +4,19 @@
 [ext_resource path="res://Levels/ShippingContainerBW.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 181.558, 13.0464 )
+extents = Vector2( 269.822, 5.89248 )
 
 [node name="ShippingContainer" type="StaticBody2D"]
-position = Vector2( -109.065, 423.714 )
+position = Vector2( -1.44049, 5.17426 )
 collision_layer = 4
 collision_mask = 3
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.67201, 0.54356 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0.598724, 41.3129 )
+position = Vector2( 1.3157, 73.9351 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
