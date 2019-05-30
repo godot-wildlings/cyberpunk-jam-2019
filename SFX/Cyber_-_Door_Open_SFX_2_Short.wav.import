@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cyber_-_Door_Open_SFX_2_Short.wav-f55d5795744680d6266b154d54b69eae.sample"
+
+[deps]
+
+source_file="res://SFX/Cyber_-_Door_Open_SFX_2_Short.wav"
+dest_files=[ "res://.import/Cyber_-_Door_Open_SFX_2_Short.wav-f55d5795744680d6266b154d54b69eae.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

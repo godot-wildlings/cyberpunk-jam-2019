@@ -12,7 +12,7 @@ func _ready():
 	player = get_parent().get_parent()
 	call_deferred("deferred_ready")
 	#warning-ignore:return_value_discarded
-	$Timer.connect("timeout", self, "_on_Timer_timeout")
+	$WaitToEnterTimer.connect("timeout", self, "_on_Timer_timeout")
 
 func deferred_ready():
 	my_state_num = player.states.entering
@@ -30,7 +30,7 @@ func activate(arguments : Array = []):
 	var vector_to_door = object_entered.get_global_position() - player.get_global_position()
 	player.position.x += vector_to_door.x
 	player.animation_player.play("enter")
-	$Timer.start()
+	$WaitToEnterTimer.start()
 
 func deactivate():
 	#player.animation_player.disconnect("animation_finished", self, "_on_animation_finished")

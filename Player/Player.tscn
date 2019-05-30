@@ -435,8 +435,8 @@ texture = ExtResource( 13 )
 hframes = 12
 frame = 11
 
-[node name="Timer" type="Timer" parent="States/Entering"]
-wait_time = 1.2
+[node name="WaitToEnterTimer" type="Timer" parent="States/Entering"]
+wait_time = 0.7
 one_shot = true
 
 [node name="Hidden" type="Node2D" parent="States"]
