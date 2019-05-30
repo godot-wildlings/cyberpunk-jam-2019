@@ -215,12 +215,12 @@ texture = ExtResource( 12 )
 position = Vector2( 2419.91, 472.945 )
 door_type = 2
 scene_name = "Corporation"
-locked = true
 
 [node name="SceneChange" parent="InteractiveObjects" instance=ExtResource( 13 )]
 position = Vector2( 2920.57, 478.741 )
 door_type = 2
 scene_name = "PoorQuarter"
+locked = true
 
 [node name="Enemies" type="Node2D" parent="."]
 

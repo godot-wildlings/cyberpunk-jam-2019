@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -11,12 +11,11 @@
 [ext_resource path="res://Scenery/concrete.png" type="Texture" id=9]
 [ext_resource path="res://Levels/ShippingContainer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenery/trolley.png" type="Texture" id=11]
-[ext_resource path="res://Scenery/Console.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenery/Door2.tscn" type="PackedScene" id=13]
-[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Nightfall.ogg" type="AudioStream" id=14]
-[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Rain__City_SFX.ogg" type="AudioStream" id=15]
-[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=16]
-[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenery/Door2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Nightfall.ogg" type="AudioStream" id=13]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Rain__City_SFX.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=15]
+[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=16]
 
 [sub_resource type="TileSet" id=1]
 
@@ -525,38 +524,34 @@ texture = ExtResource( 11 )
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
 
-[node name="Console" parent="InteractiveObjects" instance=ExtResource( 12 )]
-position = Vector2( 3015.51, 489.078 )
-object_type = 1
-
-[node name="HealthDoor" parent="InteractiveObjects" instance=ExtResource( 13 )]
+[node name="HealthDoor" parent="InteractiveObjects" instance=ExtResource( 12 )]
 position = Vector2( -214.114, -4.72958 )
 
-[node name="AmmoDoor" parent="InteractiveObjects" instance=ExtResource( 13 )]
+[node name="AmmoDoor" parent="InteractiveObjects" instance=ExtResource( 12 )]
 editor/display_folded = true
 position = Vector2( -239.901, 468.643 )
 door_type = 0
 
-[node name="SceneChangeDoor" parent="InteractiveObjects" instance=ExtResource( 13 )]
+[node name="SceneChangeDoor" parent="InteractiveObjects" instance=ExtResource( 12 )]
 editor/display_folded = true
 position = Vector2( 2518.93, 480.027 )
 door_type = 2
 scene_name = "RichQuarter"
 
-[node name="CutsceneDoor" parent="InteractiveObjects" instance=ExtResource( 13 )]
+[node name="CutsceneDoor" parent="InteractiveObjects" instance=ExtResource( 12 )]
 editor/display_folded = true
 position = Vector2( 1822.57, 476.035 )
 door_type = 3
 scene_name = "FemmeFatale"
 locked = true
 
-[node name="Elevator1" parent="InteractiveObjects" instance=ExtResource( 13 )]
+[node name="Elevator1" parent="InteractiveObjects" instance=ExtResource( 12 )]
 editor/display_folded = true
 position = Vector2( 1427.55, 473.547 )
 door_type = 4
 linkedElevatorName = "Elevator2"
 
-[node name="Elevator2" parent="InteractiveObjects" instance=ExtResource( 13 )]
+[node name="Elevator2" parent="InteractiveObjects" instance=ExtResource( 12 )]
 editor/display_folded = true
 position = Vector2( 1484.26, -475.229 )
 door_type = 4
@@ -579,18 +574,18 @@ anims/unlock = SubResource( 13 )
 position = Vector2( -620.75, 493.792 )
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
+stream = ExtResource( 13 )
 volume_db = -9.0
 autoplay = true
 bus = "Music"
 
 [node name="BGSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 15 )
+stream = ExtResource( 14 )
 volume_db = -20.0
 autoplay = true
 bus = "SFX"
 
-[node name="iRealRenderer" parent="." instance=ExtResource( 16 )]
+[node name="iRealRenderer" parent="." instance=ExtResource( 15 )]
 
 [node name="ForegroundLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -675,68 +670,68 @@ Find keys to unlock them."
 
 [node name="Citizens" type="Node2D" parent="NPCs"]
 
-[node name="NPC" parent="NPCs/Citizens" instance=ExtResource( 17 )]
+[node name="NPC" parent="NPCs/Citizens" instance=ExtResource( 16 )]
 position = Vector2( 227.209, 486.228 )
 
-[node name="NPC2" parent="NPCs/Citizens" instance=ExtResource( 17 )]
+[node name="NPC2" parent="NPCs/Citizens" instance=ExtResource( 16 )]
 position = Vector2( 738.431, 486.228 )
 
-[node name="NPC3" parent="NPCs/Citizens" instance=ExtResource( 17 )]
+[node name="NPC3" parent="NPCs/Citizens" instance=ExtResource( 16 )]
 position = Vector2( 502.133, 481.684 )
 
-[node name="NPC4" parent="NPCs/Citizens" instance=ExtResource( 17 )]
+[node name="NPC4" parent="NPCs/Citizens" instance=ExtResource( 16 )]
 position = Vector2( 1133.78, 481.684 )
 
-[node name="NPC5" parent="NPCs/Citizens" instance=ExtResource( 17 )]
+[node name="NPC5" parent="NPCs/Citizens" instance=ExtResource( 16 )]
 position = Vector2( 2095.81, 487.18 )
 
-[node name="NPC6" parent="NPCs/Citizens" instance=ExtResource( 17 )]
+[node name="NPC6" parent="NPCs/Citizens" instance=ExtResource( 16 )]
 position = Vector2( 2203.05, 488.617 )
 
-[node name="NPC7" parent="NPCs/Citizens" instance=ExtResource( 17 )]
+[node name="NPC7" parent="NPCs/Citizens" instance=ExtResource( 16 )]
 position = Vector2( 2632.72, 488.727 )
 
 [node name="Enemies" type="Node2D" parent="NPCs"]
 
-[node name="NPC" parent="NPCs/Enemies" instance=ExtResource( 17 )]
+[node name="NPC" parent="NPCs/Enemies" instance=ExtResource( 16 )]
 position = Vector2( 56.6255, -163.897 )
 
-[node name="NPC3" parent="NPCs/Enemies" instance=ExtResource( 17 )]
+[node name="NPC3" parent="NPCs/Enemies" instance=ExtResource( 16 )]
 position = Vector2( 623.873, 486.004 )
 character_type = 2
 scanned_attitude = 1
 
-[node name="NPC4" parent="NPCs/Enemies" instance=ExtResource( 17 )]
+[node name="NPC4" parent="NPCs/Enemies" instance=ExtResource( 16 )]
 position = Vector2( -28.9314, 164.592 )
 
-[node name="NPC2" parent="NPCs/Enemies" instance=ExtResource( 17 )]
+[node name="NPC2" parent="NPCs/Enemies" instance=ExtResource( 16 )]
 position = Vector2( 1211.19, 482.166 )
 character_type = 1
 scanned_attitude = 1
 
-[node name="NPC5" parent="NPCs/Enemies" instance=ExtResource( 17 )]
+[node name="NPC5" parent="NPCs/Enemies" instance=ExtResource( 16 )]
 position = Vector2( 939.143, 155.357 )
 character_type = 1
 initial_attitude = 1
 scanned_attitude = 1
 
-[node name="NPC6" parent="NPCs/Enemies" instance=ExtResource( 17 )]
+[node name="NPC6" parent="NPCs/Enemies" instance=ExtResource( 16 )]
 position = Vector2( 1892.75, 487.331 )
 character_type = 1
 scanned_attitude = 1
 
-[node name="NPC7" parent="NPCs/Enemies" instance=ExtResource( 17 )]
+[node name="NPC7" parent="NPCs/Enemies" instance=ExtResource( 16 )]
 position = Vector2( 2386.85, 487.867 )
 character_type = 2
 scanned_attitude = 1
 
-[node name="NPC8" parent="NPCs/Enemies" instance=ExtResource( 17 )]
+[node name="NPC8" parent="NPCs/Enemies" instance=ExtResource( 16 )]
 position = Vector2( 2902.28, 487.961 )
 character_type = 2
 initial_attitude = 1
 scanned_attitude = 1
 
-[node name="NPC9" parent="NPCs/Enemies" instance=ExtResource( 17 )]
+[node name="NPC9" parent="NPCs/Enemies" instance=ExtResource( 16 )]
 position = Vector2( 1751.06, 147.349 )
 character_type = 2
 scanned_attitude = 1
