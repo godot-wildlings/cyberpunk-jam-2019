@@ -21,6 +21,9 @@ func deferred_ready():
 
 #warning-ignore:unused_argument
 func activate(arguments : Array = []):
+	if player.currentlyIn and player.currentlyIn.has_method("open_door"):
+		player.currentlyIn.open_door()
+		yield(player.currentlyIn, "animDone")
 	sprite.show()
 	player.animation_player.play("exit")
 	$Timer.start()
@@ -28,6 +31,8 @@ func activate(arguments : Array = []):
 func deactivate():
 #	player.animation_player.disconnect("animation_finished", self, "_on_animation_finished")
 	sprite.hide()
+	if player.currentlyIn and player.currentlyIn.has_method("close_door"):
+		player.currentlyIn.close_door()
 
 #warning-ignore:unused_argument
 func process_state(delta):

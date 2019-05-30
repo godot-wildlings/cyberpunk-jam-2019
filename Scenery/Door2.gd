@@ -151,12 +151,12 @@ func movePlayer():
 		Game.player.set_global_position(linkedElevator.get_global_position())
 		Game.player.currentlyIn = linkedElevator
 
-#func open_door():
-#	if animation_player.has_animation("open"):
-#			animation_player.play("open")
-#			door.open = true
-#			yield(animation_player,"animation_finished")
-#	emit_signal("animDone")
+func open_door():
+	if animation_player.has_animation("open"):
+			animation_player.play("open")
+			door.open = true
+			yield(animation_player,"animation_finished")
+	emit_signal("animDone")
 
 func close_door():
 	if animation_player.has_animation("close"):
