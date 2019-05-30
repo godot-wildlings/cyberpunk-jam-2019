@@ -246,6 +246,7 @@ linkedElevatorName = "Elevator3"
 [node name="SceneChange" parent="InteractiveObjects" instance=ExtResource( 13 )]
 position = Vector2( 2920.57, 478.741 )
 door_type = 2
+scene_name = "PoorQuarter"
 
 [node name="Enemies" type="Node2D" parent="."]
 editor/display_folded = true

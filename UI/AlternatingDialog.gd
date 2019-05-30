@@ -2,7 +2,7 @@ extends CanvasLayer
 
 onready var dialog_container = $MarginContainer/VBoxContainer/MarginContainer/DialogContainer
 export var dialog : Array = []
-export var exit_scene : PackedScene
+export var exit_scene_name : String
 var text_revealed : int = -1
 
 var current_tab_num : int = -1
@@ -29,8 +29,8 @@ func instantiate_tabs():
 
 func start():
 
-	if exit_scene == null:
-		exit_scene = load("res://Levels/Level1.tscn")
+	if exit_scene_name == null:
+		exit_scene_name = "res://Levels/HQ1.tscn"
 
 	if dialog.size() == 0:
 		dialog = [
@@ -67,7 +67,7 @@ func next_tab():
 			$TextRevealNoiseLeft.play()
 
 func next_scene():
-	Game.main.switch_levels(exit_scene)
+	Game.main.switch_levels_by_name(exit_scene_name)
 
 #warning-ignore:unused_argument
 func _input(event):

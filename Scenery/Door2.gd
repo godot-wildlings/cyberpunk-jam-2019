@@ -16,7 +16,7 @@ signal player_exited(body)
 enum door_types {
 	ammo,
 	health,
-	portal,
+	scene_change,
 	cutscene,
 	shortcut,
 	tutorial
@@ -25,7 +25,7 @@ enum door_types {
 var door_names : Dictionary = {
 	door_types.ammo : "Ammo",
 	door_types.health : "Medical",
-	door_types.portal : "101",
+	door_types.scene_change : "101",
 	door_types.cutscene : "303",
 	door_types.shortcut : "Transit",
 	door_types.tutorial : "press\nup"
@@ -33,7 +33,7 @@ var door_names : Dictionary = {
 
 export (door_types) var door_type = door_types.health
 export var amount : float = 100
-export var scene : PackedScene
+export var scene_name : String
 export (String) var linkedElevatorName
 
 signal animDone
@@ -138,11 +138,11 @@ func provide_reward(interactor):
 		interactor.recover_health(amount)
 
 	elif door_type == door_types.cutscene:
-		Game.main.load_cutscene(scene)
+		Game.main.load_cutscene(scene_name)
 
-	elif door_type == door_types.portal and scene != null:
-		print(self.name, " switching levels to  ", scene )
-		Game.main.switch_levels(scene)
+	elif door_type == door_types.scene_change and scene_name != null:
+		print(self.name, " switching levels to  ", scene_name )
+		Game.main.switch_levels_by_name(scene_name)
 
 func movePlayer():
 	if door_type == door_types.shortcut:

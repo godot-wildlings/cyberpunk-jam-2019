@@ -9,8 +9,9 @@ onready var cutscene_container : Node2D = $Cutscenes
 var levels : Dictionary = {
 		"intro" : load("res://Levels/Intro.tscn"),
 		"HQ1" : load("res://Story/HQ1.tscn"),
-		#"FemmeFatale" : preload("res://Story/FemmeFatale.tscn"),
-		"1" : load("res://Levels/Level1.tscn")
+		"PoorQuarter" : load("res://Levels/PoorQuarter.tscn"),
+		"RichQuarter" : load("res://Levels/RichQuarter.tscn"),
+		"FemmeFatale" : load("res://Story/FemmeFatale.tscn")
 
 		#"2" : preload("res://Levels/Level2.tscn")
 }
@@ -40,8 +41,14 @@ func switch_levels(level_tscn : PackedScene):
 	remove_level(level)
 	load_level(level_tscn)
 
+func switch_levels_by_name(scene_name : String):
+	remove_level(level)
+	load_level_name(scene_name)
+
 func load_level_name(level_name : String):
 	var level_scene = levels[level_name]
+	print(self.name, " load_level_name: ", level_name)
+	print(level_scene)
 	load_level(level_scene)
 
 func load_level(level_scene : PackedScene):
