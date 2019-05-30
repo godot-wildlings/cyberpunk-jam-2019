@@ -104,6 +104,7 @@ position = Vector2( 0.527039, 8.69614 )
 texture = ExtResource( 3 )
 
 [node name="SinnerSprite" type="Sprite" parent="Sprites"]
+position = Vector2( 3.4664, -14.8851 )
 scale = Vector2( 0.33, 0.33 )
 texture = ExtResource( 4 )
 

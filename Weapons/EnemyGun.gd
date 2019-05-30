@@ -3,25 +3,26 @@ extends Node2D
 export var bullet_scene : PackedScene
 var shooter
 var bullet_speed : float = 400.0
+onready var shot_noise : AudioStreamPlayer2D = $SFX/Gunshot
 
 func _ready():
 	call_deferred("deferred_ready")
 
 func deferred_ready():
 	shooter = get_parent()
-
+	if shooter.character_type == shooter.character_types.sinner:
+		bullet_scene = preload("res://Projectiles/NPCLaser.tscn")
+		shot_noise = $SFX/Laser2
 func shoot(target : Node2D):
 	spawn_bullet(target)
 	play_shoot_sfx()
 
 func play_shoot_sfx():
 
-#	randomize()
-#	var sfx_container = $SFX
-#	var sfx_options = sfx_container.get_children()
-#	var sfx_node = sfx_options[randi()%sfx_options.size()]
-#	sfx_node.play()
-	$SFX/Gunshot.play()
+	shot_noise.play()
+
+
+
 
 
 func spawn_bullet(target : Node2D):
