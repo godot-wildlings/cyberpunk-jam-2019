@@ -71,14 +71,14 @@ text = "Ghosts and Sinners"
 [node name="Credits" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
 margin_top = 31.0
 margin_right = 286.0
-margin_bottom = 325.0
+margin_bottom = 352.0
 text = "Game developed for
 Cyberpunk Jam 2019
 by
 
 Plexsoup
 caevv
-TheBatMan
+SMAXBAT
 AmerigoGazaway
 Sequoia
 DoggieBalloon
@@ -88,7 +88,7 @@ align = 1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
 self_modulate = Color( 0.184314, 0.623529, 0.666667, 1 )
-margin_top = 330.0
+margin_top = 357.0
 margin_right = 286.0
 margin_bottom = 465.0
 size_flags_horizontal = 3
