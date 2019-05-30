@@ -131,6 +131,16 @@ position = Vector2( 2316.58, 1228.63 )
 scale = Vector2( 3, -2 )
 texture = ExtResource( 8 )
 
+[node name="Spire2" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
+position = Vector2( -179.467, -865.813 )
+scale = Vector2( 3, 4 )
+texture = ExtResource( 8 )
+
+[node name="SpireMirror2" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
+position = Vector2( -179.687, 1229.62 )
+scale = Vector2( 3, -2 )
+texture = ExtResource( 8 )
+
 [node name="CorpLabel" type="Label" parent="CanvasLayer/ParallaxBackground/Near"]
 margin_left = 2173.18
 margin_top = 346.857
@@ -201,20 +211,11 @@ texture = ExtResource( 12 )
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
 
-[node name="Elevator1" parent="InteractiveObjects" instance=ExtResource( 13 )]
-position = Vector2( 243.949, 471.157 )
-door_type = 4
-linkedElevatorName = "Elevator2"
-
-[node name="Elevator2" parent="InteractiveObjects" instance=ExtResource( 13 )]
-position = Vector2( 267.792, -1288.22 )
-door_type = 4
-linkedElevatorName = "Elevator1"
-
 [node name="Elevator3" parent="InteractiveObjects" instance=ExtResource( 13 )]
 position = Vector2( 2419.91, 472.945 )
 door_type = 2
 scene_name = "Corporation"
+locked = true
 
 [node name="SceneChange" parent="InteractiveObjects" instance=ExtResource( 13 )]
 position = Vector2( 2920.57, 478.741 )

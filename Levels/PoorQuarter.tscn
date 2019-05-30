@@ -486,13 +486,17 @@ position = Vector2( 1878.76, 47.1524 )
 position = Vector2( 1820.13, -109.403 )
 
 [node name="ShippingContainer10" parent="Crates" instance=ExtResource( 10 )]
-position = Vector2( 1371.91, -264.441 )
+position = Vector2( 1374.48, -266.156 )
+
+[node name="ShippingContainer17" parent="Crates" instance=ExtResource( 10 )]
+visible = false
+position = Vector2( 1364.99, -107.718 )
 
 [node name="ShippingContainer11" parent="Crates" instance=ExtResource( 10 )]
 position = Vector2( 1380.29, -422.182 )
 
 [node name="ShippingContainer12" parent="Crates" instance=ExtResource( 10 )]
-position = Vector2( 1396.44, -579.474 )
+position = Vector2( 1398.15, -579.474 )
 
 [node name="Walls" type="Node2D" parent="."]
 editor/display_folded = true
@@ -544,6 +548,7 @@ editor/display_folded = true
 position = Vector2( 1822.57, 476.035 )
 door_type = 3
 scene_name = "FemmeFatale"
+locked = true
 
 [node name="Elevator1" parent="InteractiveObjects" instance=ExtResource( 13 )]
 editor/display_folded = true
