@@ -7,7 +7,6 @@
 
 [node name="HQ1" instance=ExtResource( 1 )]
 dialog = [ "Listen Mick, we can't have anymore incidents like last time.", "That was not my fault. Her ident was garbage!", "Not again. The department can't take the bad publicity.", "hmm", "Use your damn scanner! We pay good cred for those.", "I know, I know. Citizens are off limits. Only Ghosts and Sinners" ]
-exit_scene_name = "PoorQuarter"
 
 [node name="TextureRect" type="TextureRect" parent="." index="0"]
 anchor_right = 1.0

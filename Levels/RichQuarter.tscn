@@ -1,11 +1,11 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Scenery/Rain.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenery/StackedContainers.png" type="Texture" id=4]
-[ext_resource path="res://Scenery/FarBuildings.png" type="Texture" id=5]
-[ext_resource path="res://Scenery/SilverSpires.png" type="Texture" id=6]
+[ext_resource path="res://Scenery/Rain.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenery/StackedContainers.png" type="Texture" id=3]
+[ext_resource path="res://Scenery/FarBuildings.png" type="Texture" id=4]
+[ext_resource path="res://Scenery/SilverSpires.png" type="Texture" id=5]
+[ext_resource path="res://UI/Themes/Fonts/RacingSansOne-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenery/concrete.png" type="Texture" id=8]
 [ext_resource path="res://Levels/Crate.tscn" type="PackedScene" id=9]
@@ -16,16 +16,23 @@
 [ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=15]
 [ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Levels/railing.tscn" type="PackedScene" id=17]
 
 [sub_resource type="TileSet" id=1]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 2387.5, 93.431 )
+[sub_resource type="DynamicFont" id=2]
+size = 48
+outline_size = 1
+outline_color = Color( 1, 0.968627, 0.478431, 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 2003.54, 10 )
+extents = Vector2( 2387.5, 93.431 )
 
 [sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 2003.54, 10 )
+
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 53.7192, 431.366 )
 
 [node name="SilverSpiresLevel" type="Node2D"]
@@ -40,31 +47,10 @@ format = 1
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 
 [node name="Far" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-editor/display_folded = true
 modulate = Color( 0.298039, 0.298039, 0.298039, 1 )
 motion_scale = Vector2( 0.5, 1 )
 
-[node name="Sprite3" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
-position = Vector2( 936.996, 510.38 )
-scale = Vector2( 0.762195, 0.762195 )
-texture = ExtResource( 2 )
-
-[node name="Sprite5" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
-position = Vector2( 1112.32, 477.264 )
-scale = Vector2( 0.762195, 0.762195 )
-texture = ExtResource( 2 )
-
-[node name="Sprite6" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
-position = Vector2( 1359.72, 477.264 )
-scale = Vector2( 0.762195, 0.762195 )
-texture = ExtResource( 2 )
-
-[node name="Sprite4" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
-position = Vector2( 241.554, 512.328 )
-scale = Vector2( 0.762195, 0.762195 )
-texture = ExtResource( 2 )
-
-[node name="Rain" parent="CanvasLayer/ParallaxBackground/Far" instance=ExtResource( 3 )]
+[node name="Rain" parent="CanvasLayer/ParallaxBackground/Far" instance=ExtResource( 2 )]
 self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1491.83, 370.318 )
 scale = Vector2( 1.75322, 2.33408 )
@@ -72,83 +58,64 @@ scale = Vector2( 1.75322, 2.33408 )
 [node name="StackedContainers" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
 position = Vector2( 1326.1, 325.282 )
 scale = Vector2( 0.511882, 0.511882 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 814, 560 )
 
 [node name="Med" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-editor/display_folded = true
 modulate = Color( 0.376471, 0.376471, 0.376471, 1 )
 motion_scale = Vector2( 0.75, 1 )
-
-[node name="Sprite2" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
-position = Vector2( 767.518, 498.692 )
-scale = Vector2( 1.34222, 1.34222 )
-texture = ExtResource( 2 )
-
-[node name="Sprite3" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
-position = Vector2( 1215.56, 463.628 )
-scale = Vector2( 1.34222, 1.34222 )
-texture = ExtResource( 2 )
-
-[node name="Sprite4" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
-position = Vector2( 1447.38, 467.524 )
-scale = Vector2( 1.34222, 1.34222 )
-texture = ExtResource( 2 )
 
 [node name="buildings" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
 position = Vector2( 1424.67, 366.804 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 8892, 652 )
 
 [node name="buildingsMirror" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
 position = Vector2( 1425.08, 628.144 )
 scale = Vector2( 0.5, -0.33 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 8892, 652 )
 
 [node name="Near" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-editor/display_folded = true
-modulate = Color( 0.427451, 0, 0.690196, 1 )
-
-[node name="Sprite" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
-position = Vector2( 492.848, 457.784 )
-scale = Vector2( 2.73498, 2.73498 )
-texture = ExtResource( 2 )
-
-[node name="Sprite2" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
-position = Vector2( 767.518, 278.566 )
-scale = Vector2( 2.73498, 2.73498 )
-texture = ExtResource( 2 )
-
-[node name="Sprite3" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
-position = Vector2( 1755.16, 420.771 )
-scale = Vector2( 2.73498, 2.73498 )
-texture = ExtResource( 2 )
 
 [node name="ContainersMirror" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
 position = Vector2( 1242.03, 605.384 )
 scale = Vector2( 1, -0.25 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 814, 560 )
 
 [node name="SilverSpires" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
+modulate = Color( 0.403922, 0.639216, 0.596078, 1 )
 position = Vector2( 1467.73, -536.633 )
 scale = Vector2( 2.16, 2.16 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 3260, 982 )
 
-[node name="SilverSpires2" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
+[node name="MirroredSpires2" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
+self_modulate = Color( 0.180392, 0.14902, 0.14902, 1 )
 position = Vector2( 1468.01, 768.853 )
 scale = Vector2( 2.16, -0.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 3260, 982 )
+
+[node name="Label" type="Label" parent="CanvasLayer/ParallaxBackground/Near"]
+margin_left = 2527.28
+margin_top = 327.472
+margin_right = 2813.28
+margin_bottom = 388.472
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.396078, 0.4, 0.0235294, 1 )
+custom_colors/font_color_shadow = Color( 0.160784, 0.137255, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Mazui-Hitow"
 
 [node name="Fog" parent="CanvasLayer/ParallaxBackground" instance=ExtResource( 7 )]
 
@@ -159,7 +126,7 @@ editor/display_folded = true
 position = Vector2( 1551.55, 794.696 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResetZone/ResetArea"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Floors" type="Node2D" parent="."]
 
@@ -171,7 +138,7 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor1"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Floors/Floor1"]
 position = Vector2( 0, -8.24518 )
@@ -199,14 +166,14 @@ position = Vector2( 2276.79, 498.42 )
 position = Vector2( -722.279, 454.414 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallLeft"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="WallRight" type="StaticBody2D" parent="Walls"]
 position = Vector2( 3333.96, 406.581 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallRight"]
 position = Vector2( 3.59229, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Scenery" type="Node2D" parent="."]
 
@@ -239,7 +206,7 @@ door_type = 4
 linkedElevatorName = "Elevator4"
 
 [node name="Elevator4" parent="InteractiveObjects" instance=ExtResource( 13 )]
-position = Vector2( 2720.07, -572.003 )
+position = Vector2( 2731.72, -571.765 )
 door_type = 4
 linkedElevatorName = "Elevator3"
 
@@ -271,27 +238,45 @@ position = Vector2( -620.75, 493.792 )
 
 [node name="iRealRenderer" parent="." instance=ExtResource( 15 )]
 
-[node name="Instructions" type="Node2D" parent="."]
-
-[node name="LockedDoors" type="Label" parent="Instructions"]
-margin_left = 1295.67
-margin_top = 212.023
-margin_right = 1483.67
-margin_bottom = 243.023
-text = "Some doors are locked.
-Use \"knock\" action to unlock."
-
-[node name="Label" type="Label" parent="Instructions"]
-margin_left = -657.895
-margin_top = 414.737
-margin_right = -414.895
-margin_bottom = 445.737
-text = "The silver spires of uptown NeoTokyo.
-It stinks of wealth."
-align = 1
-
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
 volume_db = -15.0
 autoplay = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer2"]
+layer = 5
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer2/ParallaxBackground"]
+motion_scale = Vector2( 1.25, 1 )
+
+[node name="Instructions" type="Node2D" parent="CanvasLayer2/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 74.1735, -52.0001 )
+
+[node name="SilverSpires" type="Label" parent="CanvasLayer2/ParallaxBackground/ParallaxLayer/Instructions"]
+margin_left = -687.59
+margin_top = 399.86
+margin_right = -444.59
+margin_bottom = 430.86
+text = "The silver spires of
+Kamagasaki Urban District.
+- Reeks of entitlement."
+align = 1
+
+[node name="SilverSpires2" type="Label" parent="CanvasLayer2/ParallaxBackground/ParallaxLayer/Instructions"]
+margin_left = 328.235
+margin_top = 388.253
+margin_right = 571.235
+margin_bottom = 436.253
+text = "She mentioned the 
+Mazui-Hito Corporation.
+Must be around here somewhere."
+align = 1
+
+[node name="foreground" type="Node2D" parent="."]
+
+[node name="Railing" parent="foreground" instance=ExtResource( 17 )]
+position = Vector2( 2662.66, -505.933 )
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]

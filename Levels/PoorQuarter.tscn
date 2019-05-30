@@ -288,6 +288,7 @@ tracks/0/keys = {
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
+starting_cutscene = "HQ1"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
@@ -538,7 +539,8 @@ scene_name = "RichQuarter"
 [node name="CutsceneDoor" parent="InteractiveObjects" instance=ExtResource( 14 )]
 editor/display_folded = true
 position = Vector2( 1822.57, 476.035 )
-door_type = 0
+door_type = 3
+scene_name = "FemmeFatale"
 
 [node name="Elevator1" parent="InteractiveObjects" instance=ExtResource( 14 )]
 editor/display_folded = true
@@ -689,7 +691,7 @@ position = Vector2( 2632.72, 488.727 )
 [node name="Enemies" type="Node2D" parent="NPCs"]
 
 [node name="NPC" parent="NPCs/Enemies" instance=ExtResource( 18 )]
-position = Vector2( -12.3033, 479.833 )
+position = Vector2( -464.511, 354.722 )
 
 [node name="NPC3" parent="NPCs/Enemies" instance=ExtResource( 18 )]
 position = Vector2( 623.873, 486.004 )

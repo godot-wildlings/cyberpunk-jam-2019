@@ -2,7 +2,10 @@ extends CanvasLayer
 
 onready var dialog_container = $MarginContainer/VBoxContainer/MarginContainer/DialogContainer
 export var dialog : Array = []
-export var exit_scene_name : String
+
+#export var exit_scene_name : String
+#cutscenes always go back to the scene they were loaded from
+
 var text_revealed : int = -1
 
 var current_tab_num : int = -1
@@ -29,16 +32,13 @@ func instantiate_tabs():
 
 func start():
 
-	if exit_scene_name == null:
-		exit_scene_name = "res://Levels/HQ1.tscn"
+#	if exit_scene_name == null:
+#		exit_scene_name = "res://Levels/HQ1.tscn"
 
-	if dialog.size() == 0:
-		dialog = [
-			"........"
-		]
-
-
-
+#	if dialog.size() == 0:
+#		dialog = [
+#			"........"
+#		]
 
 	dialog_container.set_current_tab(0)
 	next_tab()
@@ -55,7 +55,7 @@ func next_tab():
 	current_tab_num += 1
 	#var next_tab = dialog_container.get_current_tab()+1
 	if current_tab_num == dialog.size():
-		next_scene()
+		end_cutscene()
 	else:
 		dialog_container.set_current_tab(current_tab_num)
 		reveal_letter()
@@ -66,15 +66,15 @@ func next_tab():
 		else:
 			$TextRevealNoiseLeft.play()
 
-func next_scene():
-	Game.main.switch_levels_by_name(exit_scene_name)
+func end_cutscene():
+	Game.main.end_cutscene(self)
 
 #warning-ignore:unused_argument
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):
 		next_tab()
 	elif Input.is_action_just_pressed("ui_cancel"):
-		next_scene()
+		end_cutscene()
 
 func _on_NextPageButton_pressed():
 	next_tab()

@@ -122,6 +122,8 @@ func admit(entity_entering):
 	# theoretically, could be player or NPC
 	if entity_entering.has_method("enter"):
 		entity_entering.enter(self)
+		if door_type == door_types.cutscene or door_type == door.types.shortcut:
+			provide_reward(entity_entering)
 
 
 func animate():
@@ -160,7 +162,11 @@ func close_door():
 	if animation_player.has_animation("close"):
 			animation_player.play("close")
 			door.open = false
-			provide_reward(inside)
+
+			if door_type == door_types.cutscene or door_type == door.types.shortcut:
+				pass
+			else:
+				provide_reward(inside)
 
 
 

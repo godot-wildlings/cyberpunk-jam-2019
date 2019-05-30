@@ -8,13 +8,17 @@ onready var cutscene_container : Node2D = $Cutscenes
 
 var levels : Dictionary = {
 		"intro" : load("res://Levels/Intro.tscn"),
-		"HQ1" : load("res://Story/HQ1.tscn"),
 		"PoorQuarter" : load("res://Levels/PoorQuarter.tscn"),
 		"RichQuarter" : load("res://Levels/RichQuarter.tscn"),
-		"FemmeFatale" : load("res://Story/FemmeFatale.tscn")
 
 		#"2" : preload("res://Levels/Level2.tscn")
 }
+
+var cutscenes : Dictionary = {
+		"HQ1" : load("res://Story/HQ1.tscn"),
+		"FemmeFatale" : load("res://Story/FemmeFatale.tscn")
+}
+
 
 onready var tween = get_node("Tween")
 
@@ -22,7 +26,9 @@ onready var tween = get_node("Tween")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Game.main = self
+
 	next_level()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -59,10 +65,23 @@ func load_level(level_scene : PackedScene):
 	else:
 		push_warning("problem loading scene")
 
-func load_cutscene(cutscene : PackedScene):
-	var new_cutscene = cutscene.instance()
+
+
+func load_cutscene(cutscene_name : String):
+	"""
+	Cutscenes get loaded on top of the current scene, and the current scene gets paused.
+	They just need to go away and unpause the game when they're completed.
+	They don't need to load any new level.
+	"""
+
+
+	var new_cutscene = cutscenes[cutscene_name].instance()
 	cutscene_container.add_child(new_cutscene)
 	Game.pause()
+
+func end_cutscene(cutscene_node):
+	cutscene_container.remove_child(cutscene_node)
+	Game.resume()
 
 func next_level():
 	level_num = wrapi(level_num +1, 0, levels.size())

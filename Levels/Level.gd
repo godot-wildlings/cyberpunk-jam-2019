@@ -5,11 +5,14 @@ onready var player_spawn : Position2D = $PlayerSpawn
 enum states { initializing, running, paused, resetting }
 
 var state = states.initializing
+export var starting_cutscene : String
 
 
 func _ready():
 	state = states.running
 	spawn_player()
+	if starting_cutscene != null:
+		Game.main.load_cutscene(starting_cutscene)
 
 #warning-ignore:unused_argument
 func _process(delta):

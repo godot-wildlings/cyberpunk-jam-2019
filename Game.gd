@@ -49,3 +49,9 @@ func play_random_sfx(container : Node2D):
 		if is_instance_valid(sfx_audio_player):
 			if not sfx_audio_player.playing:
 				sfx_audio_player.play()
+
+func pause():
+	get_tree().set_pause(true)
+
+func resume():
+	get_tree().set_pause(false)

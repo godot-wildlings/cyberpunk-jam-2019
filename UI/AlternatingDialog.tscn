@@ -13,6 +13,7 @@
 [sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="AlternatingDialog" type="CanvasLayer"]
+pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
