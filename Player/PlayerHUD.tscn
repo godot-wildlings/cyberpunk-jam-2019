@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/Themes/cyberpunk_HUD_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Player/PlayerHUD.gd" type="Script" id=2]
 [ext_resource path="res://Collectibles/key.png" type="Texture" id=3]
+[ext_resource path="res://UI/Radio.tscn" type="PackedScene" id=4]
 
 [node name="PlayerHUD" type="PanelContainer"]
 anchor_top = 1.0
@@ -21,24 +22,26 @@ custom_constants/separation = 25
 alignment = 1
 
 [node name="Instructions" type="Label" parent="VBoxContainer"]
-margin_left = 191.0
+margin_left = 108.0
 margin_top = 2.0
-margin_right = 685.0
+margin_right = 602.0
 margin_bottom = 33.0
 text = "Move: WASD, Jump: Space, Attack: F, Scan: Q"
 align = 1
 
 [node name="KeyImage" type="TextureRect" parent="VBoxContainer"]
-margin_left = 710.0
-margin_right = 742.0
+margin_left = 627.0
+margin_right = 659.0
 margin_bottom = 36.0
 rect_min_size = Vector2( 32, 32 )
 texture = ExtResource( 3 )
 expand = true
 
 [node name="NumKeys" type="Label" parent="VBoxContainer"]
-margin_left = 767.0
+margin_left = 684.0
 margin_top = 2.0
-margin_right = 783.0
+margin_right = 700.0
 margin_bottom = 33.0
 text = "0"
+
+[node name="Radio" parent="VBoxContainer" instance=ExtResource( 4 )]

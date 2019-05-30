@@ -1,0 +1,116 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://UI/Radio.gd" type="Script" id=1]
+[ext_resource path="res://UI/radio/prevNormal.png" type="Texture" id=2]
+[ext_resource path="res://UI/radio/prevHover.png" type="Texture" id=3]
+[ext_resource path="res://UI/radio/playNormal.png" type="Texture" id=4]
+[ext_resource path="res://UI/radio/playHover.png" type="Texture" id=5]
+[ext_resource path="res://UI/radio/pauseNormal.png" type="Texture" id=6]
+[ext_resource path="res://UI/radio/pauseHover.png" type="Texture" id=7]
+[ext_resource path="res://UI/radio/nextNormal.png" type="Texture" id=8]
+[ext_resource path="res://UI/radio/nextHover.png" type="Texture" id=9]
+[ext_resource path="res://UI/radio/volumeBack.png" type="Texture" id=10]
+[ext_resource path="res://UI/radio/volumeFront.png" type="Texture" id=11]
+[ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=12]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Nightfall.ogg" type="AudioStream" id=13]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Rain__City_SFX.ogg" type="AudioStream" id=14]
+[ext_resource path="res://BGMusic/Cyber_Jam_-_Police_Station_Theme.ogg" type="AudioStream" id=15]
+
+[node name="Radio" type="HBoxContainer"]
+margin_left = 725.0
+margin_right = 865.0
+margin_bottom = 36.0
+script = ExtResource( 1 )
+
+[node name="PrevButton" type="TextureButton" parent="."]
+margin_right = 32.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="PlayButton" type="TextureButton" parent="."]
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="PauseButton" type="TextureButton" parent="."]
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+
+[node name="NextButton" type="TextureButton" parent="."]
+margin_left = 108.0
+margin_right = 140.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 32, 32 )
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+
+[node name="VolumeSlider" type="HSlider" parent="."]
+margin_left = 144.0
+margin_right = 194.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 50, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+value = 50.0
+ticks_on_borders = false
+
+[node name="VolumeDisplay" type="TextureProgress" parent="."]
+margin_left = 198.0
+margin_right = 237.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+min_value = 1.0
+value = 50.0
+texture_under = ExtResource( 10 )
+texture_progress = ExtResource( 11 )
+
+[node name="Tracks" type="Node" parent="."]
+
+[node name="CyberBlues" type="AudioStreamPlayer" parent="Tracks"]
+stream = ExtResource( 12 )
+volume_db = -9.0
+bus = "Music"
+
+[node name="Nightfall" type="AudioStreamPlayer" parent="Tracks"]
+stream = ExtResource( 13 )
+volume_db = -9.0
+bus = "Music"
+
+[node name="RainCity" type="AudioStreamPlayer" parent="Tracks"]
+stream = ExtResource( 14 )
+volume_db = -9.0
+bus = "Music"
+
+[node name="PoliceStation" type="AudioStreamPlayer" parent="Tracks"]
+stream = ExtResource( 15 )
+volume_db = -9.0
+bus = "Music"
+
+[node name="TrackName" type="Label" parent="."]
+margin_left = 241.0
+margin_top = 11.0
+margin_right = 241.0
+margin_bottom = 25.0
+[connection signal="pressed" from="PrevButton" to="." method="_on_PrevButton_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="value_changed" from="VolumeSlider" to="." method="_on_VolumeSlider_value_changed"]

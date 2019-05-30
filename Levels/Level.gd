@@ -42,3 +42,7 @@ func spawn_key(location):
 		new_node.set_name("Collectibles")
 		add_child(new_node)
 		$Collectibles.call_deferred("add_child", new_key)
+
+func stop_music():
+	if has_node("BGMusic"):
+		$BGMusic.stop()
