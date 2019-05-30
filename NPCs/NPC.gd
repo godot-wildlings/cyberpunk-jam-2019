@@ -50,6 +50,8 @@ var current_target : Node2D # probably the player
 export var max_health : float = 50.0
 var health : float = max_health
 
+export var percentToDropKey = 20
+
 var intended_movement_vector : Vector2 = Vector2.ZERO
 var gravity_vector : Vector2 = Vector2.ZERO
 
@@ -331,7 +333,8 @@ func hit(damage, damage_type):
 		$HealthBar.set_value(health/max_health * 100)
 
 func drop_key():
-	Game.main.level.spawn_key(get_global_position())
+	if rand_range(0,100) < percentToDropKey:
+		Game.main.level.spawn_key(get_global_position())
 
 func die():
 	if state != states.dead:
