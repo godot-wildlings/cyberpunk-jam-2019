@@ -74,13 +74,14 @@ func load_cutscene(cutscene_name : String):
 	They don't need to load any new level.
 	"""
 
-
+	Game.player.HUD.hide()
 	var new_cutscene = cutscenes[cutscene_name].instance()
 	cutscene_container.add_child(new_cutscene)
 	Game.pause()
 
 func end_cutscene(cutscene_node):
 	cutscene_container.remove_child(cutscene_node)
+	Game.player.HUD.show()
 	Game.resume()
 
 func next_level():

@@ -3,6 +3,7 @@ extends CanvasLayer
 onready var dialog_container = $MarginContainer/VBoxContainer/MarginContainer/DialogContainer
 export var dialog : Array = []
 
+onready var next_button = $MarginContainer/VBoxContainer/NextPageButton
 #export var exit_scene_name : String
 #cutscenes always go back to the scene they were loaded from
 
@@ -14,7 +15,7 @@ var current_tab_num : int = -1
 func _ready():
 
 	instantiate_tabs()
-
+	next_button.hide()
 
 	$MusicLeadTimer.start()
 
@@ -41,6 +42,7 @@ func start():
 #		]
 
 	dialog_container.set_current_tab(0)
+	next_button.show()
 	next_tab()
 
 

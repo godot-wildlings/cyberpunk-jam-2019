@@ -629,7 +629,8 @@ collision_mask = 4
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 36 )]
-margin_top = -87.0
+margin_top = -31.9995
+margin_bottom = -1.99951
 
 [node name="HealthBar" type="TextureProgress" parent="."]
 margin_left = -17.5241

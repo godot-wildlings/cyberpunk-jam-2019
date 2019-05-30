@@ -12,6 +12,11 @@ onready var animation_player = $AnimationPlayer
 #track in which door one is
 var currentlyIn = null
 
+
+#warning-ignore:unused_class_variable
+onready var HUD = $CanvasLayer/PlayerHUD
+
+
 #warning-ignore:unused_class_variable
 onready var ray_front = $RayFront
 #warning-ignore:unused_class_variable

@@ -337,7 +337,7 @@ func die():
 	if state != states.dead:
 		state = states.dead
 		#$Sprites.hide()
-		if randf() < 0.2:
+		if randf() < 0.5:
 			drop_key()
 
 		$CollisionShape2D.call_deferred("set_disabled", true)

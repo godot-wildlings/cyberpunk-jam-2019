@@ -121,7 +121,7 @@ The reality: a soulless metropolis run by indifferent mega-corps and corrupt pol
 
 The rest of the eight billion soul population crammed into the four hundred square kilometer slums of the Kamagasaki Sprawl under the crushing yoke of perpetual surveillance, hunger and envy. 
 
-I am MICK JAEGER, trapped between two worlds, both literal and figurative, one real and one digital. A mainframe merc, a corporate cop, indentured to wage war upon the weak, to hunt ghosts and sinners, alike."
+I am trapped between two worlds, both literal and figurative, one real and one digital. A mainframe merc, a corporate cop, indentured to wage war upon the weak, to hunt ghosts and sinners, alike."
 autowrap = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

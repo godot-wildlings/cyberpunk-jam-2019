@@ -11,7 +11,7 @@ export var starting_cutscene : String
 func _ready():
 	state = states.running
 	spawn_player()
-	if starting_cutscene != null:
+	if starting_cutscene != null and starting_cutscene.length() > 0:
 		Game.main.load_cutscene(starting_cutscene)
 
 #warning-ignore:unused_argument
