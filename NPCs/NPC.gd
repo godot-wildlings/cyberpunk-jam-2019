@@ -198,6 +198,7 @@ func consider_fleeing():
 		if not warning_issued:
 			push_warning("NPCs still need fleeing behaviour")
 			warning_issued = true
+		current_attitude = attitudes.passive
 
 
 
