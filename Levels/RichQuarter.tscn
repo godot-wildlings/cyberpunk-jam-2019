@@ -54,7 +54,7 @@ position = Vector2( 1491.83, 370.318 )
 scale = Vector2( 1.75322, 2.33408 )
 
 [node name="StackedContainers" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
-position = Vector2( 1326.1, 325.282 )
+position = Vector2( 1137.14, 338.918 )
 scale = Vector2( 0.511882, 0.511882 )
 texture = ExtResource( 3 )
 region_enabled = true
@@ -79,13 +79,6 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 8892, 652 )
 
 [node name="Near" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-
-[node name="ContainersMirror" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
-position = Vector2( 1242.03, 605.384 )
-scale = Vector2( 1, -0.25 )
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 814, 560 )
 
 [node name="SilverSpires" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
 modulate = Color( 0.403922, 0.639216, 0.596078, 1 )
@@ -205,7 +198,6 @@ door_type = 2
 scene_name = "PoorQuarter"
 
 [node name="Enemies" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 13 )]
 position = Vector2( 280.918, 493.807 )
@@ -217,7 +209,7 @@ position = Vector2( -30.9358, 487.279 )
 position = Vector2( 857.566, 484.094 )
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 13 )]
-position = Vector2( 1073.02, 266.97 )
+position = Vector2( 1084.71, 483.199 )
 
 [node name="Robot" parent="Enemies" instance=ExtResource( 13 )]
 position = Vector2( 688.78, 486.024 )
