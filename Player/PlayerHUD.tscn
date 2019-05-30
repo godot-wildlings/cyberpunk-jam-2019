@@ -2,48 +2,53 @@
 
 [ext_resource path="res://UI/Themes/cyberpunk_HUD_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Player/PlayerHUD.gd" type="Script" id=2]
-[ext_resource path="res://Collectibles/key.png" type="Texture" id=3]
+[ext_resource path="res://Collectibles/keycard-1.png" type="Texture" id=3]
 [ext_resource path="res://UI/Radio.tscn" type="PackedScene" id=4]
 
-[node name="PlayerHUD" type="PanelContainer"]
-anchor_top = 1.0
+[node name="PlayerHUD" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -46.0
+rect_min_size = Vector2( 0, 75 )
+size_flags_horizontal = 3
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="VBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 25.0
-margin_top = 5.0
-margin_right = 999.0
-margin_bottom = 41.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -67.0
+rect_min_size = Vector2( 0, 75 )
 custom_constants/separation = 25
 alignment = 1
 
 [node name="Instructions" type="Label" parent="VBoxContainer"]
-margin_left = 49.0
-margin_top = 2.0
-margin_right = 543.0
-margin_bottom = 33.0
+margin_left = 76.0
+margin_top = 22.0
+margin_right = 570.0
+margin_bottom = 53.0
 text = "Move: WASD, Jump: Space, Attack: F, Scan: Q"
 align = 1
 
 [node name="KeyImage" type="TextureRect" parent="VBoxContainer"]
-margin_left = 568.0
-margin_right = 618.0
-margin_bottom = 36.0
+margin_left = 595.0
+margin_right = 645.0
+margin_bottom = 75.0
 rect_min_size = Vector2( 50, 32 )
 texture = ExtResource( 3 )
 expand = true
+stretch_mode = 6
 
 [node name="NumKeys" type="Label" parent="VBoxContainer"]
-margin_left = 643.0
-margin_top = 2.0
-margin_right = 659.0
-margin_bottom = 33.0
+margin_left = 670.0
+margin_top = 22.0
+margin_right = 686.0
+margin_bottom = 53.0
 text = "0"
 
 [node name="Radio" parent="VBoxContainer" instance=ExtResource( 4 )]
-margin_left = 684.0
-margin_right = 925.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 711.0
+margin_right = 948.0
+margin_bottom = 75.0

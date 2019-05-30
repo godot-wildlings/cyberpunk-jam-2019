@@ -185,7 +185,7 @@ position = Vector2( 343.186, -0.487671 )
 shape = SubResource( 5 )
 
 [node name="EnemyGun" parent="." instance=ExtResource( 16 )]
-position = Vector2( -0.875999, 0.409866 )
+position = Vector2( -2.72713, -11.5513 )
 scale = Vector2( 0.15, 0.15 )
 
 [node name="MeleeRange" type="Area2D" parent="."]

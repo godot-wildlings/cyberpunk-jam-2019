@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenery/Rain.tscn" type="PackedScene" id=2]
@@ -11,13 +11,11 @@
 [ext_resource path="res://UI/Themes/Fonts/RacingSansOne-Regular.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenery/concrete.png" type="Texture" id=11]
-[ext_resource path="res://Levels/Crate.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Levels/Barrel.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenery/trolley.png" type="Texture" id=14]
-[ext_resource path="res://Scenery/Door2.tscn" type="PackedScene" id=15]
-[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=17]
-[ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Scenery/trolley.png" type="Texture" id=12]
+[ext_resource path="res://Scenery/Door2.tscn" type="PackedScene" id=13]
+[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=15]
+[ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=16]
 
 [sub_resource type="TileSet" id=1]
 
@@ -143,7 +141,7 @@ custom_colors/font_color = Color( 0.396078, 0.4, 0.0235294, 1 )
 custom_colors/font_color_shadow = Color( 0.160784, 0.137255, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
-text = "Mazui-Hitow"
+text = "Mazui-Hito"
 
 [node name="Fog" parent="CanvasLayer/ParallaxBackground" instance=ExtResource( 10 )]
 position = Vector2( 1377.6, 116.966 )
@@ -177,18 +175,6 @@ region_rect = Rect2( 0, 0, 4096, 24 )
 
 [node name="Crates" type="Node2D" parent="."]
 
-[node name="Crate" parent="Crates" instance=ExtResource( 12 )]
-position = Vector2( 356.989, 496.944 )
-
-[node name="Crate2" parent="Crates" instance=ExtResource( 12 )]
-position = Vector2( -493.169, 497.128 )
-
-[node name="Barrel" parent="Crates" instance=ExtResource( 13 )]
-position = Vector2( 1984.67, 496.652 )
-
-[node name="Barrel2" parent="Crates" instance=ExtResource( 13 )]
-position = Vector2( 2276.79, 498.42 )
-
 [node name="Walls" type="Node2D" parent="."]
 
 [node name="WallLeft" type="StaticBody2D" parent="Walls"]
@@ -211,54 +197,54 @@ self_modulate = Color( 0, 0.337255, 0.580392, 1 )
 position = Vector2( 3099.4, 471.075 )
 rotation = -0.00872665
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 14 )
+texture = ExtResource( 12 )
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
 
-[node name="Elevator1" parent="InteractiveObjects" instance=ExtResource( 15 )]
+[node name="Elevator1" parent="InteractiveObjects" instance=ExtResource( 13 )]
 position = Vector2( 243.949, 471.157 )
 door_type = 4
 linkedElevatorName = "Elevator2"
 
-[node name="Elevator2" parent="InteractiveObjects" instance=ExtResource( 15 )]
+[node name="Elevator2" parent="InteractiveObjects" instance=ExtResource( 13 )]
 position = Vector2( 267.792, -1288.22 )
 door_type = 4
 linkedElevatorName = "Elevator1"
 
-[node name="Elevator3" parent="InteractiveObjects" instance=ExtResource( 15 )]
+[node name="Elevator3" parent="InteractiveObjects" instance=ExtResource( 13 )]
 position = Vector2( 2419.91, 472.945 )
 door_type = 2
 scene_name = "Corporation"
 
-[node name="SceneChange" parent="InteractiveObjects" instance=ExtResource( 15 )]
+[node name="SceneChange" parent="InteractiveObjects" instance=ExtResource( 13 )]
 position = Vector2( 2920.57, 478.741 )
 door_type = 2
 scene_name = "PoorQuarter"
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 16 )]
+[node name="Enemy" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 280.918, 493.807 )
 
-[node name="Enemy4" parent="Enemies" instance=ExtResource( 16 )]
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( -30.9358, 487.279 )
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 16 )]
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 857.566, 484.094 )
 
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 16 )]
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 1084.71, 483.199 )
 
-[node name="Robot" parent="Enemies" instance=ExtResource( 16 )]
+[node name="Robot" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 688.78, 486.024 )
 
 [node name="PlayerSpawn" type="Position2D" parent="."]
 position = Vector2( -620.75, 493.792 )
 
-[node name="iRealRenderer" parent="." instance=ExtResource( 17 )]
+[node name="iRealRenderer" parent="." instance=ExtResource( 15 )]
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 18 )
+stream = ExtResource( 16 )
 volume_db = -15.0
 autoplay = true
 

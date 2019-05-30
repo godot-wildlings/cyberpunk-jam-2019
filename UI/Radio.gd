@@ -1,4 +1,4 @@
-extends Node
+extends Container
 
 onready var loop_container = $Tracks
 

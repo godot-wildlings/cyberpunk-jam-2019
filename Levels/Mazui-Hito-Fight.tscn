@@ -135,6 +135,10 @@ position = Vector2( 3164.03, 474.009 )
 door_type = 2
 scene_name = "Death"
 
+[node name="Door3" parent="InteractiveObjects" instance=ExtResource( 8 )]
+position = Vector2( 471.797, 470.29 )
+door_type = 0
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Ghost" parent="Enemies" instance=ExtResource( 9 )]

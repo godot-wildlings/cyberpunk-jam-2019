@@ -1,4 +1,4 @@
-extends Container
+extends Control
 
 onready var key_label = $VBoxContainer/NumKeys
 
