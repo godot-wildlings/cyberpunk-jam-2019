@@ -8,7 +8,7 @@ var direction : int = 1
 var velocity : Vector2 = Vector2.ZERO
 
 #warning-ignore:unused_class_variable
-onready var animation_player = $AnimationPlayer
+onready var animation_player = $PlayerSprites/AnimationPlayer
 #track in which door one is
 var currentlyIn = null
 

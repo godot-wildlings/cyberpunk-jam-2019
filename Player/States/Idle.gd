@@ -10,11 +10,14 @@ func _ready():
 	player = get_parent().get_parent()
 	my_state_num = player.states.idle
 	sprite = $StandingSprite
+	sprite.hide()
 
 #warning-ignore:unused_argument
 func activate(arguments : Array = []):
 	# might receive a velocity argument, but it's ignored
-	$StandingSprite.show()
+
+	#$StandingSprite.show()
+	player.animation_player.play("idle")
 
 #	if Input.is_action_pressed("mv_down"):
 #		player.crouch(Vector2.ZERO)
@@ -23,13 +26,14 @@ func activate(arguments : Array = []):
 
 
 func deactivate():
-	$StandingSprite.hide()
+	#StandingSprite.hide()
+	player.animation_player.stop()
 
-func flip_sprites(dir):
-	if dir > 0:
-		sprite.set_flip_h(false)
-	else:
-		sprite.set_flip_h(true)
+#func flip_sprites(dir):
+#	if dir > 0:
+#		sprite.set_flip_h(false)
+#	else:
+#		sprite.set_flip_h(true)
 
 #warning-ignore:unused_argument
 func process_state(delta):

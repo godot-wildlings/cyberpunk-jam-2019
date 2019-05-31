@@ -19,11 +19,16 @@ func _ready():
 	player = get_parent().get_parent()
 	my_state_num = player.states.crouching
 	sprite = $CrouchingSprite
+	sprite.hide()
 
 #warning-ignore:unused_argument
 func activate(arguments : Array = []):
 	# might receive a velocity argument, but it's ignored
-	$CrouchingSprite.show()
+	#$CrouchingSprite.show()
+	player.animation_player.set_current_animation("crouch")
+	player.animation_player.seek(0)
+
+
 	var shape = player.get_node("CollisionShape2D").get_shape()
 	var y_delta = shape.get_extents().y/2
 	shape.set_extents(Vector2(shape.get_extents().x, shape.get_extents().y/2))
@@ -36,7 +41,7 @@ func activate(arguments : Array = []):
 
 
 func deactivate():
-	$CrouchingSprite.hide()
+	#$CrouchingSprite.hide()
 	var shape = player.get_node("CollisionShape2D").get_shape()
 	var y_delta = shape.get_extents().y/3 # HAX <-- This isn't the correct distance, it's just close enough
 	shape.set_extents(Vector2(shape.get_extents().x, shape.get_extents().y*2))
@@ -64,7 +69,10 @@ func move(delta):
 			var new_vel = move_and_bounce(mv_velocity, delta, damping)
 			velocity = new_vel # required for state changing
 			if not player.animation_player.is_playing():
-				player.animation_player.play("duck_walk")
+				#player.animation_player.play("duck_walk")
+				player.animation_player.play("crouch")
+		else:
+			player.animation_player.stop()
 
 		if player.is_on_platform() == false:
 			player.fall(mv_velocity) # fall could actually get the velocity without passing it
@@ -86,8 +94,8 @@ func listen_for_exit_conditions():
 			else:
 				player.idle()
 
-func flip_sprites(dir):
-	if dir > 0:
-		sprite.set_flip_h(false)
-	else:
-		sprite.set_flip_h(true)
+#func flip_sprites(dir):
+#	if dir > 0:
+#		sprite.set_flip_h(false)
+#	else:
+#		sprite.set_flip_h(true)

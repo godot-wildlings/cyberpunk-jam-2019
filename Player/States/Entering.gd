@@ -14,6 +14,7 @@ func _ready():
 	#warning-ignore:return_value_discarded
 	$WaitToEnterTimer.connect("timeout", self, "_on_Timer_timeout")
 
+
 func deferred_ready():
 	my_state_num = player.states.entering
 #	if not warning_issued:
@@ -26,7 +27,7 @@ func deferred_ready():
 func activate(arguments : Array = []):
 	if arguments.size() > 0:
 		object_entered = arguments[0]
-	sprite.show()
+	#sprite.show()
 	var vector_to_door = object_entered.get_global_position() - player.get_global_position()
 	player.position.x += vector_to_door.x
 	player.animation_player.play("enter")
@@ -57,8 +58,8 @@ func _on_Timer_timeout():
 		yield(object_entered, "animDone")
 		object_entered.actOnPlayer()
 
-func flip_sprites(dir):
-	if dir > 0:
-		sprite.set_flip_h(false)
-	else:
-		sprite.set_flip_h(true)
+#func flip_sprites(dir):
+#	if dir > 0:
+#		sprite.set_flip_h(false)
+#	else:
+#		sprite.set_flip_h(true)

@@ -10,6 +10,7 @@ func _ready():
 	player = get_parent().get_parent()
 	my_state_num = player.states.dropping
 	sprite = $DroppingSprite
+	sprite.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -19,7 +20,7 @@ func _ready():
 
 
 func activate():
-	sprite.show()
+	#sprite.show()
 	drop()
 
 func deactivate():

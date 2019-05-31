@@ -12,11 +12,12 @@ func _ready():
 	player = get_parent().get_parent()
 	my_state_num = player.states.climbing
 	sprite = $ClimbingSprite
+	sprite.hide()
 
 #warning-ignore:unused_argument
 func activate(arguments : Array = []):
 	if arguments.size() > 0:
-		sprite.show()
+		#sprite.show()
 		player.play_random_climb_sfx()
 		move_to_platform(arguments[0])
 	else:

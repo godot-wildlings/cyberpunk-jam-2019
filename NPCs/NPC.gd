@@ -256,10 +256,11 @@ func consider_shooting():
 
 func shoot(target):
 	if is_instance_valid(gun) and gun.has_method("shoot"):
-		if ranged_weapon_state == weapon_states.ready:
-			gun.shoot(target)
-			ranged_weapon_state = weapon_states.reloading
-			reload_timer.start()
+		if Game.player.state != Game.player.states.dead:
+			if ranged_weapon_state == weapon_states.ready:
+				gun.shoot(target)
+				ranged_weapon_state = weapon_states.reloading
+				reload_timer.start()
 
 
 

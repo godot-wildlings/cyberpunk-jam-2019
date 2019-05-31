@@ -19,10 +19,11 @@ func _ready():
 
 func activate():
 	$AttackTimer.start()
-	$PunchingSprite.show()
+	#$PunchingSprite.show()
 
 func deactivate():
-	$PunchingSprite.hide()
+	#$PunchingSprite.hide()
+	pass
 
 #warning-ignore:unused_argument
 func process_state(delta):

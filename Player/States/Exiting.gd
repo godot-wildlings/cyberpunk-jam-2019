@@ -24,7 +24,7 @@ func activate(arguments : Array = []):
 	if player.currentlyIn and player.currentlyIn.has_method("open_door"):
 		player.currentlyIn.open_door()
 		yield(player.currentlyIn, "animDone")
-	sprite.show()
+	#sprite.show()
 	player.animation_player.play("exit")
 	$Timer.start()
 
@@ -44,11 +44,11 @@ func process_state(delta):
 #	if anim_name == "exit":
 #		player.idle()
 
-func flip_sprites(dir):
-	if dir > 0:
-		sprite.set_flip_h(false)
-	else:
-		sprite.set_flip_h(true)
+#func flip_sprites(dir):
+#	if dir > 0:
+#		sprite.set_flip_h(false)
+#	else:
+#		sprite.set_flip_h(true)
 
 
 func _on_Timer_timeout():
