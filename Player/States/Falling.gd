@@ -20,7 +20,8 @@ func activate(arguments : Array = []):
 	fall_velocity = initial_velocity
 
 	player.animation_player.play("fall")
-	sprite.show()
+	#sprite.show()
+	sprite.hide()
 
 func deactivate():
 	player.animation_player.stop()

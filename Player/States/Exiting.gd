@@ -24,7 +24,7 @@ func activate(arguments : Array = []):
 	if player.currentlyIn and player.currentlyIn.has_method("open_door"):
 		player.currentlyIn.open_door()
 		yield(player.currentlyIn, "animDone")
-	sprite.show()
+	#sprite.show()
 	player.animation_player.play("exit")
 	$Timer.start()
 

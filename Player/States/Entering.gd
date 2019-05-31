@@ -27,7 +27,7 @@ func deferred_ready():
 func activate(arguments : Array = []):
 	if arguments.size() > 0:
 		object_entered = arguments[0]
-	sprite.show()
+	#sprite.show()
 	var vector_to_door = object_entered.get_global_position() - player.get_global_position()
 	player.position.x += vector_to_door.x
 	player.animation_player.play("enter")
