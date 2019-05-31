@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Collectibles/Key.gd" type="Script" id=1]
-[ext_resource path="res://Collectibles/key.png" type="Texture" id=2]
+[ext_resource path="res://Collectibles/keycard-1.png" type="Texture" id=2]
 [ext_resource path="res://SFX/Cyber_Jam_-_Pickup_Item_SFX_1.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 26.4023, 17.4588 )
+extents = Vector2( 15, 15 )
 
 [node name="Key" type="Area2D"]
 collision_layer = 32
@@ -13,7 +13,7 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 0.471239
-scale = Vector2( 0.25, 0.25 )
+scale = Vector2( 0.125, 0.125 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
