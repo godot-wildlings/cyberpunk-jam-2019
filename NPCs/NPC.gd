@@ -24,7 +24,8 @@ export (Game.damage_types) var melee_damage_type
 
 #warning-ignore:unused_class_variable
 export var can_fly : bool = false
-
+export (bool) var automaticPercent = true
+export (float) var percentToDropKey = 30
 var current_attitude
 var my_color : Color # to make up for lack of artwork, we'll use lots of colors
 
@@ -88,7 +89,12 @@ func _ready():
 
 	call_deferred("deferred_ready")
 
-	relocate_gun_to_make_things_interesting()
+	relocate_gun_to_make_things_interesting() #best  function ever
+	if automaticPercent:
+		if scanned_attitude == attitudes.fight:
+			percentToDropKey = 100
+		else:
+			percentToDropKey = 0
 
 func relocate_gun_to_make_things_interesting():
 	if character_type == character_types.ghost:
@@ -350,7 +356,8 @@ func hit(damage, damage_type):
 		$HealthBar.set_value(health/max_health * 100)
 
 func drop_key():
-	Game.main.level.spawn_key(get_global_position())
+	if rand_range(0,100) < percentToDropKey:
+		Game.main.level.spawn_key(get_global_position())
 
 func die():
 	if state != states.dead:
