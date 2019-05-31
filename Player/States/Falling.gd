@@ -44,8 +44,8 @@ func process_state(delta):
 			player.land(new_vel)
 
 
-func flip_sprites(dir):
-	if dir > 0:
-		sprite.set_flip_h(false)
-	else:
-		sprite.set_flip_h(true)
+#func flip_sprites(dir):
+#	if dir > 0:
+#		sprite.set_flip_h(false)
+#	else:
+#		sprite.set_flip_h(true)

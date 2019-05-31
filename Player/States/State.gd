@@ -47,3 +47,12 @@ func move_and_bounce(vel, delta, damping) -> Vector2:
 	return new_velocity
 
 
+func flip_sprites(dir):
+	var sprites = player.get_node("PlayerSprites")
+	var x_scale = sprites.get_scale().x
+	var y_scale = sprites.get_scale().y
+	if dir > 0:
+		x_scale = abs(x_scale)
+	else:
+		x_scale = -1 * abs(x_scale)
+	sprites.set_scale(Vector2(x_scale, y_scale))

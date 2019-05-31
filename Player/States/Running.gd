@@ -10,6 +10,7 @@ func _ready():
 	player = get_parent().get_parent()
 	my_state_num = player.states.running
 	sprite = $RunningSprite
+	sprite.hide()
 
 #warning-ignore:unused_argument
 func process_state(delta):
@@ -38,17 +39,17 @@ func process_state(delta):
 		var new_vel = move_and_bounce(run_velocity, delta, damping)
 		velocity = new_vel # important to update this every frame, even if we don't use it.
 
-func flip_sprites(dir):
-	if dir > 0:
-		sprite.set_flip_h(false)
-	else:
-		sprite.set_flip_h(true)
+#func flip_sprites(dir):
+#	if dir > 0:
+#		sprite.set_flip_h(false)
+#	else:
+#		sprite.set_flip_h(true)
 
 
 func activate(arguments : Array = []):
 
-	sprite.show()
-	sprite.set_modulate(Color.white)
+	#sprite.show()
+	#sprite.set_modulate(Color.white)
 	player.animation_player.play("run")
 
 func deactivate():

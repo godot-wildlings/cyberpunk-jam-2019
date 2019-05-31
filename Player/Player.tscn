@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/States/Idle.gd" type="Script" id=2]
@@ -46,6 +46,7 @@
 [ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_1.wav" type="AudioStream" id=44]
 [ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_2.wav" type="AudioStream" id=45]
 [ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=46]
+[ext_resource path="res://Player/PlayerCutoutSprites.tscn" type="PackedScene" id=47]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 438.421
@@ -710,4 +711,8 @@ margin_top = -57.8135
 margin_right = 18.3929
 margin_bottom = -43.8135
 script = ExtResource( 46 )
+
+[node name="PlayerSprites" parent="." instance=ExtResource( 47 )]
+position = Vector2( -2.03339, -7.68172 )
+scale = Vector2( 0.2, 0.2 )
 [connection signal="timeout" from="Actions/Attack/MeleeRange/PunchTimer" to="Actions/Attack" method="_on_PunchTimer_timeout"]
