@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Weapons/PlayerGun.gd" type="Script" id=1]
 [ext_resource path="res://Projectiles/Laser.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Weapons/gun1.png" type="Texture" id=3]
+[ext_resource path="res://Weapons/Gun-NoHand.png" type="Texture" id=3]
 [ext_resource path="res://SFX/Cyberpunk_Jam_-_Laser_SFX_1.wav" type="AudioStream" id=4]
 [ext_resource path="res://SFX/Cyberpunk_Jam_-_Laser_SFX_2.wav" type="AudioStream" id=5]
 
@@ -11,11 +11,13 @@ script = ExtResource( 1 )
 bullet_scene = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 81.5335, -10.8711 )
+position = Vector2( 0.744339, -0.802292 )
+scale = Vector2( 0.66, 0.5 )
 texture = ExtResource( 3 )
+offset = Vector2( 18.8738, -0.234938 )
 
 [node name="Muzzle" type="Position2D" parent="."]
-position = Vector2( 174.774, -28.8503 )
+position = Vector2( 42.753, -10.9379 )
 
 [node name="Bullets" type="Node2D" parent="."]
 

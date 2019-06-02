@@ -28,7 +28,7 @@ onready var ground_rays = [ ray_front, ray_back ]
 #warning-ignore:unused_class_variable
 onready var tween = $Tween
 #warning-ignore:unused_class_variable
-onready var gun = $Actions/Attack/Gun
+onready var gun = $PlayerSprites/Torso/ArmR/ForearmR/Gun
 onready var footstep_pause_timer : Timer = $SFX/FootStepPauseTimer
 #warning-ignore:unused_class_variable
 onready var sfx_container : Node2D = $SFX

@@ -5373,9 +5373,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.90509664"
-     inkscape:cx="344.9074"
-     inkscape:cy="231.32501"
+     inkscape:zoom="5.1199998"
+     inkscape:cx="296.48918"
+     inkscape:cy="469.89003"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -6474,7 +6474,8 @@
        cy="166.97856"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
-       r="3.9687502" />
+       r="3.9687502"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Weapons\Gun-NoHand.png" />
     <rect
        style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect2942"
@@ -6484,7 +6485,8 @@
        y="164.71072"
        ry="1.7008928"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Weapons\Gun-NoHand.png" />
     <rect
        style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect2944"
@@ -6494,7 +6496,8 @@
        y="161.59242"
        ry="1.7008924"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Weapons\Gun-NoHand.png" />
     <rect
        style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect2946"
@@ -6504,7 +6507,8 @@
        y="159.98601"
        ry="1.4174107"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Weapons\Gun-NoHand.png" />
     <rect
        style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect2948"
@@ -6514,37 +6518,8 @@
        y="160.45848"
        ry="1.2284226"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="opacity:1;fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.79374999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect2952"
-       width="28.442707"
-       height="6.4255953"
-       x="29.002911"
-       y="169.71889"
-       ry="1.2284234"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="opacity:1;fill:#f4d7d7;fill-opacity:1;stroke:#000000;stroke-width:0.79374999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect2954"
-       width="11.339286"
-       height="3.1183035"
-       x="57.445599"
-       y="167.73451"
-       ry="1.2284234"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="opacity:1;fill:#f4d7d7;fill-opacity:1;stroke:#000000;stroke-width:0.79374999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect2956"
-       width="8.2209635"
-       height="5.8586459"
-       x="57.445599"
-       y="170.85281"
-       ry="1.2284234"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Weapons\Gun-NoHand.png" />
     <rect
        style="opacity:1;fill:#f9f9f9;fill-opacity:1;stroke:#b3b3b3;stroke-width:0.79374999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect2958"
@@ -6554,7 +6529,8 @@
        y="162.91533"
        ry="0.057908237"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="C:\projects\game dev\gitfork\cyberpunk-jam-2019\Weapons\Gun-NoHand.png" />
     <rect
        style="opacity:0.39500002;fill:none;fill-opacity:1;stroke:none;stroke-width:0.79374999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect10002"
@@ -6621,5 +6597,93 @@
        transform="matrix(0.17425044,0,0,0.17425044,67.757466,187.09279)"
        inkscape:export-xdpi="95.87114"
        inkscape:export-ydpi="95.87114" />
+    <circle
+       r="3.9687502"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       cy="193.43692"
+       cx="65.099648"
+       id="circle3792"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.79374999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="1.7008928"
+       y="191.16908"
+       x="59.429974"
+       height="14.457579"
+       width="5.5751548"
+       id="rect3794"
+       style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="1.7008924"
+       y="188.05078"
+       x="55.366741"
+       height="5.5751486"
+       width="25.513393"
+       id="rect3796"
+       style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="1.4174107"
+       y="186.44437"
+       x="62.831768"
+       height="2.8348215"
+       width="3.0238097"
+       id="rect3798"
+       style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="1.2284226"
+       y="186.91684"
+       x="53.854778"
+       height="2.4568453"
+       width="4.0632439"
+       id="rect3800"
+       style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="1.2284234"
+       y="196.17725"
+       x="29.002911"
+       height="6.4255953"
+       width="28.442707"
+       id="rect3802"
+       style="opacity:1;fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:0.79374999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="1.2284234"
+       y="194.19287"
+       x="57.445599"
+       height="3.1183035"
+       width="11.339286"
+       id="rect3804"
+       style="opacity:1;fill:#f4d7d7;fill-opacity:1;stroke:#000000;stroke-width:0.79374999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="1.2284234"
+       y="197.31117"
+       x="57.445599"
+       height="5.8586459"
+       width="8.2209635"
+       id="rect3806"
+       style="opacity:1;fill:#f4d7d7;fill-opacity:1;stroke:#000000;stroke-width:0.79374999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       ry="0.057908237"
+       y="189.37369"
+       x="57.918011"
+       height="0.11581647"
+       width="17.752674"
+       id="rect3808"
+       style="opacity:1;fill:#f9f9f9;fill-opacity:1;stroke:#b3b3b3;stroke-width:0.79374999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
   </g>
 </svg>

@@ -13,7 +13,8 @@ func _ready():
 
 func deferred_ready():
 	player = get_parent().get_parent()
-	gun = $Gun
+	gun = player.get_node("PlayerSprites/Torso/ArmR/ForearmR/Gun")
+	print(self.name, " thinks gun is " , gun , " " , gun.get("name"))
 	tween = player.get_node("Tween")
 
 
@@ -43,9 +44,9 @@ func punch(punch_targets):
 			target.hit(punch_damage, Game.damage_types.physical)
 
 func shoot():
-	gun.scale.x = abs(gun.scale.x) * player.get_direction()
+	#gun.scale.x = abs(gun.scale.x) * player.get_direction()
 	draw_gun()
-	yield(tween, "tween_completed")
+	yield(get_tree().create_timer(0.2), "timeout") # sync with anim
 	if player.ammo > 0:
 		player.gun.shoot()
 		player.ammo -= 1
@@ -58,26 +59,34 @@ func shoot():
 
 
 func draw_gun():
-	# should rotate the gun up
-	gun.rotation = -PI/2 * player.get_direction()
-	gun.show()
+	print(self.name, " playing shoot animation")
 
-	#warning-ignore:return_value_discarded
-	tween.interpolate_property(gun, "rotation",
-			null, 0, 0.15,
-			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	#warning-ignore:return_value_discarded
-	tween.start()
+	if player.state == player.states.crouching:
+		player.animation_player.play("shoot_crouching")
+	elif player.state != player.states.jumping:
+		player.animation_player.play("shoot")
+	# should rotate the gun up
+#	gun.rotation = -PI/2 * player.get_direction()
+#	gun.show()
+#
+#	#warning-ignore:return_value_discarded
+#	tween.interpolate_property(gun, "rotation",
+#			null, 0, 0.15,
+#			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+#	#warning-ignore:return_value_discarded
+#	tween.start()
 
 func holster_gun():
+	pass
+	#player.animation_player.play("idle")
 	#warning-ignore:return_value_discarded
-	tween.interpolate_property(gun, "rotation",
-			null, -PI/2 * player.get_direction(), 0.1,
-			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	#warning-ignore:return_value_discarded
-	tween.start()
-	yield(tween, "tween_completed")
-	gun.hide()
+#	tween.interpolate_property(gun, "rotation",
+#			null, -PI/2 * player.get_direction(), 0.1,
+#			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+#	#warning-ignore:return_value_discarded
+#	tween.start()
+#	yield(tween, "tween_completed")
+#	gun.hide()
 
 
 func _on_PunchTimer_timeout():

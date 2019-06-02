@@ -66,11 +66,6 @@
        xlink:href="#pattern9400"
        id="pattern10004"
        patternTransform="matrix(0.26458333,0,0,0.26458333,700.20414,-988.71945)" />
-    <pattern
-       inkscape:collect="always"
-       xlink:href="#pattern9400"
-       id="pattern10000"
-       patternTransform="matrix(0.26458333,0,0,0.26458333,659.24388,-455.52601)" />
     <linearGradient
        inkscape:collect="always"
        id="basic">
@@ -5748,9 +5743,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.22627417"
-     inkscape:cx="1006.9286"
-     inkscape:cy="668.58127"
+     inkscape:zoom="0.16"
+     inkscape:cx="-1755.362"
+     inkscape:cy="1493.0765"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -7405,13 +7400,6 @@
        ry="0.057908237"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
-    <rect
-       style="fill:url(#pattern10000);stroke:none"
-       width="426.52533"
-       height="681.46649"
-       x="659.24396"
-       y="-455.526"
-       id="rect9918" />
     <rect
        style="opacity:0.39500002;fill:none;fill-opacity:1;stroke:none;stroke-width:0.79374999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect10002"
