@@ -56,12 +56,14 @@ func process_state(delta):
 					player.climb(platform_above)
 				else:
 					player.jump()
-		elif Input.is_action_pressed("mv_down"):
-			var platform_below = player.get_platform_below()
-			if platform_below != null:
+		elif Input.is_action_just_pressed("mv_down"):
+			var platform = player.get_current_platform()
+			if not platform.is_in_group("ground_plane"):
 				player.drop()
 			else:
 				player.crouch(Vector2.ZERO)
+		elif Input.is_action_pressed("mv_down"):
+			player.crouch(Vector2.ZERO)
 
 		else: # no important keys pressed
 			#warning-ignore:return_value_discarded

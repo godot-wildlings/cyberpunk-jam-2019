@@ -35,7 +35,8 @@ func activate(arguments : Array = []):
 		time_of_jump = Game.time_elapsed
 		#sprite.set_modulate(Color.magenta + Color(0.5, 0.5, 0.5))
 		player.animation_player.play("jump")
-		player.play_random_climb_sfx()
+		#player.play_random_climb_sfx()
+		Game.play_random_sfx($SFX)
 		jump_velocity = initial_velocity + Vector2.UP * jump_speed
 
 

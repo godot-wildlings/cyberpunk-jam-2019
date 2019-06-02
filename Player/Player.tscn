@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/States/Idle.gd" type="Script" id=2]
@@ -8,44 +8,43 @@
 [ext_resource path="res://Player/States/Running.gd" type="Script" id=6]
 [ext_resource path="res://Player/running.png" type="Texture" id=7]
 [ext_resource path="res://Player/States/Jumping.gd" type="Script" id=8]
-[ext_resource path="res://Player/hu.wav" type="AudioStream" id=9]
-[ext_resource path="res://Player/jumping.png" type="Texture" id=10]
-[ext_resource path="res://Player/States/Falling.gd" type="Script" id=11]
-[ext_resource path="res://Player/States/Entering.gd" type="Script" id=12]
-[ext_resource path="res://Player/entering.png" type="Texture" id=13]
-[ext_resource path="res://Player/States/Hidden.gd" type="Script" id=14]
-[ext_resource path="res://Player/States/Exiting.gd" type="Script" id=15]
-[ext_resource path="res://Player/exiting.png" type="Texture" id=16]
-[ext_resource path="res://Player/States/Dead.gd" type="Script" id=17]
-[ext_resource path="res://Player/States/Climbing.gd" type="Script" id=18]
-[ext_resource path="res://Player/hooah.wav" type="AudioStream" id=19]
-[ext_resource path="res://SFX/Cyber_Jam_-_Jump__Climb_SFX_1.wav" type="AudioStream" id=20]
-[ext_resource path="res://SFX/Cyber_Jam_-_Jump__Climb_SFX_2.wav" type="AudioStream" id=21]
-[ext_resource path="res://SFX/Cyber_Jam_-_Jump__Climb_SFX_3.wav" type="AudioStream" id=22]
-[ext_resource path="res://SFX/Cyber_Jam_-_Jump__Climb_SFX_4.wav" type="AudioStream" id=23]
-[ext_resource path="res://SFX/Cyber_Jam_-_Jump__Climb_SFX_5.wav" type="AudioStream" id=24]
-[ext_resource path="res://Player/States/Dropping.gd" type="Script" id=25]
-[ext_resource path="res://Player/huh.wav" type="AudioStream" id=26]
-[ext_resource path="res://Player/Actions/Scan.gd" type="Script" id=27]
-[ext_resource path="res://SFX/Cyberpunk_Jam_-_Scan_SFX.wav" type="AudioStream" id=28]
-[ext_resource path="res://Player/Actions/Attack.gd" type="Script" id=29]
-[ext_resource path="res://Player/punching.png" type="Texture" id=30]
-[ext_resource path="res://Player/Actions/GetHit.gd" type="Script" id=31]
-[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_4.wav" type="AudioStream" id=32]
-[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_5.wav" type="AudioStream" id=33]
-[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_6.wav" type="AudioStream" id=34]
-[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_7.wav" type="AudioStream" id=35]
-[ext_resource path="res://Player/PlayerHUD.tscn" type="PackedScene" id=36]
-[ext_resource path="res://Player/health-red.png" type="Texture" id=37]
-[ext_resource path="res://Player/health-green.png" type="Texture" id=38]
-[ext_resource path="res://Player/ammo_back.png" type="Texture" id=39]
-[ext_resource path="res://Player/ammo_front.png" type="Texture" id=40]
-[ext_resource path="res://SFX/Cyberounk_Jam_-_Out_of_Ammo_SFX.wav" type="AudioStream" id=41]
-[ext_resource path="res://SFX/Cyberounk_Jam_-_Reload_SFX_1.wav" type="AudioStream" id=42]
-[ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_1.wav" type="AudioStream" id=43]
-[ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_2.wav" type="AudioStream" id=44]
-[ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=45]
-[ext_resource path="res://Player/PlayerCutoutSprites.tscn" type="PackedScene" id=46]
+[ext_resource path="res://Player/jumping.png" type="Texture" id=9]
+[ext_resource path="res://SFX/Cyber_Jam_-_Jump__Climb_SFX_4.wav" type="AudioStream" id=10]
+[ext_resource path="res://SFX/Cyber_Jam_-_Jump__Climb_SFX_5.wav" type="AudioStream" id=11]
+[ext_resource path="res://Player/States/Falling.gd" type="Script" id=12]
+[ext_resource path="res://Player/States/Entering.gd" type="Script" id=13]
+[ext_resource path="res://Player/entering.png" type="Texture" id=14]
+[ext_resource path="res://Player/States/Hidden.gd" type="Script" id=15]
+[ext_resource path="res://Player/States/Exiting.gd" type="Script" id=16]
+[ext_resource path="res://Player/exiting.png" type="Texture" id=17]
+[ext_resource path="res://Player/States/Dead.gd" type="Script" id=18]
+[ext_resource path="res://Player/States/Climbing.gd" type="Script" id=19]
+[ext_resource path="res://Player/hooah.wav" type="AudioStream" id=20]
+[ext_resource path="res://SFX/Cyber_Jam_-_Jump__Climb_SFX_1.wav" type="AudioStream" id=21]
+[ext_resource path="res://SFX/Cyber_Jam_-_Jump__Climb_SFX_2.wav" type="AudioStream" id=22]
+[ext_resource path="res://SFX/Cyber_Jam_-_Jump__Climb_SFX_3.wav" type="AudioStream" id=23]
+[ext_resource path="res://Player/States/Dropping.gd" type="Script" id=24]
+[ext_resource path="res://Player/Actions/Scan.gd" type="Script" id=25]
+[ext_resource path="res://SFX/Cyberpunk_Jam_-_Scan_SFX.wav" type="AudioStream" id=26]
+[ext_resource path="res://Player/Actions/Attack.gd" type="Script" id=27]
+[ext_resource path="res://Player/punching.png" type="Texture" id=28]
+[ext_resource path="res://Player/Actions/GetHit.gd" type="Script" id=29]
+[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_4.wav" type="AudioStream" id=30]
+[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_5.wav" type="AudioStream" id=31]
+[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_6.wav" type="AudioStream" id=32]
+[ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_7.wav" type="AudioStream" id=33]
+[ext_resource path="res://Player/PlayerHUD.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Player/health-red.png" type="Texture" id=35]
+[ext_resource path="res://Player/health-green.png" type="Texture" id=36]
+[ext_resource path="res://Player/ammo_back.png" type="Texture" id=37]
+[ext_resource path="res://Player/ammo_front.png" type="Texture" id=38]
+[ext_resource path="res://Player/huh.wav" type="AudioStream" id=39]
+[ext_resource path="res://SFX/Cyberounk_Jam_-_Out_of_Ammo_SFX.wav" type="AudioStream" id=40]
+[ext_resource path="res://SFX/Cyberounk_Jam_-_Reload_SFX_1.wav" type="AudioStream" id=41]
+[ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_1.wav" type="AudioStream" id=42]
+[ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_2.wav" type="AudioStream" id=43]
+[ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=44]
+[ext_resource path="res://Player/PlayerCutoutSprites.tscn" type="PackedScene" id=45]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 438.421
@@ -408,31 +407,39 @@ hframes = 6
 editor/display_folded = true
 script = ExtResource( 8 )
 
-[node name="huNoise" type="AudioStreamPlayer2D" parent="States/Jumping"]
-stream = ExtResource( 9 )
-
 [node name="JumpingSprite" type="Sprite" parent="States/Jumping"]
 visible = false
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 hframes = 12
 frame = 3
 
+[node name="SFX" type="Node2D" parent="States/Jumping"]
+
+[node name="ClimbingSFX6" type="AudioStreamPlayer2D" parent="States/Jumping/SFX"]
+stream = ExtResource( 10 )
+volume_db = -9.0
+
+[node name="ClimbingSFX7" type="AudioStreamPlayer2D" parent="States/Jumping/SFX"]
+stream = ExtResource( 11 )
+volume_db = -9.0
+
 [node name="Falling" type="Node2D" parent="States"]
 editor/display_folded = true
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 
 [node name="FallingSprite" type="Sprite" parent="States/Falling"]
 visible = false
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 hframes = 12
 frame = 6
 
 [node name="Entering" type="Node2D" parent="States"]
-script = ExtResource( 12 )
+editor/display_folded = true
+script = ExtResource( 13 )
 
 [node name="EnteringSprite" type="Sprite" parent="States/Entering"]
 visible = false
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 hframes = 12
 frame = 11
 
@@ -441,13 +448,14 @@ wait_time = 0.7
 one_shot = true
 
 [node name="Hidden" type="Node2D" parent="States"]
-script = ExtResource( 14 )
-
-[node name="Exiting" type="Node2D" parent="States"]
 script = ExtResource( 15 )
 
+[node name="Exiting" type="Node2D" parent="States"]
+editor/display_folded = true
+script = ExtResource( 16 )
+
 [node name="ExitingSprite" type="Sprite" parent="States/Exiting"]
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 hframes = 12
 frame = 11
 
@@ -456,7 +464,8 @@ wait_time = 0.6
 one_shot = true
 
 [node name="Dead" type="Node2D" parent="States"]
-script = ExtResource( 17 )
+editor/display_folded = true
+script = ExtResource( 18 )
 
 [node name="CrouchingSprite" type="Sprite" parent="States/Dead"]
 texture = ExtResource( 5 )
@@ -478,59 +487,64 @@ one_shot = true
 wait_time = 0.7
 
 [node name="Climbing" type="Node2D" parent="States"]
-script = ExtResource( 18 )
+editor/display_folded = true
+script = ExtResource( 19 )
 
 [node name="hooahNoise" type="AudioStreamPlayer2D" parent="States/Climbing"]
-stream = ExtResource( 19 )
+stream = ExtResource( 20 )
 volume_db = -9.0
 
 [node name="ClimbingSprite" type="Sprite" parent="States/Climbing"]
 visible = false
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 hframes = 12
 frame = 3
 
 [node name="SFX" type="Node2D" parent="States/Climbing"]
 
 [node name="ClimbingSFX1" type="AudioStreamPlayer2D" parent="States/Climbing/SFX"]
-stream = ExtResource( 20 )
-volume_db = -9.0
-
-[node name="ClimbingSFX2" type="AudioStreamPlayer2D" parent="States/Climbing/SFX"]
 stream = ExtResource( 21 )
 volume_db = -9.0
 
-[node name="ClimbingSFX3" type="AudioStreamPlayer2D" parent="States/Climbing/SFX"]
+[node name="ClimbingSFX2" type="AudioStreamPlayer2D" parent="States/Climbing/SFX"]
 stream = ExtResource( 22 )
 volume_db = -9.0
 
-[node name="ClimbingSFX4" type="AudioStreamPlayer2D" parent="States/Climbing/SFX"]
+[node name="ClimbingSFX3" type="AudioStreamPlayer2D" parent="States/Climbing/SFX"]
 stream = ExtResource( 23 )
 volume_db = -9.0
 
+[node name="ClimbingSFX4" type="AudioStreamPlayer2D" parent="States/Climbing/SFX"]
+stream = ExtResource( 10 )
+volume_db = -9.0
+
 [node name="ClimbingSFX5" type="AudioStreamPlayer2D" parent="States/Climbing/SFX"]
-stream = ExtResource( 24 )
+stream = ExtResource( 11 )
 volume_db = -9.0
 
 [node name="Dropping" type="Node2D" parent="States"]
-editor/display_folded = true
-script = ExtResource( 25 )
-
-[node name="huhNoise-notused" type="AudioStreamPlayer2D" parent="States/Dropping"]
-stream = ExtResource( 26 )
+script = ExtResource( 24 )
 
 [node name="DroppingSprite" type="Sprite" parent="States/Dropping"]
 visible = false
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 hframes = 12
 frame = 3
 
-[node name="Node2D" type="Node2D" parent="States"]
+[node name="SFX" type="Node2D" parent="States/Dropping"]
+
+[node name="ClimbingSFX6" type="AudioStreamPlayer2D" parent="States/Dropping/SFX"]
+stream = ExtResource( 21 )
+volume_db = -9.0
+
+[node name="ClimbingSFX7" type="AudioStreamPlayer2D" parent="States/Dropping/SFX"]
+stream = ExtResource( 22 )
+volume_db = -9.0
 
 [node name="Actions" type="Node2D" parent="."]
 
 [node name="Scan" type="Node2D" parent="Actions"]
-script = ExtResource( 27 )
+script = ExtResource( 25 )
 
 [node name="EffectiveRange" type="Area2D" parent="Actions/Scan"]
 collision_layer = 0
@@ -545,12 +559,12 @@ wait_time = 6.8
 one_shot = true
 
 [node name="ScanNoise" type="AudioStreamPlayer2D" parent="Actions/Scan"]
-stream = ExtResource( 28 )
+stream = ExtResource( 26 )
 volume_db = -15.0
 bus = "SFX"
 
 [node name="Attack" type="Node2D" parent="Actions"]
-script = ExtResource( 29 )
+script = ExtResource( 27 )
 
 [node name="MeleeRange" type="Area2D" parent="Actions/Attack"]
 collision_layer = 0
@@ -563,7 +577,7 @@ shape = SubResource( 2 )
 [node name="PunchingSprite" type="Sprite" parent="Actions/Attack/MeleeRange"]
 visible = false
 scale = Vector2( 0.66, 0.66 )
-texture = ExtResource( 30 )
+texture = ExtResource( 28 )
 hframes = 12
 frame = 11
 
@@ -572,7 +586,7 @@ wait_time = 0.6
 one_shot = true
 
 [node name="GetHit" type="Node2D" parent="Actions"]
-script = ExtResource( 31 )
+script = ExtResource( 29 )
 
 [node name="HitstunTimer" type="Timer" parent="Actions/GetHit"]
 wait_time = 0.1
@@ -581,22 +595,22 @@ one_shot = true
 [node name="SFX" type="Node2D" parent="Actions/GetHit"]
 
 [node name="OofNoise" type="AudioStreamPlayer2D" parent="Actions/GetHit/SFX"]
-stream = ExtResource( 32 )
+stream = ExtResource( 30 )
 volume_db = -9.0
 bus = "SFX"
 
 [node name="OofNoise2" type="AudioStreamPlayer2D" parent="Actions/GetHit/SFX"]
-stream = ExtResource( 33 )
+stream = ExtResource( 31 )
 volume_db = -9.0
 bus = "SFX"
 
 [node name="OofNoise3" type="AudioStreamPlayer2D" parent="Actions/GetHit/SFX"]
-stream = ExtResource( 34 )
+stream = ExtResource( 32 )
 volume_db = -9.0
 bus = "SFX"
 
 [node name="OofNoise4" type="AudioStreamPlayer2D" parent="Actions/GetHit/SFX"]
-stream = ExtResource( 35 )
+stream = ExtResource( 33 )
 volume_db = -9.0
 bus = "SFX"
 
@@ -635,17 +649,11 @@ enabled = true
 cast_to = Vector2( 0, -200 )
 collision_mask = 4
 
-[node name="RayDown" type="RayCast2D" parent="."]
-position = Vector2( 0.173111, 80.6549 )
-enabled = true
-cast_to = Vector2( 0, 250 )
-collision_mask = 4
-
 [node name="Tween" type="Tween" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 36 )]
+[node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 34 )]
 margin_top = -31.9995
 margin_bottom = -1.99951
 
@@ -656,8 +664,8 @@ margin_right = 74.4759
 margin_bottom = 4.95181
 rect_scale = Vector2( 0.380881, 0.380881 )
 value = 100.0
-texture_under = ExtResource( 37 )
-texture_progress = ExtResource( 38 )
+texture_under = ExtResource( 35 )
+texture_progress = ExtResource( 36 )
 
 [node name="AmmoBar" type="TextureProgress" parent="."]
 margin_left = -17.6665
@@ -666,31 +674,31 @@ margin_right = 204.333
 margin_bottom = 6.26243
 rect_scale = Vector2( 0.157489, 0.131796 )
 value = 100.0
-texture_under = ExtResource( 39 )
-texture_progress = ExtResource( 40 )
+texture_under = ExtResource( 37 )
+texture_progress = ExtResource( 38 )
 
 [node name="SFX" type="Node2D" parent="."]
 
 [node name="huhNoise" type="AudioStreamPlayer2D" parent="SFX"]
-stream = ExtResource( 26 )
+stream = ExtResource( 39 )
 volume_db = -9.0
 
 [node name="OutOfAmmoSFX" type="AudioStreamPlayer2D" parent="SFX"]
-stream = ExtResource( 41 )
+stream = ExtResource( 40 )
 volume_db = -9.0
 
 [node name="PickUpAmmoSFX" type="AudioStreamPlayer2D" parent="SFX"]
-stream = ExtResource( 42 )
+stream = ExtResource( 41 )
 volume_db = -9.0
 
 [node name="Steps" type="Node2D" parent="SFX"]
 
 [node name="FootStepSFX1" type="AudioStreamPlayer2D" parent="SFX/Steps"]
-stream = ExtResource( 43 )
+stream = ExtResource( 42 )
 volume_db = -9.0
 
 [node name="FootStepSFX2" type="AudioStreamPlayer2D" parent="SFX/Steps"]
-stream = ExtResource( 44 )
+stream = ExtResource( 43 )
 volume_db = -9.0
 
 [node name="FootStepPauseTimer" type="Timer" parent="SFX"]
@@ -703,9 +711,9 @@ margin_left = -21.6071
 margin_top = -57.8135
 margin_right = 18.3929
 margin_bottom = -43.8135
-script = ExtResource( 45 )
+script = ExtResource( 44 )
 
-[node name="PlayerSprites" parent="." instance=ExtResource( 46 )]
+[node name="PlayerSprites" parent="." instance=ExtResource( 45 )]
 position = Vector2( -2.03339, -7.68172 )
 scale = Vector2( 0.2, 0.2 )
 [connection signal="timeout" from="Actions/Attack/MeleeRange/PunchTimer" to="Actions/Attack" method="_on_PunchTimer_timeout"]

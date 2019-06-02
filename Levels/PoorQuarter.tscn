@@ -426,10 +426,10 @@ position = Vector2( 1551.55, 794.696 )
 shape = SubResource( 2 )
 
 [node name="Floors" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Floor1" type="StaticBody2D" parent="Floors" groups=[
 "platform",
+"ground_plane",
 ]]
 position = Vector2( 1301.78, 528.679 )
 collision_layer = 4

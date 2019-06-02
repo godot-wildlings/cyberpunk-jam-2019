@@ -33,7 +33,7 @@ onready var footstep_pause_timer : Timer = $SFX/FootStepPauseTimer
 #warning-ignore:unused_class_variable
 onready var sfx_container : Node2D = $SFX
 onready var footstep_sfx_container : Node2D = $SFX/Steps
-onready var climbing_sfx_container : Node2D = $States/Climbing/SFX
+#onready var climbing_sfx_container : Node2D = $States/Climbing/SFX
 #warning-ignore:unused_class_variable
 onready var out_of_ammo_sfx : AudioStreamPlayer2D = $SFX/OutOfAmmoSFX
 onready var pick_up_ammo_sfx : AudioStreamPlayer2D = $SFX/PickUpAmmoSFX
@@ -175,8 +175,10 @@ func stop(initial_velocity):
 	# might want some screech to a halt animation, or drift distance
 	set_state(states.idle, [initial_velocity])
 
-func idle():
-	set_state(states.idle, [Vector2.ZERO])
+
+func idle(initial_velocity : Vector2 = Vector2.ZERO):
+	set_state(states.idle, [initial_velocity])
+
 
 #func return_to_idle():
 #	state = states.idle
@@ -209,6 +211,13 @@ func is_on_platform():
 			on_platform = true
 	return on_platform
 
+func is_on_ground_plane():
+	var on_ground_plane = false
+	for ray in ground_rays:
+		if ray.is_colliding() and ray.get_collider().is_in_group("ground_plane"):
+			on_ground_plane = true
+	return on_ground_plane
+
 func get_platform_above() -> StaticBody2D:
 	var ray = get_node("RayUp")
 	var distance_between_platforms = 150
@@ -220,25 +229,32 @@ func get_platform_above() -> StaticBody2D:
 	else:
 		return null
 
-func get_platform_below() -> StaticBody2D:
+func get_current_platform() -> StaticBody2D:
 	var platform = null
 	for ground_ray in ground_rays:
 		if ground_ray.is_colliding() and ground_ray.get_collider() is StaticBody2D:
 			platform = ground_ray.get_collider()
+	return platform
 
-	var ray = get_node("RayDown")
-	# move the ray below the current platform so it doesn't see it.
-	var margin = 50.0
-	var platform_height = 200
-	if platform != null and platform.get_child_count() > 0:
-		platform_height = platform.get_child(0).get_shape().get_extents().y * 2
-	ray.position = Vector2.DOWN * (character_height/2 + platform_height + margin)
-	var distance_between_platforms = 250
-	ray.set_cast_to(Vector2.DOWN * distance_between_platforms)
-	if ray.is_colliding() and ray.get_collider() is StaticBody2D:
-		return ray.get_collider()
-	else:
-		return null
+#func get_platform_below() -> StaticBody2D:
+#	var platform = null
+#	for ground_ray in ground_rays:
+#		if ground_ray.is_colliding() and ground_ray.get_collider() is StaticBody2D:
+#			platform = ground_ray.get_collider()
+#
+#	var ray = get_node("RayDown")
+#	# move the ray below the current platform so it doesn't see it.
+#	var margin = 50.0
+#	var platform_height = 200
+#	if platform != null and platform.get_child_count() > 0:
+#		platform_height = platform.get_child(0).get_shape().get_extents().y * 2
+#	ray.position = Vector2.DOWN * (character_height/2 + platform_height + margin)
+#	var distance_between_platforms = 250
+#	ray.set_cast_to(Vector2.DOWN * distance_between_platforms)
+#	if ray.is_colliding() and ray.get_collider() is StaticBody2D:
+#		return ray.get_collider()
+#	else:
+#		return null
 
 func _process(delta):
 	if state != states.dead:
@@ -312,8 +328,7 @@ func climb(platform : StaticBody2D): # switch to a higher platform
 
 
 func drop(): # switch to a lower platform
-	if is_on_platform():
-		set_state(states.dropping)
+	set_state(states.dropping)
 
 func _on_FootStepPauseTimer_timeout():
 
@@ -332,8 +347,8 @@ func pickup_key():
 func play_random_step_sfx():
 	Game.play_random_sfx(footstep_sfx_container)
 
-func play_random_climb_sfx():
-	Game.play_random_sfx(climbing_sfx_container)
+#func play_random_climb_sfx():
+#	Game.play_random_sfx(climbing_sfx_container)
 
 func hit(damage : float, damage_type : int):
 	$Actions/GetHit.use(damage, damage_type)

@@ -18,7 +18,8 @@ func _ready():
 func activate(arguments : Array = []):
 	if arguments.size() > 0:
 		#sprite.show()
-		player.play_random_climb_sfx()
+		#player.play_random_climb_sfx()
+		Game.play_random_sfx($SFX)
 		move_to_platform(arguments[0])
 	else:
 		player.jump(Vector2.ZERO)
