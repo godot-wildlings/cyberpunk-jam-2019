@@ -115,9 +115,17 @@ func stop_mumbling():
 
 func reveal_letter():
 
-	text_revealed += 1
+
+	var total_text_length = dialog_container.get_child(current_tab_num).get_text().length()
+	if text_revealed <= total_text_length:
+		text_revealed += 1
+
+	print(text_revealed, " / ", total_text_length )
+
+
 	dialog_container.get_child(current_tab_num).set_visible_characters(text_revealed)
-	if text_revealed >= dialog_container.get_child(current_tab_num).get_text().length():
+
+	if text_revealed >= total_text_length:
 		$TextRevealNoiseLeft.stop()
 		$TextRevealNoiseRight.stop()
 

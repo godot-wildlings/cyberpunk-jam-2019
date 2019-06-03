@@ -3,7 +3,6 @@ extends Player_State
 #var player : KinematicBody2D
 var my_state_num : int
 
-var warning_issued: bool = false
 
 var sprite : Sprite
 
@@ -46,6 +45,7 @@ func flip_sprites(dir):
 #		sprite.set_flip_h(false)
 #	else:
 #		sprite.set_flip_h(true)
+
 
 func move_to_platform(platform):
 

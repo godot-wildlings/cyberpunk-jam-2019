@@ -1,8 +1,8 @@
 [gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
-[ext_resource path="res://Scenery/Rain.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenery/SilverSpires.png" type="Texture" id=3]
+[ext_resource path="res://Scenery/SilverSpires.png" type="Texture" id=2]
+[ext_resource path="res://Scenery/Rain.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Levels/ShippingContainer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenery/BackgroundBuilding.tscn" type="PackedScene" id=6]
@@ -302,15 +302,10 @@ starting_cutscene = "HQ1"
 modulate = Color( 0.427451, 0.427451, 0.427451, 1 )
 motion_scale = Vector2( 0.5, 1 )
 
-[node name="Rain" parent="CanvasLayer/ParallaxBackground/Far" instance=ExtResource( 2 )]
-self_modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 1491.83, 370.318 )
-scale = Vector2( 1.75322, 2.33408 )
-
 [node name="SilverSpires" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
 visible = false
 position = Vector2( 1486.74, 46.4608 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 3260, 982 )
 
@@ -326,6 +321,11 @@ expand = true
 stretch_mode = 1
 
 [node name="Horizon_Marker" type="Position2D" parent="CanvasLayer/ParallaxBackground/Far"]
+
+[node name="Rain" parent="CanvasLayer/ParallaxBackground/Far" instance=ExtResource( 3 )]
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1491.83, 370.318 )
+scale = Vector2( 1.75322, 2.33408 )
 
 [node name="Med" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 modulate = Color( 0.709804, 0.709804, 0.709804, 1 )

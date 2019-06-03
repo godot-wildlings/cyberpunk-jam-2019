@@ -91,14 +91,23 @@ func _ready():
 	call_deferred("deferred_ready")
 
 	relocate_gun_to_make_things_interesting() #best  function ever
+
+func deferred_ready():
+	if initial_attitude == attitudes.fight:
+		enable_collisions_with_player()
+
+func set_key_drop_probability():
 	if automaticPercent:
-		if scanned_attitude == attitudes.fight:
+		if character_type == character_types.ghost:
 			percentToDropKey = 100
+		elif character_type == character_types.sinner:
+			percentToDropKey = 50
 		else:
-			percentToDropKey = 0
+			percentToDropKey = 10
 
 func start(pos):
 	set_global_position(pos)
+	set_key_drop_probability()
 
 func relocate_gun_to_make_things_interesting():
 	if character_type == character_types.ghost:
@@ -117,9 +126,7 @@ func display_correct_sprite():
 	current_sprite.show()
 
 
-func deferred_ready():
-	if initial_attitude == attitudes.fight:
-		enable_collisions_with_player()
+
 
 func enable_collisions_with_player():
 	var player_bit = 0
@@ -363,6 +370,7 @@ func hit(damage, damage_type):
 		$HealthBar.set_value(health/max_health * 100)
 
 func drop_key():
+	print("percentToDropKey: ", percentToDropKey )
 	if rand_range(0,100) < percentToDropKey:
 		Game.main.level.spawn_key(get_global_position())
 

@@ -65,6 +65,7 @@ func spawn_background_objects(number, object_scene, layer):
 		y_pos = container.get_node("Horizon_Marker").get_global_position().y
 
 		x_pos = -2000
+		#warning-ignore:unused_local_variable
 		for i in range(number):
 			var new_object = object_scene.instance()
 			container.add_child(new_object)
@@ -76,11 +77,13 @@ func spawn_background_objects(number, object_scene, layer):
 
 
 func spawn_citizens(number):
+	#warning-ignore:unused_local_variable
 	for i in range(number):
 		var npc = spawn_npc()
 		npc.character_type = npc.character_types.citizen
 		npc.initial_attitude = npc.attitudes.ignore
 		npc.scanned_attitude = npc.attitudes.ignore
+		npc.set_key_drop_probability()
 
 
 
@@ -91,6 +94,7 @@ func spawn_ghosts(number):
 		npc.character_type = npc.character_types.ghost
 		npc.initial_attitude = npc.attitudes.ignore
 		npc.scanned_attitude = npc.attitudes.fight
+		npc.set_key_drop_probability()
 
 func spawn_sinners(number):
 	for i in range(number):
@@ -98,6 +102,7 @@ func spawn_sinners(number):
 		npc.character_type = npc.character_types.sinner
 		npc.initial_attitude = npc.attitudes.fight
 		npc.scanned_attitude = npc.attitudes.fight
+		npc.set_key_drop_probability()
 
 func spawn_npc():
 	var new_npc = npc_scene.instance()
@@ -122,7 +127,7 @@ func spawn_key(new_position):
 	var key_scene = preload("res://Collectibles/Key.tscn")
 	var new_key = key_scene.instance()
 	if has_node("Collectibles"):
-		$Collectibles.add_child(new_key)
+		$Collectibles.call_deferred("add_child", new_key)
 	else:
 		var new_node = Node2D.new()
 		new_node.set_name("Collectibles")

@@ -8,7 +8,7 @@ extends Label
 func _ready():
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#warning-ignore:unused_argument
 func _process(delta):
 	var my_pos = get_parent().get_global_position()
 	set_text(str("%5.0f" % my_pos.x) + ", " + str("%5.0f" % my_pos.y))
