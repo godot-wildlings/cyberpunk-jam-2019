@@ -75,7 +75,7 @@ func temporarily_disable_collision_bits():
 #warning-ignore:unused_argument
 func process_state(delta):
 	if player.state == my_state_num:
-		var drop_speed :float  = 600.0
+		#var drop_speed :float  = 600.0
 		velocity += get_gravity_vector(delta)
 		var damping = 0.1
 		velocity = move_and_bounce(velocity, delta, damping)

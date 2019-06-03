@@ -81,7 +81,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 341.604, 32.9098 )
+extents = Vector2( 341.604, 29.1848 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 36.7896, 29.3406 )
@@ -92,6 +92,7 @@ collision_mask = 28
 script = ExtResource( 1 )
 
 [node name="Sprites" type="Node2D" parent="."]
+position = Vector2( -1.26069, -29.6746 )
 
 [node name="RealSprite" type="Sprite" parent="Sprites"]
 position = Vector2( 1.01953, -1.5376 )
@@ -112,6 +113,7 @@ scale = Vector2( 0.33, 0.33 )
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.54627, -29.5181 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -121,6 +123,7 @@ anims/walk = SubResource( 4 )
 
 [node name="SFX" type="Node2D" parent="."]
 editor/display_folded = true
+position = Vector2( -7.62939e-006, -0.340553 )
 
 [node name="hits" type="Node2D" parent="SFX"]
 
@@ -170,44 +173,44 @@ volume_db = -9.0
 bus = "SFX"
 
 [node name="HealthBar" type="TextureProgress" parent="."]
-margin_left = -23.0316
-margin_top = -41.3068
-margin_right = 68.9684
-margin_bottom = -1.30677
+margin_left = -21.9522
+margin_top = -73.6431
+margin_right = 70.0478
+margin_bottom = -33.6431
 rect_scale = Vector2( 0.503994, 0.503994 )
 value = 100.0
 texture_under = ExtResource( 14 )
 texture_progress = ExtResource( 15 )
 
 [node name="GunRange" type="Area2D" parent="."]
-editor/display_folded = true
-visible = false
+position = Vector2( -0.340561, -0.681122 )
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GunRange"]
-position = Vector2( 343.186, -0.487671 )
+position = Vector2( 343.527, -27.7325 )
 shape = SubResource( 5 )
 
 [node name="EnemyGun" parent="." instance=ExtResource( 16 )]
-position = Vector2( -2.72713, -11.5513 )
+position = Vector2( -0.002635, -37.7744 )
 scale = Vector2( 0.15, 0.15 )
 
 [node name="MeleeRange" type="Area2D" parent="."]
-editor/display_folded = true
-visible = false
+position = Vector2( -7.62939e-006, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeRange"]
+position = Vector2( -0.340561, -29.6287 )
 shape = SubResource( 6 )
 
 [node name="EnemySightedLabel" type="Label" parent="."]
 visible = false
-margin_left = -43.7353
-margin_top = -56.9993
-margin_right = 50.2647
-margin_bottom = -42.9993
+margin_left = -42.5982
+margin_top = -97.165
+margin_right = 51.4018
+margin_bottom = -83.165
 text = "Enemy Sighted"
 
 [node name="Timers" type="Node2D" parent="."]
+position = Vector2( -0.340561, -38.8239 )
 
 [node name="DecisionTimer" type="Timer" parent="Timers"]
 one_shot = true
@@ -228,9 +231,10 @@ wait_time = 6.0
 one_shot = true
 
 [node name="Rays" type="Node2D" parent="."]
+position = Vector2( 0.0699043, -0.521378 )
 
 [node name="GroundDectorFront" type="RayCast2D" parent="Rays"]
-position = Vector2( 16.4335, 17.3076 )
+position = Vector2( 15.1453, -6.61568 )
 enabled = true
 cast_to = Vector2( 0, 15 )
 collision_mask = 4

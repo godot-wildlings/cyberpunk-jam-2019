@@ -20,11 +20,7 @@ onready var HUD = $CanvasLayer/PlayerHUD
 #warning-ignore:unused_class_variable
 onready var collision_shape = $CollisionShape2D
 
-#warning-ignore:unused_class_variable
-onready var ray_front = $RayFront
-#warning-ignore:unused_class_variable
-onready var ray_back = $RayBack
-onready var ground_rays = [ ray_front, ray_back ]
+onready var ground_rays = $GroundRays
 #warning-ignore:unused_class_variable
 onready var tween = $Tween
 #warning-ignore:unused_class_variable
@@ -206,14 +202,14 @@ func exit():
 
 func is_on_platform():
 	var on_platform = false
-	for ray in ground_rays:
+	for ray in ground_rays.get_children():
 		if ray.is_colliding() and ray.get_collider() is StaticBody2D:
 			on_platform = true
 	return on_platform
 
 func is_on_ground_plane():
 	var on_ground_plane = false
-	for ray in ground_rays:
+	for ray in ground_rays.get_children():
 		if ray.is_colliding() and ray.get_collider().is_in_group("ground_plane"):
 			on_ground_plane = true
 	return on_ground_plane
@@ -231,30 +227,12 @@ func get_platform_above() -> StaticBody2D:
 
 func get_current_platform() -> StaticBody2D:
 	var platform = null
-	for ground_ray in ground_rays:
+	for ground_ray in ground_rays.get_children():
 		if ground_ray.is_colliding() and ground_ray.get_collider() is StaticBody2D:
 			platform = ground_ray.get_collider()
 	return platform
 
-#func get_platform_below() -> StaticBody2D:
-#	var platform = null
-#	for ground_ray in ground_rays:
-#		if ground_ray.is_colliding() and ground_ray.get_collider() is StaticBody2D:
-#			platform = ground_ray.get_collider()
-#
-#	var ray = get_node("RayDown")
-#	# move the ray below the current platform so it doesn't see it.
-#	var margin = 50.0
-#	var platform_height = 200
-#	if platform != null and platform.get_child_count() > 0:
-#		platform_height = platform.get_child(0).get_shape().get_extents().y * 2
-#	ray.position = Vector2.DOWN * (character_height/2 + platform_height + margin)
-#	var distance_between_platforms = 250
-#	ray.set_cast_to(Vector2.DOWN * distance_between_platforms)
-#	if ray.is_colliding() and ray.get_collider() is StaticBody2D:
-#		return ray.get_collider()
-#	else:
-#		return null
+
 
 func _process(delta):
 	if state != states.dead:

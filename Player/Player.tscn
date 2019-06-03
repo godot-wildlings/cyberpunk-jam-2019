@@ -465,7 +465,6 @@ wait_time = 0.6
 one_shot = true
 
 [node name="Dead" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 18 )
 
 [node name="CrouchingSprite" type="Sprite" parent="States/Dead"]
@@ -629,18 +628,6 @@ anims/jump = SubResource( 9 )
 anims/punch = SubResource( 10 )
 anims/run = SubResource( 11 )
 
-[node name="RayFront" type="RayCast2D" parent="."]
-position = Vector2( 18.5238, 18.4018 )
-enabled = true
-cast_to = Vector2( 0, 8 )
-collision_mask = 4
-
-[node name="RayBack" type="RayCast2D" parent="."]
-position = Vector2( -17.8246, 18.227 )
-enabled = true
-cast_to = Vector2( 0, 8 )
-collision_mask = 4
-
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 script = ExtResource( 34 )
@@ -718,4 +705,18 @@ script = ExtResource( 45 )
 [node name="PlayerSprites" parent="." instance=ExtResource( 46 )]
 position = Vector2( -2.03339, -7.68172 )
 scale = Vector2( 0.2, 0.2 )
+
+[node name="GroundRays" type="Node2D" parent="."]
+
+[node name="RayFront" type="RayCast2D" parent="GroundRays"]
+position = Vector2( 18.5238, 18.4018 )
+enabled = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 4
+
+[node name="RayBack" type="RayCast2D" parent="GroundRays"]
+position = Vector2( -17.8246, 18.227 )
+enabled = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 4
 [connection signal="timeout" from="Actions/Attack/MeleeRange/PunchTimer" to="Actions/Attack" method="_on_PunchTimer_timeout"]

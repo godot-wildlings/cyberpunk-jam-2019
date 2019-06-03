@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenery/cars.png" type="Texture" id=1]
+[ext_resource path="res://BackgroundBuilding.gd" type="Script" id=2]
+
+[node name="BackgroundCar" type="Sprite"]
+self_modulate = Color( 0.462745, 0.462745, 0.462745, 1 )
+position = Vector2( -0.387085, -0.244446 )
+texture = ExtResource( 1 )
+offset = Vector2( -11.3725, -127.732 )
+hframes = 5
+script = ExtResource( 2 )
+randomize_y = true
+moving = true

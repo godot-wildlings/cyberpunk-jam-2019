@@ -16,44 +16,59 @@ func _ready():
 
 	spawn_background_buildings(60, "Far")
 	spawn_background_buildings(30, "Med")
-
-
+	spawn_background_signs(30, "Far")
+	spawn_background_signs(20, "Med")
+	spawn_background_cars(15, "Near")
+	spawn_background_cars(35, "Med")
 
 #warning-ignore:unused_argument
 func _process(delta):
 	update()
 
-func spawn_background_buildings(number : int = 1, layer : String = "Far"):
-		var building_container
+func spawn_background_cars(number, distance):
+	var object_scene = preload("res://Scenery/BackgroundCar.tscn")
+	spawn_background_objects(number, object_scene, distance)
+
+
+func spawn_background_buildings(number, distance):
+	var object_scene = preload("res://Scenery/BackgroundBuilding.tscn")
+	spawn_background_objects(number, object_scene, distance)
+
+func spawn_background_signs(number, distance):
+	var object_scene = preload("res://Scenery/BackgroundSign.tscn")
+	spawn_background_objects(number, object_scene, distance)
+
+func spawn_background_objects(number, object_scene, layer):
+		var container
 		var scale_factor : float
 		var modulate_factor : Color
+		var x_pos : float
+		var y_pos : float
 
 		if layer == "Far":
-			building_container = $CanvasLayer/ParallaxBackground/Far
+			container = $CanvasLayer/ParallaxBackground/Far
 			scale_factor = 0.5
-			modulate_factor = Color.darkred
 		elif layer == "Med":
-			building_container = $CanvasLayer/ParallaxBackground/Med
-			scale_factor = 0.75
-			modulate_factor = Color.white
-		elif layer == "Near":
-			building_container = $CanvasLayer/ParallaxBackground/Near
+			container = $CanvasLayer/ParallaxBackground/Med
 			scale_factor = 1.0
-			modulate_factor = Color.white + Color.lightgray
+		elif layer == "Near":
+			container = $CanvasLayer/ParallaxBackground/Near
+			scale_factor = 2.0
+		modulate_factor = Color.white * rand_range(0.1, 0.6)
+		modulate_factor.a = 1.0
+		y_pos = container.get_node("Horizon_Marker").get_global_position().y
 
-
-
-		var building_scene = preload("res://Scenery/BackgroundBuilding.tscn")
-#		var y_component = $Floors.get_global_position().y
-		var y_component = 400
-		var x_extent = 2000
+		x_pos = -2000
 		for i in range(number):
-			var new_building = building_scene.instance()
-			building_container.add_child(new_building)
-			new_building.set_global_position(Vector2(rand_range(-x_extent, x_extent), y_component))
+			var new_object = object_scene.instance()
+			container.add_child(new_object)
+			new_object.set_global_position(Vector2(x_pos, y_pos))
 			var rand_scale = Vector2.ONE * rand_range(0.5, 1.5)
-			new_building.set_scale(rand_scale * scale_factor)
-			new_building.set_self_modulate(modulate_factor)
+			new_object.set_scale(rand_scale * scale_factor)
+			new_object.set_modulate(modulate_factor)
+			x_pos += rand_range(100.0, 400.0)
+
+
 
 
 func spawn_player():
