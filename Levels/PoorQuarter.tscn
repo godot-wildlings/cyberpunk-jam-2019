@@ -332,6 +332,7 @@ modulate = Color( 0.709804, 0.709804, 0.709804, 1 )
 motion_scale = Vector2( 0.75, 1 )
 
 [node name="Horizon_Marker" type="Position2D" parent="CanvasLayer/ParallaxBackground/Med"]
+position = Vector2( 4.9043, 985.762 )
 
 [node name="Near" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 

@@ -340,7 +340,8 @@ func _on_Player_scanned():
 	display_correct_sprite()
 	desaturate_sprite()
 	if scanned_attitude == attitudes.fight:
-		enable_collisions_with_player()
+		#enable_collisions_with_player()
+		pass
 	if character_type == character_types.ghost:
 		ghost_timer.start()
 

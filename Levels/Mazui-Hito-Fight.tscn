@@ -251,4 +251,6 @@ motion_scale = Vector2( 1.25, 1 )
 
 [node name="Instructions" type="Node2D" parent="CanvasLayer2/ParallaxBackground/ParallaxLayer"]
 position = Vector2( 74.1735, -52.0001 )
+
+[node name="NPCs" type="Node2D" parent="."]
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]

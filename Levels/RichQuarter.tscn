@@ -1,22 +1,17 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenery/Rain.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenery/StackedContainers.png" type="Texture" id=3]
-[ext_resource path="res://Scenery/FarBuildings.png" type="Texture" id=4]
-[ext_resource path="res://Scenery/skyline1.png" type="Texture" id=5]
-[ext_resource path="res://Scenery/SilverSpires.png" type="Texture" id=6]
-[ext_resource path="res://Scenery/Corporation.png" type="Texture" id=7]
-[ext_resource path="res://Scenery/spire.png" type="Texture" id=8]
-[ext_resource path="res://UI/Themes/Fonts/RacingSansOne-Regular.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenery/concrete.png" type="Texture" id=11]
-[ext_resource path="res://Scenery/trolley.png" type="Texture" id=12]
-[ext_resource path="res://Scenery/Door2.tscn" type="PackedScene" id=13]
-[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=15]
-[ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=16]
-[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Rain__City_SFX.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Scenery/Corporation.png" type="Texture" id=3]
+[ext_resource path="res://Scenery/spire.png" type="Texture" id=4]
+[ext_resource path="res://UI/Themes/Fonts/RacingSansOne-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenery/concrete.png" type="Texture" id=7]
+[ext_resource path="res://Scenery/trolley.png" type="Texture" id=8]
+[ext_resource path="res://Scenery/Door2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=11]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Rain__City_SFX.ogg" type="AudioStream" id=12]
 
 [sub_resource type="TileSet" id=1]
 
@@ -24,7 +19,7 @@
 size = 48
 outline_size = 1
 outline_color = Color( 1, 0.968627, 0.478431, 1 )
-font_data = ExtResource( 9 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 2387.5, 93.431 )
@@ -55,93 +50,42 @@ self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1491.83, 370.318 )
 scale = Vector2( 1.75322, 2.33408 )
 
-[node name="StackedContainers" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
-visible = false
-position = Vector2( 1137.14, 338.918 )
-scale = Vector2( 0.511882, 0.511882 )
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 814, 560 )
+[node name="Horizon_Marker" type="Position2D" parent="CanvasLayer/ParallaxBackground/Far"]
+position = Vector2( 7.39233, 0 )
 
 [node name="Med" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 modulate = Color( 0.376471, 0.376471, 0.376471, 1 )
 motion_scale = Vector2( 0.75, 1 )
 
-[node name="buildings" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
-visible = false
-position = Vector2( 1424.67, 366.804 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 8892, 652 )
-
-[node name="buildingsMirror" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
-visible = false
-position = Vector2( 1425.08, 628.144 )
-scale = Vector2( 0.5, -0.33 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 8892, 652 )
-
-[node name="Skyline" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
-visible = false
-position = Vector2( 861.306, 143.038 )
-scale = Vector2( 1.9953, 2 )
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 1940, 647 )
-
-[node name="SkylineMirror" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
-visible = false
-position = Vector2( 864.581, 813.557 )
-scale = Vector2( 2, -1 )
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 1940, 647 )
+[node name="Horizon_Marker" type="Position2D" parent="CanvasLayer/ParallaxBackground/Med"]
 
 [node name="Near" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 
-[node name="SilverSpires" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
-visible = false
-modulate = Color( 0.403922, 0.639216, 0.596078, 1 )
-position = Vector2( 1467.73, -536.633 )
-scale = Vector2( 2.16, 2.16 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 3260, 982 )
-
-[node name="MirroredSpires2" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
-visible = false
-self_modulate = Color( 0.180392, 0.14902, 0.14902, 1 )
-position = Vector2( 1468.01, 768.853 )
-scale = Vector2( 2.16, -0.5 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 3260, 982 )
-
 [node name="Corp" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
-position = Vector2( 2660.33, -255.647 )
+position = Vector2( 1026.6, -778.462 )
 scale = Vector2( 6, 6 )
-texture = ExtResource( 7 )
+texture = ExtResource( 3 )
 
 [node name="CorpMirror" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
-position = Vector2( 2660.33, 905.869 )
+position = Vector2( 1026.6, 383.053 )
 scale = Vector2( 6, -3 )
-texture = ExtResource( 7 )
+texture = ExtResource( 3 )
 
 [node name="Spire" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
-position = Vector2( 2316.8, -866.803 )
+position = Vector2( 683.065, -1389.62 )
 scale = Vector2( 3, 4 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="SpireMirror" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
-position = Vector2( 2316.58, 1228.63 )
+position = Vector2( 682.846, 705.815 )
 scale = Vector2( 3, -2 )
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="CorpLabel" type="Label" parent="CanvasLayer/ParallaxBackground/Near"]
-margin_left = 2173.18
-margin_top = 346.857
-margin_right = 2459.18
-margin_bottom = 407.857
+margin_left = 539.445
+margin_top = -175.958
+margin_right = 825.445
+margin_bottom = -114.958
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.396078, 0.4, 0.0235294, 1 )
 custom_colors/font_color_shadow = Color( 0.160784, 0.137255, 0, 1 )
@@ -149,24 +93,24 @@ custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 text = "Mazui-Hito"
 
-[node name="Fog" parent="CanvasLayer/ParallaxBackground" instance=ExtResource( 10 )]
+[node name="Fog" parent="CanvasLayer/ParallaxBackground" instance=ExtResource( 6 )]
 position = Vector2( 1377.6, 116.966 )
 
 [node name="ResetZone" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="ResetArea" type="Area2D" parent="ResetZone"]
-position = Vector2( 1551.55, 794.696 )
+position = Vector2( -20.2754, 187.754 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResetZone/ResetArea"]
 shape = SubResource( 3 )
 
 [node name="Floors" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Floor1" type="StaticBody2D" parent="Floors" groups=[
 "platform",
 ]]
-position = Vector2( 1301.78, 528.679 )
+position = Vector2( 8.13623, 18.6136 )
 collision_layer = 4
 collision_mask = 3
 
@@ -175,22 +119,20 @@ shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Floors/Floor1"]
 position = Vector2( 0, -8.24518 )
-texture = ExtResource( 11 )
+texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 24 )
-
-[node name="Crates" type="Node2D" parent="."]
 
 [node name="Walls" type="Node2D" parent="."]
 
 [node name="WallLeft" type="StaticBody2D" parent="Walls"]
-position = Vector2( -722.279, 454.414 )
+position = Vector2( -2075.06, -321.773 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallLeft"]
 shape = SubResource( 5 )
 
 [node name="WallRight" type="StaticBody2D" parent="Walls"]
-position = Vector2( 3333.96, 406.581 )
+position = Vector2( 1981.18, -330.699 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallRight"]
 position = Vector2( 3.59229, 0 )
@@ -200,55 +142,41 @@ shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Scenery"]
 self_modulate = Color( 0, 0.337255, 0.580392, 1 )
-position = Vector2( 3099.4, 471.075 )
+position = Vector2( 1714.22, -54.9282 )
 rotation = -0.00872665
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 12 )
+texture = ExtResource( 8 )
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
-editor/display_folded = true
 
-[node name="Elevator3" parent="InteractiveObjects" instance=ExtResource( 13 )]
-position = Vector2( 2419.91, 472.945 )
+[node name="Elevator3" parent="InteractiveObjects" instance=ExtResource( 9 )]
+position = Vector2( 656.592, -43.3134 )
 door_type = 2
 scene_name = "Corporation"
 
-[node name="SceneChange" parent="InteractiveObjects" instance=ExtResource( 13 )]
-position = Vector2( 2920.57, 478.741 )
+[node name="SceneChange" parent="InteractiveObjects" instance=ExtResource( 9 )]
+position = Vector2( 1535.39, -69.4384 )
 door_type = 2
 scene_name = "PoorQuarter"
 locked = true
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 14 )]
-position = Vector2( 280.918, 493.807 )
-
-[node name="Enemy4" parent="Enemies" instance=ExtResource( 14 )]
-position = Vector2( -30.9358, 487.279 )
-
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 14 )]
-position = Vector2( 857.566, 484.094 )
-
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 14 )]
-position = Vector2( 1084.71, 483.199 )
-
-[node name="Robot" parent="Enemies" instance=ExtResource( 14 )]
-position = Vector2( 688.78, 486.024 )
+[node name="NPCs" type="Node2D" parent="."]
 
 [node name="PlayerSpawn" type="Position2D" parent="."]
-position = Vector2( -620.75, 493.792 )
+position = Vector2( -1758.23, -143.554 )
 
-[node name="iRealRenderer" parent="." instance=ExtResource( 15 )]
+[node name="iRealRenderer" parent="." instance=ExtResource( 10 )]
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 16 )
+stream = ExtResource( 11 )
 volume_db = -15.0
 autoplay = true
 bus = "Music"
 
 [node name="BGSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 17 )
+stream = ExtResource( 12 )
 volume_db = -15.0
 autoplay = true
 bus = "SFX"
@@ -286,4 +214,6 @@ Must be around here somewhere."
 align = 1
 
 [node name="foreground" type="Node2D" parent="."]
+
+[node name="Crates" type="Node2D" parent="."]
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]

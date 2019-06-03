@@ -62,7 +62,12 @@ func spawn_background_objects(number, object_scene, layer):
 			scale_factor = 2.0
 		modulate_factor = Color.white * rand_range(0.1, 0.6)
 		modulate_factor.a = 1.0
-		y_pos = container.get_node("Horizon_Marker").get_global_position().y
+
+#		if has_node("Horizon_Marker"):
+#			y_pos = container.get_node("Horizon_Marker").position.y
+#		else:
+#			y_pos = 0
+		y_pos = 400 # WTF? I don't understand CanvasLayer coordinates.
 
 		x_pos = -2000
 		#warning-ignore:unused_local_variable
