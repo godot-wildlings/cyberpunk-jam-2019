@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://NPCs/NPC.gd" type="Script" id=1]
 [ext_resource path="res://NPCs/female_walking-gray.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Player/health-red.png" type="Texture" id=14]
 [ext_resource path="res://Player/health-green.png" type="Texture" id=15]
 [ext_resource path="res://Weapons/EnemyGun.tscn" type="PackedScene" id=16]
+[ext_resource path="res://NPCs/Enemies/PositionLabel.gd" type="Script" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.6956, 28.0453 )
@@ -92,7 +93,7 @@ collision_mask = 28
 script = ExtResource( 1 )
 
 [node name="Sprites" type="Node2D" parent="."]
-position = Vector2( -1.26069, -29.6746 )
+position = Vector2( 0.72956, -1.14765 )
 
 [node name="RealSprite" type="Sprite" parent="Sprites"]
 position = Vector2( 1.01953, -1.5376 )
@@ -103,17 +104,16 @@ frame = 1
 
 [node name="GhostSprite" type="Sprite" parent="Sprites"]
 visible = false
-position = Vector2( 0.527039, 8.69614 )
+position = Vector2( -0.696395, 1.15162 )
 texture = ExtResource( 3 )
 
 [node name="SinnerSprite" type="Sprite" parent="Sprites"]
-visible = false
 position = Vector2( 3.4664, -14.8851 )
 scale = Vector2( 0.33, 0.33 )
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1.54627, -29.5181 )
+position = Vector2( 0.44398, -0.991154 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -173,10 +173,10 @@ volume_db = -9.0
 bus = "SFX"
 
 [node name="HealthBar" type="TextureProgress" parent="."]
-margin_left = -21.9522
-margin_top = -73.6431
-margin_right = 70.0478
-margin_bottom = -33.6431
+margin_left = -22.9536
+margin_top = -42.8509
+margin_right = 69.0464
+margin_bottom = -2.85092
 rect_scale = Vector2( 0.503994, 0.503994 )
 value = 100.0
 texture_under = ExtResource( 14 )
@@ -187,18 +187,20 @@ position = Vector2( -0.340561, -0.681122 )
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GunRange"]
-position = Vector2( 343.527, -27.7325 )
+visible = false
+position = Vector2( 347.708, -0.972918 )
 shape = SubResource( 5 )
 
 [node name="EnemyGun" parent="." instance=ExtResource( 16 )]
-position = Vector2( -0.002635, -37.7744 )
+position = Vector2( 1.25172, -11.8511 )
 scale = Vector2( 0.15, 0.15 )
 
 [node name="MeleeRange" type="Area2D" parent="."]
 position = Vector2( -7.62939e-006, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeRange"]
-position = Vector2( -0.340561, -29.6287 )
+visible = false
+position = Vector2( 0.913788, -1.19665 )
 shape = SubResource( 6 )
 
 [node name="EnemySightedLabel" type="Label" parent="."]
@@ -210,7 +212,7 @@ margin_bottom = -83.165
 text = "Enemy Sighted"
 
 [node name="Timers" type="Node2D" parent="."]
-position = Vector2( -0.340561, -38.8239 )
+position = Vector2( 0.495682, -0.35701 )
 
 [node name="DecisionTimer" type="Timer" parent="Timers"]
 one_shot = true
@@ -231,13 +233,20 @@ wait_time = 6.0
 one_shot = true
 
 [node name="Rays" type="Node2D" parent="."]
-position = Vector2( 0.0699043, -0.521378 )
+position = Vector2( 0.820927, -0.271035 )
 
 [node name="GroundDectorFront" type="RayCast2D" parent="Rays"]
-position = Vector2( 15.1453, -6.61568 )
+position = Vector2( 19.6515, 17.9179 )
 enabled = true
 cast_to = Vector2( 0, 15 )
 collision_mask = 4
+
+[node name="PositionLabel" type="Label" parent="."]
+margin_left = -18.8413
+margin_top = -61.6191
+margin_right = 21.1587
+margin_bottom = -47.6191
+script = ExtResource( 17 )
 [connection signal="timeout" from="Timers/DecisionTimer" to="." method="_on_DecisionTimer_timeout"]
 [connection signal="timeout" from="Timers/ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
 [connection signal="timeout" from="Timers/RecognitionTimer" to="." method="_on_RecognitionTimer_timeout"]

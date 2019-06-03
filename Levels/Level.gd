@@ -84,17 +84,17 @@ func _on_ResetArea_body_entered(body):
 		update()
 		Game.main.reset_level()
 
-func spawn_key(location):
+func spawn_key(new_position):
 	var key_scene = preload("res://Collectibles/Key.tscn")
 	var new_key = key_scene.instance()
-	new_key.set_global_position(location)
 	if has_node("Collectibles"):
-		$Collectibles.call_deferred("add_child", new_key)
+		$Collectibles.add_child(new_key)
 	else:
 		var new_node = Node2D.new()
 		new_node.set_name("Collectibles")
 		add_child(new_node)
-		$Collectibles.call_deferred("add_child", new_key)
+		$Collectibles.add_child(new_key)
+	new_key.start(new_position)
 
 func stop_music():
 	if has_node("BGMusic"):
