@@ -23,14 +23,14 @@ gradient = SubResource( 1 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 2387.5, 93.431 )
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0.00903614, 0.0301205 )
 colors = PoolColorArray( 0.351563, 0.351563, 0.351563, 1, 0, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 2003.54, 10 )
 
 [sub_resource type="RectangleShape2D" id=7]
@@ -366,12 +366,12 @@ margin_right = -3245.7
 margin_bottom = 23.6006
 rect_rotation = 89.9999
 rect_scale = Vector2( 25.0013, -163.055 )
-texture = SubResource( 6 )
+texture = SubResource( 5 )
 expand = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor1"]
 position = Vector2( -0.875977, 10.2198 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="Crates" type="Node2D" parent="."]
 position = Vector2( -1189.85, -517.327 )

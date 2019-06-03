@@ -465,6 +465,7 @@ wait_time = 0.6
 one_shot = true
 
 [node name="Dead" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 18 )
 
 [node name="CrouchingSprite" type="Sprite" parent="States/Dead"]
@@ -695,11 +696,11 @@ wait_time = 0.25
 autostart = true
 
 [node name="StateLabel" type="Label" parent="."]
-visible = false
 margin_left = -21.6071
 margin_top = -57.8135
 margin_right = 18.3929
 margin_bottom = -43.8135
+text = "state"
 script = ExtResource( 45 )
 
 [node name="PlayerSprites" parent="." instance=ExtResource( 46 )]

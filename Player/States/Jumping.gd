@@ -37,7 +37,7 @@ func activate(arguments : Array = []):
 		player.animation_player.play("jump")
 		#player.play_random_climb_sfx()
 		Game.play_random_sfx($SFX)
-		jump_velocity = initial_velocity + Vector2.UP * jump_speed
+		velocity = initial_velocity + Vector2.UP * jump_speed
 
 
 
@@ -59,21 +59,21 @@ func process_state(delta):
 
 
 func move(delta):
-	jump_velocity.y += Game.gravity * delta
+	velocity += get_gravity_vector(delta)
 
 
-	var new_vel = move_and_bounce(jump_velocity, delta, bounce_damping)
 
-	if sign(new_vel.y) != sign(jump_velocity.y): # hit the ground?
-		if player.is_on_platform():
-			player.land(jump_velocity)
+	velocity = move_and_bounce(velocity, delta, bounce_damping)
 
-	velocity = new_vel # important to update this every frame, even if we don't use it
+	if sign(velocity.y) > 0 and player.is_on_platform():
+		player.land(jump_velocity)
+
+	#velocity = new_vel # important to update this every frame, even if we don't use it
 
 func listen_for_exit_conditions():
 		if Input.is_action_just_pressed("jump") and jump_num < max_jumps:
-			player.jump(jump_velocity)
+			player.jump(velocity)
 		elif Input.is_action_just_pressed("mv_up") and jump_num < max_jumps:
-			player.jump(jump_velocity)
+			player.jump(velocity)
 
 
