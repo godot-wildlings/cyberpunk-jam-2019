@@ -55,11 +55,11 @@ bus = "Music"
 stream = ExtResource( 7 )
 bus = "Music"
 
-[node name="Neon Skyline" type="AudioStreamPlayer" parent="Tracks"]
+[node name="City of Sinners" type="AudioStreamPlayer" parent="Tracks"]
 stream = ExtResource( 8 )
 bus = "Music"
 
-[node name="Ambient Piano Theme" type="AudioStreamPlayer" parent="Tracks"]
+[node name="Neon Skyline" type="AudioStreamPlayer" parent="Tracks"]
 stream = ExtResource( 9 )
 bus = "Music"
 
