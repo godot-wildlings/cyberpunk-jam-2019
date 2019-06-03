@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cyberpunk_Jam_-_Neon_Skyline.ogg-d17303f94e048b1b28fa2cae310d34f6.oggstr"
+
+[deps]
+
+source_file="res://BGMusic/Cyberpunk_Jam_-_Neon_Skyline.ogg"
+dest_files=[ "res://.import/Cyberpunk_Jam_-_Neon_Skyline.ogg-d17303f94e048b1b28fa2cae310d34f6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

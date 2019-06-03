@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cyberpunk_Jam_-_Ambient_Piano_Theme.ogg-54bb381aa25e865c845a82de319ff8ef.oggstr"
+
+[deps]
+
+source_file="res://BGMusic/Cyberpunk_Jam_-_Ambient_Piano_Theme.ogg"
+dest_files=[ "res://.import/Cyberpunk_Jam_-_Ambient_Piano_Theme.ogg-54bb381aa25e865c845a82de319ff8ef.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

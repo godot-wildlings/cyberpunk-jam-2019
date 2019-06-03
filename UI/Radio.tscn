@@ -1,20 +1,25 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://UI/Radio.gd" type="Script" id=1]
 [ext_resource path="res://BGMusic/Cyberounk_Jam_-_Cyber_Blues_.ogg" type="AudioStream" id=2]
 [ext_resource path="res://BGMusic/Cyber_Jam_-_Police_Station_Theme.ogg" type="AudioStream" id=3]
 [ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Intro_Theme_Rough_2.ogg" type="AudioStream" id=4]
 [ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Nightfall.ogg" type="AudioStream" id=5]
-[ext_resource path="res://UI/radio/prevNormal.png" type="Texture" id=6]
-[ext_resource path="res://UI/radio/prevHover.png" type="Texture" id=7]
-[ext_resource path="res://UI/radio/playNormal.png" type="Texture" id=8]
-[ext_resource path="res://UI/radio/playHover.png" type="Texture" id=9]
-[ext_resource path="res://UI/radio/pauseNormal.png" type="Texture" id=10]
-[ext_resource path="res://UI/radio/pauseHover.png" type="Texture" id=11]
-[ext_resource path="res://UI/radio/nextNormal.png" type="Texture" id=12]
-[ext_resource path="res://UI/radio/nextHover.png" type="Texture" id=13]
-[ext_resource path="res://UI/radio/volumeBack.png" type="Texture" id=14]
-[ext_resource path="res://UI/radio/volumeFront.png" type="Texture" id=15]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Ghost_In_the_Machine.ogg" type="AudioStream" id=6]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Last_Man_Standing_.ogg" type="AudioStream" id=7]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Neon_Skyline.ogg" type="AudioStream" id=8]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Ambient_Piano_Theme.ogg" type="AudioStream" id=9]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Do_Androids_Dream_of_Electric_Beats.ogg" type="AudioStream" id=10]
+[ext_resource path="res://UI/radio/prevNormal.png" type="Texture" id=11]
+[ext_resource path="res://UI/radio/prevHover.png" type="Texture" id=12]
+[ext_resource path="res://UI/radio/playNormal.png" type="Texture" id=13]
+[ext_resource path="res://UI/radio/playHover.png" type="Texture" id=14]
+[ext_resource path="res://UI/radio/pauseNormal.png" type="Texture" id=15]
+[ext_resource path="res://UI/radio/pauseHover.png" type="Texture" id=16]
+[ext_resource path="res://UI/radio/nextNormal.png" type="Texture" id=17]
+[ext_resource path="res://UI/radio/nextHover.png" type="Texture" id=18]
+[ext_resource path="res://UI/radio/volumeBack.png" type="Texture" id=19]
+[ext_resource path="res://UI/radio/volumeFront.png" type="Texture" id=20]
 
 [node name="Radio" type="VBoxContainer"]
 anchor_right = 1.0
@@ -35,14 +40,35 @@ bus = "Music"
 
 [node name="Ghost Town" type="AudioStreamPlayer" parent="Tracks"]
 stream = ExtResource( 4 )
+bus = "Music"
 
 [node name="Nightfall" type="AudioStreamPlayer" parent="Tracks"]
 stream = ExtResource( 5 )
 volume_db = -9.0
 bus = "Music"
 
+[node name="Ghost in the Machine" type="AudioStreamPlayer" parent="Tracks"]
+stream = ExtResource( 6 )
+bus = "Music"
+
+[node name="Last Man Standing" type="AudioStreamPlayer" parent="Tracks"]
+stream = ExtResource( 7 )
+bus = "Music"
+
+[node name="Neon Skyline" type="AudioStreamPlayer" parent="Tracks"]
+stream = ExtResource( 8 )
+bus = "Music"
+
+[node name="Ambient Piano Theme" type="AudioStreamPlayer" parent="Tracks"]
+stream = ExtResource( 9 )
+bus = "Music"
+
+[node name="Do Android Dream of Electric Beats" type="AudioStreamPlayer" parent="Tracks"]
+stream = ExtResource( 10 )
+bus = "Music"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 1024.0
+margin_right = 1280.0
 margin_bottom = 32.0
 
 [node name="PrevButton" type="TextureButton" parent="HBoxContainer"]
@@ -51,8 +77,8 @@ margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
 focus_mode = 0
 enabled_focus_mode = 0
-texture_normal = ExtResource( 6 )
-texture_hover = ExtResource( 7 )
+texture_normal = ExtResource( 11 )
+texture_hover = ExtResource( 12 )
 expand = true
 stretch_mode = 5
 
@@ -63,8 +89,8 @@ margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
 focus_mode = 0
 enabled_focus_mode = 0
-texture_normal = ExtResource( 8 )
-texture_hover = ExtResource( 9 )
+texture_normal = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
 expand = true
 stretch_mode = 5
 
@@ -75,8 +101,8 @@ margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
 focus_mode = 0
 enabled_focus_mode = 0
-texture_normal = ExtResource( 10 )
-texture_hover = ExtResource( 11 )
+texture_normal = ExtResource( 15 )
+texture_hover = ExtResource( 16 )
 expand = true
 stretch_mode = 5
 
@@ -87,35 +113,37 @@ margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
 focus_mode = 0
 enabled_focus_mode = 0
-texture_normal = ExtResource( 12 )
-texture_hover = ExtResource( 13 )
+texture_normal = ExtResource( 17 )
+texture_hover = ExtResource( 18 )
 expand = true
 stretch_mode = 5
 
 [node name="VolumeSlider" type="HSlider" parent="HBoxContainer"]
 margin_left = 144.0
-margin_right = 582.0
+margin_right = 710.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 50, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-value = 50.0
+max_value = 400.0
+step = 10.0
+value = 150.0
 ticks_on_borders = true
 
 [node name="VolumeDisplay" type="TextureProgress" parent="HBoxContainer"]
-margin_left = 586.0
-margin_right = 1024.0
+margin_left = 714.0
+margin_right = 1280.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 min_value = 1.0
 value = 50.0
-texture_under = ExtResource( 14 )
-texture_progress = ExtResource( 15 )
+texture_under = ExtResource( 19 )
+texture_progress = ExtResource( 20 )
 
 [node name="TrackName" type="Label" parent="."]
 margin_top = 36.0
-margin_right = 1024.0
+margin_right = 1280.0
 margin_bottom = 50.0
 text = "Music"
 align = 1

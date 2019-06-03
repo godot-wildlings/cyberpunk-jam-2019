@@ -5,7 +5,7 @@
 [ext_resource path="res://Story/Chief.png" type="Texture" id=3]
 [ext_resource path="res://BGMusic/Cyber_Jam_-_Police_Station_Theme.ogg" type="AudioStream" id=4]
 
-[node name="HQ1" instance=ExtResource( 1 )]
+[node name="HQ1" index="0" instance=ExtResource( 1 )]
 dialog = [ "I heard you had quite the eventful evening in the Sprawl, last night Mick. Three dead and over four thousand cred’s worth of damage.", "It wasn’t my fault. I was chasing down a rogue chick ghost with a scanty ident. Let’s just say... It got a little frenetic. If the sheeple walk into my line of fire... ", "The City can’t keep taking the hit for all this collateral damage. It just can’t. I’ve got the Commissioner breathing down my neck every day.", "What can I say, I’m a shoot first, ask questions later, kinda guy. What? Don’t look at me like that.", "Tecken’s Balls, Mick, use your God damn Scanner for once in your life. That’s what it’s there for. That’s what we pay you to do. What if they had been worthies? Imagine the heat the department would be put under.", "Okay, okay. Don’t try and kill any civilians. Just Ghosts and Sinners.", "Ghost and Sinners, you got that god damn, right." ]
 
 [node name="TextureRect" type="TextureRect" parent="." index="0"]

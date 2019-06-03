@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cyberpunk_Jam_-_Last_Man_Standing_.ogg-7f96e69a77fd44e598a9b5ce1cdc62fe.oggstr"
+
+[deps]
+
+source_file="res://BGMusic/Cyberpunk_Jam_-_Last_Man_Standing_.ogg"
+dest_files=[ "res://.import/Cyberpunk_Jam_-_Last_Man_Standing_.ogg-7f96e69a77fd44e598a9b5ce1cdc62fe.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

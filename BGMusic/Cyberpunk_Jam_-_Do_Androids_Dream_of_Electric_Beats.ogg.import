@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Cyberpunk_Jam_-_Do_Androids_Dream_of_Electric_Beats.ogg-dae447acfea17bf06746c8475e3f4396.oggstr"
+
+[deps]
+
+source_file="res://BGMusic/Cyberpunk_Jam_-_Do_Androids_Dream_of_Electric_Beats.ogg"
+dest_files=[ "res://.import/Cyberpunk_Jam_-_Do_Androids_Dream_of_Electric_Beats.ogg-dae447acfea17bf06746c8475e3f4396.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
