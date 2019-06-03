@@ -57,11 +57,12 @@ func process_state(delta):
 				else:
 					player.jump()
 		elif Input.is_action_just_pressed("mv_down"):
-			var platform = player.get_current_platform()
-			if not platform.is_in_group("ground_plane"):
-				player.drop()
-			else:
-				player.crouch(Vector2.ZERO)
+			if player.is_on_platform():
+				var platform = player.get_current_platform()
+				if not platform.is_in_group("ground_plane"):
+					player.drop()
+				else:
+					player.crouch(Vector2.ZERO)
 		elif Input.is_action_pressed("mv_down"):
 			player.crouch(Vector2.ZERO)
 

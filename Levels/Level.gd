@@ -14,9 +14,47 @@ func _ready():
 	if starting_cutscene != null and starting_cutscene.length() > 0:
 		Game.main.load_cutscene(starting_cutscene)
 
+	spawn_background_buildings(60, "Far")
+	spawn_background_buildings(30, "Med")
+
+
+
 #warning-ignore:unused_argument
 func _process(delta):
 	update()
+
+func spawn_background_buildings(number : int = 1, layer : String = "Far"):
+		var building_container
+		var scale_factor : float
+		var modulate_factor : Color
+
+		if layer == "Far":
+			building_container = $CanvasLayer/ParallaxBackground/Far
+			scale_factor = 0.5
+			modulate_factor = Color.darkred
+		elif layer == "Med":
+			building_container = $CanvasLayer/ParallaxBackground/Med
+			scale_factor = 0.75
+			modulate_factor = Color.white
+		elif layer == "Near":
+			building_container = $CanvasLayer/ParallaxBackground/Near
+			scale_factor = 1.0
+			modulate_factor = Color.white + Color.lightgray
+
+
+
+		var building_scene = preload("res://Scenery/BackgroundBuilding.tscn")
+#		var y_component = $Floors.get_global_position().y
+		var y_component = 400
+		var x_extent = 2000
+		for i in range(number):
+			var new_building = building_scene.instance()
+			building_container.add_child(new_building)
+			new_building.set_global_position(Vector2(rand_range(-x_extent, x_extent), y_component))
+			var rand_scale = Vector2.ONE * rand_range(0.5, 1.5)
+			new_building.set_scale(rand_scale * scale_factor)
+			new_building.set_self_modulate(modulate_factor)
+
 
 func spawn_player():
 	assert is_instance_valid(player_spawn)

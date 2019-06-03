@@ -14,7 +14,7 @@ func _ready():
 func deferred_ready():
 	player = get_parent().get_parent()
 	gun = player.get_node("PlayerSprites/Torso/ArmR/ForearmR/Gun")
-	print(self.name, " thinks gun is " , gun , " " , gun.get("name"))
+	#print(self.name, " thinks gun is " , gun , " " , gun.get("name"))
 	tween = player.get_node("Tween")
 
 
@@ -59,7 +59,7 @@ func shoot():
 
 
 func draw_gun():
-	print(self.name, " playing shoot animation")
+	#print(self.name, " playing shoot animation")
 
 	if player.state == player.states.crouching:
 		player.animation_player.play("shoot_crouching")

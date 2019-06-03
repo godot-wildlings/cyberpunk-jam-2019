@@ -1,29 +1,37 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Scenery/Rain.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenery/SilverSpires.png" type="Texture" id=4]
-[ext_resource path="res://Scenery/FarBuildings.png" type="Texture" id=5]
-[ext_resource path="res://Scenery/StackedContainers.png" type="Texture" id=6]
-[ext_resource path="res://UI/Themes/cyberpunk_HUD_theme.tres" type="Theme" id=7]
-[ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenery/concrete.png" type="Texture" id=9]
-[ext_resource path="res://Levels/ShippingContainer.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenery/trolley.png" type="Texture" id=11]
-[ext_resource path="res://Scenery/Door2.tscn" type="PackedScene" id=12]
-[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Nightfall.ogg" type="AudioStream" id=13]
-[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Rain__City_SFX.ogg" type="AudioStream" id=14]
-[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=15]
-[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenery/Rain.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenery/SilverSpires.png" type="Texture" id=3]
+[ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/ShippingContainer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenery/BackgroundBuilding.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenery/trolley.png" type="Texture" id=7]
+[ext_resource path="res://Scenery/Door2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Nightfall.ogg" type="AudioStream" id=9]
+[ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Rain__City_SFX.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=12]
 
-[sub_resource type="TileSet" id=1]
+[sub_resource type="Gradient" id=14]
+offsets = PoolRealArray( 0.397516, 0.729814, 0.78882, 0.956522 )
+colors = PoolColorArray( 0.359497, 0, 0.371094, 1, 0.535156, 0.535156, 0.535156, 1, 0.545098, 0.533333, 0.517647, 1, 0.5, 0.199219, 0, 1 )
+
+[sub_resource type="GradientTexture" id=15]
+gradient = SubResource( 14 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2387.5, 93.431 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 2003.54, 10 )
+
+[sub_resource type="Gradient" id=16]
+offsets = PoolRealArray( 0.00903614, 0.0301205 )
+colors = PoolColorArray( 0.351563, 0.351563, 0.351563, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=17]
+gradient = SubResource( 16 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 53.7192, 431.366 )
@@ -288,139 +296,50 @@ tracks/0/keys = {
 script = ExtResource( 1 )
 starting_cutscene = "HQ1"
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 1 )
-format = 1
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 
 [node name="Far" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-editor/display_folded = true
-modulate = Color( 0.298039, 0.298039, 0.298039, 1 )
 motion_scale = Vector2( 0.5, 1 )
 
-[node name="Sprite3" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
-position = Vector2( 936.996, 510.38 )
-scale = Vector2( 0.762195, 0.762195 )
-texture = ExtResource( 2 )
-
-[node name="Sprite5" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
-position = Vector2( 1112.32, 477.264 )
-scale = Vector2( 0.762195, 0.762195 )
-texture = ExtResource( 2 )
-
-[node name="Sprite6" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
-position = Vector2( 1359.72, 477.264 )
-scale = Vector2( 0.762195, 0.762195 )
-texture = ExtResource( 2 )
-
-[node name="Sprite4" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
-position = Vector2( 241.554, 512.328 )
-scale = Vector2( 0.762195, 0.762195 )
-texture = ExtResource( 2 )
-
-[node name="Rain" parent="CanvasLayer/ParallaxBackground/Far" instance=ExtResource( 3 )]
+[node name="Rain" parent="CanvasLayer/ParallaxBackground/Far" instance=ExtResource( 2 )]
 self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1491.83, 370.318 )
 scale = Vector2( 1.75322, 2.33408 )
 
 [node name="SilverSpires" type="Sprite" parent="CanvasLayer/ParallaxBackground/Far"]
+visible = false
 position = Vector2( 1486.74, 46.4608 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 3260, 982 )
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground/Far"]
+margin_left = -3285.03
+margin_top = -1810.64
+margin_right = -1237.03
+margin_bottom = -1770.64
+rect_rotation = 89.9999
+rect_scale = Vector2( 0.879939, -163.133 )
+texture = SubResource( 15 )
+expand = true
+stretch_mode = 1
+
 [node name="Med" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-modulate = Color( 0.376471, 0.376471, 0.376471, 1 )
 motion_scale = Vector2( 0.75, 1 )
 
-[node name="Sprite2" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
-position = Vector2( 274.056, 306.702 )
-scale = Vector2( 1.34222, 1.34222 )
-texture = ExtResource( 2 )
-
-[node name="Sprite3" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
-position = Vector2( 1279.33, 84.8305 )
-scale = Vector2( 1.34222, 1.34222 )
-texture = ExtResource( 2 )
-
-[node name="Label" type="Label" parent="CanvasLayer/ParallaxBackground/Med/Sprite3"]
-margin_left = -27.1219
-margin_top = -23.7318
-margin_right = 25.8781
-margin_bottom = 24.2682
-custom_colors/font_color = Color( 1, 0.894118, 0.196078, 1 )
-text = "The face
-of your 
-dreams"
-align = 1
-
-[node name="Sprite4" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
-position = Vector2( 1447.38, 467.524 )
-scale = Vector2( 1.34222, 1.34222 )
-texture = ExtResource( 2 )
-
-[node name="buildings" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
-position = Vector2( 1424.67, 366.804 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 8892, 652 )
-
-[node name="buildingsMirror" type="Sprite" parent="CanvasLayer/ParallaxBackground/Med"]
-position = Vector2( 1425.08, 628.144 )
-scale = Vector2( 0.5, -0.33 )
-texture = ExtResource( 5 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 8892, 652 )
-
 [node name="Near" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-modulate = Color( 0.427451, 0, 0.690196, 1 )
 
-[node name="Sprite" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
-position = Vector2( 492.848, 457.784 )
-scale = Vector2( 2.73498, 2.73498 )
-texture = ExtResource( 2 )
-
-[node name="Sprite2" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
-position = Vector2( 767.518, 278.566 )
-scale = Vector2( 2.73498, 2.73498 )
-texture = ExtResource( 2 )
-
-[node name="Sprite3" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
-position = Vector2( 1755.16, 420.771 )
-scale = Vector2( 2.73498, 2.73498 )
-texture = ExtResource( 2 )
-
-[node name="StackedContainers" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
-position = Vector2( 1242.03, 268.48 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 814, 560 )
-
-[node name="ContainersMirror" type="Sprite" parent="CanvasLayer/ParallaxBackground/Near"]
-position = Vector2( 1242.03, 605.384 )
-scale = Vector2( 1, -0.25 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 814, 560 )
-
-[node name="Label" type="Label" parent="CanvasLayer/ParallaxBackground/Near"]
-margin_left = 419.295
-margin_top = 374.987
-margin_right = 476.295
-margin_bottom = 405.987
-theme = ExtResource( 7 )
-text = "OBEY"
-
-[node name="Fog" parent="CanvasLayer/ParallaxBackground" instance=ExtResource( 8 )]
+[node name="Fog" parent="CanvasLayer/ParallaxBackground" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( -17.2441, -51.7329 )
 
 [node name="ResetZone" type="Node2D" parent="."]
+position = Vector2( 5.0304, 3.54468 )
 
 [node name="ResetArea" type="Area2D" parent="ResetZone"]
-position = Vector2( 1551.55, 794.696 )
+position = Vector2( -5.84534, 243.118 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResetZone/ResetArea"]
 shape = SubResource( 2 )
@@ -431,127 +350,147 @@ shape = SubResource( 2 )
 "platform",
 "ground_plane",
 ]]
-position = Vector2( 1301.78, 528.679 )
 collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor1"]
 shape = SubResource( 3 )
 
-[node name="ConcreteSprite" type="Sprite" parent="Floors/Floor1"]
-position = Vector2( 0.754639, -7.54706 )
-scale = Vector2( 4, 1 )
-texture = ExtResource( 9 )
+[node name="ColorRect" type="TextureRect" parent="Floors/Floor1"]
+margin_left = -3299.7
+margin_top = -16.3994
+margin_right = -3245.7
+margin_bottom = 23.6006
+rect_rotation = 89.9999
+rect_scale = Vector2( 25.0013, -163.055 )
+texture = SubResource( 17 )
+expand = true
 
 [node name="Crates" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( -1189.85, -517.327 )
 
-[node name="ShippingContainer1" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer1" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( -16.6784, -261.455 )
 
-[node name="ShippingContainer13" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer13" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( -65.1611, 360.72 )
 
-[node name="ShippingContainer14" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer14" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( -71.2907, 203.119 )
 
-[node name="ShippingContainer15" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer15" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( -36.9048, 48.158 )
 
-[node name="ShippingContainer16" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer16" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( -56.0835, -108.529 )
 
-[node name="ShippingContainer2" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer2" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( 873.9, 359.991 )
 
-[node name="ShippingContainer3" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer3" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( 890.029, 202.434 )
 
-[node name="ShippingContainer4" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer4" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( 878.35, 46.6571 )
 
-[node name="ShippingContainer5" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer5" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( 984.619, -109.115 )
 
-[node name="ShippingContainer6" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer6" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( 1816.48, 359.336 )
 
-[node name="ShippingContainer7" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer7" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( 1862.76, 201.522 )
 
-[node name="ShippingContainer8" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer8" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( 1878.76, 47.1524 )
 
-[node name="ShippingContainer9" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer9" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( 1820.13, -109.403 )
 
-[node name="ShippingContainer10" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer10" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( 1374.48, -266.156 )
 
-[node name="ShippingContainer17" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer17" parent="Crates" instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 1364.99, -107.718 )
 
-[node name="ShippingContainer11" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer11" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( 1380.29, -422.182 )
 
-[node name="ShippingContainer12" parent="Crates" instance=ExtResource( 10 )]
+[node name="ShippingContainer12" parent="Crates" instance=ExtResource( 5 )]
 position = Vector2( 1398.15, -579.474 )
 
 [node name="Walls" type="Node2D" parent="."]
-editor/display_folded = true
+position = Vector2( 1.40649, -0.0895996 )
 
 [node name="WallLeft" type="StaticBody2D" parent="Walls"]
-position = Vector2( -722.279, 454.414 )
+position = Vector2( -1972.87, -423.449 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallLeft"]
 shape = SubResource( 4 )
 
+[node name="BackgroundBuilding" parent="Walls/WallLeft" instance=ExtResource( 6 )]
+position = Vector2( -278.513, 429.962 )
+scale = Vector2( 3.93412, 3.93412 )
+frame = 3
+randomize_building = false
+
 [node name="WallRight" type="StaticBody2D" parent="Walls"]
-position = Vector2( 3333.96, 406.581 )
+position = Vector2( 2110.06, -431.252 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallRight"]
 shape = SubResource( 4 )
 
+[node name="BackgroundBuilding2" parent="Walls/WallRight" instance=ExtResource( 6 )]
+position = Vector2( 407.954, 432.719 )
+scale = Vector2( 3.93412, 3.93412 )
+frame = 3
+randomize_building = false
+
 [node name="Scenery" type="Node2D" parent="."]
 editor/display_folded = true
+position = Vector2( -922.567, -525.949 )
 
 [node name="Trolley" type="Sprite" parent="Scenery"]
 self_modulate = Color( 0.705882, 0.32549, 0.760784, 1 )
 position = Vector2( 2662.75, 468.302 )
 rotation = -0.00872665
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
+texture = ExtResource( 7 )
 
 [node name="InteractiveObjects" type="Node2D" parent="."]
+position = Vector2( -1554.19, -520.942 )
 
-[node name="HealthDoor" parent="InteractiveObjects" instance=ExtResource( 12 )]
-position = Vector2( -214.114, -4.72958 )
+[node name="HealthDoor" parent="InteractiveObjects" instance=ExtResource( 8 )]
+position = Vector2( 131.153, -0.518948 )
 
-[node name="AmmoDoor" parent="InteractiveObjects" instance=ExtResource( 12 )]
+[node name="AmmoDoor" parent="InteractiveObjects" instance=ExtResource( 8 )]
 editor/display_folded = true
 position = Vector2( -239.901, 468.643 )
 door_type = 0
 
-[node name="SceneChangeDoor" parent="InteractiveObjects" instance=ExtResource( 12 )]
+[node name="SceneChangeDoor" parent="InteractiveObjects" instance=ExtResource( 8 )]
 editor/display_folded = true
 position = Vector2( 2518.93, 480.027 )
 door_type = 2
 scene_name = "RichQuarter"
 
-[node name="CutsceneDoor" parent="InteractiveObjects" instance=ExtResource( 12 )]
+[node name="CutsceneDoor" parent="InteractiveObjects" instance=ExtResource( 8 )]
 editor/display_folded = true
 position = Vector2( 1822.57, 476.035 )
 door_type = 3
 scene_name = "FemmeFatale"
 locked = true
 
-[node name="Elevator1" parent="InteractiveObjects" instance=ExtResource( 12 )]
+[node name="Elevator1" parent="InteractiveObjects" instance=ExtResource( 8 )]
 editor/display_folded = true
 position = Vector2( 1427.55, 473.547 )
 door_type = 4
 linkedElevatorName = "Elevator2"
 
-[node name="Elevator2" parent="InteractiveObjects" instance=ExtResource( 12 )]
+[node name="Elevator2" parent="InteractiveObjects" instance=ExtResource( 8 )]
 editor/display_folded = true
 position = Vector2( 1484.26, -475.229 )
 door_type = 4
@@ -569,23 +508,24 @@ anims/show = SubResource( 12 )
 anims/unlock = SubResource( 13 )
 
 [node name="Collectibles" type="Node2D" parent="."]
+position = Vector2( -8.62207, -94.8433 )
 
 [node name="PlayerSpawn" type="Position2D" parent="."]
-position = Vector2( -620.75, 493.792 )
+position = Vector2( -1873.58, -41.134 )
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 13 )
+stream = ExtResource( 9 )
 volume_db = -9.0
 autoplay = true
 bus = "Music"
 
 [node name="BGSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
+stream = ExtResource( 10 )
 volume_db = -20.0
 autoplay = true
 bus = "SFX"
 
-[node name="iRealRenderer" parent="." instance=ExtResource( 15 )]
+[node name="iRealRenderer" parent="." instance=ExtResource( 11 )]
 
 [node name="ForegroundLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -594,6 +534,7 @@ layer = 2
 layer = 2
 
 [node name="Front" type="ParallaxLayer" parent="ForegroundLayer/ParallaxForeground"]
+position = Vector2( -1099.76, -510.035 )
 z_index = 5
 motion_scale = Vector2( 1.25, 1 )
 
@@ -667,71 +608,74 @@ text = "Some doors are locked.
 Find keys to unlock them."
 
 [node name="NPCs" type="Node2D" parent="."]
+position = Vector2( -1229.86, -520.574 )
 
 [node name="Citizens" type="Node2D" parent="NPCs"]
+editor/display_folded = true
 
-[node name="NPC" parent="NPCs/Citizens" instance=ExtResource( 16 )]
+[node name="NPC" parent="NPCs/Citizens" instance=ExtResource( 12 )]
 position = Vector2( 227.209, 486.228 )
 
-[node name="NPC2" parent="NPCs/Citizens" instance=ExtResource( 16 )]
+[node name="NPC2" parent="NPCs/Citizens" instance=ExtResource( 12 )]
 position = Vector2( 738.431, 486.228 )
 
-[node name="NPC3" parent="NPCs/Citizens" instance=ExtResource( 16 )]
+[node name="NPC3" parent="NPCs/Citizens" instance=ExtResource( 12 )]
 position = Vector2( 502.133, 481.684 )
 
-[node name="NPC4" parent="NPCs/Citizens" instance=ExtResource( 16 )]
+[node name="NPC4" parent="NPCs/Citizens" instance=ExtResource( 12 )]
 position = Vector2( 1133.78, 481.684 )
 
-[node name="NPC5" parent="NPCs/Citizens" instance=ExtResource( 16 )]
+[node name="NPC5" parent="NPCs/Citizens" instance=ExtResource( 12 )]
 position = Vector2( 2095.81, 487.18 )
 
-[node name="NPC6" parent="NPCs/Citizens" instance=ExtResource( 16 )]
+[node name="NPC6" parent="NPCs/Citizens" instance=ExtResource( 12 )]
 position = Vector2( 2203.05, 488.617 )
 
-[node name="NPC7" parent="NPCs/Citizens" instance=ExtResource( 16 )]
+[node name="NPC7" parent="NPCs/Citizens" instance=ExtResource( 12 )]
 position = Vector2( 2632.72, 488.727 )
 
 [node name="Enemies" type="Node2D" parent="NPCs"]
+editor/display_folded = true
 
-[node name="NPC" parent="NPCs/Enemies" instance=ExtResource( 16 )]
+[node name="NPC" parent="NPCs/Enemies" instance=ExtResource( 12 )]
 position = Vector2( 56.6255, -163.897 )
 
-[node name="NPC3" parent="NPCs/Enemies" instance=ExtResource( 16 )]
+[node name="NPC3" parent="NPCs/Enemies" instance=ExtResource( 12 )]
 position = Vector2( 623.873, 486.004 )
 character_type = 2
 scanned_attitude = 1
 
-[node name="NPC4" parent="NPCs/Enemies" instance=ExtResource( 16 )]
+[node name="NPC4" parent="NPCs/Enemies" instance=ExtResource( 12 )]
 position = Vector2( -28.9314, 164.592 )
 
-[node name="NPC2" parent="NPCs/Enemies" instance=ExtResource( 16 )]
+[node name="NPC2" parent="NPCs/Enemies" instance=ExtResource( 12 )]
 position = Vector2( 1211.19, 482.166 )
 character_type = 1
 scanned_attitude = 1
 
-[node name="NPC5" parent="NPCs/Enemies" instance=ExtResource( 16 )]
+[node name="NPC5" parent="NPCs/Enemies" instance=ExtResource( 12 )]
 position = Vector2( 939.143, 155.357 )
 character_type = 1
 initial_attitude = 1
 scanned_attitude = 1
 
-[node name="NPC6" parent="NPCs/Enemies" instance=ExtResource( 16 )]
+[node name="NPC6" parent="NPCs/Enemies" instance=ExtResource( 12 )]
 position = Vector2( 1892.75, 487.331 )
 character_type = 1
 scanned_attitude = 1
 
-[node name="NPC7" parent="NPCs/Enemies" instance=ExtResource( 16 )]
+[node name="NPC7" parent="NPCs/Enemies" instance=ExtResource( 12 )]
 position = Vector2( 2386.85, 487.867 )
 character_type = 2
 scanned_attitude = 1
 
-[node name="NPC8" parent="NPCs/Enemies" instance=ExtResource( 16 )]
+[node name="NPC8" parent="NPCs/Enemies" instance=ExtResource( 12 )]
 position = Vector2( 2902.28, 487.961 )
 character_type = 2
 initial_attitude = 1
 scanned_attitude = 1
 
-[node name="NPC9" parent="NPCs/Enemies" instance=ExtResource( 16 )]
+[node name="NPC9" parent="NPCs/Enemies" instance=ExtResource( 12 )]
 position = Vector2( 1751.06, 147.349 )
 character_type = 2
 scanned_attitude = 1
