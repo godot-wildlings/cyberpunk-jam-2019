@@ -143,6 +143,8 @@ func flip_sprites(direction):
 		if state_node.has_method("flip_sprites"):
 			state_node.flip_sprites(direction)
 
+	$CameraFocus.position.x = 200 * direction
+
 #	var flip = false
 #	if direction == -1:
 #		flip = true

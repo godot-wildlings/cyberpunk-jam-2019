@@ -33,19 +33,19 @@
 [ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_5.wav" type="AudioStream" id=31]
 [ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_6.wav" type="AudioStream" id=32]
 [ext_resource path="res://SFX/Hurt/Cyber_Jam_-_Player_Hurt_SFX_7.wav" type="AudioStream" id=33]
-[ext_resource path="res://Player/Camera2D.gd" type="Script" id=34]
-[ext_resource path="res://Player/PlayerHUD.tscn" type="PackedScene" id=35]
-[ext_resource path="res://Player/health-red.png" type="Texture" id=36]
-[ext_resource path="res://Player/health-green.png" type="Texture" id=37]
-[ext_resource path="res://Player/ammo_back.png" type="Texture" id=38]
-[ext_resource path="res://Player/ammo_front.png" type="Texture" id=39]
-[ext_resource path="res://Player/huh.wav" type="AudioStream" id=40]
-[ext_resource path="res://SFX/Cyberounk_Jam_-_Out_of_Ammo_SFX.wav" type="AudioStream" id=41]
-[ext_resource path="res://SFX/Cyberounk_Jam_-_Reload_SFX_1.wav" type="AudioStream" id=42]
-[ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_1.wav" type="AudioStream" id=43]
-[ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_2.wav" type="AudioStream" id=44]
-[ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=45]
-[ext_resource path="res://Player/PlayerCutoutSprites.tscn" type="PackedScene" id=46]
+[ext_resource path="res://Player/PlayerHUD.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Player/health-red.png" type="Texture" id=35]
+[ext_resource path="res://Player/health-green.png" type="Texture" id=36]
+[ext_resource path="res://Player/ammo_back.png" type="Texture" id=37]
+[ext_resource path="res://Player/ammo_front.png" type="Texture" id=38]
+[ext_resource path="res://Player/huh.wav" type="AudioStream" id=39]
+[ext_resource path="res://SFX/Cyberounk_Jam_-_Out_of_Ammo_SFX.wav" type="AudioStream" id=40]
+[ext_resource path="res://SFX/Cyberounk_Jam_-_Reload_SFX_1.wav" type="AudioStream" id=41]
+[ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_1.wav" type="AudioStream" id=42]
+[ext_resource path="res://SFX/Cyberpunk_Jam_-_Footstep_SFX_2.wav" type="AudioStream" id=43]
+[ext_resource path="res://Player/States/StateLabel.gd" type="Script" id=44]
+[ext_resource path="res://Player/PlayerCutoutSprites.tscn" type="PackedScene" id=45]
+[ext_resource path="res://Player/Camera2D.gd" type="Script" id=46]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 438.421
@@ -629,10 +629,6 @@ anims/jump = SubResource( 9 )
 anims/punch = SubResource( 10 )
 anims/run = SubResource( 11 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-script = ExtResource( 34 )
-
 [node name="RayUp" type="RayCast2D" parent="."]
 position = Vector2( 0.713486, -10.4644 )
 enabled = true
@@ -643,7 +639,7 @@ collision_mask = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 35 )]
+[node name="PlayerHUD" parent="CanvasLayer" instance=ExtResource( 34 )]
 margin_top = -31.9995
 margin_bottom = -1.99951
 
@@ -654,8 +650,8 @@ margin_right = 74.4759
 margin_bottom = 4.95181
 rect_scale = Vector2( 0.380881, 0.380881 )
 value = 100.0
-texture_under = ExtResource( 36 )
-texture_progress = ExtResource( 37 )
+texture_under = ExtResource( 35 )
+texture_progress = ExtResource( 36 )
 
 [node name="AmmoBar" type="TextureProgress" parent="."]
 margin_left = -17.6665
@@ -664,31 +660,31 @@ margin_right = 204.333
 margin_bottom = 6.26243
 rect_scale = Vector2( 0.157489, 0.131796 )
 value = 100.0
-texture_under = ExtResource( 38 )
-texture_progress = ExtResource( 39 )
+texture_under = ExtResource( 37 )
+texture_progress = ExtResource( 38 )
 
 [node name="SFX" type="Node2D" parent="."]
 
 [node name="huhNoise" type="AudioStreamPlayer2D" parent="SFX"]
-stream = ExtResource( 40 )
+stream = ExtResource( 39 )
 volume_db = -9.0
 
 [node name="OutOfAmmoSFX" type="AudioStreamPlayer2D" parent="SFX"]
-stream = ExtResource( 41 )
+stream = ExtResource( 40 )
 volume_db = -9.0
 
 [node name="PickUpAmmoSFX" type="AudioStreamPlayer2D" parent="SFX"]
-stream = ExtResource( 42 )
+stream = ExtResource( 41 )
 volume_db = -9.0
 
 [node name="Steps" type="Node2D" parent="SFX"]
 
 [node name="FootStepSFX1" type="AudioStreamPlayer2D" parent="SFX/Steps"]
-stream = ExtResource( 43 )
+stream = ExtResource( 42 )
 volume_db = -9.0
 
 [node name="FootStepSFX2" type="AudioStreamPlayer2D" parent="SFX/Steps"]
-stream = ExtResource( 44 )
+stream = ExtResource( 43 )
 volume_db = -9.0
 
 [node name="FootStepPauseTimer" type="Timer" parent="SFX"]
@@ -701,9 +697,9 @@ margin_top = -57.8135
 margin_right = 18.3929
 margin_bottom = -43.8135
 text = "state"
-script = ExtResource( 45 )
+script = ExtResource( 44 )
 
-[node name="PlayerSprites" parent="." instance=ExtResource( 46 )]
+[node name="PlayerSprites" parent="." instance=ExtResource( 45 )]
 position = Vector2( -2.03339, -7.68172 )
 scale = Vector2( 0.2, 0.2 )
 
@@ -720,4 +716,12 @@ position = Vector2( -17.8246, 18.227 )
 enabled = true
 cast_to = Vector2( 0, 8 )
 collision_mask = 4
+
+[node name="CameraFocus" type="Sprite" parent="."]
+position = Vector2( 200, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="CameraFocus"]
+current = true
+smoothing_enabled = true
+script = ExtResource( 46 )
 [connection signal="timeout" from="Actions/Attack/MeleeRange/PunchTimer" to="Actions/Attack" method="_on_PunchTimer_timeout"]

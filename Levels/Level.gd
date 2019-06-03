@@ -6,7 +6,8 @@ enum states { initializing, running, paused, resetting }
 
 var state = states.initializing
 export var starting_cutscene : String
-
+onready var npc_scene = preload("res://NPCs/Enemies/NPC.tscn")
+onready var npc_container = $NPCs
 
 func _ready():
 	state = states.running
@@ -20,6 +21,11 @@ func _ready():
 	spawn_background_signs(20, "Med")
 	spawn_background_cars(15, "Near")
 	spawn_background_cars(35, "Med")
+
+	spawn_citizens(25)
+	spawn_ghosts(2)
+	spawn_sinners(2)
+
 
 #warning-ignore:unused_argument
 func _process(delta):
@@ -69,7 +75,35 @@ func spawn_background_objects(number, object_scene, layer):
 			x_pos += rand_range(100.0, 400.0)
 
 
+func spawn_citizens(number):
+	for i in range(number):
+		var npc = spawn_npc()
+		npc.character_type = npc.character_types.citizen
+		npc.initial_attitude = npc.attitudes.ignore
+		npc.scanned_attitude = npc.attitudes.ignore
 
+
+
+
+func spawn_ghosts(number):
+	for i in range(number):
+		var npc = spawn_npc()
+		npc.character_type = npc.character_types.ghost
+		npc.initial_attitude = npc.attitudes.ignore
+		npc.scanned_attitude = npc.attitudes.fight
+
+func spawn_sinners(number):
+	for i in range(number):
+		var npc = spawn_npc()
+		npc.character_type = npc.character_types.sinner
+		npc.initial_attitude = npc.attitudes.fight
+		npc.scanned_attitude = npc.attitudes.fight
+
+func spawn_npc():
+	var new_npc = npc_scene.instance()
+	npc_container.add_child(new_npc)
+	new_npc.start(Vector2(rand_range(-1500, 1500), rand_range(-400, -40)))
+	return new_npc
 
 func spawn_player():
 	assert is_instance_valid(player_spawn)

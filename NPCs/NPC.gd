@@ -75,6 +75,7 @@ func _ready():
 
 	#warning-ignore:return_value_discarded
 	ghost_timer.connect("timeout", self, "_on_GhostTimer_timeout")
+
 	#warning-ignore:return_value_discarded
 	#shot_timer.connect("timeout", self, "_on_ShotTimer_timeout")
 	decision_timer.start()
@@ -95,6 +96,9 @@ func _ready():
 			percentToDropKey = 100
 		else:
 			percentToDropKey = 0
+
+func start(pos):
+	set_global_position(pos)
 
 func relocate_gun_to_make_things_interesting():
 	if character_type == character_types.ghost:
@@ -330,6 +334,8 @@ func _on_Player_scanned():
 	desaturate_sprite()
 	if scanned_attitude == attitudes.fight:
 		enable_collisions_with_player()
+	if character_type == character_types.ghost:
+		ghost_timer.start()
 
 
 

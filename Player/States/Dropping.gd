@@ -2,7 +2,6 @@ extends Player_State
 
 #var player : KinematicBody2D
 var my_state_num : int
-var warning_issued : bool = false
 var sprite : Sprite
 export var drop_speed : float = 200
 
@@ -52,25 +51,6 @@ func temporarily_disable_collision_bits():
 	initial_platform.set_collision_mask_bit(0, 1)
 
 
-
-#func move_to_platform(platform):
-#	player.animation_player.play("drop")
-#
-#	# need to tween this or something
-#	var my_pos = player.get_global_position()
-#	assert(platform.get_child(0) is CollisionShape2D)
-#	var platform_floor = platform.get_global_position().y - platform.get_child(0).get_shape().get_extents().y
-#
-#	var new_position = Vector2(my_pos.x, platform_floor - player.character_height/2)
-#	player.tween.interpolate_property(player, "position",
-#		player.position, new_position, 0.35,
-#		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-#	player.tween.start()
-#	if not warning_issued:
-#		push_warning(self.name + ": yielding for movement probably isn't the best approach")
-#		warning_issued = true
-#	yield(player.tween, "tween_completed")
-#	player.idle(Vector2.ZERO)
 
 #warning-ignore:unused_argument
 func process_state(delta):

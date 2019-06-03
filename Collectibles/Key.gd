@@ -5,6 +5,7 @@ enum states { ready, collected }
 var state = states.ready
 
 func _ready():
+	print("new key")
 	pass # Replace with function body.
 
 

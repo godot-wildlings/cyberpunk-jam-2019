@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenery/Rain.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Nightfall.ogg" type="AudioStream" id=9]
 [ext_resource path="res://BGMusic/Cyberpunk_Jam_-_Rain__City_SFX.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Levels/iRealRenderer.tscn" type="PackedScene" id=11]
-[ext_resource path="res://NPCs/Enemies/NPC.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.397516, 0.729814, 0.78882, 0.956522 )
@@ -479,7 +478,7 @@ door_type = 0
 
 [node name="SceneChangeDoor" parent="InteractiveObjects" instance=ExtResource( 8 )]
 editor/display_folded = true
-position = Vector2( 2518.93, 480.027 )
+position = Vector2( 3116.85, 475.116 )
 door_type = 2
 scene_name = "RichQuarter"
 
@@ -617,71 +616,7 @@ Find keys to unlock them."
 
 [node name="Citizens" type="Node2D" parent="NPCs"]
 
-[node name="NPC" parent="NPCs/Citizens" instance=ExtResource( 12 )]
-position = Vector2( -1436.08, -27.8251 )
-
-[node name="NPC2" parent="NPCs/Citizens" instance=ExtResource( 12 )]
-position = Vector2( -862.63, -30.4955 )
-
-[node name="NPC3" parent="NPCs/Citizens" instance=ExtResource( 12 )]
-position = Vector2( -992.987, -31.6272 )
-
-[node name="NPC4" parent="NPCs/Citizens" instance=ExtResource( 12 )]
-position = Vector2( -468.246, -30.8761 )
-
-[node name="NPC5" parent="NPCs/Citizens" instance=ExtResource( 12 )]
-position = Vector2( 444.623, -34.076 )
-
-[node name="NPC6" parent="NPCs/Citizens" instance=ExtResource( 12 )]
-position = Vector2( 539.228, -35.3466 )
-
-[node name="NPC7" parent="NPCs/Citizens" instance=ExtResource( 12 )]
-position = Vector2( 1055.54, -32.5291 )
-
 [node name="Enemies" type="Node2D" parent="NPCs"]
-
-[node name="NPC" parent="NPCs/Enemies" instance=ExtResource( 12 )]
-position = Vector2( -1185.28, -633.224 )
-
-[node name="NPC3" parent="NPCs/Enemies" instance=ExtResource( 12 )]
-position = Vector2( -654.342, -30.2405 )
-character_type = 2
-scanned_attitude = 1
-
-[node name="NPC4" parent="NPCs/Enemies" instance=ExtResource( 12 )]
-position = Vector2( -1217.62, -321.934 )
-
-[node name="NPC2" parent="NPCs/Enemies" instance=ExtResource( 12 )]
-position = Vector2( -25.4504, -29.2896 )
-character_type = 1
-scanned_attitude = 1
-
-[node name="NPC5" parent="NPCs/Enemies" instance=ExtResource( 12 )]
-position = Vector2( -403.422, -322.982 )
-character_type = 1
-initial_attitude = 1
-scanned_attitude = 1
-
-[node name="NPC6" parent="NPCs/Enemies" instance=ExtResource( 12 )]
-position = Vector2( 662.495, -4.69049 )
-character_type = 1
-scanned_attitude = 1
-
-[node name="NPC7" parent="NPCs/Enemies" instance=ExtResource( 12 )]
-position = Vector2( 1314.77, -29.1332 )
-character_type = 2
-scanned_attitude = 1
-
-[node name="NPC8" parent="NPCs/Enemies" instance=ExtResource( 12 )]
-position = Vector2( 1457.23, -29.3309 )
-character_type = 2
-initial_attitude = 1
-scanned_attitude = 1
-
-[node name="NPC9" parent="NPCs/Enemies" instance=ExtResource( 12 )]
-position = Vector2( 517.327, -322.183 )
-character_type = 2
-scanned_attitude = 1
 [connection signal="body_entered" from="ResetZone/ResetArea" to="." method="_on_ResetArea_body_entered"]
 
 [editable path="InteractiveObjects/Elevator2"]
