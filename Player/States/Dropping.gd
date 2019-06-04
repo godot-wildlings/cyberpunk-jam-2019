@@ -26,9 +26,11 @@ func activate():
 	initial_platform = player.get_current_platform()
 	drop()
 
+
 func deactivate():
 	sprite.hide()
-
+	initial_platform.set_collision_layer_bit(2, 4)
+	initial_platform.set_collision_mask_bit(0, 1)
 
 func drop():
 	if player.is_on_ground_plane() != true:
@@ -46,9 +48,9 @@ func drop():
 func temporarily_disable_collision_bits():
 	initial_platform.set_collision_layer_bit(2, 0)
 	initial_platform.set_collision_mask_bit(0, 0)
-	yield(get_tree().create_timer(0.6), "timeout")
-	initial_platform.set_collision_layer_bit(2, 4)
-	initial_platform.set_collision_mask_bit(0, 1)
+#	yield(get_tree().create_timer(0.6), "timeout")
+#	initial_platform.set_collision_layer_bit(2, 4)
+#	initial_platform.set_collision_mask_bit(0, 1)
 
 
 
