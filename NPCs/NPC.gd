@@ -94,7 +94,8 @@ func _ready():
 
 func deferred_ready():
 	if initial_attitude == attitudes.fight:
-		enable_collisions_with_player()
+		# enable_collisions_with_player()
+		pass
 
 func set_key_drop_probability():
 	if automaticPercent:

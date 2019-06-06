@@ -46,14 +46,16 @@ func punch(punch_targets):
 func shoot():
 	#gun.scale.x = abs(gun.scale.x) * player.get_direction()
 	draw_gun()
-	yield(get_tree().create_timer(0.2), "timeout") # sync with anim
+	yield(get_tree().create_timer(0.1), "timeout") # sync with anim
 	if player.ammo > 0:
 		player.gun.shoot()
 		player.ammo -= 1
 		player.get_node("AmmoBar").set_value(player.ammo/player.max_ammo * 100)
 	else:
-		assert is_instance_valid(player.out_of_ammo_sfx)
-		player.out_of_ammo_sfx.play()
+		if is_instance_valid(player.out_of_ammo_sfx):
+			player.out_of_ammo_sfx.play()
+		else:
+			push_warning(self.name + " can't find sound effect")
 
 	holster_gun()
 

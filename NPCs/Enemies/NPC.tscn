@@ -242,6 +242,7 @@ cast_to = Vector2( 0, 15 )
 collision_mask = 4
 
 [node name="PositionLabel" type="Label" parent="."]
+visible = false
 margin_left = -18.8413
 margin_top = -61.6191
 margin_right = 21.1587

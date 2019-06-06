@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenery/OutdoorBackgrounds.gd" type="Script" id=1]
+[ext_resource path="res://Scenery/Rain.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenery/Fog.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenery/Fog.shader" type="Shader" id=4]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.397516, 0.729814, 0.78882, 0.956522 )
+colors = PoolColorArray( 0.359497, 0, 0.371094, 1, 0.535156, 0.535156, 0.535156, 1, 0.545098, 0.533333, 0.517647, 1, 0.5, 0.199219, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 4 )
+shader_param/color = Vector3( 0.35, 0.48, 0.95 )
+shader_param/OCTAVES = 4
+
+[node name="OutdoorBackgrounds" type="ParallaxBackground"]
+script = ExtResource( 1 )
+
+[node name="Far" type="ParallaxLayer" parent="."]
+modulate = Color( 0.427451, 0.427451, 0.427451, 1 )
+motion_scale = Vector2( 0.5, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Far"]
+margin_left = -3285.03
+margin_top = -1810.64
+margin_right = -1237.03
+margin_bottom = -1770.64
+rect_rotation = 89.9999
+rect_scale = Vector2( 0.879939, -163.133 )
+texture = SubResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="Horizon_Marker" type="Position2D" parent="Far"]
+
+[node name="Rain" parent="Far" instance=ExtResource( 2 )]
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 151.498, -108.371 )
+scale = Vector2( 3.09119, 4.11534 )
+
+[node name="Med" type="ParallaxLayer" parent="."]
+modulate = Color( 0.709804, 0.709804, 0.709804, 1 )
+motion_scale = Vector2( 0.75, 1 )
+
+[node name="Horizon_Marker" type="Position2D" parent="Med"]
+position = Vector2( 4.9043, 985.762 )
+
+[node name="Near" type="ParallaxLayer" parent="."]
+
+[node name="Horizon_Marker" type="Position2D" parent="Near"]
+
+[node name="Fog" parent="." instance=ExtResource( 3 )]
+material = SubResource( 3 )
+position = Vector2( -17.2441, -51.7329 )

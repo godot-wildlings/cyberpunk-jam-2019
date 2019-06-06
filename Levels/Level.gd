@@ -9,76 +9,28 @@ export var starting_cutscene : String
 onready var npc_scene = preload("res://NPCs/Enemies/NPC.tscn")
 onready var npc_container = $NPCs
 
+export var randomize_npcs : bool = true
+export var randomize_background : bool = true
+export var outside : bool = true
+
 func _ready():
 	state = states.running
 	spawn_player()
 	if starting_cutscene != null and starting_cutscene.length() > 0:
 		Game.main.load_cutscene(starting_cutscene)
 
-	spawn_background_buildings(60, "Far")
-	spawn_background_buildings(30, "Med")
-	spawn_background_signs(30, "Far")
-	spawn_background_signs(20, "Med")
-	spawn_background_cars(15, "Near")
-	spawn_background_cars(35, "Med")
 
-	spawn_citizens(25)
-	spawn_ghosts(2)
-	spawn_sinners(2)
+	#moved spawn_background_objects to background scenes
+
+	if randomize_npcs:
+		spawn_citizens(25)
+		spawn_ghosts(2)
+		spawn_sinners(2)
 
 
 #warning-ignore:unused_argument
 func _process(delta):
 	update()
-
-func spawn_background_cars(number, distance):
-	var object_scene = preload("res://Scenery/BackgroundCar.tscn")
-	spawn_background_objects(number, object_scene, distance)
-
-
-func spawn_background_buildings(number, distance):
-	var object_scene = preload("res://Scenery/BackgroundBuilding.tscn")
-	spawn_background_objects(number, object_scene, distance)
-
-func spawn_background_signs(number, distance):
-	var object_scene = preload("res://Scenery/BackgroundSign.tscn")
-	spawn_background_objects(number, object_scene, distance)
-
-func spawn_background_objects(number, object_scene, layer):
-		var container
-		var scale_factor : float
-		var modulate_factor : Color
-		var x_pos : float
-		var y_pos : float
-
-		if layer == "Far":
-			container = $CanvasLayer/ParallaxBackground/Far
-			scale_factor = 0.5
-		elif layer == "Med":
-			container = $CanvasLayer/ParallaxBackground/Med
-			scale_factor = 1.0
-		elif layer == "Near":
-			container = $CanvasLayer/ParallaxBackground/Near
-			scale_factor = 2.0
-		modulate_factor = Color.white * rand_range(0.1, 0.6)
-		modulate_factor.a = 1.0
-
-#		if has_node("Horizon_Marker"):
-#			y_pos = container.get_node("Horizon_Marker").position.y
-#		else:
-#			y_pos = 0
-		y_pos = 400 # WTF? I don't understand CanvasLayer coordinates.
-
-		x_pos = -2000
-		#warning-ignore:unused_local_variable
-		for i in range(number):
-			var new_object = object_scene.instance()
-			container.add_child(new_object)
-			new_object.set_global_position(Vector2(x_pos, y_pos))
-			var rand_scale = Vector2.ONE * rand_range(0.5, 1.5)
-			new_object.set_scale(rand_scale * scale_factor)
-			new_object.set_modulate(modulate_factor)
-			x_pos += rand_range(100.0, 400.0)
 
 
 func spawn_citizens(number):
